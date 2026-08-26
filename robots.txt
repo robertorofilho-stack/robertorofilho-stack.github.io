@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.drrobertojoelho.com/sitemap.xml
+Sitemap: https://www.drrobertorodrigues.com/sitemap.xml
