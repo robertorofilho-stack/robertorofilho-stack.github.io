@@ -190,7 +190,11 @@ class UploadPostClient:
         tentativas: int = 3,
         timeout: int = 300,
     ) -> None:
-        self.api_key = api_key or os.environ.get("UPLOAD_POST_API_KEY", "")
+        # `is not None` e nao `or`: api_key="" significa explicitamente
+        # "sem chave", e nao "pegue do ambiente".
+        self.api_key = (
+            api_key if api_key is not None else os.environ.get("UPLOAD_POST_API_KEY", "")
+        )
         if not self.api_key:
             raise UploadPostError(
                 "UPLOAD_POST_API_KEY nao encontrada. Rode: "

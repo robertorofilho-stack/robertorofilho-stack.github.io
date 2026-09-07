@@ -306,7 +306,11 @@ class OpenRouterClient:
         timeout: int = 180,
         usar_fallback: bool = True,
     ) -> None:
-        self.api_key = api_key or os.environ.get("OPENROUTER_API_KEY", "")
+        # `is not None` e nao `or`: passar api_key="" significa explicitamente
+        # "sem chave" (usado no teste de fallback), e nao "pegue do ambiente".
+        self.api_key = (
+            api_key if api_key is not None else os.environ.get("OPENROUTER_API_KEY", "")
+        )
         self.tentativas = max(1, tentativas)
         self.timeout = timeout
         self.usar_fallback = usar_fallback
