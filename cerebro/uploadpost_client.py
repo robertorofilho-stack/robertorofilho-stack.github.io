@@ -430,9 +430,25 @@ class UploadPostClient:
         params = {k: v for k, v in (("request_id", request_id), ("job_id", job_id)) if v}
         return self._requisitar("GET", "/uploadposts/status", params=params, rotulo="status")
 
-    def historico(self, limite: int = 20, **filtros: Any) -> dict:
+    # A API so aceita estes valores em `limit`; qualquer outro devolve
+    # HTTP 400 "Invalid limit".
+    LIMITES_HISTORICO = (10, 20, 50, 100)
+
+    def historico(self, limite: int = 20, pagina: int = 1, **filtros: Any) -> dict:
         """GET /uploadposts/history — ultimos posts."""
-        params = {"limit": limite, **{k: v for k, v in filtros.items() if v is not None}}
+        if limite not in self.LIMITES_HISTORICO:
+            # Arredonda para o menor valor aceito que cubra o pedido.
+            escolhido = next(
+                (v for v in self.LIMITES_HISTORICO if v >= limite),
+                self.LIMITES_HISTORICO[-1],
+            )
+            logger.info("limite %s nao e aceito pela API; usando %s", limite, escolhido)
+            limite = escolhido
+        params = {
+            "limit": limite,
+            "page": max(1, pagina),
+            **{k: v for k, v in filtros.items() if v is not None},
+        }
         return self._requisitar("GET", "/uploadposts/history", params=params, rotulo="historico")
 
     def agendamentos(self) -> dict:
@@ -728,7 +744,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     p_st.add_argument("--job-id")
 
     p_hist = sub.add_parser("historico", help="Ultimos posts")
-    p_hist.add_argument("--limite", type=int, default=20)
+    p_hist.add_argument("--limite", type=int, default=20, choices=[10, 20, 50, 100])
+    p_hist.add_argument("--pagina", type=int, default=1)
 
     p_canc = sub.add_parser("cancelar", help="Cancela um agendamento")
     p_canc.add_argument("job_id")
@@ -773,7 +790,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             _imprimir(up.status(args.request_id, args.job_id))
 
         elif args.cmd == "historico":
-            _imprimir(up.historico(args.limite))
+            _imprimir(up.historico(args.limite, args.pagina))
 
         elif args.cmd == "cancelar":
             _imprimir(up.cancelar_agendamento(args.job_id))
