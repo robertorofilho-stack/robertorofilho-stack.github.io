@@ -1,0 +1,25 @@
+# NUNCA versionar chaves
+.env
+.env.bak
+*.env
+
+# Logs e custos
+logs/
+*.log
+*.jsonl
+
+# Midia e marcadores de publicacao
+AGENDAMENTOS/*/*.mp4
+AGENDAMENTOS/*/*.mov
+AGENDAMENTOS/*/*.jpg
+AGENDAMENTOS/*/*.jpeg
+AGENDAMENTOS/*/*.png
+AGENDAMENTOS/*/.publicado.json
+
+# Backups do patcher
+*.py.bak
+
+__pycache__/
+*.pyc
+.venv/
+venv/
