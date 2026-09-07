@@ -363,6 +363,12 @@ class OpenRouterClient:
 
         ultimo_erro: Exception | None = None
 
+        # Modelos de raciocinio (Gemini 3.x, GPT-5, Sonnet 5) gastam tokens
+        # "pensando" antes de escrever. Com orcamento apertado, a resposta volta
+        # com finish_reason='length' e content vazio. Quando isso acontece,
+        # aumentamos o teto e tentamos de novo em vez de devolver texto vazio.
+        teto = corpo.get("max_tokens")
+
         if not self.api_key and not _forcar_falha:
             ultimo_erro = OpenRouterError("OPENROUTER_API_KEY nao configurada")
             logger.warning("Sem OPENROUTER_API_KEY — indo direto para o fallback.")
@@ -383,6 +389,33 @@ class OpenRouterClient:
                         r = self._montar_resposta(
                             dados, modelo_alvo, tarefa, duracao, tentativa
                         )
+
+                        # Texto vazio por falta de orcamento: aumenta o teto e
+                        # tenta de novo, em vez de devolver "" em silencio.
+                        escolha = (dados.get("choices") or [{}])[0]
+                        if not r.texto and escolha.get("finish_reason") == "length":
+                            registrar_custo(r)  # a tentativa perdida tambem custou
+                            novo_teto = max((teto or 256) * 4, 1024)
+                            if novo_teto <= (teto or 0) or novo_teto > 32768:
+                                raise OpenRouterError(
+                                    f"{modelo_alvo} devolveu texto vazio mesmo com "
+                                    f"max_tokens={teto} (o raciocinio consumiu todo o orcamento)"
+                                )
+
+                            logger.warning(
+                                "%s devolveu vazio com max_tokens=%s (raciocinio consumiu tudo). "
+                                "Repetindo com %s.", modelo_alvo, teto, novo_teto,
+                            )
+                            teto = novo_teto
+                            corpo["max_tokens"] = novo_teto
+                            continue
+
+                        if not r.texto:
+                            raise OpenRouterError(
+                                f"{modelo_alvo} devolveu texto vazio "
+                                f"(finish_reason={escolha.get('finish_reason')})"
+                            )
+
                         registrar_custo(r)
                         return r
 
