@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Ferramentaria do repositório — não faz parte do site público
+Disallow: /.claude/
+Disallow: /docs/
+Disallow: /scripts/
+
 Sitemap: https://www.drrobertorodrigues.com/sitemap.xml

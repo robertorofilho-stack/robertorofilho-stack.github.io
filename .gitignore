@@ -1,0 +1,17 @@
+# Observações locais do task-observer — podem conter contexto de trabalho.
+# Este repositório é público: nada disso entra no histórico.
+.claude/observacoes/
+.claude/settings.local.json
+.claude/memoria-local/
+
+# Ambiente e credenciais
+.env
+.env.*
+*.pem
+*.key
+
+# Sistema
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
