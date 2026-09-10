@@ -7,6 +7,34 @@
 
 ## 2026-09
 
+### 2026-09-10 — Cérebro dos 2 Macs diverge: conserto e limitação do fundir-indice
+
+**Contexto:** SessionStart avisou conflito em `claude-config/memory/MEMORY.md`. Air estava
+**3 commits à frente e 52 atrás** do mini em `cerebro-backup`. Merge abortado, árvore limpa —
+parecia resolvido, não estava. Só o índice conflitava (3 hunks).
+
+**Correção:** `fundir-indice.py` (união por link) → 239 memórias, +37 recuperadas.
+
+**Aprendizado (novo, não estava documentado):** a limitação do `fundir-indice.py` é maior do que
+o docstring diz. Ele funde **por link**, mas a unidade que vence é a **linha inteira**. Linha do
+índice que agrupa vários links com " · " e cujo link-âncora existe nos dois lados: vence a linha
+local e **os links extras do outro lado somem silenciosamente** — sem aviso, sem contador.
+Aconteceu com 4: `clickmax-plataforma`, `lei-parcela-minima-6-reais`, `projeto-youtube`,
+`rede-casa-mapa`. Reinseridos à mão.
+
+**Verificação:** diff de conjuntos de links dos dois lados contra o fundido — **0 perdidos de
+cada lado**, 243 memórias. Commit `cd7e288`, `master` alinhado ao origin.
+
+**Número:** 159 linhas (Air) + 133 (mini) → 243 memórias indexadas.
+
+**Próximo passo:** o `fundir-indice.py` deveria fundir **por link dentro da linha**, não escolher
+a linha inteira — ou no mínimo imprimir os links descartados em stderr. Hoje ele reporta sucesso
+enquanto perde memória. Vale consertar antes do próximo sync entre máquinas.
+
+**Links:** [[05-DECISOES]] · índice em `cerebro-backup/claude-config/memory/MEMORY.md`
+
+---
+
 ### 2026-09-10 — Primeiro CI vermelho: artefato gerado versionado colidiu com a fixture
 
 **Contexto:** `saude.yml` disparou sozinho no push. `infraestrutura` verde (hooks, frontmatter,
