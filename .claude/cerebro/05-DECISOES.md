@@ -101,6 +101,16 @@ sistema prefere parar a involuir. (3) Verificador de órfãs roda no bootstrap, 
 **Alternativa rejeitada:** só consertar o v3 no mestre. Sem teste no CI e sem verificador independente, o
 próximo refactor repete o bug sem ninguém ver.
 
+### 2026-09-10 — Conselho de outros motores: segunda opinião obrigatória, disparada por mim, por API
+**Contexto:** operador quer que eu peça contra-argumento a outras IAs (GPT, Grok, Gemini, Manus…) em toda missão de
+produto ou extraordinária, sem ele precisar mandar. O MCP do Gemini exige CLI nova com login interativo e não roda na nuvem.
+**Decisão:** um helper por API, formato OpenAI para todos (Gemini pelo endpoint compatível), com OpenRouter como
+chave única recomendada e chaves diretas aceitas. Prompt adversarial fixo (objeções, premissas ocultas, teste de 7
+dias, concorrente, veredito). O gatilho é estrutural: regra §3, seção obrigatória nas 5 skills estratégicas, hook Stop
+que acusa decisão nova sem conselho. Manus fora: sem API, automação por navegador é frágil e fere termos.
+**Custo medido (catálogo público do OpenRouter, 3k in + 1,2k out):** US$ 0,001 a 0,013 por opinião → rodada de 4
+motores custa centavos. **Rejeitado:** integração por IA (quatro contas, quatro faturas) e o MCP como caminho principal.
+
 ## Em aberto
 
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto`
@@ -109,7 +119,8 @@ próximo refactor repete o bug sem ninguém ver.
 - [ ] **Gateway de pagamento definido** — Hotmart/Kiwify (mais simples) vs Stripe+Asaas (mais margem, mais trabalho)
 - [ ] **PIX_KEY preenchida em `radar/.env`** — sem ela o paywall roda em sandbox
 - [x] **Mergear branch na `main`** — feito 10/09 (`merge --no-ff`, autorizado com "mergeia"); radar 24/7 ativo
-- [ ] **Chave Gemini** (`GEMINI_API_KEY`) — MCP configurado, inerte sem a chave
+- [x] **Chave Gemini** — superada pelo **conselho de outros motores** (`/conselho`, por API); o MCP do Gemini passou a exigir CLI nova com login e ficou como opcional no Mac
+- [ ] **`OPENROUTER_API_KEY`** — criar em openrouter.ai/keys, colocar nas variáveis de ambiente do Claude Code na web e em `~/.config/cerebro/conselho.env` no Mac (cópia no iCloud `CEREBRO-CHAVES-BACKUP`). Sem ela o conselho cai para `/adversarial`
 - [ ] **Reddit OAuth** — dobra as fontes de dor do radar
 - [ ] **Rodar `bash .claude/backup.sh` no Mac uma vez** + linha de crontab que ele imprime
 - [ ] **Chaves no cofre iCloud `CEREBRO-CHAVES-BACKUP`** (convenção do mestre) — PIX, PayPal, Vercel, Reddit

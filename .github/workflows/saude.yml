@@ -35,6 +35,8 @@ jobs:
         run: bash .claude/hooks/_integridade.sh
       - name: Índice do Cérebro — fusão por link sem perda (fundir/verificar-indice)
         run: python3 .claude/helpers/cerebro/testar-fundir.py
+      - name: Conselho de outros motores — helper sem rede (chaves, escolha de modelo, falhas)
+        run: python3 .claude/helpers/conselho/testar-conselho.py
 
   radar:
     runs-on: ubuntu-latest

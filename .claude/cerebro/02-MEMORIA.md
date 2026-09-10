@@ -7,6 +7,29 @@
 
 ## 2026-09
 
+### 2026-09-10 — Conselho de outros motores: GPT, Grok, Gemini e DeepSeek atacam a tese em paralelo
+
+**Contexto:** operador quer segunda opinião de outras IAs em toda missão de produto ou extraordinária, disparada
+por mim, sem pedir. O MCP `gemini-mcp-tool` passou a exigir a CLI `agy` com login interativo → inviável na nuvem.
+**Feito (`.claude/helpers/conselho/`):**
+- `conselho.py` (348 linhas, só stdlib): formato OpenAI para todos (Gemini pelo endpoint compatível); chaves só de
+  ambiente ou `.env` fora do repo; OpenRouter = chave única recomendada, diretas vencem na mesma família; escolhe
+  o modelo mais novo de cada família pelo catálogo `/models` (versão lida só após o prefixo — `gpt-oss-120b` não é
+  o GPT), exclui variantes especializadas (`:batch`, `oss`, `image`, `mini`…), teto `CONSELHO_TETO_USD` (0,25) por
+  opinião; prompt adversarial fixo (5 objeções, premissas ocultas, teste de 7 dias, concorrente, veredito); paralelo;
+  retry em 429/5xx; custo por chamada quando o provedor publica preço; chave mascarada em qualquer erro.
+- `testar-conselho.py`: 14 testes sem rede (dotenv, máscara, escolha, teto, paralelo, falha parcial, forçados, CLI, retry).
+- `/conselho` skill; seção obrigatória em `/lancamento`, `/cacar-produto`, `/oferta`, `/analise-cripto`, `/nobel`;
+  CLAUDE.md §3 reescrito (conselho obrigatório, sem pedir; sem chave → `/adversarial` + "segunda opinião interna");
+  hook Stop `lembrar-memoria.sh` acusa decisão nova em `05-DECISOES` sem `Conselho (`; bootstrap 3d; `saude.yml`;
+  `guarda.sh` agora pega chaves OpenRouter (`sk-or-v1-`), xAI (`xai-`) e Google (`AIza`); `*.env` fora do git.
+**Validado no catálogo público real (10/09):** gpt-6-astra US$ 0,090 · grok-4.6 0,013 · gemini-3.8-flash 0,007 ·
+deepseek-v4.1-flash 0,001 → **rodada de 4 motores ≈ US$ 0,11**. Manus fora (sem API).
+**Não provado:** uma rodada real com chave — não há chave nesta máquina. Fica para o primeiro uso.
+**Links:** [[05-DECISOES]] [[03-ATIVOS]] [[00-MAPA]]
+
+---
+
 ### 2026-09-10 — Pacto de continuidade: o que é garantido por código e o que depende de mim
 
 **Contexto:** operador perguntou se "continuo com todos os poderes", se sempre usarei o cérebro inteiro, se há

@@ -117,7 +117,7 @@ PLANEJAR → EXECUTAR → VERIFICAR → CORRIGIR → repetir até passar → REP
 - **Copy/oferta** — rodar `/auditar` (red team) antes de entregar. Se não sobreviver à crítica, reescrever.
 - **Conteúdo médico** — só afirmação sustentável por Campbell, Rockwood, Insall & Scott ou literatura indexada (PubMed). Sem fonte = não publica.
 - **Financeiro/cripto** — tese só existe com: cenário base, cenário de ruína, invalidação explícita e tamanho de posição. Sem os quatro, não é análise.
-- **Estratégico (produto, oferta, investimento, ciência)** — segunda opinião de outro motor quando houver: MCP `gemini` (`brainstorm` → `ask-gemini`), que exige `GEMINI_API_KEY`. Pedir o contra-argumento, não a confirmação; registrar onde divergiu. Sem a chave, `/adversarial` cumpre o papel.
+- **Estratégico (produto, oferta, lançamento, investimento, ciência/`/nobel`, qualquer missão extraordinária)** — o **conselho de outros motores é obrigatório antes de fechar, sem pedir permissão**: `/conselho` manda a recomendação em paralelo para GPT, Grok, Gemini e DeepSeek pedindo o contra-argumento (helper `.claude/helpers/conselho/conselho.py`, por API; exige `OPENROUTER_API_KEY` ou chaves diretas, fora do git). Sem chave, `/adversarial` faz o papel e a entrega declara que a segunda opinião foi interna. Divergências vão para `05-DECISOES`.
 
 **Nunca reportar "pronto" sem ter rodado a verificação.** Se algo falhou, dizer o que falhou com a saída real.
 

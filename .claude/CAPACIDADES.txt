@@ -8,7 +8,9 @@ agente:ortopedista
 agente:qa
 agente:quant
 agente:viral
+helper:conselho
 helper:fundir-indice
+helper:testar-conselho
 helper:testar-fundir
 helper:verificar-indice
 hook:carregar-cerebro
@@ -28,6 +30,7 @@ skill:analise-cripto
 skill:auditar
 skill:brief
 skill:cacar-produto
+skill:conselho
 skill:ganchos
 skill:grants
 skill:lancamento

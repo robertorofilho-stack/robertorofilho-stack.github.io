@@ -67,3 +67,7 @@ Fonte sem data = fonte inútil. Em cripto, notícia de 3 dias já é história.
 Sobreviver antes de lucrar · nunca all-in · alavancagem só em posição pequena · correlação vai a 1 na crise · liquidez importa mais que tese · valor que dói perder sai da exchange · imposto entra na conta (ganho de capital em cripto é tributável no Brasil).
 
 **Encerrar sempre com:** "Análise, não recomendação personalizada de investimento. Risco de perda total."
+
+## Conselho de outros motores — obrigatório antes de entregar
+
+Não perguntar, não esperar pedido: com a recomendação pronta, rodar `/conselho` (helper `.claude/helpers/conselho/conselho.py`) com a tese e os números. Exit 2 (sem chave) → `/adversarial` e a entrega diz "segunda opinião interna". Consenso, divergência e a objeção que sobrevive entram na entrega e em `05-DECISOES`.

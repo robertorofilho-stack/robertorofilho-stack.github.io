@@ -32,7 +32,7 @@ case "$CMD" in
   *"git commit"*|*"git add"*)
     ROOT="${CLAUDE_PROJECT_DIR:-$(pwd)}"
     ACHADO=$(grep -rIlE \
-      '(sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|xoxb-[0-9A-Za-z-]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)' \
+      '(sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|xoxb-[0-9A-Za-z-]{20,}|xai-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)' \
       "$ROOT" \
       --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.claude --exclude-dir=.next \
       2>/dev/null | head -5)

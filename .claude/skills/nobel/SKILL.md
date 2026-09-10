@@ -116,3 +116,7 @@ Todo arquivo conecta aos outros com `[texto](./arquivo.md)`. Abre no Obsidian, n
 - **Não inflar.** "Promissor em modelo murino" não vira "regenera cartilagem".
 - **Conteúdo é pesquisa, não conduta.** Nenhuma hipótese daqui vira prescrição sem passar por ética, protocolo e regulação. Escrever isso no `00-sintese.md`.
 - Gravar o resultado em `.claude/cerebro/03-ATIVOS.md`.
+
+## Conselho de outros motores — obrigatório antes de entregar
+
+Não perguntar, não esperar pedido: com a recomendação pronta, rodar `/conselho` (helper `.claude/helpers/conselho/conselho.py`) com a tese e os números. Exit 2 (sem chave) → `/adversarial` e a entrega diz "segunda opinião interna". Consenso, divergência e a objeção que sobrevive entram na entrega e em `05-DECISOES`.

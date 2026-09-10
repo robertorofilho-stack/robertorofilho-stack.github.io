@@ -92,3 +92,7 @@ Break-even: N vendas
 ```
 
 Grave em `.claude/cerebro/03-ATIVOS.md` e commite.
+
+## Conselho de outros motores — obrigatório antes de entregar
+
+Não perguntar, não esperar pedido: com a recomendação pronta, rodar `/conselho` (helper `.claude/helpers/conselho/conselho.py`) com a tese e os números. Exit 2 (sem chave) → `/adversarial` e a entrega diz "segunda opinião interna". Consenso, divergência e a objeção que sobrevive entram na entrega e em `05-DECISOES`.

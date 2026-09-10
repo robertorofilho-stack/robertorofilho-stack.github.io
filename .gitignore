@@ -35,3 +35,7 @@ tmp/
 # Versionar colidiu com a própria fixture em CI ("já existe").
 radar/dados/qa/
 radar/saas-gerados/
+
+# chaves de qualquer helper (conselho.env etc.) — só o .example entra
+*.env
+!*.env.example
