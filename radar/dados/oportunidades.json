@@ -21,8 +21,31 @@
       ">I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accountin",
       "I play the credit card \"game\" because I hate feeling like I'm leaving money on the table, but I really wish I didn't have to. Some degrees of fees make sense, to run the network, and handle fraud, but"
     ],
-    "detectadoEm": "2026-09-10T15:57:15.695Z",
+    "detectadoEm": "2026-09-10T19:08:48.007Z",
     "estado": "EM_CONSTRUCAO",
     "produtoSugerido": "Low fee credit card network that merchants didn't charg"
+  },
+  {
+    "id": "72gmi9",
+    "termo": "a real photo is soulless",
+    "dor": "Finding AI-generated images of locations to be an acceptable alternative to a real photo is soulless. Being good at instruments doesn't change that.",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49648716"
+    ],
+    "amostras": [
+      "Finding AI-generated images of locations to be an acceptable alternative to a real photo is soulless. Being good at instruments doesn't change that."
+    ],
+    "detectadoEm": "2026-09-10T19:08:48.007Z",
+    "estado": "NOVA"
   }
 ]
