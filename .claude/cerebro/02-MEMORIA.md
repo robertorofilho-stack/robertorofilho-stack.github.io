@@ -23,6 +23,8 @@ morreram sem internet no headless e com 4 dias de latência (mini parado). Frase
 **Para o operador:** (1) recarregar crédito do Gemini (voz do RAION); (2) dizer "ATIVE RAION" ao Claude de cada Mac
 (ele religa app + watcher pelo procedimento local); (3) rodar `LIBERAR-REDE-PRO-CEREBRO.command` e liberar
 WebSearch/WebFetch para o `claude -p` headless. Sem (1) ele liga mas não fala; sem (3) missão de pesquisa morre.
+**Decisão do operador (mesma hora):** RAION ligado **só no MacBook** por enquanto; Mac mini continua desligado. Missão nasce e
+executa na mesma máquina, sem latência de sync.
 **Links:** [[05-DECISOES]]
 
 ---

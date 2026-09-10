@@ -150,7 +150,7 @@ médica (3 anunciantes com 50 dias a 3 anos de anúncio) ficam arquivados aqui c
 - [ ] **Chaves no cofre iCloud `CEREBRO-CHAVES-BACKUP`** (convenção do mestre) — PIX, PayPal, Vercel, Reddit
 - [x] **`fundir-indice.py` v4 + `verificar-indice.py` no mestre** — instalados pelo Claude do Mac (`c96d37e`), prova 244 → 244
 - [x] **Regra READ-ONLY do Codex no mestre** — seção nos dois AGENTS.md + portão pre-commit (`935dc1d`)
-- [ ] **RAION sempre ligado nos dois Macs** (pedido 10/09) — 3 passos do operador: crédito Gemini; "ATIVE RAION" ao Claude de cada Mac (app + watcher); rede para o `claude -p` headless (`LIBERAR-REDE-PRO-CEREBRO.command` + WebSearch/WebFetch)
+- [ ] **RAION sempre ligado, SÓ no MacBook por enquanto** (decisão 10/09; Mac mini fica desligado) — passos do operador no MacBook: crédito Gemini; `git pull && bash .claude/bootstrap.sh`; "ATIVE RAION" ao Claude de lá (app; o vigia do MacBook já está ativo); rede para o `claude -p` headless (`LIBERAR-REDE-PRO-CEREBRO.command` + WebSearch/WebFetch)
 - [ ] **Portão do mestre no Mac mini** — vive em `.git/hooks` (não viaja); no mini: recriar o hook ou versionar via `core.hooksPath`
 - [x] **Bootstrap do satélite no Mac mini** — 10/09: portão, hooks, índice e conselho ativos; órfã do vault Squads100 consertada
 - [x] **Bootstrap do satélite no MacBook** — 10/09: pull limpo (33 arquivos), 0 pendências; índice do mestre íntegro (245 ponteiros), conselho com gemini e openrouter
