@@ -139,7 +139,7 @@ médica (3 anunciantes com 50 dias a 3 anos de anúncio) ficam arquivados aqui c
 
 - [ ] **Primeiro nicho de infoproduto** — só quando o operador pedir; **não-médico** (B2B profissional de saúde também conta como médico para ele); guia de joelho para leigos NÃO é o primeiro produto pago
 - [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)
-- [ ] **Meta Ads / Supermetrics conectados à conta real de anúncio?**
+- [x] **Meta Ads conectado** — a busca na Ads Library pelo MCP exige conta de anúncio ativa e funcionou (10/09)
 - [ ] **Gateway de pagamento definido** — Hotmart/Kiwify (mais simples) vs Stripe+Asaas (mais margem, mais trabalho)
 - [ ] **PIX_KEY preenchida em `radar/.env`** — sem ela o paywall roda em sandbox
 - [x] **Mergear branch na `main`** — feito 10/09 (`merge --no-ff`, autorizado com "mergeia"); radar 24/7 ativo
@@ -151,3 +151,5 @@ médica (3 anunciantes com 50 dias a 3 anos de anúncio) ficam arquivados aqui c
 - [x] **`fundir-indice.py` v4 + `verificar-indice.py` no mestre** — instalados pelo Claude do Mac (`c96d37e`), prova 244 → 244
 - [x] **Regra READ-ONLY do Codex no mestre** — seção nos dois AGENTS.md + portão pre-commit (`935dc1d`)
 - [ ] **Portão do mestre no Mac mini** — vive em `.git/hooks` (não viaja); no mini: recriar o hook ou versionar via `core.hooksPath`
+- [x] **Bootstrap do satélite no Mac mini** — 10/09: portão, hooks, índice e conselho ativos; órfã do vault Squads100 consertada
+- [ ] **Bootstrap do satélite no MacBook** — `cd ~/robertorofilho-stack.github.io && git pull && bash .claude/bootstrap.sh`

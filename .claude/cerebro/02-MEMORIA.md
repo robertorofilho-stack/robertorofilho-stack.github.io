@@ -7,6 +7,20 @@
 
 ## 2026-09
 
+### 2026-09-10 — Mac mini fechado: bootstrap verde e o verificador de índice pegou involução real no primeiro uso
+
+**Bootstrap no Mac mini:** git, claude 2.1.215, jq, portão de soberania ativo, hooks, cérebro carrega (9,9 KB),
+conselho lendo o cofre do mestre: motores prontos → gemini, openrouter.
+**Primeira captura real do `verificar-indice.py`:** no vault de projeto `-Users-macroberto-Documents-Squads100/memory`
+(39 memórias), `regra-reels-38-55s.md` estava órfã e o índice apontava para `regra-reels-20-70s.md`, inexistente —
+arquivo renomeado ao atualizar os números, ponteiro ficou velho. Conserto: backup do índice + troca do alvo do ponteiro
+→ 0 órfãs, 0 quebrados. Sem o verificador, a regra ficaria invisível. A auto-detecção varreu todos os vaults de
+`~/.claude/projects/*/memory`, não só o do Cérebro.
+**Estado das máquinas:** nuvem ✓ · Mac mini ✓ · MacBook: falta `git pull && bash .claude/bootstrap.sh`.
+**Links:** [[05-DECISOES]] [[03-ATIVOS]]
+
+---
+
 ### 2026-09-10 — Caçada interrompida pelo operador: nada médico, e não é hora de caçar
 
 **O que houve:** disparei `/cacar-produto aberto` com 3 caçadores (IA para consultórios, formação para fisios/residentes,
