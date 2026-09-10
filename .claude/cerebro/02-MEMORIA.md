@@ -7,6 +7,19 @@
 
 ## 2026-09
 
+### 2026-09-10 — Primeiro CI vermelho: artefato gerado versionado colidiu com a fixture
+
+**Contexto:** `saude.yml` disparou sozinho no push. `infraestrutura` verde (hooks, frontmatter,
+JSON no Ubuntu do GitHub). `radar` vermelho em 1 s: "saas-gerados/… já existe".
+**Causa:** commitei o projeto gerado; em CI o destino já existia e o gerador recusou.
+**Correção:** `radar/saas-gerados/` fora do git (artefato, não fonte); `--fixture` idempotente
+(remove e regenera); `recall.sh` ignora notificações de sistema.
+**Aprendizado:** o sistema de saúde pegou um erro meu na primeira execução — é para isso que existe.
+Ver [[APRENDIZADO-PROJETO-SUPREMO]] #24.
+**Links:** [[03-ATIVOS]]
+
+---
+
 ### 2026-09-10 — Persistência total: recall, saúde, manutenção, backup e kit
 
 **Contexto:** operador: "não quero te perder; quero que use todo o cérebro em cada missão e que

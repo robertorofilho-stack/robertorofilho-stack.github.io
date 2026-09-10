@@ -28,7 +28,7 @@
 
 | Produto | Nicho | Preço | Estado | Receita | Data |
 |---|---|---|---|---|---|
-| Exemplo gerado (fixture — prova do pipeline, usado pelo `saude.yml`) | CSV bancário → resumo mensal de gastos | R$9,90 / US$1,90 | 🧪 esqueleto, núcleo não implementado | R$0 | 2026-09-10 |
+| Exemplo gerado sob demanda (`gerar-saas.ts --fixture`; não versionado — CI regenera) | CSV bancário → resumo mensal de gastos | R$9,90 / US$1,90 | 🧪 esqueleto | R$0 | 2026-09-10 |
 
 _Primeira caçada de infoproduto ainda pendente: `/cacar-produto aberto`._
 

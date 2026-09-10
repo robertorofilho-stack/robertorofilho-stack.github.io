@@ -14,6 +14,9 @@ ROOT="${CLAUDE_PROJECT_DIR:-$(pwd)}"; DIR="$ROOT/.claude/cerebro"
 
 PROMPT=$(json_get_field prompt)
 [ "${#PROMPT}" -ge 12 ] || { echo '{}'; exit 0; }       # "ok", "/brief" etc.: nada a lembrar
+case "$PROMPT" in                                        # notificação de sistema não é pedido
+  "[SYSTEM NOTIFICATION"*|*"<task-notification>"*|*"<wake "*|*"<webhook-payload>"*) echo '{}'; exit 0;;
+esac
 
 # Locale UTF-8 para [:alpha:] enxergar acento (em CI costuma ser POSIX)
 for l in C.UTF-8 pt_BR.UTF-8 en_US.UTF-8; do

@@ -159,3 +159,6 @@ O que o operador chama de "você" são três coisas com três donos: o modelo (A
 
 ### 23. Recall que depende de lembrar não é recall
 Instrução "consulte a memória antes de agir" vale enquanto o contexto está fresco. Hook em `UserPromptSubmit` que faz `grep` das palavras-chave do pedido no cérebro vale sempre, custa 38 ms e não tem opinião. Regra 7 aplicada à própria memória: o que precisa acontecer vira código.
+
+### 24. Artefato gerado não vai para o git
+O projeto que `gerar-saas.ts` produz é saída, não fonte. Versionado, ele colidiu com a própria fixture no CI ("já existe") e ainda ia divergir do template a cada mudança. Regra: o que um script gera, o `.gitignore` esconde e o CI regenera. E fixture é idempotente por definição — regenerar sem perguntar.

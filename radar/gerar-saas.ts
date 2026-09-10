@@ -12,7 +12,7 @@
  * um bloco marcado em app/page.tsx onde entra o núcleo. Esse bloco é curto e
  * específico da dor; é o pedaço que exige julgamento, não repetição.
  */
-import { readFile, writeFile, mkdir, cp } from "node:fs/promises";
+import { readFile, writeFile, mkdir, cp, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -87,8 +87,14 @@ async function gerar(op: Oportunidade) {
   const destino = join(DESTINO_BASE, s);
 
   if (existsSync(destino)) {
-    log("aviso", `${destino} já existe. Apague antes de regenerar.`);
-    process.exit(1);
+    if (op.id === "fixture") {
+      // Fixture é descartável por definição: regenerar sempre, sem cerimônia.
+      // Foi exatamente isto que quebrou o CI na primeira execução.
+      await rm(destino, { recursive: true, force: true });
+    } else {
+      log("aviso", `${destino} já existe. Apague antes de regenerar.`);
+      process.exit(1);
+    }
   }
 
   log("info", `Gerando "${nome}" em saas-gerados/${s}`);
