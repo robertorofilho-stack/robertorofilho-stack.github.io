@@ -23,8 +23,8 @@
 | Bootstrap de máquina nova | `.claude/bootstrap.sh` | 🟢 testado | 2026-09-10 |
 | Backup fora do GitHub (bundle + config) | `.claude/backup.sh` | 🟢 restauração testada | 2026-09-10 |
 | Kit de recuperação | `.claude/KIT-RECUPERACAO.md` + Google Doc | 🟢 | 2026-09-10 |
-| Fusão do índice do mestre por link + guarda anti-perda | `.claude/helpers/cerebro/fundir-indice.py` (v4) | 🟢 20 testes · 0 perdas no índice real | 2026-09-10 |
-| Verificador de memória órfã (bootstrap, sessão, manutenção) | `.claude/helpers/cerebro/verificar-indice.py` | 🟢 25 ms / 246 memórias | 2026-09-10 |
+| Fusão do índice do mestre por link + guarda anti-perda | `.claude/helpers/cerebro/fundir-indice.py` (v4) | 🟢 instalado no mestre (`c96d37e`) · produção 244 → 244 | 2026-09-10 |
+| Verificador de memória órfã (bootstrap, sessão, manutenção) | `.claude/helpers/cerebro/verificar-indice.py` | 🟢 auto-detecta o cofre · 25 ms / 246 memórias · 25 testes | 2026-09-10 |
 | Soberania de motor (pre-commit + manifesto SHA-256 no CI) | `.claude/git-hooks/pre-commit` + `_integridade.sh` | 🟢 invasão simulada bloqueada | 2026-09-10 |
 
 ## Produtos digitais

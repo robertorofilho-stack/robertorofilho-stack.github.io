@@ -7,6 +7,29 @@
 
 ## 2026-09
 
+### 2026-09-10 — Mestre protegido (v4 instalado) e o bug do caminho do cofre
+
+**Feito pelo Claude do Mac (relatório na tela):** 20/20 testes; simulação 244/244; v4 + verificador + testes
+em `~/.claude/helpers/cerebro/` (v3 arquivado, nunca apagado) → sync `c96d37e`; memória
+`indice-por-link-v4.md` + linha no índice `6c8c53b`; `|| true` virou log e o verificador roda após as 4
+chamadas do fundir, com notificação macOS testada; seção "Soberania de motor" nos dois AGENTS.md (originais
+arquivados); portão pre-commit em `cerebro-backup/.git/hooks` (commit cru em `claude-config/**` bloqueado,
+sync real passou `935dc1d`). **Prova em produção:** primeiro sync com o v4 reescreveu 223 linhas e fechou
+**244 → 244** — exatamente onde o v3 comia 4. Verifiquei no origin: SHA do `fundir-indice.py` idêntico ao meu.
+**Bug meu, exposto pela nota do Mac:** o cofre real é `~/.claude/projects/-Users-macroberto-Claude/memory`
+(memória de projeto do Claude Code), não `~/.claude/memory` — como o próprio `sync-backup.sh` do mestre
+define em `MEM=`. Meus hooks apontavam para o caminho errado e ficariam mudos no Mac.
+**Correção:** `verificar-indice.py` auto-detecta cofres (`$CEREBRO_MEMORIA`, `~/.claude/memory`,
+`~/.claude/projects/*/memory`, `cerebro-backup/claude-config/memory`), verifica todos, `--listar`;
+`carregar-cerebro.sh`, `bootstrap.sh` e `/manutencao` sem caminho fixo. +5 testes (25). Simulado com a
+estrutura real do Mac: 🔴 aparece só com órfã, bootstrap mostra o cofre detectado.
+**Merge na main (o operador mandou o Mac fazer):** checado antes — site estático (`.nojekyll`, tudo em
+`main` é servido; `robots.txt` já bloqueia `/.claude/`, `/CLAUDE.md`, `/radar/`; conteúdo já é público no
+GitHub); `radar.yml` com `contents/issues: write` e cron `17 * * * *`; commit do radar usa o token padrão
+do Actions, que não dispara outros workflows → sem `saude.yml` de hora em hora.
+**Pendência nova:** o portão do mestre vive em `.git/hooks` e não viaja no push — o Mac mini não o tem.
+**Links:** [[05-DECISOES]] [[APRENDIZADO-PROJETO-SUPREMO]] #27
+
 ### 2026-09-10 — v4 do índice instalado no mestre; soberania de motor e portão do git
 
 **Instalado por união:** `fundir-indice.py` v4 + `verificar-indice.py` + `testar-fundir.py` em

@@ -113,6 +113,6 @@ próximo refactor repete o bug sem ninguém ver.
 - [ ] **Reddit OAuth** — dobra as fontes de dor do radar
 - [ ] **Rodar `bash .claude/backup.sh` no Mac uma vez** + linha de crontab que ele imprime
 - [ ] **Chaves no cofre iCloud `CEREBRO-CHAVES-BACKUP`** (convenção do mestre) — PIX, PayPal, Vercel, Reddit
-- [ ] **Instalar `fundir-indice.py` v4 + `verificar-indice.py` no mestre** (Claude do Mac: `cp` para
-  `~/.claude/helpers/cerebro/`, trocar `|| true` do `sync-backup.sh` por log, rodar `testar-fundir.py`) — até lá o sync pode apagar ponteiro
-- [ ] **Regra READ-ONLY do Codex no mestre** (`AGENTS.md` de governança + pre-commit em `cerebro-backup`) — prompt entregue
+- [x] **`fundir-indice.py` v4 + `verificar-indice.py` no mestre** — instalados pelo Claude do Mac (`c96d37e`), prova 244 → 244
+- [x] **Regra READ-ONLY do Codex no mestre** — seção nos dois AGENTS.md + portão pre-commit (`935dc1d`)
+- [ ] **Portão do mestre no Mac mini** — vive em `.git/hooks` (não viaja); no mini: recriar o hook ou versionar via `core.hooksPath`

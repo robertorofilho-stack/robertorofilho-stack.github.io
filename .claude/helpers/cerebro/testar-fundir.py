@@ -226,5 +226,65 @@ class TesteVerificarIndice(unittest.TestCase):
         self.assertEqual((r.returncode, r.stdout), (0, ""))
 
 
+class TesteAutoDeteccao(unittest.TestCase):
+    """O cofre real do Mac é ~/.claude/projects/-Users-<user>-Claude/memory, não ~/.claude/memory."""
+
+    def setUp(self):
+        self.home = tempfile.mkdtemp()
+        self.cofre = os.path.join(self.home, ".claude", "projects", "-Users-teste-Claude", "memory")
+        os.makedirs(self.cofre)
+        with open(os.path.join(self.cofre, "MEMORY.md"), "w") as f:
+            f.write("# I\n- [A](a.md)\n")
+        with open(os.path.join(self.cofre, "a.md"), "w") as f:
+            f.write("x")
+        # pasta de projeto SEM MEMORY.md não conta
+        os.makedirs(os.path.join(self.home, ".claude", "projects", "-Users-teste-outro", "memory"))
+        self.env = dict(os.environ, HOME=self.home)
+        self.env.pop("CEREBRO_MEMORIA", None)
+        self.env.pop("CEREBRO_PRIVADO", None)
+
+    def rodar(self, *args):
+        return subprocess.run([sys.executable, VERIFICAR, *args], capture_output=True, text=True, env=self.env)
+
+    def test_listar_acha_o_cofre_de_projeto(self):
+        r = self.rodar("--listar")
+        self.assertEqual(r.stdout.strip().splitlines(), [self.cofre])
+
+    def test_cofre_do_repo_tambem_entra_sem_repetir(self):
+        repo = os.path.join(self.home, "Claude", "cerebro-backup", "claude-config", "memory")
+        os.makedirs(repo)
+        with open(os.path.join(repo, "MEMORY.md"), "w") as f:
+            f.write("# I\n")
+        r = self.rodar("--listar")
+        self.assertEqual(r.stdout.strip().splitlines(), [self.cofre, repo])
+
+    def test_auto_quieto_silencia_quando_integro_e_acusa_orfa(self):
+        r = self.rodar("--quieto")
+        self.assertEqual((r.returncode, r.stdout), (0, ""))
+        with open(os.path.join(self.cofre, "orfa.md"), "w") as f:
+            f.write("x")
+        r = self.rodar("--quieto")
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("orfa.md", r.stdout)
+        self.assertIn(self.cofre, r.stdout)
+
+    def test_sem_cofre_nenhum_e_silencio_com_exit_0(self):
+        vazio = tempfile.mkdtemp()
+        env = dict(self.env, HOME=vazio)
+        r = subprocess.run([sys.executable, VERIFICAR, "--quieto"], capture_output=True, text=True, env=env)
+        self.assertEqual((r.returncode, r.stdout), (0, ""))
+        r = subprocess.run([sys.executable, VERIFICAR], capture_output=True, text=True, env=env)
+        self.assertEqual(r.returncode, 0)
+        self.assertIn("nenhum cofre", r.stdout)
+
+    def test_variavel_cerebro_memoria_vem_primeiro(self):
+        outro = tempfile.mkdtemp()
+        with open(os.path.join(outro, "MEMORY.md"), "w") as f:
+            f.write("# I\n")
+        env = dict(self.env, CEREBRO_MEMORIA=outro)
+        r = subprocess.run([sys.executable, VERIFICAR, "--listar"], capture_output=True, text=True, env=env)
+        self.assertEqual(r.stdout.strip().splitlines()[0], outro)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

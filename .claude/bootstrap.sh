@@ -41,9 +41,10 @@ fi
 git config core.hooksPath .claude/git-hooks && ok "portão do git ativo (soberania do motor)"
 
 # 3c. Índice do Cérebro mestre (quando esta máquina o tem): memória sem ponteiro = involução
-if [ -f "$HOME/.claude/memory/MEMORY.md" ] && command -v python3 >/dev/null; then
-  if python3 .claude/helpers/cerebro/verificar-indice.py "$HOME/.claude/memory" --quieto; then
-    ok "índice do Cérebro mestre íntegro (toda memória tem ponteiro)"
+# O cofre real fica em ~/.claude/projects/-Users-<user>-Claude/memory — o verificador auto-detecta.
+if command -v python3 >/dev/null && [ -n "$(python3 .claude/helpers/cerebro/verificar-indice.py --listar 2>/dev/null)" ]; then
+  if python3 .claude/helpers/cerebro/verificar-indice.py --quieto; then
+    ok "índice do Cérebro mestre íntegro: $(python3 .claude/helpers/cerebro/verificar-indice.py --listar | tr '\n' ' ')"
   else
     falta "índice do Cérebro mestre com memória órfã — veja acima; restaure a linha, nunca apague o arquivo"; PENDENCIAS=$((PENDENCIAS+1))
   fi
