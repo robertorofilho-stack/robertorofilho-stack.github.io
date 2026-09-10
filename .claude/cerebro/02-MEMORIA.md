@@ -18,6 +18,16 @@ linha (token padrão do Actions, `concurrency` sem sobreposição, issue com ded
 antes do push. Com isso ligam: `radar.yml` (cron `17 * * * *`, primeiro run disparado na mão) e o
 `saude.yml` semanal (segunda 05:00). Pages continua estático (`.nojekyll`); `robots.txt` bloqueia
 `/.claude/`, `/CLAUDE.md`, `/radar/`.
+**Resultado (pós-merge):** `main` = `da8e3da` (pais `3b3cf96` + `0793def`), tree idêntico ao da branch.
+`saude` #15 verde na `main`; Pages #4 e #5 verdes; site HTTP 200 com o mesmo `index.html` de antes. Como
+previsto, o Pages passou a servir também `/CLAUDE.md`, `/.claude/…` e `/radar/…` (200) — conteúdo já público
+no GitHub, `robots.txt` bloqueia indexação; opção futura: publicar de `/docs` ou branch `gh-pages`.
+**Radar, run #1 na `main` (workflow_dispatch, 21 s):** google-trends 19 sinais · hackernews 29 · stackexchange
+**0** (investigar: quota sem chave ou janela vazia) · reddit/x inativos sem chave → 48 brutos, 42 grupos,
+**1** acima do corte 45 (a mesma dor do HN já em construção; travas de realidade seguraram o resto), 0 ALTA
+→ issue pulada; commit `41eef57` pelo `radar-lucro[bot]`, que disparou só o Pages, não o `saude` (token
+padrão). Cron segue a cada hora no minuto 17. Aviso do runner: `actions/checkout@v4` e `setup-node@v4` em
+Node 20 depreciado → trocar por v5 (já na fila).
 **Regra daqui em diante:** a `main` recebe commits do radar a cada hora (`radar/dados/oportunidades.json`).
 Antes de trabalhar na branch: `git merge origin/main` (união), nunca rebase da main.
 **Links:** [[05-DECISOES]] [[03-ATIVOS]]
