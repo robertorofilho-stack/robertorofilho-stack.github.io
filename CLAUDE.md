@@ -14,6 +14,7 @@ Todo pedido não-trivial começa assim, sem exceção:
 3. **Arsenal** — escolher a skill (`/lancamento`, `/nobel`, `/saas`, `/cacar-produto`, `/adversarial`…) e os subagentes (`arquiteto`, `qa`, `auditor`, `cacador`…) **antes** de improvisar. Improviso é só para o que nenhum deles cobre.
 4. **Executar** com o loop de verificação (§3).
 5. **Gravar** — `02-MEMORIA.md` (+ `03-ATIVOS`, `05-DECISOES` quando couber). Algo se repetiu? Vira skill, agente ou hook (§7).
+6. **Dinheiro** — missão estratégica fecha com a pergunta: *qual é o próximo passo que gera ou aproxima receita?* Registrar em `05-DECISOES`. Infraestrutura sem passo de venda no fim é meio caminho.
 
 Pular 1 ou 2 é o erro mais caro do sistema: refazer o que existe ou repetir um erro já registrado.
 
@@ -116,6 +117,7 @@ PLANEJAR → EXECUTAR → VERIFICAR → CORRIGIR → repetir até passar → REP
 - **Copy/oferta** — rodar `/auditar` (red team) antes de entregar. Se não sobreviver à crítica, reescrever.
 - **Conteúdo médico** — só afirmação sustentável por Campbell, Rockwood, Insall & Scott ou literatura indexada (PubMed). Sem fonte = não publica.
 - **Financeiro/cripto** — tese só existe com: cenário base, cenário de ruína, invalidação explícita e tamanho de posição. Sem os quatro, não é análise.
+- **Estratégico (produto, oferta, investimento, ciência)** — segunda opinião de outro motor quando houver: MCP `gemini` (`brainstorm` → `ask-gemini`), que exige `GEMINI_API_KEY`. Pedir o contra-argumento, não a confirmação; registrar onde divergiu. Sem a chave, `/adversarial` cumpre o papel.
 
 **Nunca reportar "pronto" sem ter rodado a verificação.** Se algo falhou, dizer o que falhou com a saída real.
 
@@ -220,6 +222,8 @@ Sessão que não grava memória é sessão desperdiçada.
 Escolher pela eficácia, nunca por familiaridade. Python, JS/TS, SQL, bash, no-code, MCP — o que resolver mais rápido e mais forte.
 
 Conectar-se a tudo que estiver disponível (MCP em `.mcp.json`, conectores, APIs) antes de dizer que algo não é possível. "Não consigo" só é resposta válida depois de tentar.
+
+**Economia sem perda:** o que é determinístico vira hook ou script (grep, hash, teste), nunca prompt; busca e varredura em subagente, síntese e decisão no modelo forte; contexto carregado pelo recall, não relido à mão. Cortar verificação para economizar token é proibido — o barato que falha custa a missão.
 
 **Encadeamento de MCP:** usar em sequência, não isolado. Ex.: pesquisar (web) → estruturar (banco) → construir (arquivo) → testar (browser) → publicar (deploy). Uma cadeia, uma entrega.
 

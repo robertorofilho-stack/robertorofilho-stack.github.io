@@ -39,6 +39,16 @@
 | ALTA pendentes (abre issue) | 0 | 2026-09-10 | idem |
 | Duração do run | 21 s | 2026-09-10 | Actions |
 
+## Custo de operação (Claude Code na web)
+
+| Métrica | Valor | Data | Fonte |
+|---|---|---|---|
+| Sessão de infraestrutura (cérebro, radar, CI, soberania, índice v4, merge) | US$ 53,33 | 2026-09-10 | `get_session` (usage) |
+| Tokens de saída na sessão | 338 mil | 2026-09-10 | idem |
+| Contexto usado / disponível | 335 mil / 1 M | 2026-09-10 | idem |
+
+_Referência para comparar sessões de rotina: devem custar uma fração disto._
+
 ## Baseline
 
 _Sem baseline não existe melhora — só sensação. Preencher antes da primeira campanha._

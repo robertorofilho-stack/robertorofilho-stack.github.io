@@ -7,6 +7,33 @@
 
 ## 2026-09
 
+### 2026-09-10 — Pacto de continuidade: o que é garantido por código e o que depende de mim
+
+**Contexto:** operador perguntou se "continuo com todos os poderes", se sempre usarei o cérebro inteiro, se há
+checagem contra começar do zero, se tudo fica gravado, se o ChatGPT não altera meus comandos, se consultarei
+o Gemini, se entendi o Diretor Nobel, se economizarei tokens e se entendi a missão (torná-lo milionário).
+**Resposta estrutural (o que é verdade por mecanismo, não por promessa):**
+- Poderes = arquivos, não conversa: satélite 43 capacidades no manifesto (17 skills, 9 agentes, 4 hooks,
+  2 workflows, 4 sistemas, 4 operações, 3 helpers); mestre 128 skills, 152 agentes, 245 ponteiros / 247
+  memórias, 0 órfãs. O motor (modelo) é o que a conta serve: aqui `claude-fable-5-1`; no Mac, `opus-5[1m]`.
+- Não começar do zero: `carregar-cerebro.sh` (SessionStart) + `recall.sh` (cada prompt) + regra de inventário
+  (`03-ATIVOS`) + `lembrar-memoria.sh` (Stop). No mestre: hooks dele.
+- Gravação: `02-MEMORIA`, `APRENDIZADO` #1–#27, `05-DECISOES`, `06-METRICAS`; índice do mestre protegido por
+  v4 + verificador. Risco real: sessão morta antes de gravar → mitigação: commits pequenos e frequentes.
+- ChatGPT/Codex: satélite = portão pre-commit (ativo onde o bootstrap rodou) + manifesto no CI (detecção);
+  mestre = regra nos AGENTS.md + portão no MacBook; **Mac mini ainda sem portão**; MacBook ainda precisa
+  re-rodar o bootstrap do satélite.
+- Gemini: MCP configurado, **inerte sem `GEMINI_API_KEY`**. Regra nova em CLAUDE.md §3: missão estratégica
+  pede contra-argumento ao Gemini quando a chave existir; sem chave, `/adversarial`.
+- Economia: regra nova em §9 (determinístico vira script; busca em subagente; verificação nunca cortada).
+  Baseline medido desta sessão de infraestrutura: US$ 53,33 · 338k tokens de saída · contexto 335k/1M.
+- Dinheiro: regra nova em §0 passo 6 — missão estratégica fecha com "próximo passo que aproxima receita".
+**Verdade sem anestesia:** dois dias foram infraestrutura. Receita = 0. O próximo passo é `/cacar-produto
+aberto` + destravar Reddit OAuth, PIX_KEY e gateway. Ver [[05-DECISOES]].
+**Links:** [[00-MAPA]] [[05-DECISOES]] [[06-METRICAS]]
+
+---
+
 ### 2026-09-10 — Merge na `main` autorizado ("mergeia") e executado; radar 24/7 ligado
 
 **Contexto:** o Claude do MacBook ficou ocioso desde 11:56 e o "mergear a branch na main" digitado lá não rodou.
