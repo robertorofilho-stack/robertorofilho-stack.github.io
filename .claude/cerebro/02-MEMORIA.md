@@ -7,6 +7,27 @@
 
 ## 2026-09
 
+### 2026-09-10 — Erro repetido (2ª vez no dia): mandei recarregar o Gemini sem conferir o estado vivo
+
+**O que aconteceu:** nos passos do RAION escrevi "(1) recarregar crédito do Gemini" a partir do bloqueio de 06/09 gravado no
+mestre. A `description:` de `gemini-sem-credito.md` diz "RESOLVIDO 07/09/2026 — Roberto recarregou e a chave voltou (HTTP
+200)". Ele perguntou "vc conferiu?" — não conferi. Mesma família do #28 (pedir o que já existe), agora pedindo pagar o que já
+estava pago. Da nuvem a chave nem é testável: o proxy só tem OpenRouter (Gemini sem chave → HTTP 403).
+**Por que o recall não me salvou:** injetava só o NOME das memórias do mestre; o estado ("RESOLVIDO dd/mm") vive na
+`description:`. E o regex `cr[ée]dito` do bloco 🔑 nunca casava "crédito" em locale C (o é vira 2 bytes) — a nuvem só oferece a grafia
+`C.utf8` e o hook procurava `C.UTF-8`, então rodava em POSIX e o recall de credenciais estava mudo para "crédito" desde que nasceu.
+**Corrigido em código (mesma sessão):** (1) `conselho.py --saldo` sonda a chave Gemini com chamada real em `gemini-3.6-flash`
+(200 = crédito OK, não pedir; 429 = esgotado + link de billing; 404 = modelo aposentado, não conclui nada) — +5 testes, 27/27;
+(2) `recall.sh` imprime a `description:` ao lado de cada memória do mestre e, em pedido de pagar/recarregar/comprar, um bloco
+💳 com o estado vivo de crédito/conta; regex `cr.{1,2}dito` independente de locale, testado em C e C.UTF-8; (3) CLAUDE.md §2 e
+`/conselho`: só mandar pagar com HTTP 429 ou saldo real na mão.
+**Para o operador (MacBook):** depois do `git pull && bash .claude/bootstrap.sh`, `python3 ~/.claude/helpers/conselho/conselho.py
+--saldo`; pagar só se Gemini der 429. Recarga automática estava DESLIGADA em 06/09 (o mestre avisa que cai de novo no meio de
+missão) — ligar é decisão dele, é dinheiro. Saldo OpenRouter conferido ao vivo: US$ 34,57.
+**Links:** [[APRENDIZADO-PROJETO-SUPREMO]] #29 · [[05-DECISOES]]
+
+---
+
 ### 2026-09-10 — RAION (voz) usando o Cérebro: a ponte já existe (JARBAS v2); o que falta é ligar
 
 **Pergunta do operador:** "queria sempre criar pelo RAION, conversar com ele e ele lhe usar; sempre aberto no MacBook e

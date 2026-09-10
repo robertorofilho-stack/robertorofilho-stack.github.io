@@ -297,5 +297,66 @@ class TesteConselho(Base):
         self.assertEqual(vezes["n"], 2)
 
 
+class TesteSaldoGemini(Base):
+    """Aprendizado #29: a prova de crédito é HTTP, não memória. 200 = não pedir; 429 = pedir com link; 404 = não conclui."""
+    def _err(self, code, msg, status="RESOURCE_EXHAUSTED"):
+        return {"error": {"code": code, "message": msg, "status": status}}
+
+    def test_gemini_200_confirma_credito_e_manda_chave_no_header(self):
+        os.environ["GEMINI_API_KEY"] = "AIzaFAKE0004"
+        self.falso_http(lambda url, dados: (200, {"candidates": [{"content": {"parts": [{"text": "OK"}]}}]})
+                        if ":generateContent" in url else (404, {}))
+        txt, ok = c.saldo()
+        self.assertTrue(ok)
+        self.assertIn("HTTP 200", txt)
+        self.assertIn("não pedir recarga", txt)
+        url, dados, cab = self.chamadas[0]
+        self.assertIn("gemini-3.6-flash:generateContent", url)
+        self.assertNotIn("AIzaFAKE0004", url)                      # chave nunca na URL
+        self.assertEqual(cab.get("x-goog-api-key"), "AIzaFAKE0004")
+        self.assertEqual(dados["contents"][0]["parts"][0]["text"], "responda apenas OK")
+
+    def test_gemini_429_pede_recarga_com_link(self):
+        os.environ["GEMINI_API_KEY"] = "AIzaFAKE0004"
+        self.falso_http(lambda url, dados: (429, self._err(429, "Your prepayment credits are depleted. Please go to AI Studio")))
+        txt, ok = c.saldo()
+        self.assertFalse(ok)
+        self.assertIn("429", txt)
+        self.assertIn("https://aistudio.google.com/billing", txt)
+        self.assertIn("prepayment credits are depleted", txt)
+
+    def test_gemini_404_nao_conclui_nada_sobre_credito(self):
+        os.environ["GEMINI_API_KEY"] = "AIzaFAKE0004"
+        self.falso_http(lambda url, dados: (404, self._err(404, "model no longer available", "NOT_FOUND")))
+        txt, ok = c.saldo()
+        self.assertFalse(ok)
+        self.assertIn("aposentado", txt)
+        self.assertNotIn("billing", txt)                           # 404 não vira pedido de dinheiro
+
+    def test_saldo_combina_openrouter_ok_com_gemini_esgotado(self):
+        os.environ["OPENROUTER_API_KEY"] = "sk-or-v1-FAKE0001"
+        os.environ["GEMINI_API_KEY"] = "AIzaFAKE0004"
+        def tabela(url, dados):
+            if url.endswith("/credits"):
+                return 200, {"data": {"total_credits": 40.0, "total_usage": 5.34}}
+            if url.endswith("/auth/key"):
+                return 200, {"data": {"label": "cerebro", "limit": None, "usage": 5.34, "is_free_tier": False}}
+            if ":generateContent" in url:
+                return 429, self._err(429, "Your prepayment credits are depleted.")
+            return 404, {}
+        self.falso_http(tabela)
+        txt, ok = c.saldo()
+        self.assertFalse(ok)                                       # um esgotado derruba o veredito
+        self.assertIn("restante US$ 34.66", txt)
+        self.assertIn("Gemini · HTTP 429", txt)
+
+    def test_gemini_via_proxy_sonda_sem_header(self):
+        os.environ["GEMINI_API_KEY"] = c.PROXY
+        self.falso_http(lambda url, dados: (200, {"candidates": []}))
+        txt, ok = c.saldo()
+        self.assertTrue(ok)
+        self.assertNotIn("x-goog-api-key", self.chamadas[0][2])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

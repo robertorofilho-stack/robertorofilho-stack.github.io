@@ -23,7 +23,7 @@ Uma tese estressável tem: a afirmação, o número que a sustenta, a premissa m
 # o helper mora no satélite; fora dele (sessão por voz do RAION em ~/Claude, sessão no mestre) usa a cópia de ~/.claude/helpers
 H="${CLAUDE_PROJECT_DIR:-.}/.claude/helpers/conselho"; [ -f "$H/conselho.py" ] || H="$HOME/.claude/helpers/conselho"
 python3 "$H/conselho.py" --status                      # chaves prontas? (exit 2 = nenhuma)
-python3 "$H/conselho.py" --saldo                       # crédito do OpenRouter antes de gastar (exit 2 = abaixo de US$ 1)
+python3 "$H/conselho.py" --saldo                       # estado VIVO: crédito OpenRouter + sonda HTTP da chave Gemini (exit 2 = OpenRouter < US$ 1 ou Gemini 429/404). Obrigatório antes de pedir recarga ao operador
 python3 "$H/conselho.py" --tese "<tese>" --contexto "<números e decisões>" --saida /tmp/conselho.md
 ```
 

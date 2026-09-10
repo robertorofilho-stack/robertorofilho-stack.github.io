@@ -347,15 +347,19 @@ def markdown(tese, res, erros, modo):
 
 
 # ---------------------------------------------------------------- saldo
-def saldo():
-    """Crédito e limites do OpenRouter (único provedor com endpoint de saldo). Devolve (texto, ok)."""
-    if "openrouter" not in chaves_presentes():
-        return "saldo: só o OpenRouter informa crédito, e ele não está configurado", False
+GEMINI_NATIVO = "https://generativelanguage.googleapis.com/v1beta"
+# Modelo ATUAL para a sonda: `gemini-2.0-flash` devolve 404 "model no longer available" e esconde o 429 verdadeiro
+# (memória do mestre gemini-sem-credito.md). Trocar por env quando o 3.6 for aposentado.
+GEMINI_SONDA = os.environ.get("CONSELHO_GEMINI_SONDA", "gemini-3.6-flash")
+
+
+def saldo_openrouter():
+    """Crédito e limites do OpenRouter (único provedor com endpoint de saldo). Devolve (linhas, ok)."""
     base = PROVEDORES["openrouter"]["base"]
     st1, cred = http(f"{base}/credits", cabecalhos=cabecalhos("openrouter"), timeout=20)
     st2, chave = http(f"{base}/auth/key", cabecalhos=cabecalhos("openrouter"), timeout=20)
     if st1 != 200 or not isinstance(cred, dict):
-        return mascarar(f"saldo: falha ao consultar (HTTP {st1}: {json.dumps(cred)[:160]})"), False
+        return [mascarar(f"OpenRouter · falha ao consultar (HTTP {st1}: {json.dumps(cred)[:160]})")], False
     d = cred.get("data") or {}
     total, uso = float(d.get("total_credits") or 0), float(d.get("total_usage") or 0)
     linhas = [f"OpenRouter · crédito comprado US$ {total:.2f} · usado US$ {uso:.2f} · restante US$ {total - uso:.2f}"]
@@ -367,7 +371,44 @@ def saldo():
     restante = total - uso
     if restante < 1:
         linhas.append("⚠ crédito abaixo de US$ 1 — recarregar em https://openrouter.ai/settings/credits antes da próxima rodada")
-    return "\n".join(linhas), restante >= 1
+    return linhas, restante >= 1
+
+
+def saldo_gemini():
+    """Google AI Studio não expõe saldo por API: a única prova é uma chamada real, barata, num modelo atual.
+    200 = há crédito (NÃO pedir recarga) · 429 "prepayment credits are depleted" = pré-pago zerado · 404 = modelo
+    da sonda aposentado, e isso NÃO diz nada sobre crédito. Devolve (linhas, ok)."""
+    chave = os.environ[PROVEDORES["gemini"]["chave"]]
+    h = {} if chave == PROXY else {"x-goog-api-key": chave}  # chave no header, nunca na URL (logs, histórico)
+    st, corpo = http(f"{GEMINI_NATIVO}/models/{GEMINI_SONDA}:generateContent",
+                     dados={"contents": [{"parts": [{"text": "responda apenas OK"}]}]}, cabecalhos=h, timeout=30)
+    msg = ""
+    if isinstance(corpo, dict):
+        e = corpo.get("error")
+        msg = (e.get("message") if isinstance(e, dict) else str(e or "")) or ""
+    if st == 200:
+        return [f"Gemini · chave responde HTTP 200 em {GEMINI_SONDA} → crédito OK — não pedir recarga ao operador"], True
+    if st == 429:
+        return [f"Gemini · HTTP 429 — crédito pré-pago esgotado ({msg[:110]}) → recarregar em "
+                "https://aistudio.google.com/billing (e ligar a recarga automática, que estava desligada em 06/09)"], False
+    if st == 404:
+        return [f"Gemini · HTTP 404 em {GEMINI_SONDA} — modelo da sonda aposentado; isso NÃO prova falta de crédito. "
+                "Definir CONSELHO_GEMINI_SONDA=<modelo atual> e sondar de novo antes de concluir qualquer coisa"], False
+    return [mascarar(f"Gemini · HTTP {st} — {msg[:140] or json.dumps(corpo)[:140]} (não conclui nada sobre crédito)")], False
+
+
+def saldo():
+    """Estado VIVO dos créditos: OpenRouter (endpoint de saldo) + Gemini (sonda real). Devolve (texto, ok).
+    Aprendizado #29: memória tem data, saldo não — nunca mandar o operador recarregar sem esta prova."""
+    presentes = chaves_presentes()
+    if "openrouter" not in presentes and "gemini" not in presentes:
+        return "saldo: nem OpenRouter nem Gemini configurados — nada a consultar", False
+    linhas, ok = [], True
+    if "openrouter" in presentes:
+        l, o = saldo_openrouter(); linhas += l; ok = ok and o
+    if "gemini" in presentes:
+        l, o = saldo_gemini(); linhas += l; ok = ok and o
+    return "\n".join(linhas), ok
 
 
 # ---------------------------------------------------------------- CLI
