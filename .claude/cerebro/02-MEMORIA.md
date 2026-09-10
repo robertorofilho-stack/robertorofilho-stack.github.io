@@ -7,6 +7,20 @@
 
 ## 2026-09
 
+### 2026-09-10 — Configuração encerrada nas três máquinas (nuvem, Mac mini, MacBook)
+
+**MacBook:** pull limpo (33 arquivos), bootstrap 0 pendências: claude 2.1.260, jq, portão ativo, índice do mestre íntegro
+(245 ponteiros; o vault de projeto `-Users-macairroberto-Documents/memory` é symlink do cofre canônico
+`-Users-macroberto-Claude/memory` — a auto-detecção deduplicou por realpath, como previsto), conselho com gemini e
+openrouter, hooks, cérebro (9,4 KB).
+**Estado final:** nuvem ✓ (main completa, conselho, radar de hora em hora) · Mac mini ✓ · MacBook ✓.
+**A partir daqui:** abrir `claude` em qualquer máquina e pedir. Regras vivas: produto não-médico por padrão; conselho
+obrigatório no fechamento estratégico; memória na entrada e na saída. Pendências restantes são opcionais
+(Pix/gateway quando houver produto, Reddit OAuth, backup.sh + cron, portão do mestre no Mac mini).
+**Links:** [[05-DECISOES]] [[00-MAPA]]
+
+---
+
 ### 2026-09-10 — Mac mini fechado: bootstrap verde e o verificador de índice pegou involução real no primeiro uso
 
 **Bootstrap no Mac mini:** git, claude 2.1.215, jq, portão de soberania ativo, hooks, cérebro carrega (9,9 KB),

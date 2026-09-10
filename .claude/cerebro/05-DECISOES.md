@@ -152,4 +152,4 @@ médica (3 anunciantes com 50 dias a 3 anos de anúncio) ficam arquivados aqui c
 - [x] **Regra READ-ONLY do Codex no mestre** — seção nos dois AGENTS.md + portão pre-commit (`935dc1d`)
 - [ ] **Portão do mestre no Mac mini** — vive em `.git/hooks` (não viaja); no mini: recriar o hook ou versionar via `core.hooksPath`
 - [x] **Bootstrap do satélite no Mac mini** — 10/09: portão, hooks, índice e conselho ativos; órfã do vault Squads100 consertada
-- [ ] **Bootstrap do satélite no MacBook** — `cd ~/robertorofilho-stack.github.io && git pull && bash .claude/bootstrap.sh`
+- [x] **Bootstrap do satélite no MacBook** — 10/09: pull limpo (33 arquivos), 0 pendências; índice do mestre íntegro (245 ponteiros), conselho com gemini e openrouter
