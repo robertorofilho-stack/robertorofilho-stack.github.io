@@ -31,6 +31,8 @@ jobs:
         run: jq -e . .claude/settings.json .mcp.json > /dev/null && echo "OK"
       - name: Lei da Monotonia — nenhuma capacidade perdida
         run: bash .claude/hooks/_capacidades.sh
+      - name: Soberania do motor — arquivos do motor intactos
+        run: bash .claude/hooks/_integridade.sh
 
   radar:
     runs-on: ubuntu-latest

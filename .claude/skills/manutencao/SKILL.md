@@ -55,6 +55,8 @@ Registrar em `03-ATIVOS.md` o que foi automatizado.
 - Skill cuja descrição não bate com o uso real → ajustar a descrição (é ela que decide o disparo)
 - Skill nunca usada em 60 dias → manter (custa ~100 tokens), mas anotar. Substituída por melhor → `.claude/arquivo/`, nunca apagar.
 
+**Soberania do motor:** `bash .claude/hooks/_integridade.sh` tem que passar; se falhar sem ter sido o Claude Code, é invasão — reverter e registrar.
+
 **Lei da Monotonia:** ao terminar, `bash .claude/hooks/_capacidades.sh --gravar` (registra o que entrou) e `bash .claude/hooks/_capacidades.sh` (prova que nada saiu). Vermelho = não commita.
 
 ## 5. Dependências e ambiente

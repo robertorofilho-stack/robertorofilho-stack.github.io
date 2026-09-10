@@ -48,6 +48,25 @@ deve continuar assim.
 
 ---
 
+## 0c. Soberania de motor — Codex/ChatGPT lê, nunca escreve aqui
+
+Outros agentes (Codex/ChatGPT via `~/.codex/AGENTS.md`, e o que vier) usam o mesmo Cérebro. Regra:
+**cada motor é dono dos seus arquivos; todos leem tudo; nenhum escreve nos do outro.**
+
+| Motor | Dono de | Pode ler |
+|---|---|---|
+| Claude Code | `CLAUDE.md`, `.mcp.json`, `.claude/**` (hooks, skills, agentes, cérebro), `radar/**`, `.github/workflows/**`; no mestre: `claude-config/**` | tudo |
+| Codex / ChatGPT | `codex-config/**`, `~/.codex/**`, `AGENTS.md` | tudo |
+
+Como isso é garantido (não é conselho, é código):
+1. **Portão do git** — `.claude/git-hooks/pre-commit` (ativado pelo `bootstrap.sh`): commit que toca arquivo do motor sem vir do Claude Code (`CLAUDECODE` no ambiente) é bloqueado.
+2. **Manifesto de integridade** — `.claude/INTEGRIDADE.sha256`, regravado automaticamente pelo Claude Code ao commitar; `saude.yml` verifica a cada push. Alteração que escape do portão = vermelho + issue.
+3. **Simetria** — este agente **nunca** edita `codex-config/`, `~/.codex/` ou `AGENTS.md`. Precisa mudar algo lá? Registra a proposta em `05-DECISOES.md` e o operador decide.
+
+Aprender do outro motor é permitido e desejado. Copiar método para o próprio território, sim. Alterar o território alheio, nunca.
+
+---
+
 ## 1. Operador
 
 **Dr. Roberto Rodrigues de Oliveira Filho** — Ortopedista e Traumatologista, Fortaleza/CE.

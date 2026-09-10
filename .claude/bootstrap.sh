@@ -37,6 +37,9 @@ else
   falta "nem jq, nem node, nem python3 — hooks do cérebro ficarão mudos. macOS: brew install jq"; PENDENCIAS=$((PENDENCIAS+1))
 fi
 
+# 3b. Portão de soberania do motor (pre-commit): só o Claude Code edita arquivos do motor
+git config core.hooksPath .claude/git-hooks && ok "portão do git ativo (soberania do motor)"
+
 # 4. Hooks executáveis (git preserva o bit, mas garante)
 chmod +x .claude/hooks/*.sh 2>/dev/null && ok "hooks executáveis"
 

@@ -81,6 +81,15 @@ que some = vermelho. Arquivar em vez de apagar.
 **Porquê:** o medo dele é legítimo — sistemas de IA regridem por esquecimento silencioso. A resposta é teste,
 não promessa.
 
+### 2026-09-10 — Soberania de motor (Codex/ChatGPT lê, nunca escreve nos arquivos do Claude Code)
+**Contexto:** o Codex está ligado ao Cérebro (`codex-config/`, `~/.codex/AGENTS.md`) e escreve na mesma máquina.
+O operador não quer outro motor editando os arquivos do motor Claude Code.
+**Decisão:** cada motor é dono dos seus arquivos; todos leem tudo. Garantia em código: pre-commit que bloqueia
+commit de arquivo do motor sem `CLAUDECODE`; manifesto SHA-256 verificado no CI; regra simétrica — este agente
+não edita `codex-config/`/`~/.codex/`.
+**Limite honesto:** o portão vale onde `core.hooksPath` foi ativado (bootstrap). Edição que escape é DETECTADA
+no CI, não impedida. No mestre, o mesmo mecanismo precisa ser instalado pelo Claude do Mac (prompt entregue).
+
 ## Em aberto
 
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto`
