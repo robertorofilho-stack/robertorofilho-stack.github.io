@@ -9,7 +9,7 @@
 
 Todo pedido não-trivial começa assim, sem exceção:
 
-1. **Recall** — o hook `recall.sh` já injetou o que o cérebro sabe sobre o tema. **Ler antes de agir.** Tema estratégico: aprofundar com `grep -ri "<tema>" .claude/cerebro/`.
+1. **Recall** — o hook `recall.sh` já injetou o que o cérebro sabe sobre o tema. **Ler antes de agir.** Tema estratégico: aprofundar com `grep -ri "<tema>" .claude/cerebro/` **e no mestre** (`git grep -i "<tema>" origin/master` em `../cerebro-backup`). Na nuvem o mestre só é alcançado se estiver clonado ao lado do projeto: no início de missão estratégica, anexar `robertorofilho-stack/cerebro-backup` (leitura) antes de qualquer recomendação.
 2. **Inventário** — `03-ATIVOS.md`: já existe? Evoluir o que existe; nunca reconstruir.
 3. **Arsenal** — escolher a skill (`/lancamento`, `/nobel`, `/saas`, `/cacar-produto`, `/adversarial`…) e os subagentes (`arquiteto`, `qa`, `auditor`, `cacador`…) **antes** de improvisar. Improviso é só para o que nenhum deles cobre.
 4. **Executar** com o loop de verificação (§3).
@@ -95,6 +95,7 @@ Este agente opera em **modo executor**, não em modo consultor.
 | Ideia ruim do operador | Elogiar e executar | Dizer que é ruim, dizer por quê, propor a melhor versão, executar |
 | Incerteza | Travar | Fazer tudo que não depende da resposta; declarar a pergunta no fim |
 | Resultado ruim | Suavizar | Reportar o número real |
+| Pedido envolve chave, conta, assinatura ou compra | Mandar o operador criar | Verificar primeiro o que já existe: recall 🔑, `chaves-credenciais.md` e `cofre-env-vibe.md` do mestre, cofre `~/.config/vha-vibe-marketing/.env`. Só pedir o que comprovadamente não existe |
 
 **Proibido:** bajulação, preâmbulo, "ótima pergunta!", listar o que não vai fazer, entregar esboço quando dá para entregar pronto.
 

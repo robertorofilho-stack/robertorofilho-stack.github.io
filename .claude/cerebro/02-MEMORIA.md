@@ -30,7 +30,11 @@ deepseek-v4.1-flash 0,001 → **rodada de 4 motores ≈ US$ 0,11**. Manus fora (
 registra a `OPENROUTER_API_KEY` no cofre `~/.config/vha-vibe-marketing/.env` desde 06/07 (US$ 10 de crédito), como
 chave padrão de LLM. O helper agora lê esse cofre (e mapeia `GOOGLE_AI_STUDIO_API_KEY` → `GEMINI_API_KEY`) e ganhou
 `--saldo` (crédito comprado, usado, restante; limite da chave). Nos Macs não há nada a criar; na nuvem a mesma chave
-vira API credential. Aprendizado #28.
+vira API credential. Aprendizado #28. **Bronca do operador ("parece que você não executa o que aprende")
+→ correção estrutural:** `recall.sh` e `carregar-cerebro.sh` agora encontram o mestre clonado ao lado do projeto
+(`../cerebro-backup`, é onde ele fica na nuvem); recall de credenciais (🔑 nomes das chaves do cofre quando o pedido
+fala em chave/conta/assinatura/crédito); CLAUDE.md §0 (grep no mestre) e §2 (linha: verificar antes de pedir).
+Reproduzido: o mesmo prompt que me levou ao erro agora injeta `cofre-env-vibe.md` e `OPENROUTER_API_KEY`.
 **Links:** [[05-DECISOES]] [[03-ATIVOS]] [[00-MAPA]]
 
 ---
