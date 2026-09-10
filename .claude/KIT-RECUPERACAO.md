@@ -3,6 +3,22 @@
 > Se o Mac morreu, se comprou máquina nova, se o GitHub sumiu: este documento devolve tudo.
 > Cópia viva: `.claude/KIT-RECUPERACAO.md` no repositório · cópia no Google Drive: https://docs.google.com/document/d/1hWNPGgofuoILMBhq-TYa77McR5nrogbR3R90tjAKCG0/edit
 
+## 🖥️ Para quem nunca abriu o Terminal — leia isto primeiro
+
+Os comandos deste kit rodam no **Terminal** do Mac. Não dentro do Claude Code, não no navegador, não no ChatGPT. O Claude Code é o **último** comando da lista — ele é aberto *pelo* Terminal.
+
+1. Aperte **⌘ + Espaço**, digite `Terminal`, Enter. Abre uma janela com um cursor piscando.
+2. Cole **uma linha por vez**, aperte Enter e **espere terminar** (o cursor volta a piscar numa linha nova) antes de colar a próxima.
+3. O que pode aparecer no caminho:
+   - Uma janela pedindo para instalar as *"ferramentas de linha de comando"* (Xcode Command Line Tools) → **Instalar**. Demora alguns minutos. Depois cole o mesmo comando de novo.
+   - `claude: command not found` → o Claude Code não está instalado. Cole `curl -fsSL https://claude.ai/install.sh | bash`, espere, **feche e reabra o Terminal**, rode `claude` de novo. (Precisa de macOS 13 ou mais novo e de um plano Pro/Max/Team.)
+   - Uma página do navegador pedindo login → entre com a **mesma conta do claude.ai** — é ela que traz os conectores e as preferências.
+   - Pergunta se confia na pasta e nos servidores MCP do projeto → **Sim**.
+4. Como saber que deu certo: o `bootstrap.sh` mostra `✓ cérebro carrega (… bytes)`. Dentro do `claude`, pergunte **"Quem sou eu e o que está pendente?"** — a resposta tem que vir com o seu perfil e a lista de decisões em aberto.
+5. Travou em qualquer ponto: copie tudo o que apareceu na tela e cole numa sessão do Claude (web ou Mac) com "isso apareceu quando rodei X".
+
+Alternativa sem Terminal: o app Claude para Mac (claude.com/download) inclui o Claude Code com interface gráfica — mas o repositório ainda precisa ser clonado uma vez, e o Terminal é o caminho que este kit garante.
+
 ## O que é "o cérebro" e onde cada parte mora
 
 | Parte | Onde vive | Pode perder? |

@@ -38,6 +38,8 @@ claude                             # o cérebro carrega sozinho no primeiro prom
 
 Já tem o repo? Só `git pull && git checkout claude/projeto-supremo-claude-code-epsu7w`.
 
+**Nunca abriu o Terminal?** Comece pela seção 🖥️ do [kit de recuperação](../KIT-RECUPERACAO.md): onde colar, o que vai aparecer, como saber que deu certo.
+
 | O que | Vem automático? | Detalhe |
 |---|---|---|
 | CLAUDE.md, 17 skills, 9 subagentes, 5 hooks, cérebro, radar | ✅ | Escopo de projeto: viajam com o clone |
