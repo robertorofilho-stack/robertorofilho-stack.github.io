@@ -7,6 +7,26 @@
 
 ## 2026-09
 
+### 2026-09-10 — RAION (voz) usando o Cérebro: a ponte já existe (JARBAS v2); o que falta é ligar
+
+**Pergunta do operador:** "queria sempre criar pelo RAION, conversar com ele e ele lhe usar; sempre aberto no MacBook e
+no Mac mini". **O que o mestre já tem:** RAION = `apps-source/alfred-vision` (`ASSISTANT_NAME = "RAION"`, Gemini Live,
+voz + câmera). Ponte v2 provada em 02–03/09: RAION → `pedir_ao_cerebro()` grava `## [PENDENTE]` em
+`alfred/MISSOES-PARA-O-CEREBRO.md` → `watcher-jarbas.sh` (launchd, WatchPaths) dispara `claude -p --permission-mode
+acceptEdits` em `~/Claude` com o prompt-ponte → resposta em `RESPOSTAS-DO-CEREBRO.md` → RAION fala. Doutrina em
+`alfred/DOUTRINA-JARBAS.md`.
+**Estado real (memórias do mestre):** app DESLIGADO por ordem nos dois Macs (05–06/09; crédito Gemini zerado);
+watcher do MacBook segue ativo, o do mini está em `~/Library/LaunchAgents/desativados/`; hoje 4 missões por voz
+morreram sem internet no headless e com 4 dias de latência (mini parado). Frase de religar registrada: "ATIVE ALFRED".
+**Feito aqui:** `/conselho` resolve o caminho do helper fora do satélite; bootstrap 3e copia os helpers para
+`~/.claude/helpers` (sessão por voz e sessão do mestre passam a ter conselho e verificador).
+**Para o operador:** (1) recarregar crédito do Gemini (voz do RAION); (2) dizer "ATIVE RAION" ao Claude de cada Mac
+(ele religa app + watcher pelo procedimento local); (3) rodar `LIBERAR-REDE-PRO-CEREBRO.command` e liberar
+WebSearch/WebFetch para o `claude -p` headless. Sem (1) ele liga mas não fala; sem (3) missão de pesquisa morre.
+**Links:** [[05-DECISOES]]
+
+---
+
 ### 2026-09-10 — Configuração encerrada nas três máquinas (nuvem, Mac mini, MacBook)
 
 **MacBook:** pull limpo (33 arquivos), bootstrap 0 pendências: claude 2.1.260, jq, portão ativo, índice do mestre íntegro

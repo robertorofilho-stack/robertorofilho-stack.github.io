@@ -20,9 +20,11 @@ Uma tese estressável tem: a afirmação, o número que a sustenta, a premissa m
 ## 2. Consultar
 
 ```bash
-python3 .claude/helpers/conselho/conselho.py --status                      # chaves prontas? (exit 2 = nenhuma)
-python3 .claude/helpers/conselho/conselho.py --saldo                       # crédito do OpenRouter antes de gastar (exit 2 = abaixo de US$ 1)
-python3 .claude/helpers/conselho/conselho.py --tese "<tese>" --contexto "<números e decisões>" --saida /tmp/conselho.md
+# o helper mora no satélite; fora dele (sessão por voz do RAION em ~/Claude, sessão no mestre) usa a cópia de ~/.claude/helpers
+H="${CLAUDE_PROJECT_DIR:-.}/.claude/helpers/conselho"; [ -f "$H/conselho.py" ] || H="$HOME/.claude/helpers/conselho"
+python3 "$H/conselho.py" --status                      # chaves prontas? (exit 2 = nenhuma)
+python3 "$H/conselho.py" --saldo                       # crédito do OpenRouter antes de gastar (exit 2 = abaixo de US$ 1)
+python3 "$H/conselho.py" --tese "<tese>" --contexto "<números e decisões>" --saida /tmp/conselho.md
 ```
 
 - Exit 2 (sem chave) → rodar `/adversarial` no lugar e dizer explicitamente: *"conselho offline, segunda opinião foi interna"*.

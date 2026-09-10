@@ -25,6 +25,7 @@ bash .claude/hooks/_validar-frontmatter.sh  # skills e agentes carregam?
 jq -e . .claude/settings.json .mcp.json >/dev/null && echo "config OK"
 (cd radar && npm audit --omit=dev --audit-level=high)
 python3 .claude/helpers/cerebro/testar-fundir.py    # fusão do índice por link: nenhum ponteiro some
+python3 .claude/helpers/conselho/testar-conselho.py # conselho de outros motores sem rede
 python3 .claude/helpers/cerebro/verificar-indice.py          # auto-detecta o cofre (~/.claude/projects/*/memory, cerebro-backup); memória órfã = vermelho
 ```
 

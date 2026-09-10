@@ -56,6 +56,14 @@ if command -v python3 >/dev/null; then
   else aviso "conselho sem chave — OPENROUTER_API_KEY (uma chave, todos os motores) em ~/.config/cerebro/conselho.env; modelo em .claude/helpers/conselho/conselho.env.example"; fi
 fi
 
+# 3e. Helpers do satélite disponíveis para QUALQUER sessão desta máquina (mestre, watcher do RAION em ~/Claude):
+#     cópia em ~/.claude/helpers — só adiciona e atualiza, nunca remove (Lei da Monotonia). O sync do mestre leva adiante.
+if [ -d "$HOME/.claude" ]; then
+  mkdir -p "$HOME/.claude/helpers" && cp -R .claude/helpers/. "$HOME/.claude/helpers/" 2>/dev/null \
+    && ok "helpers instalados em ~/.claude/helpers ($(find .claude/helpers -name '*.py' | wc -l | tr -d ' ') scripts: conselho, índice)" \
+    || aviso "não consegui copiar os helpers para ~/.claude/helpers"
+fi
+
 # 4. Hooks executáveis (git preserva o bit, mas garante)
 chmod +x .claude/hooks/*.sh 2>/dev/null && ok "hooks executáveis"
 
