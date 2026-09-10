@@ -14,7 +14,7 @@
 | Gerador de micro-SaaS (Pix + PayPal) | `radar/gerar-saas.ts` + `templates/` | 🟢 testado | 2026-09-10 |
 | QA adversarial (Chromium) | `radar/qa.ts` | 🟢 aprovou 12/12 | 2026-09-10 |
 | Gerador Pix BR Code (EMV, offline) | `radar/src/pagamento/pix.ts` | 🟢 CRC validado | 2026-09-10 |
-| Daemon 24/7 (cron + issue automática) | `.github/workflows/radar.yml` | 🟡 ativa ao mergear na main | 2026-09-10 |
+| Daemon 24/7 (cron + issue automática) | `.github/workflows/radar.yml` | 🟢 ativo na `main` (cron :17) | 2026-09-10 |
 | 17 skills · 9 subagentes · 5 hooks · 5 MCPs | `.claude/` + `.mcp.json` | 🟢 carregando | 2026-09-10 |
 | Recall automático (memória relacionada a cada prompt) | `.claude/hooks/recall.sh` | 🟢 38 ms | 2026-09-10 |
 | Suíte de testes dos hooks (sem jq/node/python) | `.claude/hooks/_teste.sh` | 🟢 0 falhas | 2026-09-10 |

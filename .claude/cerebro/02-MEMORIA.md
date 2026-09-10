@@ -7,6 +7,23 @@
 
 ## 2026-09
 
+### 2026-09-10 — Merge na `main` autorizado ("mergeia") e executado; radar 24/7 ligado
+
+**Contexto:** o Claude do MacBook ficou ocioso desde 11:56 e o "mergear a branch na main" digitado lá não rodou.
+Operador autorizou daqui com uma palavra. Pré-checagem: `main` (`3b3cf96`) é ancestral da branch → merge
+sem conflito; a `main` ganha 92 arquivos e **zero** arquivos do site (`index.html`, `CNAME`, `llms.txt`,
+`sitemap.xml` intactos; site ao vivo HTTP 200 com o mesmo SHA do `index.html`); `radar.yml` revisado linha a
+linha (token padrão do Actions, `concurrency` sem sobreposição, issue com dedup por título, sem force push).
+**Feito:** `git merge --no-ff` de `92f3353` (+ esta memória) na `main`, suíte de saúde rodada no tree final
+antes do push. Com isso ligam: `radar.yml` (cron `17 * * * *`, primeiro run disparado na mão) e o
+`saude.yml` semanal (segunda 05:00). Pages continua estático (`.nojekyll`); `robots.txt` bloqueia
+`/.claude/`, `/CLAUDE.md`, `/radar/`.
+**Regra daqui em diante:** a `main` recebe commits do radar a cada hora (`radar/dados/oportunidades.json`).
+Antes de trabalhar na branch: `git merge origin/main` (união), nunca rebase da main.
+**Links:** [[05-DECISOES]] [[03-ATIVOS]]
+
+---
+
 ### 2026-09-10 — Mestre protegido (v4 instalado) e o bug do caminho do cofre
 
 **Feito pelo Claude do Mac (relatório na tela):** 20/20 testes; simulação 244/244; v4 + verificador + testes

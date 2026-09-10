@@ -108,7 +108,7 @@ próximo refactor repete o bug sem ninguém ver.
 - [ ] **Meta Ads / Supermetrics conectados à conta real de anúncio?**
 - [ ] **Gateway de pagamento definido** — Hotmart/Kiwify (mais simples) vs Stripe+Asaas (mais margem, mais trabalho)
 - [ ] **PIX_KEY preenchida em `radar/.env`** — sem ela o paywall roda em sandbox
-- [ ] **Mergear branch na `main`** — o cron do radar só ativa a partir da main
+- [x] **Mergear branch na `main`** — feito 10/09 (`merge --no-ff`, autorizado com "mergeia"); radar 24/7 ativo
 - [ ] **Chave Gemini** (`GEMINI_API_KEY`) — MCP configurado, inerte sem a chave
 - [ ] **Reddit OAuth** — dobra as fontes de dor do radar
 - [ ] **Rodar `bash .claude/backup.sh` no Mac uma vez** + linha de crontab que ele imprime
