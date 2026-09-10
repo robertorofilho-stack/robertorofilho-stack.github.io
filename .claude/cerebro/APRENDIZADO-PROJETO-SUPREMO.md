@@ -119,3 +119,31 @@ Feito duas vezes → vira sistema na terceira. Prompt repetido vira skill. Pesqu
 | Vídeos (metadados) | Confirmação de padrões: OpenCode, Claude Code Masterclass, Meta L7 tips |
 
 **Limite honesto:** YouTube bloqueia IP de nuvem. Título, canal e duração foram obtidos de 3 vídeos; transcrição, de nenhum. O conteúdo conceitual desses vídeos veio do texto que o operador colou e da documentação oficial — que é fonte mais confiável que transcrição de vídeo, de todo modo.
+
+---
+
+## Sessão 2 — do método à máquina
+
+### 12. O loop de erro zero só existe quando há um verificador externo
+Sete bugs encontrados na própria construção, nenhum por leitura de código — todos por **execução**: build, teste de CRC, navegador real, log de servidor. Sem Playwright e sem rodar, o agente entrega código plausível e para. Verificador externo é o que transforma "gerar" em "entregar".
+
+### 13. QA cego não diagnostica
+`stdio: "ignore"` no servidor escondeu um `EADDRINUSE` por três rodadas. O QA reprovava um build correto porque conectava num servidor órfão da rodada anterior. Log capturado + porta dinâmica resolveram. Regra: **todo processo que o QA sobe tem log gravado**.
+
+### 14. `pkill -f` casa com a própria linha de comando
+`pkill -f "next start"` derrubou o shell que o executava (exit 144) porque o padrão aparecia na cmdline do próprio shell. `next[ ]start` casa com o alvo e não consigo mesmo. Bug silencioso, difícil de ver, clássico.
+
+### 15. Sinal de tendência ≠ demanda
+O radar pontuou "lionel messi" acima de uma dor real de mercado na primeira rodada. Volume de busca por notícia não é demanda por ferramenta. Tendência é acelerador; dor explícita é o motor. A trava está no código.
+
+### 16. Payload de pagamento não sai para terceiro
+QR via `api.qrserver.com` enviava o BR Code (com valor, nome e chave do recebedor) para um serviço externo. Geração local com `qrcode` como data URI: zero dependência, zero vazamento. Pequeno detalhe, grande princípio.
+
+### 17. Nome de pacote vindo de prompt precisa ser verificado no registro
+`@google/mcp-server-gemini` → 404. `@modelcontextprotocol/server-puppeteer` → descontinuado. Dois de quatro pacotes do `.mcp.json` sugerido não existiam ou estavam mortos. `npm view <pacote> version` antes de instalar qualquer coisa que veio de texto.
+
+### 18. Fronteira legal é engenharia, não moral
+Das 7 fontes de renda propostas, 4 eram fraude ou violação de termos. Para um profissional licenciado, o risco não é "pode dar errado" — é "o ganho esperado é negativo". Recusar não é limitação do agente; é a análise de risco funcionando.
+
+### 19. No Bash tool, o comando inteiro É a cmdline — inclusive o heredoc
+Um `pkill -f 'qa[.]ts'` na primeira linha de um comando que continha `cat > qa.ts <<'EOF' …` matou o shell antes de escrever o arquivo: o regex casou com o texto "qa.ts" dentro do heredoc. O colchete protege só se o padrão não aparecer **em nenhum outro lugar** do comando. Regra: matar processo por campo exato do `ps` (`awk '$2=="next-server"'`), nunca por regex sobre a cmdline, e nunca no mesmo comando que escreve arquivo.

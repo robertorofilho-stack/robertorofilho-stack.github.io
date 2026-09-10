@@ -111,6 +111,24 @@ E registrar no cérebro o que foi automatizado.
 
 ---
 
+## 7b. Modo Daemon — o que já existe
+
+`radar/` é o motor autônomo de produto. Não reconstruir; usar.
+
+```
+npm run radar            varre 5 fontes, pontua, grava dados/oportunidades.json
+npm run gerar -- --auto  monta micro-SaaS (Next 16 + Tailwind 4 + Pix + PayPal) da melhor oportunidade
+npm run qa               ataca o gerado no Chromium: XSS, paywall, CRC do Pix, 390px, bundle, console
+```
+
+24/7: `.github/workflows/radar.yml` roda de hora em hora e abre issue em oportunidade ALTA.
+
+**Cascata obrigatória em qualquer sistema:** `arquiteto` decide → código → `qa` ataca → só então entrega. Quem escreveu não aprova o que escreveu.
+
+**Loop de erro zero:** falhou → capturar log completo → hipótese → corrigir → rodar de novo. Sobe para o operador só bloqueio de credencial, permissão ou decisão de negócio — nunca bug.
+
+---
+
 ## 8. Memória
 
 O contêiner é efêmero. **A memória é o repositório.**

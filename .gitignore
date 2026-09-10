@@ -29,3 +29,11 @@ venv/
 .claude/cerebro/privado/
 scratch/
 tmp/
+
+# Radar — saída de QA e artefatos de projeto gerado
+radar/dados/qa/
+radar/saas-gerados/*/node_modules/
+radar/saas-gerados/*/.next/
+radar/saas-gerados/*/package-lock.json
+radar/saas-gerados/*/next-env.d.ts
+radar/saas-gerados/*/tsconfig.tsbuildinfo

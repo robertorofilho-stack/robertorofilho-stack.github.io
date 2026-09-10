@@ -1,0 +1,91 @@
+# RADAR-LUCRO — daemon 24/7 sem servidor.
+#
+# Roda a cada hora no GitHub Actions (gratuito em repositório público),
+# commita as oportunidades detectadas e abre issue quando surge uma ALTA.
+#
+# É o modo correto de "rodar 24/7": sem máquina ligada, sem VPS, com
+# histórico versionado de cada varredura.
+name: radar-lucro
+
+on:
+  schedule:
+    - cron: "17 * * * *"        # a cada hora, no minuto 17 (evita pico do :00)
+  workflow_dispatch:            # botão "Run workflow" para rodar na mão
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+jobs:
+  varrer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Varredura
+        working-directory: radar
+        env:
+          # Opcionais — sem eles, HN + Stack Exchange + Google Trends já rodam.
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          STACKEXCHANGE_KEY: ${{ secrets.STACKEXCHANGE_KEY }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+        run: node --experimental-strip-types radar-lucro.ts --top 10 | tee varredura.log
+
+      - name: Detectar ALTA nova
+        id: alta
+        working-directory: radar
+        run: |
+          N=$(node -e '
+            const o = require("./dados/oportunidades.json");
+            const a = o.filter(x => x.urgencia === "ALTA" && x.estado === "NOVA");
+            console.log(a.length);
+            require("fs").writeFileSync("altas.json", JSON.stringify(a.slice(0,3), null, 2));
+          ')
+          echo "n=$N" >> "$GITHUB_OUTPUT"
+
+      - name: Commitar oportunidades
+        run: |
+          git config user.name  "radar-lucro[bot]"
+          git config user.email "radar-lucro@users.noreply.github.com"
+          git add radar/dados/oportunidades.json
+          git diff --staged --quiet || git commit -m "radar: varredura $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
+
+      - name: Abrir issue para ALTA
+        if: steps.alta.outputs.n != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const altas = JSON.parse(fs.readFileSync("radar/altas.json", "utf8"));
+            for (const o of altas) {
+              const titulo = `🔴 Oportunidade ALTA: ${o.termo.slice(0, 70)}`;
+              const { data: abertas } = await github.rest.issues.listForRepo({
+                owner: context.repo.owner, repo: context.repo.repo,
+                state: "open", labels: "radar", per_page: 100,
+              });
+              if (abertas.some(i => i.title === titulo)) continue;
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: titulo,
+                labels: ["radar"],
+                body: [
+                  `**Score:** ${o.score}/100 · **Volume:** ~${o.volumeEstimado}`,
+                  ``, `### Dor`, `> ${o.dor}`,
+                  ``, `### Evidência`, ...o.fontes.map(f => `- ${f}`),
+                  ``, `### Construir`,
+                  "```bash", `cd radar && node --experimental-strip-types gerar-saas.ts ${o.id}`, "```",
+                  ``, `_Aberta automaticamente pelo radar-lucro._`,
+                ].join("\n"),
+              });
+            }

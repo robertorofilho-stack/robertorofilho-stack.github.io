@@ -22,10 +22,18 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
-    "fetch": {
+    "next-devtools": {
       "type": "stdio",
-      "command": "uvx",
-      "args": ["mcp-server-fetch"]
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"]
+    },
+    "gemini": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "gemini-mcp-tool"],
+      "env": {
+        "GEMINI_API_KEY": "${GEMINI_API_KEY:-}"
+      }
     }
   }
 }
