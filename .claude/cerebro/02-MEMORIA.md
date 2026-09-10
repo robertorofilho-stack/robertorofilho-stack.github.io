@@ -7,6 +7,31 @@
 
 ## 2026-09
 
+### 2026-09-10 — v4 do índice instalado no mestre; soberania de motor e portão do git
+
+**Instalado por união:** `fundir-indice.py` v4 + `verificar-indice.py` + `testar-fundir.py` em
+`~/.claude/helpers/cerebro/`; o v3 foi para `arquivo/fundir-indice-v3-2026-09-10.py`, não apagado.
+Prova antes de instalar, sem gravar: 20 testes OK · simulação com os dois índices reais **244/244**
+· `verificar-indice`: 0 órfãs. Sync levou os 3 para `claude-config/helpers/cerebro/` (`c96d37e`).
+
+**Silêncio removido:** o `|| true` da linha 77 do `sync-backup.sh` virou log explícito, e o
+verificador roda **depois de cada** uma das 4 chamadas do fundir (2 em cada script), com
+notificação do macOS em falha — testado com órfã forjada: notificou e logou; índice limpo é mudo.
+
+**Prova em produção:** o primeiro sync com o v4 reescreveu 223 linhas do índice e fechou
+**244 → 244 ponteiros, zero perda**. Era exatamente aqui que o v3 comia 4.
+
+**Soberania de motor:** seção nova em `cerebro-master-pacote/governanca/AGENTS.md` e em
+`~/.codex/AGENTS.md` — o Codex LÊ `claude-config/**` e `~/.claude/**`, nunca escreve; mudança vai
+como proposta em `codex-config/PROPOSTAS-PARA-O-CLAUDE.md`. Simétrico do outro lado.
+**Portão:** `pre-commit` local em `cerebro-backup` bloqueia commit em `claude-config/**` sem
+`CLAUDECODE`/`CEREBRO_SYNC=1`. Testado: commit cru **bloqueado**, sync real **passou** (`935dc1d`).
+O hook mora em `.git/hooks`, não viaja no push — o Mac mini não é afetado.
+
+**Links:** [[00-MAPA]] [[05-DECISOES]]
+
+---
+
 ### 2026-09-10 — Índice do Cérebro: fusão por LINK e guarda que recusa perda (fundir-indice.py v4)
 
 **Contexto:** o Mac provou involução em 1 h: `cd7e288` (união, 244 links) → `8328f15` (auto-backup 4 min depois,
