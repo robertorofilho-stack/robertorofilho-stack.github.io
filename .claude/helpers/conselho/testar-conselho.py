@@ -207,6 +207,7 @@ class TesteConselho(Base):
         self.assertEqual(res[0]["custo_usd"], 0.0123)
         # prompt adversarial e tese chegaram ao modelo
         _, dados, cab = [x for x in self.chamadas if x[1]][0]
+        self.assertEqual(dados["reasoning"], {"effort": "low"})
         self.assertIn("NÃO é confirmar", dados["messages"][0]["content"])
         self.assertIn("R$ 497", dados["messages"][1]["content"])
         self.assertTrue(cab["Authorization"].startswith("Bearer sk-or-v1-"))
@@ -230,6 +231,20 @@ class TesteConselho(Base):
         self.assertIsNone(fam["openai"]["custo_usd"])              # direto não informa preço
         self.assertAlmostEqual(fam["xai"]["custo_usd"], 1000 * 0.000002 + 500 * 0.000008, places=6)
 
+    def test_resposta_cortada_pelo_teto_vem_marcada(self):
+        os.environ["OPENROUTER_API_KEY"] = "sk-or-v1-FAKE0001"
+        def tabela(url, dados):
+            if url.endswith("/models"):
+                return 200, modelos_falsos("google/gemini-3.8-flash")
+            r = resposta_falsa("1. OBJEÇÕES — cortou no meio")
+            r["choices"][0]["finish_reason"] = "length"
+            return 200, r
+        self.falso_http(tabela)
+        res, _ = c.rodar("tese")
+        self.assertTrue(res[0]["truncada"])
+        self.assertIn("TRUNCADA", c.markdown("tese", res, {}, "contra"))
+        self.assertGreaterEqual(c.MAX_TOKENS, 4000)
+
     def test_uma_falha_nao_derruba_o_conselho(self):
         os.environ["OPENROUTER_API_KEY"] = "sk-or-v1-FAKE0001"
         def tabela(url, dados):
@@ -250,6 +265,9 @@ class TesteConselho(Base):
         self.falso_http(lambda url, dados: (200, resposta_falsa()))
         res, _ = c.rodar("tese")
         self.assertEqual([(r["prov"], r["modelo"]) for r in res], [("gemini", "gemini-2.5-pro")])
+        self.assertEqual(res[0]["familia"], "google")
+        self.assertEqual(c.familia_de("openrouter", "openrouter"), "openrouter")
+        self.assertEqual(c.familia_de("x-ai/grok-4.6", "openrouter"), "xai")
         self.assertFalse(any(u.endswith("/models") for u, _, _ in self.chamadas))  # forçado não lista
 
     def test_cli_sem_chave_exit_2_e_sem_tese_exit_64(self):

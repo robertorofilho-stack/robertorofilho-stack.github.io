@@ -59,7 +59,7 @@ ESPECIALIZADOS = ("codex", "image", "audio", "tts", "search", "vision", "embed",
 TETO_USD = float(os.environ.get("CONSELHO_TETO_USD", "0.25"))  # custo máximo estimado por opinião
 TOKENS_ESTIMATIVA = (3000, 1200)  # entrada, saída — para estimar custo antes de chamar
 TIMEOUT = 120
-MAX_TOKENS = 1400
+MAX_TOKENS = 6000  # modelos que raciocinam gastam tokens de saída pensando; 1400 cortava Gemini e DeepSeek no meio
 
 PROMPT_CONTRA = (
     "Você é um crítico rigoroso, cético e bem informado. Sua tarefa NÃO é confirmar: é encontrar as razões mais "
@@ -233,6 +233,15 @@ def escolher(modelos, padrao):
     return min(cand, key=lambda m: custo_estimado(m) or 0)  # todos acima do teto: o mais barato
 
 
+def familia_de(mid, prov):
+    """openai/gpt-… → openai · x-ai/grok-… → xai · google/gemini-… ou gemini-… → google · deepseek/… → deepseek"""
+    for fams in (PROVEDORES.get(prov, {}).get("familias", {}), PROVEDORES["openrouter"]["familias"]):
+        for fam, pad in fams.items():
+            if re.search(pad, mid):
+                return fam
+    return prov
+
+
 def resolver(forcados=None, maximo=4):
     """Devolve lista de {prov, id, preco_in, preco_out, familia}. Diretos vencem o OpenRouter na mesma família."""
     forcados = forcados or [x for x in os.environ.get("CONSELHO_MODELOS", "").split(",") if x.strip()]
@@ -242,7 +251,7 @@ def resolver(forcados=None, maximo=4):
         for f in forcados:
             prov, _, mid = f.strip().partition(":")
             if prov in presentes and mid:
-                out.append({"prov": prov, "id": mid, "preco_in": None, "preco_out": None, "familia": prov})
+                out.append({"prov": prov, "id": mid, "preco_in": None, "preco_out": None, "familia": familia_de(mid, prov)})
         return out[:maximo], {}
     escolhidos, erros = {}, {}
     for prov in ["openai", "xai", "gemini", "deepseek", "openrouter"]:  # diretos primeiro
@@ -274,6 +283,8 @@ def consultar(m, tese, contexto="", modo="contra"):
     }
     if m["prov"] == "openrouter":
         dados["usage"] = {"include": True}
+        # raciocínio curto: o contra-argumento é o produto, não a cadeia de pensamento (modelos sem reasoning ignoram)
+        dados["reasoning"] = {"effort": "low"}
     t0 = time.time()
     st, d = http(f"{PROVEDORES[m['prov']]['base']}/chat/completions", dados, cabecalhos(m["prov"]))
     dt = time.time() - t0
@@ -289,8 +300,10 @@ def consultar(m, tese, contexto="", modo="contra"):
     custo = uso.get("cost")
     if custo is None and m.get("preco_in") is not None:
         custo = ent * (m["preco_in"] or 0) + sai * (m["preco_out"] or 0)
+    fim = d["choices"][0].get("finish_reason") or d["choices"][0].get("native_finish_reason") or ""
     r.update({
         "ok": True,
+        "truncada": fim == "length",
         "texto": (d["choices"][0].get("message") or {}).get("content", "").strip(),
         "tokens_in": ent, "tokens_out": sai,
         "custo_usd": round(float(custo), 4) if custo is not None else None,
@@ -312,7 +325,8 @@ def markdown(tese, res, erros, modo):
     for r in res:
         if r["ok"]:
             custo = f"US$ {r['custo_usd']:.4f}" if r.get("custo_usd") is not None else "custo n/d"
-            linhas += [f"## {r['familia']} · `{r['modelo']}` · {r['segundos']} s · {r['tokens_in']}→{r['tokens_out']} tokens · {custo}", "", r["texto"], ""]
+            trunc = " · ⚠ TRUNCADA (teto de tokens) — refazer com --max-tokens maior" if r.get("truncada") else ""
+            linhas += [f"## {r['familia']} · `{r['modelo']}` · {r['segundos']} s · {r['tokens_in']}→{r['tokens_out']} tokens · {custo}{trunc}", "", r["texto"], ""]
     falhas = [r for r in res if not r["ok"]]
     if falhas or erros:
         linhas += ["## Falhas", ""]

@@ -20,8 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with: { node-version: 22 }
       - name: Hooks — sintaxe e cadeia de fallback (sem jq, sem node, sem nada)
         run: bash .claude/hooks/_teste.sh
@@ -43,8 +43,8 @@ jobs:
     timeout-minutes: 20
     defaults: { run: { working-directory: radar } }
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm, cache-dependency-path: radar/package-lock.json }
       - name: Dependências sem vulnerabilidade alta
         run: npm ci --no-audit --no-fund && npm audit --omit=dev --audit-level=high

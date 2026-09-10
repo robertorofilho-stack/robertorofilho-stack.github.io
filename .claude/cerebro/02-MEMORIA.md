@@ -7,6 +7,23 @@
 
 ## 2026-09
 
+### 2026-09-10 — Conselho ATIVO na nuvem: credencial no proxy, saldo lido, primeira rodada real (4/4)
+
+**Ativação (passo a passo com o operador no Mac mini):** o link claude.ai/code abria no app e ficava branco →
+`open -a Safari https://claude.ai/code`; ambiente único "RESUMO MENSAL TRABALHO" (o desta sessão); chave copiada do
+cofre com `pbcopy` sem exibir; **API credential** `openrouter.ai` Authorization/Bearer → "Vincular". O proxy passou
+a assinar **na sessão já aberta**: `--status` = "credencial no proxy da nuvem"; `--saldo` = comprado US$ 40,00 ·
+usado 5,34 · **restante 34,66** (a memória dizia US$ 10 de 06/07 — havia recarga desde então).
+**Primeira rodada real:** tese "guia de joelho para leigos como primeiro infoproduto" → 4/4 responderam; síntese e
+decisão em [[05-DECISOES]]. Custo US$ 0,093.
+**Dois defeitos achados e corrigidos na hora:** (1) `MAX_TOKENS=1400` cortava Gemini e DeepSeek no meio — modelos que
+raciocinam gastam o teto pensando → teto 6000 + `reasoning: {effort: low}` no OpenRouter + marca "⚠ TRUNCADA" no
+relatório (DeepSeek caiu de 34 s/4000 tokens truncado para 9,7 s/1497 completo); (2) modelo forçado por `--modelo`
+vinha rotulado "openrouter" em vez da família → `familia_de()`. 23 testes.
+**Links:** [[05-DECISOES]] [[06-METRICAS]] [[03-ATIVOS]]
+
+---
+
 ### 2026-09-10 — Conselho de outros motores: GPT, Grok, Gemini e DeepSeek atacam a tese em paralelo
 
 **Contexto:** operador quer segunda opinião de outras IAs em toda missão de produto ou extraordinária, disparada

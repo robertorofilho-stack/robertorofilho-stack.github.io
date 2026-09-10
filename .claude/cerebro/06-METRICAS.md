@@ -49,6 +49,15 @@
 
 _Referência para comparar sessões de rotina: devem custar uma fração disto._
 
+## Conselho de outros motores
+
+| Métrica | Valor | Data | Fonte |
+|---|---|---|---|
+| Crédito OpenRouter restante | US$ 34,66 de 40,00 | 2026-09-10 | `conselho.py --saldo` |
+| Rodada de 4 motores (GPT-6 Astra, Grok 4.6, Gemini 3.8 Flash, DeepSeek v4.1) | US$ 0,093 | 2026-09-10 | relatório da rodada |
+| Latência por motor | 34 s · 53 s · 15 s · 10 s | 2026-09-10 | idem |
+| Motores que responderam | 4/4 | 2026-09-10 | idem |
+
 ## Baseline
 
 _Sem baseline não existe melhora — só sensação. Preencher antes da primeira campanha._
