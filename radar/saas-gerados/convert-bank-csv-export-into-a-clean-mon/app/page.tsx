@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Paywall from "@/components/Paywall";
 
-const PRECO_BRL = 19.90;
-const PRECO_USD = 3.83;
+const PRECO_BRL = 9.90;
+const PRECO_USD = 1.90;
 const LIMITE_GRATIS = 3;
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
     setProcessando(true);
     try {
       // ── NÚCLEO DA FERRAMENTA ──────────────────────────────────────────
-      // Substitua por: Ferramenta que resolve: low fee credit card network that merchants didn't charge a fee for, so I could c
+      // Substitua por: Ferramenta que resolve: convert bank CSV export into a clean monthly spending summary
       const resultado = entrada
         .split("\n")
         .filter(Boolean)
@@ -38,10 +38,10 @@ export default function Home() {
   return (
     <main className="mx-auto flex min-h-full max-w-3xl flex-col gap-8 px-5 py-12 sm:py-16">
       <header>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Low fee credit card network that merchants didn't charg</h1>
-        <p className="mt-3 text-base text-black/60 dark:text-white/60">Ferramenta que resolve: low fee credit card network that merchants didn't charge a fee for, so I could c</p>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Convert bank CSV export into a clean monthly spending s</h1>
+        <p className="mt-3 text-base text-black/60 dark:text-white/60">Ferramenta que resolve: convert bank CSV export into a clean monthly spending summary</p>
         <p className="mt-4 rounded-xl border border-black/10 bg-black/[0.03] px-4 py-3 text-sm text-black/70 dark:border-white/10 dark:bg-white/5 dark:text-white/70">
-          <strong className="font-medium">A dor que isso resolve:</strong> I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accountin
+          <strong className="font-medium">A dor que isso resolve:</strong> Every month I export the CSV from my bank and spend an hour in a spreadsheet just to see where the money went. Is there a tool that does this in one click?
         </p>
       </header>
 
@@ -95,7 +95,7 @@ export default function Home() {
       )}
 
       <footer className="mt-auto border-t border-black/10 pt-6 text-xs text-black/40 dark:border-white/10 dark:text-white/40">
-        <p>Low fee credit card network that merchants didn't charg · construído a partir de demanda real detectada em https://news.ycombinator.com/item?id=49632952</p>
+        <p>Convert bank CSV export into a clean monthly spending s · construído a partir de demanda real detectada em https://news.ycombinator.com/item?id=0</p>
       </footer>
     </main>
   );

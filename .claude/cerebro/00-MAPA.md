@@ -14,6 +14,8 @@
 | [[05-DECISOES]] | Decisões estratégicas e o porquê | Ao decidir algo relevante |
 | [[06-METRICAS]] | Números reais observados | Ao medir qualquer coisa |
 | [[APRENDIZADO-PROJETO-SUPREMO]] | Base técnica instalada | Referência |
+| [`../KIT-RECUPERACAO.md`](../KIT-RECUPERACAO.md) | Perdi tudo → como voltar (cópia no Drive) | Referência |
+| `../backup.sh` | Bundle do repo + config pessoal → Drive/iCloud | Rodar 1x, depois cron |
 
 ## Protocolo
 

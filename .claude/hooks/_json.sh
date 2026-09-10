@@ -35,22 +35,32 @@ print(json.dumps({"hookSpecificOutput": o}))' "$ev" "$@"
   fi
 }
 
-# json_get_command  ← stdin (JSON do hook)  → imprime .tool_input.command
-json_get_command() {
+# json_get_field <caminho.pontuado>  ← stdin (JSON do hook)  → imprime o valor
+json_get_field() {
+  local path="$1"
   if command -v jq >/dev/null 2>&1; then
-    jq -r '.tool_input.command // ""'
+    jq -r --arg p "$path" 'getpath($p | split(".")) // "" | tostring'
   elif command -v node >/dev/null 2>&1; then
-    node -e '
+    P="$path" node -e '
       let d = "";
       process.stdin.on("data", c => d += c).on("end", () => {
-        try { console.log(JSON.parse(d).tool_input?.command ?? ""); } catch { console.log(""); }
+        try {
+          const v = process.env.P.split(".").reduce((o, k) => (o ?? {})[k], JSON.parse(d));
+          console.log(v == null ? "" : String(v));
+        } catch { console.log(""); }
       });'
   elif command -v python3 >/dev/null 2>&1; then
-    python3 -c '
-import sys, json
-try: print((json.load(sys.stdin).get("tool_input") or {}).get("command", ""))
+    P="$path" python3 -c '
+import sys, json, os
+try:
+    v = json.load(sys.stdin)
+    for k in os.environ["P"].split("."): v = (v or {}).get(k)
+    print("" if v is None else v)
 except Exception: print("")'
   else
     cat >/dev/null; echo ""
   fi
 }
+
+# compatibilidade
+json_get_command() { json_get_field tool_input.command; }

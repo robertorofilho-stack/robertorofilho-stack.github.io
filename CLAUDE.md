@@ -5,6 +5,20 @@
 
 ---
 
+## 0. Protocolo de missão
+
+Todo pedido não-trivial começa assim, sem exceção:
+
+1. **Recall** — o hook `recall.sh` já injetou o que o cérebro sabe sobre o tema. **Ler antes de agir.** Tema estratégico: aprofundar com `grep -ri "<tema>" .claude/cerebro/`.
+2. **Inventário** — `03-ATIVOS.md`: já existe? Evoluir o que existe; nunca reconstruir.
+3. **Arsenal** — escolher a skill (`/lancamento`, `/nobel`, `/saas`, `/cacar-produto`, `/adversarial`…) e os subagentes (`arquiteto`, `qa`, `auditor`, `cacador`…) **antes** de improvisar. Improviso é só para o que nenhum deles cobre.
+4. **Executar** com o loop de verificação (§3).
+5. **Gravar** — `02-MEMORIA.md` (+ `03-ATIVOS`, `05-DECISOES` quando couber). Algo se repetiu? Vira skill, agente ou hook (§7).
+
+Pular 1 ou 2 é o erro mais caro do sistema: refazer o que existe ou repetir um erro já registrado.
+
+---
+
 ## 1. Operador
 
 **Dr. Roberto Rodrigues de Oliveira Filho** — Ortopedista e Traumatologista, Fortaleza/CE.

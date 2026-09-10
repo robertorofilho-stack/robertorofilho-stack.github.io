@@ -7,6 +7,37 @@
 
 ## 2026-09
 
+### 2026-09-10 — Persistência total: recall, saúde, manutenção, backup e kit
+
+**Contexto:** operador: "não quero te perder; quero que use todo o cérebro em cada missão e que
+esteja sempre se atualizando". Resposta em código, não em promessa.
+
+**Decisão/Resultado:**
+- `recall.sh` (UserPromptSubmit): a cada prompt, extrai palavras-chave e injeta o que o cérebro
+  já sabe — 1.441 chars em 38 ms no teste. Determinístico.
+- `_teste.sh` + `_validar-frontmatter.sh`: suíte que simula máquina sem jq/node/python. 0 falhas.
+- `saude.yml`: toda segunda + a cada push na infra — hooks, skills, config, radar (audit, fixture,
+  build, QA no Chromium, varredura). Abre issue se quebrar.
+- `/manutencao` + routine semanal: consolida memória, repetição → skill, dependências, changelog.
+- `backup.sh`: git bundle (todas as branches) + `~/.claude` → Drive/iCloud. Restauração testada:
+  16 skills, 2 branches.
+- `KIT-RECUPERACAO.md` no repo e como Google Doc no Drive do operador.
+- CLAUDE.md §0 "Protocolo de missão": recall → inventário → arsenal → executar → gravar.
+- `gerar-saas.ts --fixture`: CI não depende de o radar achar oportunidade. Build + QA 13/13.
+
+**Número:** 5 hooks, 17 skills, 2 workflows, 3 scripts de operação. Backup: 5,4 MB.
+
+**Aprendizado:** "salvar o Claude" não é um arquivo — é repositório (tudo que foi construído) +
+conta (conectores, preferências) + gerenciador de senhas (chaves). Cada um com seu backup.
+Ver [[05-DECISOES]].
+
+**Próximo passo:** no Mac: clone → bootstrap → `bash .claude/backup.sh` → crontab. Mergear na main
+quando quiser o cron do radar.
+
+**Links:** [[00-MAPA]] [[03-ATIVOS]] [[05-DECISOES]]
+
+---
+
 ### 2026-09-10 — Portabilidade para o MacBook garantida e testada
 
 **Contexto:** operador perguntou se o cérebro estaria no Mac. Auditoria achou 2 bugs que

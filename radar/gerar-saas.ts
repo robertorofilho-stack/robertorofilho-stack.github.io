@@ -56,12 +56,21 @@ function titulo(s: string): string {
 }
 
 async function carregar(): Promise<Oportunidade[]> {
-  if (!existsSync(ARQUIVO)) {
-    log("erro", "dados/oportunidades.json não existe. Rode o radar primeiro.");
-    process.exit(1);
-  }
+  if (!existsSync(ARQUIVO)) return [];
   return JSON.parse(await readFile(ARQUIVO, "utf8")) as Oportunidade[];
 }
+
+/** Oportunidade de exemplo: permite testar o gerador sem depender do radar. */
+const FIXTURE: Oportunidade = {
+  id: "fixture", estado: "NOVA", urgencia: "ALTA", score: 78,
+  termo: "convert bank CSV export into a clean monthly spending summary",
+  dor: "Every month I export the CSV from my bank and spend an hour in a spreadsheet just to see where the money went. Is there a tool that does this in one click?",
+  volumeEstimado: 1200,
+  fatores: { velocidade: 60, dorExplicita: 90, volume: 55, viabilidade: 85, recorrencia: 45 },
+  fontes: ["https://news.ycombinator.com/item?id=0"],
+  amostras: ["Is there a tool that does this in one click?"],
+  detectadoEm: new Date().toISOString(),
+};
 
 /** Substitui os marcadores {{X}} em todo arquivo de texto do projeto. */
 async function substituir(caminho: string, vars: Record<string, string>) {
@@ -155,8 +164,8 @@ npm run dev
 R$ ${precoBRL.toFixed(2)} · US$ ${precoUSD.toFixed(2)} — pagamento único, ${3} usos grátis antes do paywall.
 `, "utf8");
 
-  // Marca a oportunidade como em construção
-  const todas = await carregar();
+  // Marca a oportunidade como em construção (fixture não persiste)
+  const todas = op.id === "fixture" ? [] : await carregar();
   const i = todas.findIndex((o) => o.id === op.id);
   if (i >= 0) {
     todas[i].estado = "EM_CONSTRUCAO";
@@ -186,7 +195,9 @@ ${"━".repeat(70)}
 const args = process.argv.slice(2);
 const todas = await carregar();
 
-if (args.includes("--listar") || args.length === 0) {
+if (args.includes("--fixture")) {
+  await gerar(FIXTURE);
+} else if (args.includes("--listar") || args.length === 0) {
   console.log("\nOportunidades disponíveis:\n");
   for (const o of todas.slice(0, 20)) {
     console.log(`  ${o.id.padEnd(10)} [${String(o.score).padStart(3)}/100 ${o.urgencia.padEnd(5)}] ${o.estado.padEnd(14)} ${o.termo.slice(0, 55)}`);

@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Low fee credit card network that merchants didn't charg",
-  description: "Ferramenta que resolve: low fee credit card network that merchants didn't charge a fee for, so I could c",
+  title: "Convert bank CSV export into a clean monthly spending s",
+  description: "Ferramenta que resolve: convert bank CSV export into a clean monthly spending summary",
   openGraph: {
-    title: "Low fee credit card network that merchants didn't charg",
-    description: "Ferramenta que resolve: low fee credit card network that merchants didn't charge a fee for, so I could c",
+    title: "Convert bank CSV export into a clean monthly spending s",
+    description: "Ferramenta que resolve: convert bank CSV export into a clean monthly spending summary",
     type: "website",
   },
   robots: { index: true, follow: true },

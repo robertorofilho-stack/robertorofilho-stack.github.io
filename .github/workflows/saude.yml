@@ -1,0 +1,74 @@
+# SAÚDE — o sistema se testa sozinho.
+#
+# Roda toda segunda e a cada push que toque a infraestrutura de agente ou o
+# radar. Se algo quebrar, abre issue. Zero segredo, zero custo.
+name: saude
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"          # segunda 05:00 Fortaleza
+  workflow_dispatch:
+  push:
+    paths: [".claude/**", ".mcp.json", "CLAUDE.md", "radar/**", ".github/workflows/saude.yml"]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  infraestrutura:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Hooks — sintaxe e cadeia de fallback (sem jq, sem node, sem nada)
+        run: bash .claude/hooks/_teste.sh
+      - name: Skills e subagentes — frontmatter válido
+        run: bash .claude/hooks/_validar-frontmatter.sh
+      - name: Configurações — JSON válido
+        run: jq -e . .claude/settings.json .mcp.json > /dev/null && echo "OK"
+
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults: { run: { working-directory: radar } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: radar/package-lock.json }
+      - name: Dependências sem vulnerabilidade alta
+        run: npm ci --no-audit --no-fund && npm audit --omit=dev --audit-level=high
+      - name: Gerador — projeto de fixture
+        run: node --experimental-strip-types gerar-saas.ts --fixture
+      - name: Template — instala e builda (Next 16 + Tailwind 4)
+        run: cd saas-gerados/* && npm install --no-audit --no-fund && npm audit --omit=dev --audit-level=high && npm run build
+      - name: Chromium para o QA
+        run: npx playwright install --with-deps chromium
+      - name: QA adversarial no navegador
+        run: node --experimental-strip-types qa.ts
+      - name: Radar — varredura de fumaça (fontes públicas respondem?)
+        run: node --experimental-strip-types radar-lucro.ts --top 3
+
+  alerta:
+    needs: [infraestrutura, radar]
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions: { issues: write }
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const titulo = "🩺 Saúde do sistema: falha detectada";
+            const url = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const { data: abertas } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo, state: "open", labels: "saude" });
+            const corpo = `Execução: ${url}\n\nPara corrigir: abra uma sessão e rode \`/manutencao\`.`;
+            if (abertas.length) {
+              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: abertas[0].number, body: `Falhou de novo.\n\n${corpo}` });
+            } else {
+              await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo,
+                title: titulo, labels: ["saude"], body: corpo });
+            }

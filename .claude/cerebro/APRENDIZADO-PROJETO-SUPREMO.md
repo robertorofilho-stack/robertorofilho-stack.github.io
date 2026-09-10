@@ -153,3 +153,9 @@ Reescrever `guarda.sh` via heredoc em bash falhou: o hook PreToolUse leu o coman
 
 ### 21. Portabilidade se testa simulando a máquina alvo, não lendo o código
 `jq` ausente e `grep '\|'` só apareceram porque o teste construiu um PATH sem `jq`, sem `node`, sem `python3`. Ler os scripts não teria achado — eles "pareciam" portáveis.
+
+### 22. "Não quero te perder" tem resposta técnica, não emocional
+O que o operador chama de "você" são três coisas com três donos: o modelo (Anthropic — não se perde), a personalização (repositório — versionada, clonável, restaurável de bundle) e as credenciais (gerenciador de senhas — a única parte que exige disciplina humana). Confundir os três gera ou pânico ("preciso salvar o Claude no Drive") ou descuido (chave no git). Separar os três é o backup.
+
+### 23. Recall que depende de lembrar não é recall
+Instrução "consulte a memória antes de agir" vale enquanto o contexto está fresco. Hook em `UserPromptSubmit` que faz `grep` das palavras-chave do pedido no cérebro vale sempre, custa 38 ms e não tem opinião. Regra 7 aplicada à própria memória: o que precisa acontecer vira código.

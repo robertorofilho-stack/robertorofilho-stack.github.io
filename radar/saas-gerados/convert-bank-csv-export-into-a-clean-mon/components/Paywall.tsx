@@ -23,7 +23,7 @@ export default function Paywall({ precoBRL, precoUSD, aoLiberar }: Props) {
       const r = await fetch("/api/pix", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ valor: precoBRL, descricao: "Low fee credit card network that merchants didn't charg" }),
+        body: JSON.stringify({ valor: precoBRL, descricao: "Convert bank CSV export into a clean monthly spending s" }),
       });
       const d = await r.json();
       if (!d.ok) throw new Error(d.erro ?? "falha ao gerar Pix");
