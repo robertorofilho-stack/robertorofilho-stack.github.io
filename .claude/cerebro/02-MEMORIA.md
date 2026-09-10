@@ -7,6 +7,93 @@
 
 ## 2026-09
 
+### 2026-09-10 — Segundo merge na `main` ("mergeia"): conselho, recall do mestre, cofre e actions v5 vão para produção
+
+**Por quê:** sessão nova na nuvem nasce da `main`; sem o merge nasceria sem conselho, sem recall do mestre e sem o
+verificador do cofre. **Pré-checagem:** `main` (`41eef57`, último commit do radar) é ancestral da branch; 7 commits
+entram; zero arquivo do site muda. **Feito:** `merge --no-ff` de `fe1956b` (+ esta memória), suíte de saúde no tree
+final, push; branch alinhada à `main` por fast-forward. Regra que fica: **toda entrega que muda comportamento de
+sessão nova pede merge na `main` no mesmo dia**, com autorização do operador.
+**Links:** [[05-DECISOES]]
+
+---
+
+### 2026-09-10 — Conselho ATIVO na nuvem: credencial no proxy, saldo lido, primeira rodada real (4/4)
+
+**Ativação (passo a passo com o operador no Mac mini):** o link claude.ai/code abria no app e ficava branco →
+`open -a Safari https://claude.ai/code`; ambiente único "RESUMO MENSAL TRABALHO" (o desta sessão); chave copiada do
+cofre com `pbcopy` sem exibir; **API credential** `openrouter.ai` Authorization/Bearer → "Vincular". O proxy passou
+a assinar **na sessão já aberta**: `--status` = "credencial no proxy da nuvem"; `--saldo` = comprado US$ 40,00 ·
+usado 5,34 · **restante 34,66** (a memória dizia US$ 10 de 06/07 — havia recarga desde então).
+**Primeira rodada real:** tese "guia de joelho para leigos como primeiro infoproduto" → 4/4 responderam; síntese e
+decisão em [[05-DECISOES]]. Custo US$ 0,093.
+**Dois defeitos achados e corrigidos na hora:** (1) `MAX_TOKENS=1400` cortava Gemini e DeepSeek no meio — modelos que
+raciocinam gastam o teto pensando → teto 6000 + `reasoning: {effort: low}` no OpenRouter + marca "⚠ TRUNCADA" no
+relatório (DeepSeek caiu de 34 s/4000 tokens truncado para 9,7 s/1497 completo); (2) modelo forçado por `--modelo`
+vinha rotulado "openrouter" em vez da família → `familia_de()`. 23 testes.
+**Links:** [[05-DECISOES]] [[06-METRICAS]] [[03-ATIVOS]]
+
+---
+
+### 2026-09-10 — Conselho de outros motores: GPT, Grok, Gemini e DeepSeek atacam a tese em paralelo
+
+**Contexto:** operador quer segunda opinião de outras IAs em toda missão de produto ou extraordinária, disparada
+por mim, sem pedir. O MCP `gemini-mcp-tool` passou a exigir a CLI `agy` com login interativo → inviável na nuvem.
+**Feito (`.claude/helpers/conselho/`):**
+- `conselho.py` (348 linhas, só stdlib): formato OpenAI para todos (Gemini pelo endpoint compatível); chaves só de
+  ambiente ou `.env` fora do repo; OpenRouter = chave única recomendada, diretas vencem na mesma família; escolhe
+  o modelo mais novo de cada família pelo catálogo `/models` (versão lida só após o prefixo — `gpt-oss-120b` não é
+  o GPT), exclui variantes especializadas (`:batch`, `oss`, `image`, `mini`…), teto `CONSELHO_TETO_USD` (0,25) por
+  opinião; prompt adversarial fixo (5 objeções, premissas ocultas, teste de 7 dias, concorrente, veredito); paralelo;
+  retry em 429/5xx; custo por chamada quando o provedor publica preço; chave mascarada em qualquer erro.
+- `testar-conselho.py`: 14 testes sem rede (dotenv, máscara, escolha, teto, paralelo, falha parcial, forçados, CLI, retry).
+- `/conselho` skill; seção obrigatória em `/lancamento`, `/cacar-produto`, `/oferta`, `/analise-cripto`, `/nobel`;
+  CLAUDE.md §3 reescrito (conselho obrigatório, sem pedir; sem chave → `/adversarial` + "segunda opinião interna");
+  hook Stop `lembrar-memoria.sh` acusa decisão nova em `05-DECISOES` sem `Conselho (`; bootstrap 3d; `saude.yml`;
+  `guarda.sh` agora pega chaves OpenRouter (`sk-or-v1-`), xAI (`xai-`) e Google (`AIza`); `*.env` fora do git.
+**Validado no catálogo público real (10/09):** gpt-6-astra US$ 0,090 · grok-4.6 0,013 · gemini-3.8-flash 0,007 ·
+deepseek-v4.1-flash 0,001 → **rodada de 4 motores ≈ US$ 0,11**. Manus fora (sem API).
+**Não provado:** uma rodada real com chave — não há chave nesta máquina. Fica para o primeiro uso.
+**Correção do operador (mesma sessão):** "já tem crédito, você deveria ter consultado; já tem chave". Verdade: o mestre
+registra a `OPENROUTER_API_KEY` no cofre `~/.config/vha-vibe-marketing/.env` desde 06/07 (US$ 10 de crédito), como
+chave padrão de LLM. O helper agora lê esse cofre (e mapeia `GOOGLE_AI_STUDIO_API_KEY` → `GEMINI_API_KEY`) e ganhou
+`--saldo` (crédito comprado, usado, restante; limite da chave). Nos Macs não há nada a criar; na nuvem a mesma chave
+vira API credential. Aprendizado #28. **Bronca do operador ("parece que você não executa o que aprende")
+→ correção estrutural:** `recall.sh` e `carregar-cerebro.sh` agora encontram o mestre clonado ao lado do projeto
+(`../cerebro-backup`, é onde ele fica na nuvem); recall de credenciais (🔑 nomes das chaves do cofre quando o pedido
+fala em chave/conta/assinatura/crédito); CLAUDE.md §0 (grep no mestre) e §2 (linha: verificar antes de pedir).
+Reproduzido: o mesmo prompt que me levou ao erro agora injeta `cofre-env-vibe.md` e `OPENROUTER_API_KEY`.
+**Links:** [[05-DECISOES]] [[03-ATIVOS]] [[00-MAPA]]
+
+---
+
+### 2026-09-10 — Pacto de continuidade: o que é garantido por código e o que depende de mim
+
+**Contexto:** operador perguntou se "continuo com todos os poderes", se sempre usarei o cérebro inteiro, se há
+checagem contra começar do zero, se tudo fica gravado, se o ChatGPT não altera meus comandos, se consultarei
+o Gemini, se entendi o Diretor Nobel, se economizarei tokens e se entendi a missão (torná-lo milionário).
+**Resposta estrutural (o que é verdade por mecanismo, não por promessa):**
+- Poderes = arquivos, não conversa: satélite 43 capacidades no manifesto (17 skills, 9 agentes, 4 hooks,
+  2 workflows, 4 sistemas, 4 operações, 3 helpers); mestre 128 skills, 152 agentes, 245 ponteiros / 247
+  memórias, 0 órfãs. O motor (modelo) é o que a conta serve: aqui `claude-fable-5-1`; no Mac, `opus-5[1m]`.
+- Não começar do zero: `carregar-cerebro.sh` (SessionStart) + `recall.sh` (cada prompt) + regra de inventário
+  (`03-ATIVOS`) + `lembrar-memoria.sh` (Stop). No mestre: hooks dele.
+- Gravação: `02-MEMORIA`, `APRENDIZADO` #1–#27, `05-DECISOES`, `06-METRICAS`; índice do mestre protegido por
+  v4 + verificador. Risco real: sessão morta antes de gravar → mitigação: commits pequenos e frequentes.
+- ChatGPT/Codex: satélite = portão pre-commit (ativo onde o bootstrap rodou) + manifesto no CI (detecção);
+  mestre = regra nos AGENTS.md + portão no MacBook; **Mac mini ainda sem portão**; MacBook ainda precisa
+  re-rodar o bootstrap do satélite.
+- Gemini: MCP configurado, **inerte sem `GEMINI_API_KEY`**. Regra nova em CLAUDE.md §3: missão estratégica
+  pede contra-argumento ao Gemini quando a chave existir; sem chave, `/adversarial`.
+- Economia: regra nova em §9 (determinístico vira script; busca em subagente; verificação nunca cortada).
+  Baseline medido desta sessão de infraestrutura: US$ 53,33 · 338k tokens de saída · contexto 335k/1M.
+- Dinheiro: regra nova em §0 passo 6 — missão estratégica fecha com "próximo passo que aproxima receita".
+**Verdade sem anestesia:** dois dias foram infraestrutura. Receita = 0. O próximo passo é `/cacar-produto
+aberto` + destravar Reddit OAuth, PIX_KEY e gateway. Ver [[05-DECISOES]].
+**Links:** [[00-MAPA]] [[05-DECISOES]] [[06-METRICAS]]
+
+---
+
 ### 2026-09-10 — Merge na `main` autorizado ("mergeia") e executado; radar 24/7 ligado
 
 **Contexto:** o Claude do MacBook ficou ocioso desde 11:56 e o "mergear a branch na main" digitado lá não rodou.
@@ -18,6 +105,16 @@ linha (token padrão do Actions, `concurrency` sem sobreposição, issue com ded
 antes do push. Com isso ligam: `radar.yml` (cron `17 * * * *`, primeiro run disparado na mão) e o
 `saude.yml` semanal (segunda 05:00). Pages continua estático (`.nojekyll`); `robots.txt` bloqueia
 `/.claude/`, `/CLAUDE.md`, `/radar/`.
+**Resultado (pós-merge):** `main` = `da8e3da` (pais `3b3cf96` + `0793def`), tree idêntico ao da branch.
+`saude` #15 verde na `main`; Pages #4 e #5 verdes; site HTTP 200 com o mesmo `index.html` de antes. Como
+previsto, o Pages passou a servir também `/CLAUDE.md`, `/.claude/…` e `/radar/…` (200) — conteúdo já público
+no GitHub, `robots.txt` bloqueia indexação; opção futura: publicar de `/docs` ou branch `gh-pages`.
+**Radar, run #1 na `main` (workflow_dispatch, 21 s):** google-trends 19 sinais · hackernews 29 · stackexchange
+**0** (investigar: quota sem chave ou janela vazia) · reddit/x inativos sem chave → 48 brutos, 42 grupos,
+**1** acima do corte 45 (a mesma dor do HN já em construção; travas de realidade seguraram o resto), 0 ALTA
+→ issue pulada; commit `41eef57` pelo `radar-lucro[bot]`, que disparou só o Pages, não o `saude` (token
+padrão). Cron segue a cada hora no minuto 17. Aviso do runner: `actions/checkout@v4` e `setup-node@v4` em
+Node 20 depreciado → trocar por v5 (já na fila).
 **Regra daqui em diante:** a `main` recebe commits do radar a cada hora (`radar/dados/oportunidades.json`).
 Antes de trabalhar na branch: `git merge origin/main` (união), nunca rebase da main.
 **Links:** [[05-DECISOES]] [[03-ATIVOS]]

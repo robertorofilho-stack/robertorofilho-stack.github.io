@@ -24,7 +24,8 @@ if [ -f "$DIR/05-DECISOES.md" ]; then
   CTX+="### Decisões em aberto"$'\n'"$(grep -A3 -iE 'aberto|pendente|\[ \]' "$DIR/05-DECISOES.md" 2>/dev/null | head -c 1200)"$'\n\n'
 fi
 
-for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-backup"; do
+for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-backup" \
+            "$(dirname "${CLAUDE_PROJECT_DIR:-$(pwd)}")/cerebro-backup" "/home/user/cerebro-backup"; do
   if [ -n "$cand" ] && [ -d "$cand/.git" ]; then
     CTX+="### ⚠️ CÉREBRO MESTRE presente nesta máquina: $cand"$'\n'
     CTX+="Constituição, 4 Leis, MOTOR-EXECUCAO (gate G5) e diretores dele VENCEM este satélite (CLAUDE.md §0b). "

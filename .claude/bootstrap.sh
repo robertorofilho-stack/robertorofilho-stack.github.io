@@ -50,6 +50,12 @@ if command -v python3 >/dev/null && [ -n "$(python3 .claude/helpers/cerebro/veri
   fi
 fi
 
+# 3d. Conselho de outros motores (segunda opinião por API): precisa de chave fora do git
+if command -v python3 >/dev/null; then
+  if OUTC=$(python3 .claude/helpers/conselho/conselho.py --status 2>/dev/null); then ok "$OUTC"
+  else aviso "conselho sem chave — OPENROUTER_API_KEY (uma chave, todos os motores) em ~/.config/cerebro/conselho.env; modelo em .claude/helpers/conselho/conselho.env.example"; fi
+fi
+
 # 4. Hooks executáveis (git preserva o bit, mas garante)
 chmod +x .claude/hooks/*.sh 2>/dev/null && ok "hooks executáveis"
 

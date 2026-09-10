@@ -44,7 +44,10 @@ ACHADOS=$(printf '%s' "$ACHADOS" | awk 'NF && !seen[$0]++' | head -24 \
 # arquivos de memória individuais e devolve só os NOMES (a substância fica lá;
 # o índice MEMORY.md já é injetado pelos hooks do próprio Cérebro).
 MESTRE=""
-for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-backup"; do
+PROJ="${CLAUDE_PROJECT_DIR:-$(pwd)}"
+# Na nuvem o mestre fica clonado AO LADO do projeto (../cerebro-backup); nos Macs, em ~/Claude/cerebro-backup.
+for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-backup" \
+            "$(dirname "$PROJ")/cerebro-backup" "/home/user/cerebro-backup"; do
   [ -n "$cand" ] && [ -d "$cand/claude-config/memory" ] && { MESTRE="$cand/claude-config/memory"; break; }
 done
 MEMS=""
@@ -57,11 +60,20 @@ if [ -n "$MESTRE" ]; then
   MEMS=$(printf '%s' "$MEMS" | awk 'NF && !seen[$0]++' | head -10 | sed "s#^$MESTRE/##")
 fi
 
-[ -n "$ACHADOS$MEMS" ] || { echo '{}'; exit 0; }
+# Pedido que cheira a chave, conta, assinatura ou compra: listar o que JÁ EXISTE no cofre do mestre
+# (só NOMES de variáveis; valores nunca saem do cofre). Aprendizado #28: o que já existe não se pede.
+CHAVES=""
+if [ -n "$MESTRE" ] && printf '%s' "$PROMPT" | grep -qiE 'chave|api.?key|token|credencial|senha|login|conta|assinatura|cr[ée]dito|comprar|assinar|cadastr'; then
+  CHAVES=$(cat "$MESTRE"/chaves-credenciais.md "$MESTRE"/cofre-env-vibe.md "$MESTRE"/llm-padrao-openrouter.md 2>/dev/null \
+    | grep -oE '\b[A-Z][A-Z0-9]*(_[A-Z0-9]+)*_(API_KEY|TOKEN|SECRET|KEY|SECRET_KEY|CLIENT_ID|VOICE_ID)\b' | sort -u | tr '\n' ' ')
+fi
+
+[ -n "$ACHADOS$MEMS$CHAVES" ] || { echo '{}'; exit 0; }
 
 TXT="🧠 MEMÓRIA RELACIONADA — busca automática por: $(printf '%s' "$KWS" | tr '\n' ' ')"$'\n\n'
 [ -n "$ACHADOS" ] && TXT+="Satélite (.claude/cerebro):"$'\n'"$ACHADOS"$'\n\n'
 [ -n "$MEMS" ] && TXT+="CÉREBRO MESTRE (privado) — abrir antes de decidir:"$'\n'"$MEMS"$'\n\n'
+[ -n "$CHAVES" ] && TXT+="🔑 CHAVES QUE JÁ EXISTEM no cofre do mestre (~/.config/vha-vibe-marketing/.env; nomes, valores só lá): $CHAVES"$'\n'"NÃO pedir ao operador para criar, assinar ou comprar o que já existe. Ler chaves-credenciais.md e cofre-env-vibe.md antes de responder."$'\n\n'
 TXT+="Antes de construir: conferir .claude/cerebro/03-ATIVOS.md — não reconstruir o que existe. "
 TXT+="Escolher skill/subagente do arsenal antes de improvisar. Ao terminar: gravar em 02-MEMORIA.md."
 

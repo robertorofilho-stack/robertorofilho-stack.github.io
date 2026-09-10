@@ -101,15 +101,41 @@ sistema prefere parar a involuir. (3) Verificador de órfãs roda no bootstrap, 
 **Alternativa rejeitada:** só consertar o v3 no mestre. Sem teste no CI e sem verificador independente, o
 próximo refactor repete o bug sem ninguém ver.
 
+### 2026-09-10 — Conselho de outros motores: segunda opinião obrigatória, disparada por mim, por API
+**Contexto:** operador quer que eu peça contra-argumento a outras IAs (GPT, Grok, Gemini, Manus…) em toda missão de
+produto ou extraordinária, sem ele precisar mandar. O MCP do Gemini exige CLI nova com login interativo e não roda na nuvem.
+**Decisão:** um helper por API, formato OpenAI para todos (Gemini pelo endpoint compatível), com OpenRouter como
+chave única recomendada e chaves diretas aceitas. Prompt adversarial fixo (objeções, premissas ocultas, teste de 7
+dias, concorrente, veredito). O gatilho é estrutural: regra §3, seção obrigatória nas 5 skills estratégicas, hook Stop
+que acusa decisão nova sem conselho. Manus fora: sem API, automação por navegador é frágil e fere termos.
+**Custo medido (catálogo público do OpenRouter, 3k in + 1,2k out):** US$ 0,001 a 0,013 por opinião → rodada de 4
+motores custa centavos. **Rejeitado:** integração por IA (quatro contas, quatro faturas) e o MCP como caminho principal.
+
+### 2026-09-10 — Primeiro infoproduto: o guia de joelho para leigos NÃO é o primeiro produto pago (Conselho 4/4)
+**Tese testada:** guia digital de artrose/dor no joelho para leigos, R$ 97–197, vendido por Instagram/TikTok, em vez de
+produto não-médico em nicho maior.
+**Conselho (10/09, GPT-6 Astra · Grok 4.6 · Gemini 3.8 Flash · DeepSeek v4.1, US$ 0,093):** consenso 4/4 — morre na
+aquisição: CAC frio R$ 80–200 > preço; "guia" é conteúdo com substituto gratuito; CFM/CREMEC + políticas de anúncio
+de saúde derrubam conversão e criam risco assimétrico ao CRM; público com artrose (55+) não é quem compra
+infoproduto no Instagram (25–45). Vereditos: AJUSTAR ×3, MATAR ×1. **Divergência:** o que fazer no lugar —
+não-médico primeiro (Grok, DeepSeek) · isca gratuita + serviço de alto ticket (Gemini) · pré-venda para validar antes de
+produzir (GPT). **Convergência escondida:** produto para **profissionais** (fisio, educador físico, residente),
+R$ 500–3.000, sem leigo. **Ressalva a verificar:** GPT afirma que a Res. CFM 2.336/2023 permite "antes e depois"
+educativo sob condições — conferir o texto antes de mudar o §6 do CLAUDE.md.
+**Decisão:** (1) conteúdo de joelho = isca gratuita e autoridade; (2) primeiro produto pago sai do `/cacar-produto
+aberto` com viés não-médico ou B2B profissional; (3) todo teste = página de pré-venda, ≤ R$ 350 em 7 dias, métrica é
+pagamento ou clique no checkout. Relatório completo entregue ao operador (não versionado: estratégia, §6).
+
 ## Em aberto
 
-- [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto`
+- [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto` **com viés não-médico ou B2B profissional** (ver Conselho 10/09 abaixo); guia de joelho para leigos NÃO é o primeiro produto pago
 - [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)
 - [ ] **Meta Ads / Supermetrics conectados à conta real de anúncio?**
 - [ ] **Gateway de pagamento definido** — Hotmart/Kiwify (mais simples) vs Stripe+Asaas (mais margem, mais trabalho)
 - [ ] **PIX_KEY preenchida em `radar/.env`** — sem ela o paywall roda em sandbox
 - [x] **Mergear branch na `main`** — feito 10/09 (`merge --no-ff`, autorizado com "mergeia"); radar 24/7 ativo
-- [ ] **Chave Gemini** (`GEMINI_API_KEY`) — MCP configurado, inerte sem a chave
+- [x] **Chave Gemini** — superada pelo **conselho de outros motores** (`/conselho`, por API); o MCP do Gemini passou a exigir CLI nova com login e ficou como opcional no Mac
+- [x] **Conselho na nuvem** — credencial `openrouter.ai` no ambiente RESUMO MENSAL TRABALHO (10/09); `conselho saldo` = US$ 34,66 restantes; primeira rodada real feita (US$ 0,093, 4/4)
 - [ ] **Reddit OAuth** — dobra as fontes de dor do radar
 - [ ] **Rodar `bash .claude/backup.sh` no Mac uma vez** + linha de crontab que ele imprime
 - [ ] **Chaves no cofre iCloud `CEREBRO-CHAVES-BACKUP`** (convenção do mestre) — PIX, PayPal, Vercel, Reddit
