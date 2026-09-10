@@ -7,6 +7,30 @@
 
 ## 2026-09
 
+### 2026-09-10 — União satélite → Cérebro executada (e prova de que a involução é real)
+
+**Feito:** memória `satelite-projeto-supremo.md` gravada no cofre do mestre (+1 linha no índice,
+seção SETUP) com o inventário do satélite, a precedência (Constituição, 4 Leis, gate G5 e diretores
+vencem; capacidades somam) e a tabela de equivalências do [[00-MAPA]].
+**União:** 17 skills + 9 subagentes copiados com `cp -n` (nunca sobrescreve) para `~/.claude`:
+111→128 skills, 143→152 agentes, **zero colisões** (a `cripto` já virava `analise-cripto`).
+`_capacidades.sh`: ✓ 40 capacidades, nenhuma perdida. Sync: commit `44718ea` no origin.
+
+**Achado grave:** os 4 links que eu tinha restaurado às 10:28 **sumiram de novo até as 11:17** —
+`clickmax-plataforma`, `lei-parcela-minima-6-reais`, `projeto-youtube`, `rede-casa-mapa`.
+O `sync-backup.sh` reescreveu o índice com a cópia do cofre e o bug do `fundir-indice.py`
+(vence a LINHA inteira, não o link) engoliu os agrupados. Restaurados; agora 244 no índice.
+**Isto é involução acontecendo em uma hora** — exatamente o que a Lei da Monotonia proíbe.
+Os arquivos `.md` nunca sumiram; some só o ponteiro no índice, então a memória fica órfã e invisível.
+
+**Próximo passo (agora prioritário):** consertar `fundir-indice.py` para fundir **por link dentro
+da linha** e falhar alto quando descartar um link. Enquanto não consertar, todo sync entre os 2
+Macs pode apagar ponteiro de memória em silêncio.
+
+**Links:** [[00-MAPA]] [[05-DECISOES]]
+
+---
+
 ### 2026-09-10 — Descoberta do Cérebro mestre e unificação (satélite ⊂ mestre)
 
 **Contexto:** no primeiro prompt do MacBook, o Claude local inspecionou `~/Claude/cerebro-backup` e fundiu
