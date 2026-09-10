@@ -72,6 +72,15 @@ vai para o mestre. `/analise-cripto` renomeada para `/analise-cripto` (a `cripto
 **Porquê:** meses de memória, leis e gates financeiros não se substituem por um dia de construção.
 **Não fiz:** nada dentro do `cerebro-backup` — só leitura. O lado privado é registrado pelo Claude do Mac.
 
+### 2026-09-10 — Lei da Monotonia (resposta a "não decaia, sempre evoluir")
+**Contexto:** o operador temeu que subordinar o satélite ao mestre fosse regressão, e afirmou que "o de hoje"
+é o mais evoluído. Fato: os dois Macs rodam o mesmo mestre (243 memórias, leis, gates); o de hoje tem 1 dia.
+**Decisão:** não há "principal". Um Cérebro, dois repositórios. Precedência é de LEIS (segurança financeira e
+ética); capacidade é por UNIÃO e só cresce. Manifesto `CAPACIDADES.txt` + `_capacidades.sh` no CI: capacidade
+que some = vermelho. Arquivar em vez de apagar.
+**Porquê:** o medo dele é legítimo — sistemas de IA regridem por esquecimento silencioso. A resposta é teste,
+não promessa.
+
 ## Em aberto
 
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto`

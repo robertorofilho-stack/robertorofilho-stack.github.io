@@ -29,6 +29,8 @@ jobs:
         run: bash .claude/hooks/_validar-frontmatter.sh
       - name: Configurações — JSON válido
         run: jq -e . .claude/settings.json .mcp.json > /dev/null && echo "OK"
+      - name: Lei da Monotonia — nenhuma capacidade perdida
+        run: bash .claude/hooks/_capacidades.sh
 
   radar:
     runs-on: ubuntu-latest

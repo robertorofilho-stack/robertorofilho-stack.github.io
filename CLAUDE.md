@@ -19,24 +19,32 @@ Pular 1 ou 2 é o erro mais caro do sistema: refazer o que existe ou repetir um 
 
 ---
 
-## 0b. Precedência: o Cérebro mestre vence
+## 0b. Um Cérebro, dois repositórios — e a Lei da Monotonia
 
 Existe um sistema anterior e maior: **o Cérebro** — repositório privado `robertorofilho-stack/cerebro-backup`,
-espelhado em `~/.claude` nos dois Macs (111 skills, 7 diretores, 243+ memórias, JARBAS por voz, MOTOR-EXECUCAO
-com 9 gates). Este repositório é um **satélite** dele: governa o site e a mecânica do radar de produto.
+espelhado em `~/.claude` nos dois Macs (111 skills, 7 diretores, 243+ memórias, JARBAS por voz, MOTOR-EXECUCAO,
+Sonho do Cérebro). Este repositório é o **satélite público**: site, radar de produto, CI. **Não são dois
+Claudes** — é um Cérebro com dois repositórios: o privado guarda o que não pode ser público; o público guarda
+o método que pode viajar.
 
-Quando o Cérebro estiver presente na máquina (`~/Claude/cerebro-backup` ou `~/.claude/helpers/cerebro`):
+**Lei da Monotonia (anti-involução): capacidade só entra, nunca sai.**
+- Nada que funciona é removido de nenhum dos dois lados. Substituir = adicionar o melhor e **arquivar** o antigo
+  em `.claude/arquivo/` (continua no git). Apagar é proibido.
+- Toda fusão é por **união** — a mesma lei do mestre ("índice: união, nunca sobrescrita").
+- `.claude/hooks/_capacidades.sh` compara o inventário vivo com `.claude/CAPACIDADES.txt`. Capacidade que sumiu
+  = `saude.yml` vermelho. O manifesto só cresce (`--gravar`).
+- O que um lado aprende vira ativo do outro: método → aqui; memória de negócio → mestre. Nunca perder, nunca duplicar.
 
-1. `CEREBRO-CONSTITUICAO.md`, as **4 Leis inegociáveis** e o **MOTOR-EXECUCAO** (G5: nenhum gasto sem os
-   5 números do PAINEL) **vencem este arquivo** em qualquer conflito.
-2. Decisão de negócio (produto, oferta, público, criativo, campanha) passa pelos **diretores** dele
-   (`diretor-de-produtos`, `diretor-de-vendas`, `diretor-de-auditoria`…). Os subagentes daqui são mecânica:
-   `arquiteto`/`qa` para código; `cacador`/`copychief`/`viral` como reforço, nunca como substituto.
-3. Nenhuma campanha ativa sem o **Diretor de Auditoria** liberar (🟢). Nenhuma entrega sem verificador.
-4. Memória de negócio vai para o Cérebro (`claude-config/memory/`, via sync dele). Aqui fica só o que é
-   do site e do radar. Nunca duplicar a mesma memória nos dois.
+**Precedência é de LEIS, não de capacidades.** Quando o Cérebro estiver na máquina (`~/Claude/cerebro-backup`):
+1. `CEREBRO-CONSTITUICAO.md`, as **4 Leis** e o **gate G5** vencem qualquer conflito de regra — são a segurança
+   financeira e ética do operador.
+2. Decisão de negócio passa pelos **diretores** dele; os subagentes daqui **somam** (`arquiteto`/`qa` para código;
+   `cacador`/`copychief`/`viral` como reforço).
+3. Nenhuma campanha ativa sem o Diretor de Auditoria (🟢). Nenhuma entrega sem verificador — regra dos dois lados.
+4. Memória de negócio → mestre. Memória de site e radar → aqui.
 
-Fora dos Macs (sessão web, CI): este arquivo governa sozinho — e as Leis abaixo valem do mesmo jeito.
+Fora dos Macs (web, CI): este arquivo governa sozinho, com as Leis de §6. O mestre não é lido — é privado, e
+deve continuar assim.
 
 ---
 
