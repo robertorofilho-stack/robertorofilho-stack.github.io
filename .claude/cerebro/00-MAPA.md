@@ -40,7 +40,7 @@ Já tem o repo? Só `git pull && git checkout claude/projeto-supremo-claude-code
 
 | O que | Vem automático? | Detalhe |
 |---|---|---|
-| CLAUDE.md, 16 skills, 9 subagentes, 3 hooks, cérebro | ✅ | Escopo de projeto: viajam com o clone |
+| CLAUDE.md, 17 skills, 9 subagentes, 5 hooks, cérebro, radar | ✅ | Escopo de projeto: viajam com o clone |
 | MCPs de `.mcp.json` (playwright, memoria, pensar, next-devtools, gemini) | ✅ com 1 clique | Na 1ª sessão o Claude Code pede para **aprovar** os servidores do projeto — aceite |
 | Conectores da conta (Gmail, Meta Ads, Supabase, Vercel, PubMed…) | ✅ | São da conta claude.ai, não da máquina |
 | Radar local (`npm run radar`) | ⚠️ `--radar` | Precisa Node ≥ 22.6 + Chromium: `bash .claude/bootstrap.sh --radar` |
