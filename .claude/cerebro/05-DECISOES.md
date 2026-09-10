@@ -47,7 +47,7 @@ sistêmica por firmware). Skill `/nobel` acha caminhos não-óbvios **dentro** d
 foi construído: o repositório no GitHub, e **só** ele — nada de valor fica só na máquina;
 (3) chaves: gerenciador de senhas, nunca em git nem em backup em texto.
 Cópia fora do GitHub: `backup.sh` (git bundle + config pessoal) para Drive/iCloud, cron noturno.
-Kit de recuperação em texto no repo e como Google Doc: https://docs.google.com/document/d/1m1dDhwvhOU9JJRd56I4-pslTtQAhCyXChJfKUuHTsqk/edit
+Kit de recuperação em texto no repo e como Google Doc: https://docs.google.com/document/d/1_beo1wEmov2yDu9VJX9QRyGdyIDeIs6vpgkuhRI65nU/edit
 **Porquê:** máquina é descartável por design. Se comprar o M5/M6, são 5 comandos.
 **Alternativa rejeitada:** salvar "o Claude" no Drive como arquivo único — não existe esse objeto;
 o que existe é repositório + conta + chaves, cada um com seu lugar.
@@ -62,10 +62,29 @@ O operador pediu que nenhuma missão ignore o que já existe — isso só se gar
 dispara `/manutencao` (julgamento: consolidar memória, repetição → skill, dependências).
 **Custo:** uma sessão semanal. Pausar: lista de routines em claude.ai → desativar.
 
+### 2026-09-10 — O Cérebro mestre já existia; este repo vira satélite
+**Contexto:** ao abrir o MacBook, o Claude local foi direto a `~/Claude/cerebro-backup` — repositório
+privado com 2.717 arquivos, 111 skills, 7 diretores, 243 memórias, JARBAS, MOTOR-EXECUCAO. Fora do escopo
+desta sessão; eu construí em silo.
+**Decisão:** o mestre vence (CLAUDE.md §0b). Este repo governa site + radar de produto. Memória de negócio
+vai para o mestre. `/analise-cripto` renomeada para `/analise-cripto` (a `cripto` pessoal dele silenciaria a minha).
+`recall.sh` passa a buscar também nas memórias do mestre quando ele existir na máquina.
+**Porquê:** meses de memória, leis e gates financeiros não se substituem por um dia de construção.
+**Não fiz:** nada dentro do `cerebro-backup` — só leitura. O lado privado é registrado pelo Claude do Mac.
+
+### 2026-09-10 — Lei da Monotonia (resposta a "não decaia, sempre evoluir")
+**Contexto:** o operador temeu que subordinar o satélite ao mestre fosse regressão, e afirmou que "o de hoje"
+é o mais evoluído. Fato: os dois Macs rodam o mesmo mestre (243 memórias, leis, gates); o de hoje tem 1 dia.
+**Decisão:** não há "principal". Um Cérebro, dois repositórios. Precedência é de LEIS (segurança financeira e
+ética); capacidade é por UNIÃO e só cresce. Manifesto `CAPACIDADES.txt` + `_capacidades.sh` no CI: capacidade
+que some = vermelho. Arquivar em vez de apagar.
+**Porquê:** o medo dele é legítimo — sistemas de IA regridem por esquecimento silencioso. A resposta é teste,
+não promessa.
+
 ## Em aberto
 
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto`
-- [ ] **Vault privado criado?** — comando em [[00-MAPA]]
+- [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)
 - [ ] **Meta Ads / Supermetrics conectados à conta real de anúncio?**
 - [ ] **Gateway de pagamento definido** — Hotmart/Kiwify (mais simples) vs Stripe+Asaas (mais margem, mais trabalho)
 - [ ] **PIX_KEY preenchida em `radar/.env`** — sem ela o paywall roda em sandbox
@@ -73,4 +92,4 @@ dispara `/manutencao` (julgamento: consolidar memória, repetição → skill, d
 - [ ] **Chave Gemini** (`GEMINI_API_KEY`) — MCP configurado, inerte sem a chave
 - [ ] **Reddit OAuth** — dobra as fontes de dor do radar
 - [ ] **Rodar `bash .claude/backup.sh` no Mac uma vez** + linha de crontab que ele imprime
-- [ ] **Chaves no gerenciador de senhas** (PIX, PayPal, Vercel, Reddit) — antes de preencher qualquer `.env`
+- [ ] **Chaves no cofre iCloud `CEREBRO-CHAVES-BACKUP`** (convenção do mestre) — PIX, PayPal, Vercel, Reddit

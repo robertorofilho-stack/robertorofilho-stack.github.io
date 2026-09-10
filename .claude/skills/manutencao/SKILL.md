@@ -50,10 +50,12 @@ Registrar em `03-ATIVOS.md` o que foi automatizado.
 
 ## 4. Revisar CLAUDE.md e skills
 
-- Regra que nunca foi acionada em 30 dias → candidata a sair (CLAUDE.md carrega **sempre**; cada linha custa)
+- Regra que nunca foi acionada em 30 dias → mover para `04-PLAYBOOKS.md` (CLAUDE.md carrega **sempre**; cada linha custa). **Nunca apagar** — Lei da Monotonia.
 - Regra que foi violada → reforçar, ou virar hook (hook obriga; texto aconselha)
 - Skill cuja descrição não bate com o uso real → ajustar a descrição (é ela que decide o disparo)
-- Skill nunca usada em 60 dias → manter (custa ~100 tokens), mas anotar
+- Skill nunca usada em 60 dias → manter (custa ~100 tokens), mas anotar. Substituída por melhor → `.claude/arquivo/`, nunca apagar.
+
+**Lei da Monotonia:** ao terminar, `bash .claude/hooks/_capacidades.sh --gravar` (registra o que entrou) e `bash .claude/hooks/_capacidades.sh` (prova que nada saiu). Vermelho = não commita.
 
 ## 5. Dependências e ambiente
 

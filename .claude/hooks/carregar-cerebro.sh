@@ -24,6 +24,14 @@ if [ -f "$DIR/05-DECISOES.md" ]; then
   CTX+="### Decisões em aberto"$'\n'"$(grep -A3 -iE 'aberto|pendente|\[ \]' "$DIR/05-DECISOES.md" 2>/dev/null | head -c 1200)"$'\n\n'
 fi
 
+for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-backup"; do
+  if [ -n "$cand" ] && [ -d "$cand/.git" ]; then
+    CTX+="### ⚠️ CÉREBRO MESTRE presente nesta máquina: $cand"$'\n'
+    CTX+="Constituição, 4 Leis, MOTOR-EXECUCAO (gate G5) e diretores dele VENCEM este satélite (CLAUDE.md §0b). "
+    CTX+="Índice: claude-config/memory/MEMORY.md · Missões por voz: alfred/MISSOES-PARA-O-CEREBRO.md"$'\n\n'
+    break
+  fi
+done
 CTX+="**Regra:** ao fim de qualquer trabalho que produza decisão, número, aprendizado ou ativo — gravar em .claude/cerebro/02-MEMORIA.md e commitar. Sessão que não grava é sessão perdida."
 
 json_hook SessionStart additionalContext "$CTX"

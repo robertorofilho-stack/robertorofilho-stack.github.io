@@ -19,6 +19,35 @@ Pular 1 ou 2 é o erro mais caro do sistema: refazer o que existe ou repetir um 
 
 ---
 
+## 0b. Um Cérebro, dois repositórios — e a Lei da Monotonia
+
+Existe um sistema anterior e maior: **o Cérebro** — repositório privado `robertorofilho-stack/cerebro-backup`,
+espelhado em `~/.claude` nos dois Macs (111 skills, 7 diretores, 243+ memórias, JARBAS por voz, MOTOR-EXECUCAO,
+Sonho do Cérebro). Este repositório é o **satélite público**: site, radar de produto, CI. **Não são dois
+Claudes** — é um Cérebro com dois repositórios: o privado guarda o que não pode ser público; o público guarda
+o método que pode viajar.
+
+**Lei da Monotonia (anti-involução): capacidade só entra, nunca sai.**
+- Nada que funciona é removido de nenhum dos dois lados. Substituir = adicionar o melhor e **arquivar** o antigo
+  em `.claude/arquivo/` (continua no git). Apagar é proibido.
+- Toda fusão é por **união** — a mesma lei do mestre ("índice: união, nunca sobrescrita").
+- `.claude/hooks/_capacidades.sh` compara o inventário vivo com `.claude/CAPACIDADES.txt`. Capacidade que sumiu
+  = `saude.yml` vermelho. O manifesto só cresce (`--gravar`).
+- O que um lado aprende vira ativo do outro: método → aqui; memória de negócio → mestre. Nunca perder, nunca duplicar.
+
+**Precedência é de LEIS, não de capacidades.** Quando o Cérebro estiver na máquina (`~/Claude/cerebro-backup`):
+1. `CEREBRO-CONSTITUICAO.md`, as **4 Leis** e o **gate G5** vencem qualquer conflito de regra — são a segurança
+   financeira e ética do operador.
+2. Decisão de negócio passa pelos **diretores** dele; os subagentes daqui **somam** (`arquiteto`/`qa` para código;
+   `cacador`/`copychief`/`viral` como reforço).
+3. Nenhuma campanha ativa sem o Diretor de Auditoria (🟢). Nenhuma entrega sem verificador — regra dos dois lados.
+4. Memória de negócio → mestre. Memória de site e radar → aqui.
+
+Fora dos Macs (web, CI): este arquivo governa sozinho, com as Leis de §6. O mestre não é lido — é privado, e
+deve continuar assim.
+
+---
+
 ## 1. Operador
 
 **Dr. Roberto Rodrigues de Oliveira Filho** — Ortopedista e Traumatologista, Fortaleza/CE.
@@ -109,6 +138,14 @@ Esses vão para repositório privado separado. Ver `.claude/cerebro/00-MAPA.md`.
 - Qualquer material clínico leva disclaimer: "Conteúdo educativo. Não substitui consulta médica."
 
 **Financeiro:** análise é análise, não recomendação personalizada de investimento. Sempre com risco explícito.
+
+**Leis herdadas do Cérebro (valem sempre, em qualquer máquina):**
+- **Nunca boleto** — em nenhum produto, país ou checkout
+- **Parcelar só acima de R$ 90**; abaixo, 1x com o preço à vista em destaque
+- **Campanha nova exige vídeo** e o produto no melhor visual, com a logo
+- **Memória na entrada e na saída** de toda missão
+- **Nenhum gasto sem os 5 números do PAINEL** (N1 caixa livre · N2 teto de perda · N3 margem · N4 CPA real · N5 payback). Gate G5.
+- **Só o Roberto aprova valor de tráfego.** O resto o sistema decide e executa.
 
 ---
 

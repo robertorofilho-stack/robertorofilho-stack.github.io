@@ -53,6 +53,28 @@ Já tem o repo? Só `git pull && git checkout claude/projeto-supremo-claude-code
 
 **Duas máquinas ao mesmo tempo** (web + Mac): sempre `git pull` antes de começar e commit + push ao terminar. O repositório é a única fonte de verdade; sessão que não commita não existiu.
 
+## 🧠 O Cérebro MESTRE e este satélite
+
+Este vault é o cérebro **público, do site** — um satélite. O **mestre** é `robertorofilho-stack/cerebro-backup`
+(privado), vivo desde julho/2026, sincronizado entre MacBook e Mac mini a cada minuto (`sync-backup.sh`).
+Nos Macs ele mora em `~/Claude/cerebro-backup` e é espelhado em `~/.claude`. Recuperação dele: `RESTAURAR.md`
+dentro do próprio repo (clone → `instalar.sh` → chaves do iCloud `CEREBRO-CHAVES-BACKUP`).
+
+| Conceito | Mestre (cerebro-backup) | Satélite (este repo) | Regra |
+|---|---|---|---|
+| Constituição | `CEREBRO-CONSTITUICAO.md` + 4 Leis + MOTOR-EXECUCAO | `CLAUDE.md` | mestre vence (§0b) |
+| Memória | `claude-config/memory/` (243+, índice `MEMORY.md`) | `02-MEMORIA.md` | negócio → mestre; site/radar → aqui |
+| Executores | 7 diretores + 111 skills + squads | 9 subagentes + 17 skills | negócio → diretores; código → `arquiteto`/`qa` |
+| Auditoria | `diretor-de-auditoria` (🟢 libera campanha) | `auditor` / `qa` | os dois; o dele fecha |
+| Radar | `radar-demanda-validada` (skill) · `RADAR-MAC/` (cripto/B3) | `radar/` (produto → micro-SaaS) | nomes diferentes, funções diferentes |
+| Cripto | skill `cripto` + `RADAR-MAC` + Oráculo | `/analise-cripto` | dele é o sistema; o meu é análise pontual |
+| Voz / daemon | JARBAS (`alfred/`, launchd) | routine semanal + `saude.yml` | complementares |
+| Backup | `sync-backup.sh` + `RESTAURAR.md` | `backup.sh` + kit | os dois |
+| Chaves | iCloud `CEREBRO-CHAVES-BACKUP` + `~/.config/vha-vibe-marketing/.env` | `.env` local | nunca em git |
+
+O que o satélite acrescentou que o mestre não tinha: radar de produto + gerador de micro-SaaS com Pix/PayPal
++ QA no Chromium, CI na nuvem (`saude.yml`), `/nobel`, `/adversarial`, e a camada de site.
+
 ## ⚠️ Fronteira de segurança
 
 Este repositório é **público** e publica `www.drrobertorodrigues.com`.

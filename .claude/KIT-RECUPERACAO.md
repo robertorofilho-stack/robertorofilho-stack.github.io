@@ -1,7 +1,16 @@
 # 🧠 KIT DE RECUPERAÇÃO — PROJETO SUPREMO
 
 > Se o Mac morreu, se comprou máquina nova, se o GitHub sumiu: este documento devolve tudo.
-> Cópia viva: `.claude/KIT-RECUPERACAO.md` no repositório · cópia no Google Drive: https://docs.google.com/document/d/1m1dDhwvhOU9JJRd56I4-pslTtQAhCyXChJfKUuHTsqk/edit
+> Cópia viva: `.claude/KIT-RECUPERACAO.md` no repositório · cópia no Google Drive: https://docs.google.com/document/d/1_beo1wEmov2yDu9VJX9QRyGdyIDeIs6vpgkuhRI65nU/edit
+
+## ⚠️ Você tem DOIS sistemas — recupere os dois
+
+| Sistema | Onde | Como recuperar |
+|---|---|---|
+| **Cérebro MESTRE** (leis, diretores, 243+ memórias, JARBAS, skills) | GitHub privado `robertorofilho-stack/cerebro-backup` | `RESTAURAR.md` dentro dele: clone → `bash instalar.sh` → chaves do iCloud `CEREBRO-CHAVES-BACKUP` |
+| **Satélite** (site + radar de produto + CI) | GitHub `robertorofilho-stack.github.io`, branch `claude/projeto-supremo-…` | os 5 comandos abaixo |
+
+Ordem: mestre primeiro, satélite depois. O mestre é o que sabe quem você é há meses.
 
 ## 🖥️ Para quem nunca abriu o Terminal — leia isto primeiro
 

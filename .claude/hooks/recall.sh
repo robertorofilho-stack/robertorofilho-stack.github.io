@@ -39,10 +39,29 @@ done <<< "$KWS"
 
 ACHADOS=$(printf '%s' "$ACHADOS" | awk 'NF && !seen[$0]++' | head -24 \
   | sed "s#^$DIR/##" | cut -c1-170)
-[ -n "$ACHADOS" ] || { echo '{}'; exit 0; }
 
-TXT="🧠 MEMÓRIA RELACIONADA — busca automática no cérebro por: $(printf '%s' "$KWS" | tr '\n' ' ')"$'\n\n'
-TXT+="$ACHADOS"$'\n\n'
+# Cérebro MESTRE (privado, cerebro-backup), se existir nesta máquina: busca nos
+# arquivos de memória individuais e devolve só os NOMES (a substância fica lá;
+# o índice MEMORY.md já é injetado pelos hooks do próprio Cérebro).
+MESTRE=""
+for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-backup"; do
+  [ -n "$cand" ] && [ -d "$cand/claude-config/memory" ] && { MESTRE="$cand/claude-config/memory"; break; }
+done
+MEMS=""
+if [ -n "$MESTRE" ]; then
+  while IFS= read -r kw; do
+    [ -n "$kw" ] || continue
+    R=$(grep -rliF -- "$kw" "$MESTRE"/*.md 2>/dev/null | grep -v '/MEMORY.md$' | head -4)
+    [ -n "$R" ] && MEMS+="$R"$'\n'
+  done <<< "$KWS"
+  MEMS=$(printf '%s' "$MEMS" | awk 'NF && !seen[$0]++' | head -10 | sed "s#^$MESTRE/##")
+fi
+
+[ -n "$ACHADOS$MEMS" ] || { echo '{}'; exit 0; }
+
+TXT="🧠 MEMÓRIA RELACIONADA — busca automática por: $(printf '%s' "$KWS" | tr '\n' ' ')"$'\n\n'
+[ -n "$ACHADOS" ] && TXT+="Satélite (.claude/cerebro):"$'\n'"$ACHADOS"$'\n\n'
+[ -n "$MEMS" ] && TXT+="CÉREBRO MESTRE (privado) — abrir antes de decidir:"$'\n'"$MEMS"$'\n\n'
 TXT+="Antes de construir: conferir .claude/cerebro/03-ATIVOS.md — não reconstruir o que existe. "
 TXT+="Escolher skill/subagente do arsenal antes de improvisar. Ao terminar: gravar em 02-MEMORIA.md."
 

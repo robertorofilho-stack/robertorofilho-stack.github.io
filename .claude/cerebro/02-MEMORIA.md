@@ -7,6 +7,20 @@
 
 ## 2026-09
 
+### 2026-09-10 — Descoberta do Cérebro mestre e unificação (satélite ⊂ mestre)
+
+**Contexto:** no primeiro prompt do MacBook, o Claude local inspecionou `~/Claude/cerebro-backup` e fundiu
+o índice dos dois Macs (243 memórias, zero perda). Eu não sabia que existia: repo privado, fora do escopo.
+**Resultado:** CLAUDE.md §0b (mestre vence) + 4 Leis e gate G5 copiadas · `recall.sh` busca no mestre
+quando presente · `carregar-cerebro.sh` avisa · `/cripto` → `/analise-cripto` · mapa de equivalências em
+[[00-MAPA]] · kit com os dois sistemas.
+**Aprendizado:** construí em silo por falta de visibilidade. Regra nova: antes de construir infraestrutura,
+`list_repos` e perguntar "o que já existe?". Ver [[APRENDIZADO-PROJETO-SUPREMO]] #25.
+**Próximo passo:** o Claude do Mac registra o satélite na memória do mestre (prompt entregue ao operador).
+**Links:** [[05-DECISOES]] [[00-MAPA]]
+
+---
+
 ### 2026-09-10 — Cérebro dos 2 Macs diverge: conserto e limitação do fundir-indice
 
 **Contexto:** SessionStart avisou conflito em `claude-config/memory/MEMORY.md`. Air estava
