@@ -17,6 +17,10 @@ todos os modelos — recomendado), OPENAI_API_KEY, XAI_API_KEY, GEMINI_API_KEY, 
 Sem variável, tenta arquivos .env FORA do repositório: $CONSELHO_ENV, ~/.config/cerebro/conselho.env,
 iCloud CEREBRO-CHAVES-BACKUP/conselho.env (convenção do Cérebro mestre).
 
+Modo "credencial no proxy" (Claude Code na web, planos Pro/Max): a chave fica em API credentials do
+ambiente e o proxy da Anthropic a injeta nas requisições para o host; o helper detecta isso sozinho
+(sonda autenticada responde 200 sem chave) e então NÃO envia Authorization — o proxy envia.
+
 Só biblioteca padrão. Todos os provedores falam o formato OpenAI (chat/completions); o Gemini pelo
 endpoint compatível. Custo: calculado do preço por token quando o provedor informa (OpenRouter).
 """
@@ -33,6 +37,7 @@ PROVEDORES = {
     "openrouter": {
         "base": "https://openrouter.ai/api/v1",
         "chave": "OPENROUTER_API_KEY",
+        "sonda": "/auth/key",  # exige auth: 200 sem enviarmos chave = o proxy da nuvem injetou a credencial
         "familias": {"openai": r"^openai/gpt-", "xai": r"^x-ai/grok-", "google": r"^google/gemini-", "deepseek": r"^deepseek/deepseek-"},
     },
     "openai": {"base": "https://api.openai.com/v1", "chave": "OPENAI_API_KEY", "familias": {"openai": r"^gpt-"}},
@@ -98,13 +103,35 @@ def carregar_chaves():
             _carregar_dotenv(p)
 
 
+PROXY = "proxy"  # valor-sentinela: credencial injetada pelo proxy da nuvem, não pelo helper
+
+
 def chaves_presentes():
     return {p: os.environ.get(cfg["chave"], "").strip() for p, cfg in PROVEDORES.items() if os.environ.get(cfg["chave"], "").strip()}
 
 
+def _sondar(prov):
+    st, _ = http(f"{PROVEDORES[prov]['base']}{PROVEDORES[prov].get('sonda', '/models')}", timeout=8)
+    return prov, st == 200
+
+
+def detectar_proxy():
+    """Sem nenhuma chave no ambiente: pergunta a cada provedor, SEM Authorization, se já estamos autenticados.
+    200 = o proxy da nuvem injetou a credencial → marca o provedor como disponível via proxy."""
+    if chaves_presentes() or os.environ.get("CONSELHO_SEM_SONDA"):
+        return []
+    achados = []
+    with cf.ThreadPoolExecutor(max_workers=len(PROVEDORES)) as ex:
+        for prov, ok in ex.map(_sondar, list(PROVEDORES)):
+            if ok:
+                os.environ[PROVEDORES[prov]["chave"]] = PROXY
+                achados.append(prov)
+    return achados
+
+
 def mascarar(txt):
     for v in chaves_presentes().values():
-        if v and len(v) > 6:
+        if v and v != PROXY and len(v) > 6:
             txt = txt.replace(v, v[:4] + "…" + v[-2:])
     return txt
 
@@ -143,7 +170,8 @@ def http(url, dados=None, cabecalhos=None, timeout=TIMEOUT):
 
 
 def cabecalhos(prov):
-    h = {"Authorization": f"Bearer {os.environ[PROVEDORES[prov]['chave']]}"}
+    chave = os.environ[PROVEDORES[prov]["chave"]]
+    h = {} if chave == PROXY else {"Authorization": f"Bearer {chave}"}  # no modo proxy, quem assina é o proxy
     if prov == "openrouter":
         h["HTTP-Referer"] = "https://github.com/robertorofilho-stack/robertorofilho-stack.github.io"
         h["X-Title"] = "Cerebro Conselho"
@@ -297,6 +325,7 @@ def markdown(tese, res, erros, modo):
 # ---------------------------------------------------------------- CLI
 def main(argv):
     carregar_chaves()
+    detectar_proxy()
     a = {"tese": None, "arquivo": None, "contexto": "", "modo": "contra", "max": 4, "saida": None,
          "json": False, "status": False, "listar": False, "quieto": False, "modelos": []}
     it = iter(argv)
@@ -319,11 +348,12 @@ def main(argv):
     if a["status"]:
         if not presentes:
             if not a["quieto"]:
-                print("conselho: nenhuma chave — defina OPENROUTER_API_KEY (uma chave, todos os motores) ou "
-                      "OPENAI_API_KEY / XAI_API_KEY / GEMINI_API_KEY / DEEPSEEK_API_KEY. "
-                      "Fora do git: ambiente do Claude Code na web, ou ~/.config/cerebro/conselho.env no Mac.")
+                print("conselho: nenhuma chave — na web: API credential do ambiente (host openrouter.ai) ou "
+                      "variável OPENROUTER_API_KEY; no Mac: ~/.config/cerebro/conselho.env. "
+                      "Alternativas diretas: OPENAI_API_KEY / XAI_API_KEY / GEMINI_API_KEY / DEEPSEEK_API_KEY.")
             return 2
-        print("conselho: chaves presentes → " + ", ".join(sorted(presentes)))
+        print("conselho: motores prontos → " + ", ".join(
+            f"{p} (credencial no proxy da nuvem)" if v == PROXY else p for p, v in sorted(presentes.items())))
         return 0
     if a["listar"]:
         if not presentes:

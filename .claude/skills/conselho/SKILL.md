@@ -25,6 +25,7 @@ python3 .claude/helpers/conselho/conselho.py --tese "<tese>" --contexto "<númer
 ```
 
 - Exit 2 (sem chave) → rodar `/adversarial` no lugar e dizer explicitamente: *"conselho offline, segunda opinião foi interna"*.
+- Na nuvem (Pro/Max) a chave pode estar como **API credential** do ambiente: o proxy assina as requisições e o helper detecta sozinho (`--status` mostra "credencial no proxy da nuvem"). Nada a configurar no código.
 - Modo livre (ideias em vez de ataque): `--modo livre`. Forçar modelos: `--modelo openrouter:openai/gpt-5`.
 - O helper escolhe o modelo mais novo de cada família e informa custo por chamada quando o provedor publica preço.
 

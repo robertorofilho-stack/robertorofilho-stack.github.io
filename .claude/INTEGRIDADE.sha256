@@ -1,6 +1,6 @@
 # SOBERANIA DO MOTOR — hashes dos arquivos do motor Claude Code. Regravado só pelo Claude Code.
 c9df693b07e83bfe0712e911eb7487de66ab082deba360cd8a3bf5a56cf425cb  .claude/CAPACIDADES.txt
-825bcdd9d364be7956cfe417f837506289f965ab9718487e8f96b5972a5c373e  .claude/KIT-RECUPERACAO.md
+2b97a96a2848e2a14d5cddb1676ab549e82d29d2b0ecb78a60d1e735c11a7119  .claude/KIT-RECUPERACAO.md
 4370fcdd49001c39897a48e7cb301e856683985b4544cc99799dcf266c657280  .claude/MCP-ARSENAL.md
 635d11da28cda70b6dd5ac1d63ba87a2c74083704266896ad4b469300785d7e8  .claude/agents/arquiteto.md
 f79c72f83535ff594e3095d32dee54e9d2c35196202598309dd8d5db13bf38c7  .claude/agents/auditor.md
@@ -17,9 +17,9 @@ a12ca4c4a79f03970a26e95a402549e9059b80588dbe27141a7d20a754748bc5  .claude/bootst
 6edd692d4cd2bc333904df5a3a8cbe5ba61b6bad3d78de921d413dfa7c5b6b55  .claude/helpers/cerebro/fundir-indice.py
 43db87471b47e1f07e23171b27892afc9d2f02abecae6588320b99170e696e6f  .claude/helpers/cerebro/testar-fundir.py
 5ef4d864e0e15b87d852530acbe1edcefa67647d456870325d4c403246eb9037  .claude/helpers/cerebro/verificar-indice.py
-f35d57328122e2978910cb1e1b8e95968c8b8732109182e713c52f6c7e418cec  .claude/helpers/conselho/conselho.env.example
-22e92ea947d3bce6a8734984cf4e002e3d2e4dee0c57768387b766fb07c73f94  .claude/helpers/conselho/conselho.py
-36c7b538a9eee0a0e77883966a5e1705697758b25de0f82ba5143d5cd27b833d  .claude/helpers/conselho/testar-conselho.py
+2cfe1e62ebbeb96a3721c29c313c92172b988d488048df9bb4f744afc4da999d  .claude/helpers/conselho/conselho.env.example
+10623c2db1366c3d069c53c9340d245f1529db3d09f0a573d294b1c71bb846e7  .claude/helpers/conselho/conselho.py
+9a48d5b8ac62c0bea95609fd2717d737bc16f3bf8ed9c61c13505fe4185a73b0  .claude/helpers/conselho/testar-conselho.py
 5efbae554c789109e678484f9dc7a062b230a72f57a09a3abdac09e5ef91e59f  .claude/hooks/_capacidades.sh
 78f6b9f0801e9b3b7c0349b9fb04c68991f70d1c6eda1fe99261250b8d31f66d  .claude/hooks/_integridade.sh
 106fb54affb9d85dd8ca43ea2c28ec34a96c6133d5e926c69a7dd78831ade24e  .claude/hooks/_json.sh
@@ -35,7 +35,7 @@ eac17c6f56d532c61fb72a6365a1edebe71bb10bd9564555bf528c621444f061  .claude/skills
 f277ee82b0e59191e102971ff3f6ce60b70c6b40a31dafa1a3ec00870be43939  .claude/skills/auditar/SKILL.md
 846f1bae066c02cec291cacec545210bc99bb97c71e53c9c92f85d79e6bbd922  .claude/skills/brief/SKILL.md
 79c40c7d7dc67a40f55c68ac1a8ca52acc0cd20683ae049d723f4dd8100d2443  .claude/skills/cacar-produto/SKILL.md
-af56a53f1b09d0f85802a917634c2c381b4b4f9a924ebb9abded678b7c0382d3  .claude/skills/conselho/SKILL.md
+727c64750853cc584a38409e8213b96f9b8651924da3ee0c16c55359a4718fc8  .claude/skills/conselho/SKILL.md
 b8c8386e4b70576dbc03bac7ea9c5150d78fa364f58bbd74af20d06490863c2c  .claude/skills/ganchos/SKILL.md
 9ad00aa5c3c10c76f352dac69c69d6560c3c2b54d9f9b4ae0ff35f4500cf04ac  .claude/skills/grants/SKILL.md
 e827ed0040730c760657bb4d84630f30dac9eb849bc79b0e47863766d32081dc  .claude/skills/lancamento/SKILL.md

@@ -16,7 +16,7 @@ spec = importlib.util.spec_from_file_location("conselho", CONSELHO)
 c = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(c)
 
-CHAVES = ("OPENROUTER_API_KEY", "OPENAI_API_KEY", "XAI_API_KEY", "GEMINI_API_KEY", "DEEPSEEK_API_KEY", "CONSELHO_MODELOS", "CONSELHO_ENV")
+CHAVES = ("OPENROUTER_API_KEY", "OPENAI_API_KEY", "XAI_API_KEY", "GEMINI_API_KEY", "DEEPSEEK_API_KEY", "CONSELHO_MODELOS", "CONSELHO_ENV", "CONSELHO_SEM_SONDA")
 
 
 def limpar_env():
@@ -57,7 +57,7 @@ class Base(unittest.TestCase):
 class TesteChaves(Base):
     def test_sem_chave_status_exit_2(self):
         r = subprocess.run([sys.executable, CONSELHO, "--status"], capture_output=True, text=True,
-                           env={k: v for k, v in os.environ.items() if k not in CHAVES})
+                           env=dict({k: v for k, v in os.environ.items() if k not in CHAVES}, CONSELHO_SEM_SONDA="1"))
         self.assertEqual(r.returncode, 2)
         self.assertIn("nenhuma chave", r.stdout)
 
@@ -75,6 +75,42 @@ class TesteChaves(Base):
     def test_mascarar_nunca_deixa_a_chave_inteira(self):
         os.environ["OPENAI_API_KEY"] = "sk-proj-SEGREDO99"
         self.assertNotIn("SEGREDO99", c.mascarar("erro com sk-proj-SEGREDO99 no meio"))
+
+
+class TesteCredencialNoProxy(Base):
+    def test_sonda_200_sem_chave_liga_modo_proxy_e_nao_envia_authorization(self):
+        def tabela(url, dados):
+            if url.endswith("/auth/key"):
+                return 200, {"data": {"label": "cerebro"}}
+            if url.endswith("/models"):
+                return (200, modelos_falsos("openai/gpt-6", "x-ai/grok-4.6")) if "openrouter" in url else (401, {"error": "no"})
+            return 200, resposta_falsa()
+        self.falso_http(tabela)
+        self.assertEqual(c.detectar_proxy(), ["openrouter"])
+        self.assertEqual(os.environ["OPENROUTER_API_KEY"], c.PROXY)
+        res, _ = c.rodar("tese")
+        self.assertTrue(all(r["ok"] for r in res))
+        for _, dados, cab in self.chamadas:
+            self.assertNotIn("Authorization", cab or {})
+
+    def test_com_chave_no_ambiente_nao_sonda(self):
+        os.environ["OPENROUTER_API_KEY"] = "sk-or-v1-FAKE0001"
+        self.falso_http(lambda url, dados: (500, {}))
+        self.assertEqual(c.detectar_proxy(), [])
+        self.assertEqual(self.chamadas, [])
+
+    def test_sem_proxy_e_sem_chave_continua_exit_2(self):
+        self.falso_http(lambda url, dados: (401, {"error": "unauthorized"}))
+        self.assertEqual(c.detectar_proxy(), [])
+        self.assertEqual(c.chaves_presentes(), {})
+
+    def test_status_mostra_modo_proxy(self):
+        os.environ["OPENROUTER_API_KEY"] = c.PROXY
+        os.environ["CONSELHO_SEM_SONDA"] = "1"
+        r = subprocess.run([sys.executable, CONSELHO, "--status"], capture_output=True, text=True, env=dict(os.environ))
+        os.environ.pop("CONSELHO_SEM_SONDA", None)
+        self.assertEqual(r.returncode, 0)
+        self.assertIn("credencial no proxy", r.stdout)
 
 
 class TesteEscolhaDeModelo(Base):
@@ -176,6 +212,7 @@ class TesteConselho(Base):
 
     def test_cli_sem_chave_exit_2_e_sem_tese_exit_64(self):
         env = {k: v for k, v in os.environ.items() if k not in CHAVES}
+        env["CONSELHO_SEM_SONDA"] = "1"
         r = subprocess.run([sys.executable, CONSELHO, "--tese", "x"], capture_output=True, text=True, env=env)
         self.assertEqual(r.returncode, 2)
         self.assertIn("/adversarial", r.stderr)
