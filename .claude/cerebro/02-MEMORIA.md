@@ -7,6 +7,17 @@
 
 ## 2026-09
 
+### 2026-09-10 — Segundo merge na `main` ("mergeia"): conselho, recall do mestre, cofre e actions v5 vão para produção
+
+**Por quê:** sessão nova na nuvem nasce da `main`; sem o merge nasceria sem conselho, sem recall do mestre e sem o
+verificador do cofre. **Pré-checagem:** `main` (`41eef57`, último commit do radar) é ancestral da branch; 7 commits
+entram; zero arquivo do site muda. **Feito:** `merge --no-ff` de `fe1956b` (+ esta memória), suíte de saúde no tree
+final, push; branch alinhada à `main` por fast-forward. Regra que fica: **toda entrega que muda comportamento de
+sessão nova pede merge na `main` no mesmo dia**, com autorização do operador.
+**Links:** [[05-DECISOES]]
+
+---
+
 ### 2026-09-10 — Conselho ATIVO na nuvem: credencial no proxy, saldo lido, primeira rodada real (4/4)
 
 **Ativação (passo a passo com o operador no Mac mini):** o link claude.ai/code abria no app e ficava branco →
