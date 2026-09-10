@@ -126,9 +126,18 @@ educativo sob condições — conferir o texto antes de mudar o §6 do CLAUDE.md
 aberto` com viés não-médico ou B2B profissional; (3) todo teste = página de pré-venda, ≤ R$ 350 em 7 dias, métrica é
 pagamento ou clique no checkout. Relatório completo entregue ao operador (não versionado: estratégia, §6).
 
+### 2026-09-10 — Produto é NÃO-médico por padrão; médico só quando o operador disser
+**Contexto:** na primeira caçada, três frentes eram médicas ou para profissionais de saúde (IA para consultórios, formação
+para fisios, perícia médica), seguindo a "convergência" do conselho. O operador cortou: "não quero produtos médicos,
+quase nunca quero algo médico, quando for algo médico eu digo, pare de procurar".
+**Decisão:** frente médica (inclui B2B para médicos, fisios, clínicas e perícia) fica fora de caçada, oferta e lançamento
+até ele dizer a palavra. Registrado em [[01-PERFIL]], no `/cacar-produto` e no CLAUDE.md §2. Os achados de perícia
+médica (3 anunciantes com 50 dias a 3 anos de anúncio) ficam arquivados aqui como dado, não como proposta.
+**Também:** ele não quer caçar produto agora. `/cacar-produto` só quando pedido.
+
 ## Em aberto
 
-- [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto` **com viés não-médico ou B2B profissional** (ver Conselho 10/09 abaixo); guia de joelho para leigos NÃO é o primeiro produto pago
+- [ ] **Primeiro nicho de infoproduto** — só quando o operador pedir; **não-médico** (B2B profissional de saúde também conta como médico para ele); guia de joelho para leigos NÃO é o primeiro produto pago
 - [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)
 - [ ] **Meta Ads / Supermetrics conectados à conta real de anúncio?**
 - [ ] **Gateway de pagamento definido** — Hotmart/Kiwify (mais simples) vs Stripe+Asaas (mais margem, mais trabalho)

@@ -12,7 +12,7 @@ Se vazio ou "aberto": busca livre, sem restrição de nicho. Neste caso, comece 
 
 ## Regra de ouro
 
-O operador **não precisa** de produto ligado à medicina. Qualquer nicho serve. O critério é dinheiro e escala, não afinidade.
+O operador **não quer** produto ligado à medicina, por padrão — e "medicina" para ele inclui produto para médicos, fisioterapeutas, clínicas, consultórios e perícia. Frente médica **só** entra quando o pedido disser explicitamente "médico". Sem essa palavra: zero frente médica, nem como "B2B profissional". Qualquer outro nicho serve; o critério é dinheiro e escala, não afinidade.
 
 Não busque ideias. Busque **evidência de compra**.
 

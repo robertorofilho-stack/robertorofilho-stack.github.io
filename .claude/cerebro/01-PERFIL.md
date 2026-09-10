@@ -22,7 +22,7 @@ infiltração e viscossuplementação · prótese de joelho · dor persistente e
 ## Objetivos declarados
 
 1. **Autoridade médica** — referência nacional, depois internacional, em joelho e saúde musculoesquelética
-2. **Infoprodutos** — vender em escala. **Explicitamente não precisa ter ligação com medicina.** Qualquer nicho, o critério é dinheiro e escala.
+2. **Infoprodutos** — vender em escala. **Por padrão, NÃO médico** (10/09/2026, ordem direta: "quase nunca quero algo médico; quando for, eu digo"). Isso inclui produto para médicos, fisioterapeutas, clínicas e perícia — tudo isso é "médico" para ele. Frente médica só entra em caçada, oferta ou lançamento quando ele disser a palavra. Qualquer outro nicho serve; o critério é dinheiro e escala.
 3. **Independência financeira** — construir patrimônio via produto digital, sistemas e investimento
 4. **Automação** — transformar tarefa repetitiva em sistema, sempre
 

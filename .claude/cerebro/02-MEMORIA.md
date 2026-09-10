@@ -7,6 +7,19 @@
 
 ## 2026-09
 
+### 2026-09-10 — Caçada interrompida pelo operador: nada médico, e não é hora de caçar
+
+**O que houve:** disparei `/cacar-produto aberto` com 3 caçadores (IA para consultórios, formação para fisios/residentes,
+varredura livre) e levantei na Meta Ads Library um sinal forte em perícia médica para médicos (Hurtado desde 11/2023,
+Marinho 4 meses, Medicine Cursos 50 dias). O operador parou tudo: não quer produto médico (inclui B2B para médicos,
+fisios, clínicas, perícia), quase nunca; e não quer caçar agora.
+**Erro meu:** li "B2B profissional" do conselho como licença para frentes médicas. Para ele, médico é médico.
+**Feito:** caçadores cancelados; regra gravada em [[01-PERFIL]], `/cacar-produto`, CLAUDE.md §2 e [[05-DECISOES]].
+Dados de anúncio ficam como registro, sem proposta.
+**Links:** [[05-DECISOES]] [[01-PERFIL]]
+
+---
+
 ### 2026-09-10 — Segundo merge na `main` ("mergeia"): conselho, recall do mestre, cofre e actions v5 vão para produção
 
 **Por quê:** sessão nova na nuvem nasce da `main`; sem o merge nasceria sem conselho, sem recall do mestre e sem o
