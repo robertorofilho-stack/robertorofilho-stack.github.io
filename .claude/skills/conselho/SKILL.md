@@ -21,10 +21,12 @@ Uma tese estressável tem: a afirmação, o número que a sustenta, a premissa m
 
 ```bash
 python3 .claude/helpers/conselho/conselho.py --status                      # chaves prontas? (exit 2 = nenhuma)
+python3 .claude/helpers/conselho/conselho.py --saldo                       # crédito do OpenRouter antes de gastar (exit 2 = abaixo de US$ 1)
 python3 .claude/helpers/conselho/conselho.py --tese "<tese>" --contexto "<números e decisões>" --saida /tmp/conselho.md
 ```
 
 - Exit 2 (sem chave) → rodar `/adversarial` no lugar e dizer explicitamente: *"conselho offline, segunda opinião foi interna"*.
+- Nos Macs a chave já existe no cofre `~/.config/vha-vibe-marketing/.env` (chave padrão de LLM do mestre); o helper lê sozinho.
 - Na nuvem (Pro/Max) a chave pode estar como **API credential** do ambiente: o proxy assina as requisições e o helper detecta sozinho (`--status` mostra "credencial no proxy da nuvem"). Nada a configurar no código.
 - Modo livre (ideias em vez de ataque): `--modo livre`. Forçar modelos: `--modelo openrouter:openai/gpt-5`.
 - O helper escolhe o modelo mais novo de cada família e informa custo por chamada quando o provedor publica preço.

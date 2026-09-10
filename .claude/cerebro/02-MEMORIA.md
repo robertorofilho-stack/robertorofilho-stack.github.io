@@ -26,6 +26,11 @@ por mim, sem pedir. O MCP `gemini-mcp-tool` passou a exigir a CLI `agy` com logi
 **Validado no catálogo público real (10/09):** gpt-6-astra US$ 0,090 · grok-4.6 0,013 · gemini-3.8-flash 0,007 ·
 deepseek-v4.1-flash 0,001 → **rodada de 4 motores ≈ US$ 0,11**. Manus fora (sem API).
 **Não provado:** uma rodada real com chave — não há chave nesta máquina. Fica para o primeiro uso.
+**Correção do operador (mesma sessão):** "já tem crédito, você deveria ter consultado; já tem chave". Verdade: o mestre
+registra a `OPENROUTER_API_KEY` no cofre `~/.config/vha-vibe-marketing/.env` desde 06/07 (US$ 10 de crédito), como
+chave padrão de LLM. O helper agora lê esse cofre (e mapeia `GOOGLE_AI_STUDIO_API_KEY` → `GEMINI_API_KEY`) e ganhou
+`--saldo` (crédito comprado, usado, restante; limite da chave). Nos Macs não há nada a criar; na nuvem a mesma chave
+vira API credential. Aprendizado #28.
 **Links:** [[05-DECISOES]] [[03-ATIVOS]] [[00-MAPA]]
 
 ---

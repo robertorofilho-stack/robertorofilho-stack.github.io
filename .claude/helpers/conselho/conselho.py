@@ -8,14 +8,16 @@ pontos cegos diferentes — é isso que compra a segunda opinião. A síntese é
 Uso:
   conselho.py --status                       quais chaves/motores estão prontos (exit 2 = nenhum)
   conselho.py --listar                       modelos disponíveis por provedor (rede)
+  conselho.py --saldo                        crédito do OpenRouter (comprado, usado, restante) e limite da chave
   conselho.py --tese "..." [--contexto "..."] [--modo contra|livre] [--max 4] [--saida x.md] [--json]
   conselho.py --arquivo tese.md              tese lida de arquivo (stdin com "-")
   --modelo prov:id  (repetível) força modelos; ou env CONSELHO_MODELOS="openrouter:openai/gpt-5,gemini:gemini-2.5-pro"
 
 Chaves (só leitura, nunca gravadas, nunca impressas): variáveis de ambiente OPENROUTER_API_KEY (uma chave,
 todos os modelos — recomendado), OPENAI_API_KEY, XAI_API_KEY, GEMINI_API_KEY, DEEPSEEK_API_KEY.
-Sem variável, tenta arquivos .env FORA do repositório: $CONSELHO_ENV, ~/.config/cerebro/conselho.env,
-iCloud CEREBRO-CHAVES-BACKUP/conselho.env (convenção do Cérebro mestre).
+Sem variável, tenta arquivos .env FORA do repositório, nesta ordem: $CONSELHO_ENV, ~/.config/cerebro/conselho.env,
+~/.config/vha-vibe-marketing/.env (cofre do Cérebro mestre — a OPENROUTER_API_KEY já vive aqui nos dois Macs),
+e as cópias no iCloud CEREBRO-CHAVES-BACKUP. GOOGLE_AI_STUDIO_API_KEY do cofre vale como GEMINI_API_KEY.
 
 Modo "credencial no proxy" (Claude Code na web, planos Pro/Max): a chave fica em API credentials do
 ambiente e o proxy da Anthropic a injeta nas requisições para o host; o helper detecta isso sozinho
@@ -92,15 +94,23 @@ def _carregar_dotenv(caminho):
         pass
 
 
+COFRES = (  # ordem de prioridade; nenhum sobrescreve variável já presente
+    "$CONSELHO_ENV",
+    "~/.config/cerebro/conselho.env",
+    "~/.config/vha-vibe-marketing/.env",  # cofre do Cérebro mestre: OPENROUTER_API_KEY, OPENAI_API_KEY, GOOGLE_AI_STUDIO_API_KEY já vivem aqui
+    "~/Library/Mobile Documents/com~apple~CloudDocs/CEREBRO-CHAVES-BACKUP/conselho.env",
+    "~/Library/Mobile Documents/com~apple~CloudDocs/CEREBRO-CHAVES-BACKUP/config-vha-vibe-marketing/.env",
+)
+
+
 def carregar_chaves():
-    home = os.path.expanduser("~")
-    for p in (
-        os.environ.get("CONSELHO_ENV"),
-        os.path.join(home, ".config", "cerebro", "conselho.env"),
-        os.path.join(home, "Library", "Mobile Documents", "com~apple~CloudDocs", "CEREBRO-CHAVES-BACKUP", "conselho.env"),
-    ):
+    for p in COFRES:
+        p = os.environ.get("CONSELHO_ENV") if p == "$CONSELHO_ENV" else os.path.expanduser(p)
         if p and os.path.isfile(p):
             _carregar_dotenv(p)
+    # o cofre do mestre chama a chave do Google de GOOGLE_AI_STUDIO_API_KEY
+    if not os.environ.get("GEMINI_API_KEY") and os.environ.get("GOOGLE_AI_STUDIO_API_KEY"):
+        os.environ["GEMINI_API_KEY"] = os.environ["GOOGLE_AI_STUDIO_API_KEY"]
 
 
 PROXY = "proxy"  # valor-sentinela: credencial injetada pelo proxy da nuvem, não pelo helper
@@ -322,12 +332,36 @@ def markdown(tese, res, erros, modo):
     return "\n".join(linhas) + "\n"
 
 
+# ---------------------------------------------------------------- saldo
+def saldo():
+    """Crédito e limites do OpenRouter (único provedor com endpoint de saldo). Devolve (texto, ok)."""
+    if "openrouter" not in chaves_presentes():
+        return "saldo: só o OpenRouter informa crédito, e ele não está configurado", False
+    base = PROVEDORES["openrouter"]["base"]
+    st1, cred = http(f"{base}/credits", cabecalhos=cabecalhos("openrouter"), timeout=20)
+    st2, chave = http(f"{base}/auth/key", cabecalhos=cabecalhos("openrouter"), timeout=20)
+    if st1 != 200 or not isinstance(cred, dict):
+        return mascarar(f"saldo: falha ao consultar (HTTP {st1}: {json.dumps(cred)[:160]})"), False
+    d = cred.get("data") or {}
+    total, uso = float(d.get("total_credits") or 0), float(d.get("total_usage") or 0)
+    linhas = [f"OpenRouter · crédito comprado US$ {total:.2f} · usado US$ {uso:.2f} · restante US$ {total - uso:.2f}"]
+    if st2 == 200 and isinstance(chave, dict):
+        k = chave.get("data") or {}
+        lim = k.get("limit")
+        linhas.append(f"chave '{k.get('label', '?')}' · limite {'US$ %.2f' % lim if lim is not None else 'sem limite'} · "
+                      f"usado nela US$ {float(k.get('usage') or 0):.2f} · free tier: {'sim' if k.get('is_free_tier') else 'não'}")
+    restante = total - uso
+    if restante < 1:
+        linhas.append("⚠ crédito abaixo de US$ 1 — recarregar em https://openrouter.ai/settings/credits antes da próxima rodada")
+    return "\n".join(linhas), restante >= 1
+
+
 # ---------------------------------------------------------------- CLI
 def main(argv):
     carregar_chaves()
     detectar_proxy()
     a = {"tese": None, "arquivo": None, "contexto": "", "modo": "contra", "max": 4, "saida": None,
-         "json": False, "status": False, "listar": False, "quieto": False, "modelos": []}
+         "json": False, "status": False, "listar": False, "quieto": False, "modelos": [], "saldo": False}
     it = iter(argv)
     for x in it:
         if x == "--tese": a["tese"] = next(it, None)
@@ -340,6 +374,7 @@ def main(argv):
         elif x == "--json": a["json"] = True
         elif x == "--status": a["status"] = True
         elif x == "--listar": a["listar"] = True
+        elif x == "--saldo": a["saldo"] = True
         elif x == "--quieto": a["quieto"] = True
         else:
             print(f"conselho: opção desconhecida {x}", file=sys.stderr); return 64
@@ -355,6 +390,10 @@ def main(argv):
         print("conselho: motores prontos → " + ", ".join(
             f"{p} (credencial no proxy da nuvem)" if v == PROXY else p for p, v in sorted(presentes.items())))
         return 0
+    if a["saldo"]:
+        txt, ok = saldo()
+        print(txt)
+        return 0 if ok else 2
     if a["listar"]:
         if not presentes:
             print("conselho: nenhuma chave"); return 2

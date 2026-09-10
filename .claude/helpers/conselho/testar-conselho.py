@@ -16,7 +16,7 @@ spec = importlib.util.spec_from_file_location("conselho", CONSELHO)
 c = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(c)
 
-CHAVES = ("OPENROUTER_API_KEY", "OPENAI_API_KEY", "XAI_API_KEY", "GEMINI_API_KEY", "DEEPSEEK_API_KEY", "CONSELHO_MODELOS", "CONSELHO_ENV", "CONSELHO_SEM_SONDA")
+CHAVES = ("OPENROUTER_API_KEY", "OPENAI_API_KEY", "XAI_API_KEY", "GEMINI_API_KEY", "DEEPSEEK_API_KEY", "CONSELHO_MODELOS", "CONSELHO_ENV", "CONSELHO_SEM_SONDA", "GOOGLE_AI_STUDIO_API_KEY")
 
 
 def limpar_env():
@@ -111,6 +111,48 @@ class TesteCredencialNoProxy(Base):
         os.environ.pop("CONSELHO_SEM_SONDA", None)
         self.assertEqual(r.returncode, 0)
         self.assertIn("credencial no proxy", r.stdout)
+
+
+class TesteCofreDoMestre(Base):
+    def test_le_o_cofre_vha_vibe_e_mapeia_google_ai_studio(self):
+        home = tempfile.mkdtemp()
+        d = os.path.join(home, ".config", "vha-vibe-marketing"); os.makedirs(d)
+        with open(os.path.join(d, ".env"), "w") as f:
+            f.write("OPENROUTER_API_KEY=sk-or-v1-COFRE01\nGOOGLE_AI_STUDIO_API_KEY=AIzaCOFRE02\nOUTRA=x\n")
+        os.environ.pop("GOOGLE_AI_STUDIO_API_KEY", None)
+        real = os.path.expanduser
+        c.os.path.expanduser = lambda p: p.replace("~", home)
+        try:
+            c.carregar_chaves()
+        finally:
+            c.os.path.expanduser = real
+        self.assertEqual(os.environ["OPENROUTER_API_KEY"], "sk-or-v1-COFRE01")
+        self.assertEqual(os.environ["GEMINI_API_KEY"], "AIzaCOFRE02")
+        os.environ.pop("GOOGLE_AI_STUDIO_API_KEY", None)
+
+    def test_saldo_le_credito_e_limite_da_chave(self):
+        os.environ["OPENROUTER_API_KEY"] = "sk-or-v1-FAKE0001"
+        def tabela(url, dados):
+            if url.endswith("/credits"):
+                return 200, {"data": {"total_credits": 10.0, "total_usage": 2.5}}
+            if url.endswith("/auth/key"):
+                return 200, {"data": {"label": "cerebro", "limit": None, "usage": 2.5, "is_free_tier": False}}
+            return 404, {}
+        self.falso_http(tabela)
+        txt, ok = c.saldo()
+        self.assertTrue(ok)
+        self.assertIn("restante US$ 7.50", txt)
+        self.assertIn("sem limite", txt)
+
+    def test_saldo_baixo_avisa_e_sem_openrouter_falha(self):
+        os.environ["OPENROUTER_API_KEY"] = "sk-or-v1-FAKE0001"
+        self.falso_http(lambda url, dados: (200, {"data": {"total_credits": 10.0, "total_usage": 9.6}}) if url.endswith("/credits") else (401, {}))
+        txt, ok = c.saldo()
+        self.assertFalse(ok)
+        self.assertIn("abaixo de US$ 1", txt)
+        limpar_env()
+        txt, ok = c.saldo()
+        self.assertFalse(ok)
 
 
 class TesteEscolhaDeModelo(Base):

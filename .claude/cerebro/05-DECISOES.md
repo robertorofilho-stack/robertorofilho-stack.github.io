@@ -120,7 +120,7 @@ motores custa centavos. **Rejeitado:** integração por IA (quatro contas, quatr
 - [ ] **PIX_KEY preenchida em `radar/.env`** — sem ela o paywall roda em sandbox
 - [x] **Mergear branch na `main`** — feito 10/09 (`merge --no-ff`, autorizado com "mergeia"); radar 24/7 ativo
 - [x] **Chave Gemini** — superada pelo **conselho de outros motores** (`/conselho`, por API); o MCP do Gemini passou a exigir CLI nova com login e ficou como opcional no Mac
-- [ ] **`OPENROUTER_API_KEY`** — criar em openrouter.ai/keys, colocar nas variáveis de ambiente do Claude Code na web e em `~/.config/cerebro/conselho.env` no Mac (cópia no iCloud `CEREBRO-CHAVES-BACKUP`). Sem ela o conselho cai para `/adversarial`
+- [ ] **Conselho na nuvem** — a `OPENROUTER_API_KEY` **já existe** no cofre `~/.config/vha-vibe-marketing/.env` dos Macs (o helper lê sozinho); falta só colocá-la como **API credential** do ambiente do Claude Code na web (`openrouter.ai`, Authorization/Bearer). Depois: `conselho saldo` e a primeira rodada real
 - [ ] **Reddit OAuth** — dobra as fontes de dor do radar
 - [ ] **Rodar `bash .claude/backup.sh` no Mac uma vez** + linha de crontab que ele imprime
 - [ ] **Chaves no cofre iCloud `CEREBRO-CHAVES-BACKUP`** (convenção do mestre) — PIX, PayPal, Vercel, Reddit
