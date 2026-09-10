@@ -1,0 +1,31 @@
+# Segredos — este repositório é PÚBLICO
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials.json
+secrets/
+
+# Dependências e build
+node_modules/
+.next/
+out/
+dist/
+build/
+.vercel/
+.turbo/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
+.venv/
+venv/
+
+# Trabalho local do agente
+.claude/settings.local.json
+.claude/cerebro/privado/
+scratch/
+tmp/
