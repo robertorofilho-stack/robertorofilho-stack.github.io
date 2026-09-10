@@ -1,0 +1,37 @@
+# Segredos — este repositório é PÚBLICO
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials.json
+secrets/
+
+# Dependências e build
+node_modules/
+.next/
+out/
+dist/
+build/
+.vercel/
+.turbo/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
+.venv/
+venv/
+
+# Trabalho local do agente
+.claude/settings.local.json
+.claude/cerebro/privado/
+scratch/
+tmp/
+
+# Radar — saída de QA e projetos gerados.
+# saas-gerados/ é ARTEFATO, não fonte: regenera-se com gerar-saas.ts.
+# Versionar colidiu com a própria fixture em CI ("já existe").
+radar/dados/qa/
+radar/saas-gerados/

@@ -1,0 +1,23 @@
+{
+  "name": "radar-lucro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Detector de oportunidade de micro-SaaS a partir de sinal publico de dor e tendencia",
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "scripts": {
+    "radar": "node --experimental-strip-types radar-lucro.ts",
+    "radar:watch": "node --experimental-strip-types radar-lucro.ts --watch",
+    "gerar": "node --experimental-strip-types gerar-saas.ts",
+    "qa": "node --experimental-strip-types qa.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "playwright": "^1.63.0"
+  }
+}

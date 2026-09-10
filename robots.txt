@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /CLAUDE.md
+Disallow: /.claude/
+Disallow: /radar/
 
 Sitemap: https://www.drrobertorodrigues.com/sitemap.xml

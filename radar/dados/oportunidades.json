@@ -1,0 +1,28 @@
+[
+  {
+    "id": "qfk1s8",
+    "termo": "low fee credit card network that merchants didn't charge a fee for, so I could c",
+    "dor": ">I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accounting boondoggle. This is called \"Regulate the max fees\" like Europe did, where they still have functioning credit card netw",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 30,
+      "volume": 50.67031326325076,
+      "viabilidade": 55,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49632952",
+      "https://news.ycombinator.com/item?id=49632403"
+    ],
+    "amostras": [
+      ">I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accountin",
+      "I play the credit card \"game\" because I hate feeling like I'm leaving money on the table, but I really wish I didn't have to. Some degrees of fees make sense, to run the network, and handle fraud, but"
+    ],
+    "detectadoEm": "2026-09-10T03:51:01.679Z",
+    "estado": "EM_CONSTRUCAO",
+    "produtoSugerido": "Low fee credit card network that merchants didn't charg"
+  }
+]
