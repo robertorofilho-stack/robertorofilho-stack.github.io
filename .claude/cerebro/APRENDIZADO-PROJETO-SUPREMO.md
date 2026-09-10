@@ -147,3 +147,9 @@ Das 7 fontes de renda propostas, 4 eram fraude ou violação de termos. Para um 
 
 ### 19. No Bash tool, o comando inteiro É a cmdline — inclusive o heredoc
 Um `pkill -f 'qa[.]ts'` na primeira linha de um comando que continha `cat > qa.ts <<'EOF' …` matou o shell antes de escrever o arquivo: o regex casou com o texto "qa.ts" dentro do heredoc. O colchete protege só se o padrão não aparecer **em nenhum outro lugar** do comando. Regra: matar processo por campo exato do `ps` (`awk '$2=="next-server"'`), nunca por regex sobre a cmdline, e nunca no mesmo comando que escreve arquivo.
+
+### 20. O guarda bloqueia quem tenta reescrever o guarda
+Reescrever `guarda.sh` via heredoc em bash falhou: o hook PreToolUse leu o comando inteiro, achou o padrão proibido *na definição da própria regra* e negou. Mesma família das lições 14 e 19 — o comando é texto, e texto é escaneado. Hook, regra de firewall, padrão de bloqueio: escrever pela ferramenta de arquivo (Write/Edit), nunca por bash. E validador de teste em arquivo `.py`, não inline: aspas simples do Python dentro de aspas simples do bash produzem código quebrado que parece falha do alvo.
+
+### 21. Portabilidade se testa simulando a máquina alvo, não lendo o código
+`jq` ausente e `grep '\|'` só apareceram porque o teste construiu um PATH sem `jq`, sem `node`, sem `python3`. Ler os scripts não teria achado — eles "pareciam" portáveis.

@@ -1,19 +1,16 @@
 #!/usr/bin/env bash
 # PreToolUse(Bash) — impede destruição acidental e vazamento de segredo
 # em repositório PÚBLICO que serve www.drrobertorodrigues.com
+#
+# Portável: bash 3.2 (macOS), sem jq obrigatório (cadeia em _json.sh).
 set -uo pipefail
+. "$(dirname "$0")/_json.sh"
 
-INPUT=$(cat)
-CMD=$(echo "$INPUT" | jq -r '.tool_input.command // ""')
+CMD=$(json_get_command)
+[ -n "$CMD" ] || exit 0
 
 bloquear() {
-  jq -n --arg r "$1" '{
-    hookSpecificOutput: {
-      hookEventName: "PreToolUse",
-      permissionDecision: "deny",
-      permissionDecisionReason: $r
-    }
-  }'
+  json_hook PreToolUse permissionDecision deny permissionDecisionReason "$1"
   exit 0
 }
 
@@ -37,7 +34,7 @@ case "$CMD" in
     ACHADO=$(grep -rIlE \
       '(sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|xoxb-[0-9A-Za-z-]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)' \
       "$ROOT" \
-      --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.claude \
+      --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.claude --exclude-dir=.next \
       2>/dev/null | head -5)
     [ -n "$ACHADO" ] && bloquear "BLOQUEADO: possível credencial detectada em: $ACHADO — este repositório é PÚBLICO. Remova antes de commitar."
     ;;

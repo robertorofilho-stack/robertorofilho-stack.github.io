@@ -22,6 +22,33 @@
 
 Memória não commitada não existe. O contêiner morre; o repositório permanece.
 
+## 💻 Continuar no MacBook (ou em qualquer máquina)
+
+Tudo que existe aqui é **arquivo no repositório** — nada vive na conversa. Clonar = herdar o cérebro inteiro.
+
+```bash
+git clone https://github.com/robertorofilho-stack/robertorofilho-stack.github.io.git
+cd robertorofilho-stack.github.io
+git checkout claude/projeto-supremo-claude-code-epsu7w
+bash .claude/bootstrap.sh          # checa git, claude, jq; testa o hook do cérebro
+claude                             # o cérebro carrega sozinho no primeiro prompt
+```
+
+Já tem o repo? Só `git pull && git checkout claude/projeto-supremo-claude-code-epsu7w`.
+
+| O que | Vem automático? | Detalhe |
+|---|---|---|
+| CLAUDE.md, 16 skills, 9 subagentes, 3 hooks, cérebro | ✅ | Escopo de projeto: viajam com o clone |
+| MCPs de `.mcp.json` (playwright, memoria, pensar, next-devtools, gemini) | ✅ com 1 clique | Na 1ª sessão o Claude Code pede para **aprovar** os servidores do projeto — aceite |
+| Conectores da conta (Gmail, Meta Ads, Supabase, Vercel, PubMed…) | ✅ | São da conta claude.ai, não da máquina |
+| Radar local (`npm run radar`) | ⚠️ `--radar` | Precisa Node ≥ 22.6 + Chromium: `bash .claude/bootstrap.sh --radar` |
+| Cron 24/7 do radar | ❌ até o merge | GitHub Actions só agenda a partir da `main` |
+| Esta conversa | ❌ | Contexto de sessão não transfere — **e não precisa**: o que importa está em [[02-MEMORIA]] |
+
+**Vault no Obsidian:** `Open folder as vault` → `.claude/cerebro`. Os `[[wikilinks]]` já funcionam.
+
+**Duas máquinas ao mesmo tempo** (web + Mac): sempre `git pull` antes de começar e commit + push ao terminar. O repositório é a única fonte de verdade; sessão que não commita não existiu.
+
 ## ⚠️ Fronteira de segurança
 
 Este repositório é **público** e publica `www.drrobertorodrigues.com`.
