@@ -8,6 +8,9 @@ agente:ortopedista
 agente:qa
 agente:quant
 agente:viral
+helper:fundir-indice
+helper:testar-fundir
+helper:verificar-indice
 hook:carregar-cerebro
 hook:guarda
 hook:lembrar-memoria

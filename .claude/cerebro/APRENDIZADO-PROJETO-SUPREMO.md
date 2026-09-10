@@ -165,3 +165,6 @@ O projeto que `gerar-saas.ts` produz é saída, não fonte. Versionado, ele coli
 
 ### 25. Cegueira de silo — a minha
 Passei um dia inteiro construindo um "cérebro" enquanto o operador já tinha um, maior, privado, fora do meu escopo. A skill `/nobel` fala de cegueira de silo na ciência; eu a pratiquei na engenharia. Regra: infraestrutura nova começa com inventário do que existe — `list_repos`, `~/.claude`, memória local do operador — e a pergunta "isto já existe?" antes da primeira linha. O certo não foi apagar o meu: foi subordiná-lo. Meses de memória e leis valem mais que um dia de código bem testado.
+
+### 26. Involução não vem de quem apaga — vem do sync que "vence a linha inteira"
+Ninguém deletou nada e 4 memórias sumiram em 4 minutos: o script de união escolhia a linha vencedora e descartava os links agrupados na perdedora; o `|| true` do sync engolia o erro. Lição em três partes: (1) a unidade de proteção tem que ser o menor item que importa (o link, não a linha); (2) toda ferramenta que grava memória precisa de uma pós-condição **independente** da lógica que gravou — re-ler a saída e comparar com as entradas — e preferir **parar** a gravar com perda; (3) um manifesto de capacidades que cobre skills e hooks mas não cobre o índice deixa a porta mais usada aberta. Reproduzi com os dados reais antes de consertar: sem reprodução, "conserto" é palpite.

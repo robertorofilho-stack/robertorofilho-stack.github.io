@@ -33,6 +33,8 @@ jobs:
         run: bash .claude/hooks/_capacidades.sh
       - name: Soberania do motor — arquivos do motor intactos
         run: bash .claude/hooks/_integridade.sh
+      - name: Índice do Cérebro — fusão por link sem perda (fundir/verificar-indice)
+        run: python3 .claude/helpers/cerebro/testar-fundir.py
 
   radar:
     runs-on: ubuntu-latest

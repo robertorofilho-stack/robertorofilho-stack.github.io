@@ -80,6 +80,8 @@ Depois crie um repositório novo no GitHub e `git remote set-url origin <novo>` 
 | `lembrar-memoria.sh` | fim da sessão | cobra a gravação da memória |
 | `guarda.sh` | cada comando | bloqueia destruição e vazamento de chave |
 | `saude.yml` | segunda + cada push | testa hooks, skills, radar, template, QA; abre issue se quebrar |
+| `verificar-indice.py` | bootstrap, início de sessão, `/manutencao` | mestre presente: acusa memória sem ponteiro no `MEMORY.md` (involução silenciosa) |
+| `fundir-indice.py` v4 | cada sync dos Macs (após instalar no mestre) | funde o índice por **link** e recusa gravar se um ponteiro sumiria |
 | `radar.yml` | de hora em hora (após merge) | caça oportunidade, abre issue em ALTA |
 | `/manutencao` | semanal (routine) | consolida memória, transforma repetição em skill, atualiza dependências |
 

@@ -33,6 +33,10 @@ o método que pode viajar.
 - Toda fusão é por **união** — a mesma lei do mestre ("índice: união, nunca sobrescrita").
 - `.claude/hooks/_capacidades.sh` compara o inventário vivo com `.claude/CAPACIDADES.txt`. Capacidade que sumiu
   = `saude.yml` vermelho. O manifesto só cresce (`--gravar`).
+- **Índice de memória do mestre:** a unidade de fusão é o **link**, nunca a linha. `.claude/helpers/cerebro/fundir-indice.py`
+  (v4) funde `MEMORY.md` por link e **recusa gravar** se um ponteiro sumiria; `verificar-indice.py` acusa memória sem
+  ponteiro (órfã = invisível = involução). Testes em `testar-fundir.py` rodam no `saude.yml`. Instalar no mestre por cópia:
+  `~/.claude/helpers/cerebro/` — mesmo caminho, o sync leva.
 - O que um lado aprende vira ativo do outro: método → aqui; memória de negócio → mestre. Nunca perder, nunca duplicar.
 
 **Precedência é de LEIS, não de capacidades.** Quando o Cérebro estiver na máquina (`~/Claude/cerebro-backup`):

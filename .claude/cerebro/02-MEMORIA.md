@@ -7,6 +7,35 @@
 
 ## 2026-09
 
+### 2026-09-10 — Índice do Cérebro: fusão por LINK e guarda que recusa perda (fundir-indice.py v4)
+
+**Contexto:** o Mac provou involução em 1 h: `cd7e288` (união, 244 links) → `8328f15` (auto-backup 4 min depois,
+240). Reproduzi aqui com o índice real e o script original (`local` pré-união 225 + `repo` unido 244 → v3 grava
+**239**, perdendo exatamente `clickmax-plataforma`, `lei-parcela-minima-6-reais`, `projeto-youtube`,
+`rede-casa-mapa`). Causa: os 4 vivem em linhas **agrupadas** (ex.: "LEIS SEM NEGOCIAÇÃO" carrega 2 links) e o
+v3 deixa a linha do local vencer inteira; e `if t0 in tem: continue` pula linha cujo 1º link já apareceu.
+**Feito (satélite, `.claude/helpers/cerebro/` — mesmo caminho do mestre, a ponte é um `cp`):**
+- `fundir-indice.py` v4: unidade de fusão = link; local vence texto só quando cobre os mesmos links; superset
+  vence; cada lado com link exclusivo → as duas linhas ficam. **Guarda pós-condição independente** (re-lê os
+  links do texto de saída): se um ponteiro sumiria, NÃO grava, lista em stderr, exit 2. Escrita atômica.
+  `--simular` (só relata) e `--simular-perda X` (prova o guarda). Idempotente.
+- `verificar-indice.py`: memória `.md` sem ponteiro no `MEMORY.md` (fora de REVOGADAS) = exit 1; ponteiro
+  quebrado = aviso (`--estrito` falha). 25 ms em 246 memórias. Ligado ao `bootstrap.sh` (3c), ao
+  `carregar-cerebro.sh` (seção 🔴 só quando há perda) e ao `/manutencao`.
+- `testar-fundir.py`: 20 testes (bug real reproduzido em forma sintética, revogadas, vazio, idempotência,
+  guarda em disco, CLI, verificador) — passo novo no `saude.yml`.
+**Prova no índice real (origin/master):** cenário do incidente → 243/243 preservados dos dois lados, saída
+idêntica nos dois arquivos, `fundir(X,X)==X`; cenário de hoje (`44718ea` 244 × `b10a61e` 239) → 0 perdas em
+qualquer ordem de argumentos; guarda no real → exit 2 e arquivos intactos; verificador → 0 órfãs (as 3 sem
+ponteiro estão em REVOGADAS), 1 quebrado (caminho `../../../CEREBRO-MASTER-PACOTE/…`).
+**Limite honesto:** o mestre só fica protegido quando o Claude do Mac copiar os 3 arquivos para
+`~/.claude/helpers/cerebro/` e trocar o `|| true` do `sync-backup.sh` por log — prompt entregue.
+**Também:** rebase limpo de `24108b7` (soberania de motor) sobre os 3 commits do Mac; ponte verificada no
+mestre (128 skills, 9 agentes em `agents-user/`, `satelite-projeto-supremo.md`, linha 33 do índice).
+**Links:** [[05-DECISOES]] [[03-ATIVOS]] [[APRENDIZADO-PROJETO-SUPREMO]] #26
+
+---
+
 ### 2026-09-10 — União satélite → Cérebro executada (e prova de que a involução é real)
 
 **Feito:** memória `satelite-projeto-supremo.md` gravada no cofre do mestre (+1 linha no índice,

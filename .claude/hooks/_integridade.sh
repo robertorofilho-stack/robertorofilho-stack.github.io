@@ -20,7 +20,7 @@ protegidos() {
     for f in CLAUDE.md .mcp.json .claude/settings.json .claude/CAPACIDADES.txt \
              .claude/bootstrap.sh .claude/backup.sh .claude/KIT-RECUPERACAO.md .claude/MCP-ARSENAL.md; do
       [ -f "$f" ] && echo "$f"; done
-    find .claude/hooks .claude/skills .claude/agents .claude/git-hooks -type f 2>/dev/null
+    find .claude/hooks .claude/skills .claude/agents .claude/git-hooks .claude/helpers -type f -not -path '*/__pycache__/*' 2>/dev/null
     find .github/workflows -type f -name '*.yml' 2>/dev/null
     find radar -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.mjs' -o -name '*.json' -o -name '*.tpl' \
          -o -name '*.sh' -o -name '*.css' -o -name '*.md' \) \

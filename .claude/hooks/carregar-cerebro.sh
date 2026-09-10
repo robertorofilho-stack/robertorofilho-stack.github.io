@@ -29,6 +29,12 @@ for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-
     CTX+="### ⚠️ CÉREBRO MESTRE presente nesta máquina: $cand"$'\n'
     CTX+="Constituição, 4 Leis, MOTOR-EXECUCAO (gate G5) e diretores dele VENCEM este satélite (CLAUDE.md §0b). "
     CTX+="Índice: claude-config/memory/MEMORY.md · Missões por voz: alfred/MISSOES-PARA-O-CEREBRO.md"$'\n\n'
+    # Índice do mestre: memória sem ponteiro é invisível (involução). Só fala se houver problema.
+    ROOT="${CLAUDE_PROJECT_DIR:-$(pwd)}"
+    if [ -f "$HOME/.claude/memory/MEMORY.md" ] && command -v python3 >/dev/null 2>&1; then
+      PERDA=$(python3 "$ROOT/.claude/helpers/cerebro/verificar-indice.py" "$HOME/.claude/memory" --quieto 2>/dev/null | head -12)
+      [ -n "$PERDA" ] && CTX+="### 🔴 ÍNDICE DO MESTRE COM PERDA (verificar-indice.py)"$'\n'"$PERDA"$'\n'"Restaure a linha no MEMORY.md (git log -p). Nunca apague o arquivo."$'\n\n'
+    fi
     break
   fi
 done

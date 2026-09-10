@@ -15,6 +15,7 @@ atual() {
   for f in .claude/agents/*.md; do echo "agente:$(basename "$f" .md)"; done
   for f in .claude/hooks/*.sh;  do case "$(basename "$f")" in _*) ;; *) echo "hook:$(basename "$f" .sh)";; esac; done
   for f in .github/workflows/*.yml; do echo "workflow:$(basename "$f" .yml)"; done
+  for f in .claude/helpers/cerebro/*.py; do [ -f "$f" ] && echo "helper:$(basename "$f" .py)"; done
   [ -f radar/radar-lucro.ts ] && echo "sistema:radar-lucro"
   [ -f radar/gerar-saas.ts ]  && echo "sistema:gerador-micro-saas"
   [ -f radar/qa.ts ]          && echo "sistema:qa-adversarial"

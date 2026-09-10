@@ -40,6 +40,15 @@ fi
 # 3b. Portão de soberania do motor (pre-commit): só o Claude Code edita arquivos do motor
 git config core.hooksPath .claude/git-hooks && ok "portão do git ativo (soberania do motor)"
 
+# 3c. Índice do Cérebro mestre (quando esta máquina o tem): memória sem ponteiro = involução
+if [ -f "$HOME/.claude/memory/MEMORY.md" ] && command -v python3 >/dev/null; then
+  if python3 .claude/helpers/cerebro/verificar-indice.py "$HOME/.claude/memory" --quieto; then
+    ok "índice do Cérebro mestre íntegro (toda memória tem ponteiro)"
+  else
+    falta "índice do Cérebro mestre com memória órfã — veja acima; restaure a linha, nunca apague o arquivo"; PENDENCIAS=$((PENDENCIAS+1))
+  fi
+fi
+
 # 4. Hooks executáveis (git preserva o bit, mas garante)
 chmod +x .claude/hooks/*.sh 2>/dev/null && ok "hooks executáveis"
 

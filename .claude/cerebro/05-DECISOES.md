@@ -90,6 +90,17 @@ não edita `codex-config/`/`~/.codex/`.
 **Limite honesto:** o portão vale onde `core.hooksPath` foi ativado (bootstrap). Edição que escape é DETECTADA
 no CI, não impedida. No mestre, o mesmo mecanismo precisa ser instalado pelo Claude do Mac (prompt entregue).
 
+### 2026-09-10 — Índice de memória: a unidade de fusão é o link, e perda de ponteiro é erro fatal
+**Contexto:** o `fundir-indice.py` v3 do mestre fundia por linha ("local vence a linha") e o sync dos 2 Macs
+apagou 4 ponteiros em 4 minutos, em silêncio (`|| true`). Arquivo sem ponteiro no índice é memória invisível.
+**Decisão:** (1) fusão por **link**: todo link de qualquer entrada tem que estar na saída, sempre; texto é
+secundário (local vence só quando cobre os mesmos links; empate assimétrico = as duas linhas ficam).
+(2) **Guarda pós-condição independente da fusão**: recusa gravar e sai com 2 se um ponteiro sumiria — o
+sistema prefere parar a involuir. (3) Verificador de órfãs roda no bootstrap, no início de sessão e no
+`/manutencao`; `saude.yml` roda os testes. (4) Nunca "flake", nunca `|| true` em ferramenta que grava memória.
+**Alternativa rejeitada:** só consertar o v3 no mestre. Sem teste no CI e sem verificador independente, o
+próximo refactor repete o bug sem ninguém ver.
+
 ## Em aberto
 
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto`
@@ -102,3 +113,6 @@ no CI, não impedida. No mestre, o mesmo mecanismo precisa ser instalado pelo Cl
 - [ ] **Reddit OAuth** — dobra as fontes de dor do radar
 - [ ] **Rodar `bash .claude/backup.sh` no Mac uma vez** + linha de crontab que ele imprime
 - [ ] **Chaves no cofre iCloud `CEREBRO-CHAVES-BACKUP`** (convenção do mestre) — PIX, PayPal, Vercel, Reddit
+- [ ] **Instalar `fundir-indice.py` v4 + `verificar-indice.py` no mestre** (Claude do Mac: `cp` para
+  `~/.claude/helpers/cerebro/`, trocar `|| true` do `sync-backup.sh` por log, rodar `testar-fundir.py`) — até lá o sync pode apagar ponteiro
+- [ ] **Regra READ-ONLY do Codex no mestre** (`AGENTS.md` de governança + pre-commit em `cerebro-backup`) — prompt entregue
