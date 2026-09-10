@@ -47,7 +47,7 @@ sistêmica por firmware). Skill `/nobel` acha caminhos não-óbvios **dentro** d
 foi construído: o repositório no GitHub, e **só** ele — nada de valor fica só na máquina;
 (3) chaves: gerenciador de senhas, nunca em git nem em backup em texto.
 Cópia fora do GitHub: `backup.sh` (git bundle + config pessoal) para Drive/iCloud, cron noturno.
-Kit de recuperação em texto no repo e como Google Doc: https://docs.google.com/document/d/1hWNPGgofuoILMBhq-TYa77McR5nrogbR3R90tjAKCG0/edit
+Kit de recuperação em texto no repo e como Google Doc: https://docs.google.com/document/d/1m1dDhwvhOU9JJRd56I4-pslTtQAhCyXChJfKUuHTsqk/edit
 **Porquê:** máquina é descartável por design. Se comprar o M5/M6, são 5 comandos.
 **Alternativa rejeitada:** salvar "o Claude" no Drive como arquivo único — não existe esse objeto;
 o que existe é repositório + conta + chaves, cada um com seu lugar.

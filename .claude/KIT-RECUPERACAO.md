@@ -1,7 +1,7 @@
 # 🧠 KIT DE RECUPERAÇÃO — PROJETO SUPREMO
 
 > Se o Mac morreu, se comprou máquina nova, se o GitHub sumiu: este documento devolve tudo.
-> Cópia viva: `.claude/KIT-RECUPERACAO.md` no repositório · cópia no Google Drive: https://docs.google.com/document/d/1hWNPGgofuoILMBhq-TYa77McR5nrogbR3R90tjAKCG0/edit
+> Cópia viva: `.claude/KIT-RECUPERACAO.md` no repositório · cópia no Google Drive: https://docs.google.com/document/d/1m1dDhwvhOU9JJRd56I4-pslTtQAhCyXChJfKUuHTsqk/edit
 
 ## 🖥️ Para quem nunca abriu o Terminal — leia isto primeiro
 
