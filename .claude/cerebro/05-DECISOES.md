@@ -62,10 +62,20 @@ O operador pediu que nenhuma missão ignore o que já existe — isso só se gar
 dispara `/manutencao` (julgamento: consolidar memória, repetição → skill, dependências).
 **Custo:** uma sessão semanal. Pausar: lista de routines em claude.ai → desativar.
 
+### 2026-09-10 — O Cérebro mestre já existia; este repo vira satélite
+**Contexto:** ao abrir o MacBook, o Claude local foi direto a `~/Claude/cerebro-backup` — repositório
+privado com 2.717 arquivos, 111 skills, 7 diretores, 243 memórias, JARBAS, MOTOR-EXECUCAO. Fora do escopo
+desta sessão; eu construí em silo.
+**Decisão:** o mestre vence (CLAUDE.md §0b). Este repo governa site + radar de produto. Memória de negócio
+vai para o mestre. `/analise-cripto` renomeada para `/analise-cripto` (a `cripto` pessoal dele silenciaria a minha).
+`recall.sh` passa a buscar também nas memórias do mestre quando ele existir na máquina.
+**Porquê:** meses de memória, leis e gates financeiros não se substituem por um dia de construção.
+**Não fiz:** nada dentro do `cerebro-backup` — só leitura. O lado privado é registrado pelo Claude do Mac.
+
 ## Em aberto
 
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto`
-- [ ] **Vault privado criado?** — comando em [[00-MAPA]]
+- [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)
 - [ ] **Meta Ads / Supermetrics conectados à conta real de anúncio?**
 - [ ] **Gateway de pagamento definido** — Hotmart/Kiwify (mais simples) vs Stripe+Asaas (mais margem, mais trabalho)
 - [ ] **PIX_KEY preenchida em `radar/.env`** — sem ela o paywall roda em sandbox
@@ -73,4 +83,4 @@ dispara `/manutencao` (julgamento: consolidar memória, repetição → skill, d
 - [ ] **Chave Gemini** (`GEMINI_API_KEY`) — MCP configurado, inerte sem a chave
 - [ ] **Reddit OAuth** — dobra as fontes de dor do radar
 - [ ] **Rodar `bash .claude/backup.sh` no Mac uma vez** + linha de crontab que ele imprime
-- [ ] **Chaves no gerenciador de senhas** (PIX, PayPal, Vercel, Reddit) — antes de preencher qualquer `.env`
+- [ ] **Chaves no cofre iCloud `CEREBRO-CHAVES-BACKUP`** (convenção do mestre) — PIX, PayPal, Vercel, Reddit

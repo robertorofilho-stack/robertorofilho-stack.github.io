@@ -1,5 +1,5 @@
 ---
-name: cripto
+name: analise-cripto
 description: Análise de cripto, ativo financeiro ou cenário macro, com tese, risco, invalidação e tamanho de posição. Use para "vale a pena comprar", "o que está acontecendo no mercado", análise de moeda, timing ou alocação.
 argument-hint: "[ativo, tema ou 'mercado' para panorama]"
 effort: high

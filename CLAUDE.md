@@ -19,6 +19,27 @@ Pular 1 ou 2 é o erro mais caro do sistema: refazer o que existe ou repetir um 
 
 ---
 
+## 0b. Precedência: o Cérebro mestre vence
+
+Existe um sistema anterior e maior: **o Cérebro** — repositório privado `robertorofilho-stack/cerebro-backup`,
+espelhado em `~/.claude` nos dois Macs (111 skills, 7 diretores, 243+ memórias, JARBAS por voz, MOTOR-EXECUCAO
+com 9 gates). Este repositório é um **satélite** dele: governa o site e a mecânica do radar de produto.
+
+Quando o Cérebro estiver presente na máquina (`~/Claude/cerebro-backup` ou `~/.claude/helpers/cerebro`):
+
+1. `CEREBRO-CONSTITUICAO.md`, as **4 Leis inegociáveis** e o **MOTOR-EXECUCAO** (G5: nenhum gasto sem os
+   5 números do PAINEL) **vencem este arquivo** em qualquer conflito.
+2. Decisão de negócio (produto, oferta, público, criativo, campanha) passa pelos **diretores** dele
+   (`diretor-de-produtos`, `diretor-de-vendas`, `diretor-de-auditoria`…). Os subagentes daqui são mecânica:
+   `arquiteto`/`qa` para código; `cacador`/`copychief`/`viral` como reforço, nunca como substituto.
+3. Nenhuma campanha ativa sem o **Diretor de Auditoria** liberar (🟢). Nenhuma entrega sem verificador.
+4. Memória de negócio vai para o Cérebro (`claude-config/memory/`, via sync dele). Aqui fica só o que é
+   do site e do radar. Nunca duplicar a mesma memória nos dois.
+
+Fora dos Macs (sessão web, CI): este arquivo governa sozinho — e as Leis abaixo valem do mesmo jeito.
+
+---
+
 ## 1. Operador
 
 **Dr. Roberto Rodrigues de Oliveira Filho** — Ortopedista e Traumatologista, Fortaleza/CE.
@@ -109,6 +130,14 @@ Esses vão para repositório privado separado. Ver `.claude/cerebro/00-MAPA.md`.
 - Qualquer material clínico leva disclaimer: "Conteúdo educativo. Não substitui consulta médica."
 
 **Financeiro:** análise é análise, não recomendação personalizada de investimento. Sempre com risco explícito.
+
+**Leis herdadas do Cérebro (valem sempre, em qualquer máquina):**
+- **Nunca boleto** — em nenhum produto, país ou checkout
+- **Parcelar só acima de R$ 90**; abaixo, 1x com o preço à vista em destaque
+- **Campanha nova exige vídeo** e o produto no melhor visual, com a logo
+- **Memória na entrada e na saída** de toda missão
+- **Nenhum gasto sem os 5 números do PAINEL** (N1 caixa livre · N2 teto de perda · N3 margem · N4 CPA real · N5 payback). Gate G5.
+- **Só o Roberto aprova valor de tráfego.** O resto o sistema decide e executa.
 
 ---
 

@@ -162,3 +162,6 @@ Instrução "consulte a memória antes de agir" vale enquanto o contexto está f
 
 ### 24. Artefato gerado não vai para o git
 O projeto que `gerar-saas.ts` produz é saída, não fonte. Versionado, ele colidiu com a própria fixture no CI ("já existe") e ainda ia divergir do template a cada mudança. Regra: o que um script gera, o `.gitignore` esconde e o CI regenera. E fixture é idempotente por definição — regenerar sem perguntar.
+
+### 25. Cegueira de silo — a minha
+Passei um dia inteiro construindo um "cérebro" enquanto o operador já tinha um, maior, privado, fora do meu escopo. A skill `/nobel` fala de cegueira de silo na ciência; eu a pratiquei na engenharia. Regra: infraestrutura nova começa com inventário do que existe — `list_repos`, `~/.claude`, memória local do operador — e a pergunta "isto já existe?" antes da primeira linha. O certo não foi apagar o meu: foi subordiná-lo. Meses de memória e leis valem mais que um dia de código bem testado.
