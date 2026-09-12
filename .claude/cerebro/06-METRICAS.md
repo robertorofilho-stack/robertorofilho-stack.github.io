@@ -64,7 +64,8 @@ _Referência para comparar sessões de rotina: devem custar uma fração disto._
 _Sem baseline não existe melhora — só sensação. Preencher antes da primeira campanha._
 
 ## Cirurgias360 — paralelo da nuvem (2026-09-12; o app vivo é o do Mac mini)
-- Build Next 16: limpo (17 rotas). Testes de domínio: 12/12. QA Chromium: 40/40 (1ª rodada 4/40 por sanitizador de extensão; 2ª 35/40 por espera de server action; 3ª 39/40 por overflow em 390 px; 4ª 40/40).
+- Build Next 16: limpo (17 rotas). Testes de domínio: 12/12. QA Chromium: 40/40 (1ª rodada 4/40 por sanitizador de extensão; 2ª 35/40 por espera de server action; 3ª 39/40 por overflow em 390 px; 4ª 40/40) → 42/42 após o QA adversarial.
+- QA adversarial (subagente `qa`, ~193k tokens, 19 min): 1 BLOQUEANTE (server action do Next corta upload em 1 MB → foto de celular dava 500; `bodySizeLimit` resolve), 1 GRAVE (duplo clique duplicava cirurgia), 3 menores. Permissões forjadas, path traversal, upload hostil, XSS, PII em log e corrupção do banco demo: 0 furos.
 - Tokens dos subagentes: arquiteto ~84k · auditor ~141k · qa (em curso). Tempo: arquiteto 9 min · auditor 13 min.
 - Custo de infra do demo: R$ 0. Piloto estimado: ≈ R$ 150/mês (Supabase Pro + LLM), sem Vercel Pro.
 - Custo do erro: ~1 dia de sessão web refazendo o que existia (subagentes ~225k tokens + build). Causa: clone do mestre sem `git pull`. Prevenção: hook `_mestre.sh`.
