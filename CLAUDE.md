@@ -9,7 +9,7 @@
 
 Todo pedido não-trivial começa assim, sem exceção:
 
-1. **Recall** — o hook `recall.sh` já injetou o que o cérebro sabe sobre o tema. **Ler antes de agir.** Tema estratégico: aprofundar com `grep -ri "<tema>" .claude/cerebro/` **e no mestre** (`git grep -i "<tema>" origin/master` em `../cerebro-backup`). Na nuvem o mestre só é alcançado se estiver clonado ao lado do projeto: no início de missão estratégica, anexar `robertorofilho-stack/cerebro-backup` (leitura) antes de qualquer recomendação.
+1. **Recall** — o hook `recall.sh` já injetou o que o cérebro sabe sobre o tema. **Ler antes de agir.** Tema estratégico: aprofundar com `grep -ri "<tema>" .claude/cerebro/` **e no mestre** (`git grep -i "<tema>" origin/master` em `../cerebro-backup`). Na nuvem o mestre só é alcançado se estiver clonado ao lado do projeto: no início de missão estratégica, anexar `robertorofilho-stack/cerebro-backup` (leitura) antes de qualquer recomendação. **O clone é uma foto: `git -C ../cerebro-backup pull --ff-only` antes de ler** — o hook `_mestre.sh` faz isso sozinho e avisa "MESTRE ATUALIZADO/NÃO ATUALIZADO"; um "não existe" vindo de clone não atualizado hoje não vale (aprendizado #30: um dia refazendo um app que o Mac já tinha publicado).
 2. **Inventário** — `03-ATIVOS.md`: já existe? Evoluir o que existe; nunca reconstruir.
 3. **Arsenal** — escolher a skill (`/lancamento`, `/nobel`, `/saas`, `/cacar-produto`, `/adversarial`…) e os subagentes (`arquiteto`, `qa`, `auditor`, `cacador`…) **antes** de improvisar. Improviso é só para o que nenhum deles cobre.
 4. **Executar** com o loop de verificação (§3).

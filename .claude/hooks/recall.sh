@@ -46,6 +46,8 @@ ACHADOS=$(printf '%s' "$ACHADOS" | awk 'NF && !seen[$0]++' | head -24 \
 MESTRE=""
 PROJ="${CLAUDE_PROJECT_DIR:-$(pwd)}"
 # Na nuvem o mestre fica clonado AO LADO do projeto (../cerebro-backup); nos Macs, em ~/Claude/cerebro-backup.
+. "$(dirname "$0")/_mestre.sh"
+MESTRE_PULL="$(atualizar_mestre_nuvem 30)"  # no máximo a cada 30 min; aprendizado #30
 for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-backup" \
             "$(dirname "$PROJ")/cerebro-backup" "/home/user/cerebro-backup"; do
   [ -n "$cand" ] && [ -d "$cand/claude-config/memory" ] && { MESTRE="$cand/claude-config/memory"; break; }
@@ -87,6 +89,7 @@ fi
 
 TXT="🧠 MEMÓRIA RELACIONADA — busca automática por: $(printf '%s' "$KWS" | tr '\n' ' ')"$'\n\n'
 [ -n "$ACHADOS" ] && TXT+="Satélite (.claude/cerebro):"$'\n'"$ACHADOS"$'\n\n'
+[ -n "$MESTRE_PULL" ] && TXT+="$MESTRE_PULL"$'\n\n'
 [ -n "$MEMS" ] && TXT+="CÉREBRO MESTRE (privado) — abrir antes de decidir:"$'\n'"$MEMS"$'\n\n'
 [ -n "$CHAVES" ] && TXT+="🔑 CHAVES QUE JÁ EXISTEM no cofre do mestre (~/.config/vha-vibe-marketing/.env; nomes, valores só lá): $CHAVES"$'\n'"NÃO pedir ao operador para criar, assinar ou comprar o que já existe. Ler chaves-credenciais.md e cofre-env-vibe.md antes de responder."$'\n\n'
 [ -n "$ESTADOS" ] && TXT+="💳 ESTADO VIVO de crédito/conta segundo o mestre (a description é o estado atual; o corpo do arquivo é histórico):"$'\n'"$ESTADOS"$'\n'"Antes de mandar pagar ou recarregar: python3 .claude/helpers/conselho/conselho.py --saldo (OpenRouter + sonda HTTP da chave Gemini). Só pedir dinheiro com HTTP 429 ou saldo real na mão."$'\n\n'

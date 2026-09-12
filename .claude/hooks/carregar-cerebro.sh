@@ -24,10 +24,14 @@ if [ -f "$DIR/05-DECISOES.md" ]; then
   CTX+="### Decisões em aberto"$'\n'"$(grep -A3 -iE 'aberto|pendente|\[ \]' "$DIR/05-DECISOES.md" 2>/dev/null | head -c 1200)"$'\n\n'
 fi
 
+# Aprendizado #30: na nuvem, puxar o mestre ANTES de ler — clone de ontem esconde o que os Macs fizeram hoje.
+. "$(dirname "$0")/_mestre.sh"
+MESTRE_PULL="$(atualizar_mestre_nuvem 0)"
 for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-backup" \
             "$(dirname "${CLAUDE_PROJECT_DIR:-$(pwd)}")/cerebro-backup" "/home/user/cerebro-backup"; do
   if [ -n "$cand" ] && [ -d "$cand/.git" ]; then
     CTX+="### ⚠️ CÉREBRO MESTRE presente nesta máquina: $cand"$'\n'
+    [ -n "$MESTRE_PULL" ] && CTX+="$MESTRE_PULL"$'\n'
     CTX+="Constituição, 4 Leis, MOTOR-EXECUCAO (gate G5) e diretores dele VENCEM este satélite (CLAUDE.md §0b). "
     CTX+="Índice: claude-config/memory/MEMORY.md · Missões por voz: alfred/MISSOES-PARA-O-CEREBRO.md"$'\n\n'
     # Índice do mestre: memória sem ponteiro é invisível (involução). Só fala se houver problema.

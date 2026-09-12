@@ -135,7 +135,22 @@ até ele dizer a palavra. Registrado em [[01-PERFIL]], no `/cacar-produto` e no 
 médica (3 anunciantes com 50 dias a 3 anos de anúncio) ficam arquivados aqui como dado, não como proposta.
 **Também:** ele não quer caçar produto agora. `/cacar-produto` só quando pedido.
 
+### 2026-09-12 — Cirurgias360: o paralelo da nuvem vira referência; o app vivo é o do Mac; o clone se atualiza por hook
+**Contexto:** ordem de validar/aprimorar/construir o app de gestão cirúrgica. Executei tudo e verifiquei (40/40 Playwright) sem ver
+que o Mac mini já tinha construído e publicado o app em 10–11/09 com dados reais — meu clone do mestre era de 10/09.
+**Decisão:** (1) o paralelo NÃO entra em `apps-source/`; vai para `projetos/cirurgias360/paralelo-nuvem-2026-09-12/` com README
+"não é o app", pela Lei da Monotonia (nada se apaga) e para não confundir os Macs; (2) o que soma ao app vivo é auditoria regulatória
+(20 fontes), conselho 4/4, minutas LGPD e módulos candidatos; (3) a causa vira código: `_mestre.sh` puxa o mestre antes do recall.
+**Conselho (GPT, Grok, Gemini, DeepSeek — 4/4 AJUSTAR sobre a tese do paralelo):** aceito — recebimento se mede aos 90 dias, não 30;
+medir tempo da secretária por pedido; "f" do art. 11 pode não cobrir a secretária. Divergência registrada: "compliance é overengineering
+para 2 usuários" — não aceito (dado de saúde real exige o mínimo legal). Nota: o app vivo já roda com dados reais por decisão dele
+(10/09) e ele já decidiu vender como assinatura (11/09) — as premissas "fictício primeiro" e "zero SaaS" do paralelo caíram.
+**Alternativa rejeitada:** publicar o paralelo como segundo app ou apagá-lo.
+
 ## Em aberto
+
+- [ ] **App Cirurgias (VIVO, do Mac mini)** — pendências registradas lá: Apps Script na conta da secretária; novo link de acesso dela (o de 11/09 venceu 12/09 08h51); testar IA com documento real; 35 cirurgias sem lado; advogado para o plano de assinatura. Do paralelo da nuvem, fundir no app vivo: auditoria 20 fontes (6 pontos novos para o advogado), métrica de recebimento aos 90 dias, medir tempo da secretária por pedido.
+- [ ] **Gravação Plaud de 11/09 "Oráculo de Autoconhecimento (Mapa Vivo)"** — ideia não-médica esperando o fluxo PROJETO CLAUDE (validar → esteira). Candidata a próxima missão de produto.
 
 - [ ] **Primeiro nicho de infoproduto** — só quando o operador pedir; **não-médico** (B2B profissional de saúde também conta como médico para ele); guia de joelho para leigos NÃO é o primeiro produto pago
 - [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)

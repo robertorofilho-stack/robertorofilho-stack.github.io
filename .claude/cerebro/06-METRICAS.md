@@ -50,6 +50,7 @@
 _Referência para comparar sessões de rotina: devem custar uma fração disto._
 
 ## Conselho de outros motores
+- 12/09 rodada 2 (Cirurgias360, tese privada): 4/4 responderam, US$ 0,0632 (gpt-6-astra 0,048 · grok-4.6 0,010 · gemini-3.8-flash 0,004 · deepseek-v4.1-flash 0,002; 18–153 s). Veredito 4/4 AJUSTAR.
 
 | Métrica | Valor | Data | Fonte |
 |---|---|---|---|
@@ -61,3 +62,9 @@ _Referência para comparar sessões de rotina: devem custar uma fração disto._
 ## Baseline
 
 _Sem baseline não existe melhora — só sensação. Preencher antes da primeira campanha._
+
+## Cirurgias360 — paralelo da nuvem (2026-09-12; o app vivo é o do Mac mini)
+- Build Next 16: limpo (17 rotas). Testes de domínio: 12/12. QA Chromium: 40/40 (1ª rodada 4/40 por sanitizador de extensão; 2ª 35/40 por espera de server action; 3ª 39/40 por overflow em 390 px; 4ª 40/40).
+- Tokens dos subagentes: arquiteto ~84k · auditor ~141k · qa (em curso). Tempo: arquiteto 9 min · auditor 13 min.
+- Custo de infra do demo: R$ 0. Piloto estimado: ≈ R$ 150/mês (Supabase Pro + LLM), sem Vercel Pro.
+- Custo do erro: ~1 dia de sessão web refazendo o que existia (subagentes ~225k tokens + build). Causa: clone do mestre sem `git pull`. Prevenção: hook `_mestre.sh`.

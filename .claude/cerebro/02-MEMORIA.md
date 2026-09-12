@@ -7,6 +7,32 @@
 
 ## 2026-09
 
+### 2026-09-12 — Cirurgias360: refiz na nuvem um app que o Mac mini já tinha publicado — clone do mestre desatualizado
+
+**O que aconteceu:** a ordem "validar, aprimorar e construir" (gerada pelo Plaud em 10/09) chegou à sessão web. Rodei o protocolo
+inteiro: recall, fonte primária (transcrição do Plaud), `arquiteto` (ADR + SQL testado em Postgres), código (MVP Next 16 em modo
+demo), `auditor` (20 fontes: LGPD, ANPD 19/2024, CFM 2.454/2026, TISS, WhatsApp, Google), `qa`, `/conselho` (4/4 AJUSTAR, US$ 0,06).
+Verificação real: build limpo, 12 testes de domínio, 40/40 checagens Playwright no Chromium (390 px incluído). **Só que o app já
+existia:** o Cérebro no Mac mini construiu e publicou "Cirurgias · Dr. Roberto" em 10–11/09 (Supabase São Paulo, IA no Vertex, 156
+cirurgias reais importadas, robô Gmail, 2FA, backups; ele entrou pelo iPhone em 11/09; decidiu vender como assinatura em 1–2 meses).
+Meu clone do mestre era de 10/09 e não foi atualizado antes do recall. Cegueira de silo, versão "clone velho" ([[APRENDIZADO-PROJETO-SUPREMO]] #30).
+**O que ficou de útil (no mestre, `projetos/cirurgias360/paralelo-nuvem-2026-09-12/`, com README dizendo que NÃO é o app):**
+auditoria regulatória com 20 fontes, conselho externo 4/4, minutas LGPD (base legal por finalidade, RIPD, incidente, termo, política),
+módulos candidatos (próxima ação com dono/prazo, catálogo TUSS, triagem por palavras-chave, validador que nunca pré-preenche
+lateralidade/paciente, e2e a 390 px). Memória de negócio no mestre: `paralelo-cirurgias360-nuvem.md`.
+**Corrigido em código (mesma sessão):** hook `_mestre.sh` — `git pull --ff-only` no clone do mestre antes do recall (só Linux,
+timeout, a cada 30 min) e aviso "MESTRE ATUALIZADO/NÃO ATUALIZADO" no contexto; CLAUDE.md §0 passo 1.
+**Aprendizados de método (valem mesmo assim):** prompt gerado por IA de gravação inventa seções (order bumps) e erra transcrição
+(e-mail): ler a fonte primária; usuário que grava a ideia ≠ usuário que opera (a secretária); `waitForURL` não serve para server
+action na mesma URL; tabela em grid de 1 coluna estoura 390 px sem `grid-cols-[minmax(0,1fr)]`; sanitizador `[^a-f0-9.]` comeu a
+extensão `.jpg` — sanitizador se testa com o caso real.
+**Dinheiro:** nada aqui vende. O passo que vale é continuar o app VIVO pelas pendências do Mac (Apps Script da secretária, novo link
+de acesso dela, IA com documento real, 35 cirurgias sem lado) e o plano de assinatura que ele já aprovou (gargalo: advogado).
+**Pendente do operador:** outra gravação Plaud de 11/09 ("Oráculo de Autoconhecimento — Mapa Vivo", não-médico) espera validação.
+**Links:** [[03-ATIVOS]] · [[05-DECISOES]] · [[06-METRICAS]]
+
+---
+
 ### 2026-09-10 — Erro repetido (2ª vez no dia): mandei recarregar o Gemini sem conferir o estado vivo
 
 **O que aconteceu:** nos passos do RAION escrevi "(1) recarregar crédito do Gemini" a partir do bloqueio de 06/09 gravado no

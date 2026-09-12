@@ -10,6 +10,8 @@
 | `llms.txt` (descoberta por IA) | `/llms.txt` | 🟢 no ar | — |
 | Infraestrutura de agente | `.claude/` + `CLAUDE.md` | 🟢 ativo | 2026-09-10 |
 | Cérebro persistente | `.claude/cerebro/` | 🟢 ativo | 2026-09-10 |
+| Paralelo do app Cirurgias feito na nuvem (referência: auditoria 20 fontes, conselho, docs LGPD, módulos) — o app VIVO é do Mac mini | mestre privado: `projetos/cirurgias360/paralelo-nuvem-2026-09-12/` | 🟡 referência (40/40 Playwright, mas duplica o vivo) | 2026-09-12 |
+| Hook `_mestre.sh` — atualiza o clone do mestre antes do recall (nuvem) | `.claude/hooks/_mestre.sh` | 🟢 testado ao vivo | 2026-09-12 |
 | Radar de oportunidade (5 fontes) | `radar/radar-lucro.ts` | 🟢 testado | 2026-09-10 |
 | Gerador de micro-SaaS (Pix + PayPal) | `radar/gerar-saas.ts` + `templates/` | 🟢 testado | 2026-09-10 |
 | QA adversarial (Chromium) | `radar/qa.ts` | 🟢 aprovou 12/12 | 2026-09-10 |
