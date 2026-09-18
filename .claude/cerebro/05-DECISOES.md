@@ -5,6 +5,29 @@
 
 ## Tomadas
 
+### 2026-09-18 — Graphify: NÃO adotar neste repositório (medido, não opinado)
+**Contexto:** hipótese do operador de que o Graphify (`Graphify-Labs/graphify`, 119k ★, Apache-2.0)
+economizaria token no Claude Code. Instalado de verdade (`uv tool install graphifyy`, v0.9.63) e medido
+neste repositório.
+**Medição (18/09/2026, 48 arquivos de código, 421 nós, 685 arestas, build em 1,8 s sem custo de modelo):**
+| Teste | Grafo | Ler o arquivo que responde |
+|---|---|---|
+| "onde o Pix calcula o CRC" | ~676 tokens | ~834 tokens |
+| "como o radar pontua oportunidade" | ~1.019 tokens (**truncado**, avisou que a resposta podia estar nos 18 nós cortados) | ~1.379 tokens |
+| `graph.json` inteiro | ~97.321 tokens | todo o código do repo: ~43.740 tokens |
+**Decisão:** não adotar. Em repositório pequeno a consulta **não substitui** a leitura — ela aponta o
+arquivo que você lê em seguida, então o custo real é grafo + arquivo (~2.398 contra ~1.379 tokens: 74% mais caro).
+E o índice pesa **2,2x o código que indexa**. `affected "crc16()"` — a função que mais justificaria um grafo —
+respondeu "No unique node match".
+**O que reverte a decisão (gatilho objetivo):** codebase com **mais de ~500 arquivos de código** ou onde ler o
+que interessa já passe de ~100k tokens, e perguntas de dependência cruzada entre arquivos. Aí o grafo passa a
+ganhar: reinstalar com `uv tool install graphifyy` e rodar `graphify extract . --code-only` (1 comando, sem
+custo de modelo). Não vale para o cérebro em markdown: extração de docs **passa por modelo** (custa token,
+o oposto do objetivo) e o `recall.sh` já faz a recuperação determinística em 38 ms.
+**Alternativa rejeitada:** instalar "porque tem 119 mil estrelas". Estrela mede popularidade, não payback —
+o benchmark do próprio projeto (70,8% → 82,0%) é de um repositório de 1M de linhas, com n = 6 perguntas.
+**Links:** [[02-MEMORIA]] [[03-ATIVOS]]
+
 ### 2026-09-10 — Cérebro público separado de cérebro privado
 **Contexto:** o repositório do site é público e serve o domínio médico.
 **Decisão:** metodologia e playbooks ficam aqui; dado de paciente, financeiro,

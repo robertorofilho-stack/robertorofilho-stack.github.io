@@ -39,3 +39,6 @@ radar/saas-gerados/
 # chaves de qualquer helper (conselho.env etc.) — só o .example entra
 *.env
 !*.env.example
+
+# artefato do graphify (regeravel em 1,8s — nunca commitar)
+graphify-out/

@@ -7,6 +7,26 @@
 
 ## 2026-09
 
+### 2026-09-18 — Graphify instalado, medido e recusado: o índice pesava 2,2x o código
+
+**Pedido:** "acha o Graphify no GitHub, vê se é bom e instala pra economizar token".
+**Feito:** instalado de verdade (`uv tool install graphifyy` 0.9.63 — 95 deps; a 1ª tentativa falhou por
+`UV_HTTP_TIMEOUT=30`, refeita com 180 s) e rodado neste repo: 48 arquivos de código → 421 nós, 685 arestas,
+**1,8 s, zero custo de modelo**. Funciona como anunciado.
+**O número que decidiu:** consulta ao grafo custa ~676–1.019 tokens e **não responde** — aponta o arquivo, que
+você lê em seguida por ~834–1.379. Custo real = grafo + arquivo. E `graph.json` = ~97k tokens contra ~44k de
+todo o código do repositório: **o índice pesa 2,2x a biblioteca**. Uma consulta ainda truncou no orçamento e
+avisou que a resposta podia estar nos nós cortados.
+**Decisão:** não adotar aqui; gatilho objetivo de reversão em [[05-DECISOES]] (>500 arquivos de código ou
+>100k tokens de leitura útil). Binário fica instalado nesta sessão (contêiner é efêmero), `graphify-out/` no
+`.gitignore`.
+**Aprendizado que vale além do caso:** hipótese de ferramenta se resolve instalando e medindo em 10 minutos —
+não lendo review. E a pergunta certa não é "economiza token?", é "a consulta **substitui** a leitura ou só
+antecede?". Se só antecede, soma custo.
+**Links:** [[05-DECISOES]]
+
+---
+
 ### 2026-09-18 — Fábrica de carrossel + "Graphify: os números reais": rascunho checado na fonte primária
 
 **Pedido:** rascunho de carrossel sobre o Graphify (grafo de código para agentes), com números a conferir.
