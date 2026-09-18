@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "projeto": "Graphify — o grafo e os números reais",
+    "formato": [1080, 1350],
+    "chapeu": "GRAPHIFY · OS NÚMEROS REAIS",
+    "assinatura": "@robertorodriguesmd",
+    "checado_em": "2026-09-18",
+    "fontes": [
+      "Graphify-Labs/graphify — README.md (branch v8)",
+      "Graphify-Labs/graphify — BENCHMARKS.md (atualizado em 2026-07-05)",
+      "GitHub API — 119.340 estrelas em 18/09/2026",
+      "wavect.io — Graphify Review (16/07/2026, revisto 02/09/2026)",
+      "mindstudio.ai — origem do número 70x (01/05/2026)"
+    ]
+  },
+  "slides": [
+    {
+      "tipo": "capa",
+      "arquivo": "capa",
+      "titulo": "O número que todo mundo repete não está no README",
+      "texto": "119 mil estrelas, licença Apache-2.0 — e uma promessa de economia que o próprio repositório *nunca fez*.",
+      "acao": "arrasta"
+    },
+    {
+      "tipo": "carta",
+      "arquivo": "problema",
+      "n": "01",
+      "titulo": "O problema que ele ataca",
+      "rotulo": "O contexto",
+      "texto": "Todo agente começa a sessão relendo o projeto. Em repositório grande, isso queima contexto *antes* de você perguntar qualquer coisa."
+    },
+    {
+      "tipo": "carta",
+      "arquivo": "ideia",
+      "n": "02",
+      "titulo": "A ideia",
+      "rotulo": "O grafo",
+      "texto": "Em vez de reler arquivo por arquivo, ele monta um grafo de como o código se conecta — AST determinístico, tree-sitter, cerca de 40 linguagens, *sem banco vetorial* — e consulta só o pedaço que importa."
+    },
+    {
+      "tipo": "carta",
+      "arquivo": "custo",
+      "n": "03",
+      "titulo": "Custo de construir",
+      "rotulo": "Zero, com asterisco",
+      "texto": "O README traz na tabela: crédito de modelo para construir o grafo, *zero*. Vale para o código — o parse é local.",
+      "codigo": "| Graph build | LLM credits | 0 |",
+      "legenda": "O asterisco: docs, PDF e imagem passam por um modelo. Vídeo e áudio são transcritos na sua máquina."
+    },
+    {
+      "tipo": "numero",
+      "arquivo": "correcao",
+      "n": "04",
+      "titulo": "O número que circula",
+      "numero": "70x ≠ 70%",
+      "texto": "O que viralizou não é 70% de economia: é *70x*. E não saiu do repositório — saiu de blog, em 01/05/2026, sem benchmark citado. No README *não existe nenhum número* de economia de token."
+    },
+    {
+      "tipo": "numero",
+      "arquivo": "publicado",
+      "n": "05",
+      "titulo": "O que está publicado",
+      "numero": "70,8% → 82,0%",
+      "texto": "Cobertura de fatos-chave num repositório de ~1 milhão de linhas, a cerca de *140 mil tokens por consulta*. Está no BENCHMARKS.md, atualizado em 05/07/2026."
+    },
+    {
+      "tipo": "numero",
+      "arquivo": "letra-miuda",
+      "n": "06",
+      "titulo": "A letra miúda",
+      "numero": "n = 6",
+      "texto": "A medição de código é de *seis perguntas*. Seis. Rodadas no harness do próprio projeto, com crédito parcial na nota. Isso é sinal — não é prova."
+    },
+    {
+      "tipo": "carta",
+      "arquivo": "memoria",
+      "n": "07",
+      "titulo": "Os outros benchmarks",
+      "rotulo": "Memória",
+      "texto": "LOCOMO *45,3%* e LongMemEval-S *76%*. O contexto que some no print: no LOCOMO o supermemory faz 49,7% — mas custa 11x mais para ingerir. E o 76% empata com um RAG denso comum."
+    },
+    {
+      "tipo": "carta",
+      "arquivo": "leitura",
+      "n": "08",
+      "titulo": "Por que a diferença importa",
+      "rotulo": "Leitura",
+      "texto": "Acertar mais e gastar menos são *promessas diferentes*. O repositório mede a primeira e mostra o custo de construção. Quem prometeu a segunda, em número redondo, foi a internet."
+    },
+    {
+      "tipo": "carta",
+      "arquivo": "onde-rende",
+      "n": "09",
+      "titulo": "Onde rende de verdade",
+      "rotulo": "Uso real",
+      "texto": "Projeto grande, muito arquivo, muita dependência cruzada. Em dez arquivos o grafo *não tem o que resolver* — e a revisão independente diz o mesmo: em repositório pequeno não é ganho automático."
+    },
+    {
+      "tipo": "fecho",
+      "arquivo": "fecho",
+      "titulo": "O teste que decide",
+      "texto": "Faça a mesma pergunta difícil sobre o seu código, *com e sem* o grafo. Compare a resposta e os tokens gastos. Uma pergunta já mostra se serve para você.",
+      "blocos": [
+        {
+          "cab": "A leitura que importa",
+          "frase": "Consultar um índice é mais barato que reler a biblioteca. É a mesma ideia que banco de dados usa há cinquenta anos."
+        },
+        {
+          "cab": "Dica do Fabiano",
+          "frase": "Não adota em projeto pequeno. O grafo cobra tempo de construção e só paga em código grande, onde reler tudo já está te custando contexto de verdade."
+        }
+      ],
+      "fonte": "Checado em 18/09/2026 no README e no BENCHMARKS.md do repositório (branch v8). Estrelas: GitHub API.",
+      "acao": "salva isso"
+    }
+  ]
+}

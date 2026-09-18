@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<title>Carrossel</title>
+<style>
+/*FONTES*/
+:root{
+  --navy:#0B1F3A; --navy-2:#122A4C; --graf:#0A141F;
+  --petrol:#2E8C84; --petrol-d:#1F5C58;
+  --silver:#A8B0B8; --white:#F7F9FA; --mist:#E7EBEE;
+  --serif:"Cormorant Garamond", Georgia, serif;
+  --sans:"Manrope", Arial, sans-serif;
+  --L:96px; /* margem lateral */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#05080d}
+body{font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+.slide{
+  position:relative;width:1080px;height:1350px;overflow:hidden;
+  background:
+    radial-gradient(120% 80% at 82% -10%, rgba(46,140,132,.22) 0%, rgba(46,140,132,0) 55%),
+    linear-gradient(168deg, var(--navy-2) 0%, var(--navy) 46%, var(--graf) 100%);
+  color:var(--white);
+  display:flex;flex-direction:column;
+  padding:var(--L) var(--L) 84px;
+}
+/* textura fina: nao aparece como ruido no feed, so tira o chapado */
+.slide::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size:100% 3px;mix-blend-mode:overlay;
+}
+.slide.claro{
+  background:linear-gradient(168deg,#FBFCFD 0%, var(--mist) 100%);
+  color:var(--navy);
+}
+
+/* ---------- topo ---------- */
+.topo{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.chapeu{
+  font-size:25px;font-weight:800;letter-spacing:.20em;text-transform:uppercase;
+  color:var(--petrol);
+}
+.slide.claro .chapeu{color:var(--petrol-d)}
+.conta{font-size:23px;font-weight:600;letter-spacing:.14em;color:rgba(247,249,250,.42)}
+.slide.claro .conta{color:rgba(11,31,58,.45)}
+
+/* ---------- corpo ---------- */
+.corpo{flex:1;display:flex;flex-direction:column;justify-content:center;gap:40px;padding:26px 0 10px}
+.n{
+  font-family:var(--serif);font-weight:700;font-size:112px;line-height:.8;
+  color:var(--petrol);opacity:.95;letter-spacing:-.02em;
+}
+.titulo{
+  font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1.02;
+  font-size:88px;
+}
+.titulo.g{font-size:104px}
+.rotulo{
+  display:inline-block;align-self:flex-start;
+  font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--navy);background:var(--petrol);
+  padding:11px 22px;border-radius:6px;
+}
+.texto{
+  font-size:39px;line-height:1.48;font-weight:400;
+  color:rgba(247,249,250,.90);max-width:880px;
+}
+.slide.claro .texto{color:rgba(11,31,58,.86)}
+.texto b,.texto strong{font-weight:800;color:#fff}
+.slide.claro .texto b{color:var(--navy)}
+
+/* ---------- destaque numerico ---------- */
+.numerao{
+  font-family:var(--serif);font-weight:700;line-height:1.04;letter-spacing:-.03em;
+  font-size:184px;color:#fff;margin:6px 0 10px;
+}
+.numerao .fraco{color:var(--petrol);}
+.numerao.menor{font-size:132px}
+.codigo{
+  font-family:"DejaVu Sans Mono",ui-monospace,monospace;
+  font-size:29px;letter-spacing:-.01em;line-height:1.5;
+  background:rgba(0,0,0,.34);border:1px solid rgba(168,176,184,.26);border-left:5px solid var(--petrol);
+  padding:24px 28px;border-radius:8px;color:#E7EBEE;max-width:900px;
+}
+.legenda{font-size:27px;color:rgba(247,249,250,.56);letter-spacing:.01em;max-width:860px;line-height:1.45}
+.slide.claro .legenda{color:rgba(11,31,58,.62)}
+
+/* ---------- fecho ---------- */
+.bloco{
+  border-top:2px solid rgba(46,140,132,.55);padding-top:26px;
+  display:flex;flex-direction:column;gap:14px;max-width:900px;
+}
+.bloco .cab{font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol)}
+.bloco .frase{font-size:35px;line-height:1.42;color:rgba(247,249,250,.92)}
+
+/* ---------- rodape ---------- */
+.rodape{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.assina{font-size:26px;font-weight:700;letter-spacing:.06em;color:rgba(247,249,250,.72)}
+.slide.claro .assina{color:rgba(11,31,58,.72)}
+.acao{
+  font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--petrol);
+  display:flex;align-items:center;gap:12px;
+}
+.fonte{font-size:22px;line-height:1.4;color:rgba(247,249,250,.42);max-width:640px}
+.slide.claro .fonte{color:rgba(11,31,58,.5)}
+</style>
+<body>
+<div id="palco"></div>
+<script>
+const DADOS = /*DADOS*/ null;
+
+const esc = (s='') => String(s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+  // negrito por *asterisco*, para o JSON continuar legivel
+  .replace(/\*([^*]+)\*/g,'<b>$1</b>');
+
+function montar(s, i, total){
+  const cartas = DADOS.slides.filter((x) => x.n).length;
+  const conta = s.n ? `<span class="conta">${esc(s.n)} / ${String(cartas).padStart(2,'0')}</span>` : '';
+  const topo = `<div class="topo"><span class="chapeu">${esc(s.chapeu || DADOS.meta.chapeu)}</span>${conta}</div>`;
+  const rodape = `<div class="rodape">
+      <span class="assina">${esc(s.assina || DADOS.meta.assinatura)}</span>
+      <span class="acao">${esc(s.acao || (i < total-1 ? 'arrasta' : ''))}${i < total-1 ? '<span>&rarr;</span>' : ''}</span>
+    </div>`;
+
+  let corpo = '';
+  if (s.tipo === 'capa'){
+    corpo = `<div class="corpo">
+      <h1 class="titulo g">${esc(s.titulo)}</h1>
+      <p class="texto">${esc(s.texto)}</p>
+    </div>`;
+  } else if (s.tipo === 'numero'){
+    corpo = `<div class="corpo">
+      <div class="n">${esc(s.n)}</div>
+      <h2 class="titulo">${esc(s.titulo)}</h2>
+      <div class="numerao${(s.numero||'').length > 10 ? ' menor' : ''}">${esc(s.numero)}</div>
+      <p class="texto">${esc(s.texto)}</p>
+    </div>`;
+  } else if (s.tipo === 'fecho'){
+    corpo = `<div class="corpo">
+      <h2 class="titulo">${esc(s.titulo)}</h2>
+      <p class="texto">${esc(s.texto)}</p>
+      ${(s.blocos||[]).map(b => `<div class="bloco"><span class="cab">${esc(b.cab)}</span><p class="frase">${esc(b.frase)}</p></div>`).join('')}
+      ${s.fonte ? `<p class="fonte">${esc(s.fonte)}</p>` : ''}
+    </div>`;
+  } else {
+    corpo = `<div class="corpo">
+      <div class="n">${esc(s.n)}</div>
+      <h2 class="titulo">${esc(s.titulo)}</h2>
+      ${s.rotulo ? `<span class="rotulo">${esc(s.rotulo)}</span>` : ''}
+      <p class="texto">${esc(s.texto)}</p>
+      ${s.codigo ? `<div class="codigo">${esc(s.codigo)}</div>` : ''}
+      ${s.legenda ? `<p class="legenda">${esc(s.legenda)}</p>` : ''}
+    </div>`;
+  }
+  return `<section class="slide${s.claro ? ' claro' : ''}">${topo}${corpo}${rodape}</section>`;
+}
+
+function mostrar(i){
+  const total = DADOS.slides.length;
+  document.getElementById('palco').innerHTML = montar(DADOS.slides[i], i, total);
+  return document.querySelector('.slide').getBoundingClientRect().height;
+}
+// pre-render do primeiro para o preview no navegador
+if (DADOS) mostrar(0);
+</script>
