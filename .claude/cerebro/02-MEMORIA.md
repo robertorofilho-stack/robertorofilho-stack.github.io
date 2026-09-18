@@ -7,6 +7,30 @@
 
 ## 2026-09
 
+### 2026-09-18 — Fábrica de carrossel + "Graphify: os números reais": rascunho checado na fonte primária
+
+**Pedido:** rascunho de carrossel sobre o Graphify (grafo de código para agentes), com números a conferir.
+**Método:** leitura dos arquivos crus do repositório (`raw.githubusercontent.com`, branch `v8`) em vez de
+busca — `grep` no README e no BENCHMARKS.md prova presença **e ausência** de número, que é o que a pauta pedia.
+**Achados:** (1) estrelas 116.800 → **119.340** (API, datado); (2) o "70%" que circula é na verdade **70x** e
+**não existe em nenhum arquivo do repositório** — nasceu em blog (mindstudio.ai, 01/05/2026) sem benchmark
+citado; (3) 70,8% → 82,0% é real, mas com **n = 6 perguntas**, harness do próprio projeto e cobertura com
+crédito parcial; (4) LOCOMO 45,3% omite que supermemory faz 49,7%, e o LongMemEval-S 76% empata com dense RAG;
+(5) crédito zero vale para **código** — docs/PDF/imagem passam por modelo. Fonte independente crítica:
+wavect.io (16/07/2026) aponta o mesmo n=6.
+**Entrega:** 11 slides 1080×1350 renderizados + legenda + isca + 4 ganchos + roteiro de Reels de 38 s + `FATOS.md`
+com a trilha de auditoria (afirmação → veredito → citação → data).
+**Ativo novo (reutilizável):** `.claude/producao/carrossel/` — `slides.json` → imagens via Playwright, tipografia
+da marca embutida em base64 (render offline e determinístico) e **guarda que reprova com exit 2 slide cujo texto
+estoura o formato** (slide cortado é erro, não aviso). Custo por carrossel depois disso: escrever o JSON.
+**Regra que fica:** número em slide exige fonte primária conferida e datada, guardada em `FATOS.md` ao lado do
+`slides.json`. Post sem esse arquivo é rascunho.
+**Em aberto:** a assinatura dos slides está `@robertorodriguesmd`, mas o rascunho fecha com "Dica do Fabiano" —
+se for outra marca, trocar `meta.assinatura` e rodar de novo.
+**Links:** [[03-ATIVOS]] [[04-PLAYBOOKS]]
+
+---
+
 ### 2026-09-10 — Segundo merge na `main` ("mergeia"): conselho, recall do mestre, cofre e actions v5 vão para produção
 
 **Por quê:** sessão nova na nuvem nasce da `main`; sem o merge nasceria sem conselho, sem recall do mestre e sem o
