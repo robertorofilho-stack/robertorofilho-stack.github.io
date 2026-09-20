@@ -167,9 +167,10 @@ Esses vão para repositório privado separado. Ver `.claude/cerebro/00-MAPA.md`.
 
 **Leis herdadas do Cérebro (valem sempre, em qualquer máquina):**
 - **Nunca boleto** — em nenhum produto, país ou checkout
-- **Parcelar só acima de R$ 90**; abaixo, 1x com o preço à vista em destaque
+- **Parcela mínima de R$ 6** — `máx_parcelas = min(12, floor(preço / 6))`; o checkout nunca mostra valor diferente do anunciado (revoga em 03/09/2026 a regra antiga dos R$ 90)
 - **Campanha nova exige vídeo** e o produto no melhor visual, com a logo
 - **Memória na entrada e na saída** de toda missão
+- **Pilha completa de leis e gates:** `.claude/cerebro/07-LEIS.md` (10 camadas de precedência)
 - **Nenhum gasto sem os 5 números do PAINEL** (N1 caixa livre · N2 teto de perda · N3 margem · N4 CPA real · N5 payback). Gate G5.
 - **Só o Roberto aprova valor de tráfego.** O resto o sistema decide e executa.
 

@@ -7,6 +7,24 @@
 
 ## 2026-09
 
+### 2026-09-20 — Pilha de leis consolidada em [[07-LEIS]]: mestre anexado na nuvem, 10 camadas de precedência
+
+**Pedido:** "quais suas leis zero e as subsequentes". **Achado:** não existia UMA resposta — as leis viviam
+espalhadas em 6 arquivos de 2 repositórios (`CEREBRO-CONSTITUICAO.md` + Emenda 1, `leis-maximas-roberto.md`,
+`leis-inegociaveis.md`, `lei-parcela-minima-6-reais.md`, `lei-honestidade-sem-bajulacao.md`,
+`lei-suprema-milionario-multinicho.md`, `GATES.md`, `PAINEL.md`, `noha/domain/leis.py`) e na nuvem nenhuma
+delas era legível sem anexar o mestre. **Feito:** `cerebro-backup` anexado e clonado (28d4261), leis lidas na
+fonte, pilha de 10 camadas escrita em `.claude/cerebro/07-LEIS.md` e indexada no [[00-MAPA]].
+**Duas armadilhas confirmadas na leitura:** (1) a LEI 2 antiga ("parcelar só acima de R$ 90") está **revogada**
+desde 03/09 — vale a parcela mínima de R$ 6 (`min(12, floor(preço/6))`), mas o CLAUDE.md §6 deste satélite ainda
+traz a versão revogada; (2) há **duas "Lei Zero"** com o mesmo nome — a de nicho (Constituição, Emenda 1) e a
+de tese do `quant`/`/analise-cripto`; são camadas diferentes e agora estão separadas no 07-LEIS.
+**Próximo passo de dinheiro:** corrigir §6 do CLAUDE.md para a parcela mínima de R$ 6 antes de qualquer checkout
+— regra revogada em checkout é venda perdida (caso Freezer, 86% de abandono).
+**Links:** [[07-LEIS]] [[05-DECISOES]]
+
+---
+
 ### 2026-09-10 — Segundo merge na `main` ("mergeia"): conselho, recall do mestre, cofre e actions v5 vão para produção
 
 **Por quê:** sessão nova na nuvem nasce da `main`; sem o merge nasceria sem conselho, sem recall do mestre e sem o

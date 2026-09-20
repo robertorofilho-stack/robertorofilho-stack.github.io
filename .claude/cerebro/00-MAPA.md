@@ -13,6 +13,7 @@
 | [[04-PLAYBOOKS]] | O que funcionou e o que não funcionou | Ao descobrir padrão |
 | [[05-DECISOES]] | Decisões estratégicas e o porquê | Ao decidir algo relevante |
 | [[06-METRICAS]] | Números reais observados | Ao medir qualquer coisa |
+| [[07-LEIS]] | Pilha completa de precedência: Leis Máximas, Lei Zero, 4 Inegociáveis, gates, painel | Quando uma lei nasce, muda ou é revogada |
 | [[APRENDIZADO-PROJETO-SUPREMO]] | Base técnica instalada | Referência |
 | [`../KIT-RECUPERACAO.md`](../KIT-RECUPERACAO.md) | Perdi tudo → como voltar (cópia no Drive) | Referência |
 | `../backup.sh` | Bundle do repo + config pessoal → Drive/iCloud | Rodar 1x, depois cron |
