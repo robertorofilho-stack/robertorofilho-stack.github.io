@@ -1,5 +1,28 @@
 [
   {
+    "id": "91kfab",
+    "termo": "time limit on how long they store prompts",
+    "dor": "A question I have about Jev is, who are the \"Service Providers\" that they provide prompt information, and why is there no time limit on how long they store prompts? One of the Use Cases marketed is having Jev flag if personal information is contained in text. It's not a strong use case for it really.",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 47,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 71,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49770913"
+    ],
+    "amostras": [
+      "A question I have about Jev is, who are the \"Service Providers\" that they provide prompt information, and why is there no time limit on how long they store prompts? One of the Use Cases marketed is ha"
+    ],
+    "detectadoEm": "2026-09-20T01:14:05.011Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "qfk1s8",
     "termo": "low fee credit card network that merchants didn't charge a fee for, so I could c",
     "dor": ">I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accounting boondoggle. This is called \"Regulate the max fees\" like Europe did, where they still have functioning credit card netw",
