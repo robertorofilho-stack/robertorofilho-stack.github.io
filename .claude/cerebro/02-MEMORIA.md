@@ -7,6 +7,32 @@
 
 ## 2026-09
 
+### 2026-09-21 — Instagram é ILEGÍVEL do contêiner na nuvem: 4 caminhos testados, 4 falharam
+
+**Contexto:** operador colou `instagram.com/reel/DdbreG0z-cq/?comment_id=18101631143022333` sem instrução.
+**O que foi testado e o resultado real:**
+1. `curl` na URL do reel → HTTP 200 mas shell de JS sem `og:description`, sem caption, sem `<title>` útil. Meta serve
+   página vazia para cliente deslogado.
+2. `/embed/captioned/` → mesmo shell vazio (626 KB de bundle, zero conteúdo).
+3. `?__a=1&__d=dis` → **404**. Endpoint desativado pela Meta, não é sinal de post inexistente.
+4. Chromium headless (Playwright, `/opt/pw-browsers`) → `ERR_CERT_AUTHORITY_INVALID`. O Chromium empacotado usa o
+   Chrome Root Store e **ignora** o CA do proxy da nuvem em `/root/.ccr/ca-bundle.crt`; `--use-system-ca` e
+   `--disable-features=ChromeRootStoreUsed` não resolveram. Desabilitar TLS é proibido.
+5. Conector META (`ads_get_ad_accounts`) → **bloqueado pelo classificador de auto-mode** ("Credential Exploration").
+
+**Conclusão operacional:** comentário de Instagram **nunca** é legível por mim na nuvem. Caminho único e correto:
+Instagram Graph API com token de Página (`/{ig-user-id}/media`, `/{comment-id}?fields=text,username,timestamp`,
+`/{comment-id}/replies` para responder). Isso é infraestrutura a construir, não improviso por sessão.
+
+**Útil para o futuro:** shortcode → media_id é reversível em base64 custom (`A-Za-z0-9-_`).
+`DdbreG0z-cq` = **3988973079879477034**. Script de 5 linhas, serve de entrada para o Graph API.
+
+**Próximo passo de dinheiro:** token de longa duração do Instagram Graph + um `responder-comentario.py` no repo =
+todo comentário vira lead tratável por agente, em escala. Sem isso, cada link colado custa uma sessão inteira.
+**Links:** [[05-DECISOES]] [[03-ATIVOS]]
+
+---
+
 ### 2026-09-10 — Segundo merge na `main` ("mergeia"): conselho, recall do mestre, cofre e actions v5 vão para produção
 
 **Por quê:** sessão nova na nuvem nasce da `main`; sem o merge nasceria sem conselho, sem recall do mestre e sem o
