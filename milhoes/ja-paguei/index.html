@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VITRINEIA · Já paguei — receber pack</title>
+<style>
+:root{--bg:#0b1020;--card:#141a2e;--text:#f3f5ff;--muted:#9aa3c7;--accent:#6ea8ff}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
+.wrap{max-width:560px;margin:0 auto;padding:2rem 1.2rem}
+.brand{color:var(--accent);font-weight:700}
+h1{font-size:1.6rem;margin:.5rem 0}
+.card{background:var(--card);border-radius:14px;padding:1.2rem;margin:1rem 0}
+label{display:block;font-size:.85rem;color:var(--muted);margin:.7rem 0 .25rem}
+input,select{width:100%;padding:.7rem .75rem;border-radius:10px;border:1px solid #345;background:#0a0e1a;color:var(--text)}
+.btn{display:inline-block;margin-top:1rem;background:var(--accent);color:#061018;font-weight:700;text-decoration:none;padding:.85rem 1.1rem;border-radius:12px;border:0;cursor:pointer;width:100%;text-align:center}
+.note{font-size:.82rem;color:var(--muted);margin-top:1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">VITRINEIA · MILHÕES</div>
+  <h1>Já paguei — receber pack</h1>
+  <p style="color:var(--muted)">Confirme o PIX do pack IA 7 dias (R$97) ou Kit WA (R$247). Pedimos 4 dígitos do comprovante pra evitar fraude. Entrega manual rápida no WhatsApp/e-mail.</p>
+  <div class="card">
+    <form action="https://wa.me/5585999286786" method="get" id="f">
+      <label>Produto</label>
+      <select id="produto" required>
+        <option value="Pack IA 7 dias R$97">Pack IA 7 dias — R$97</option>
+        <option value="Kit WhatsApp 48h R$247">Kit WhatsApp 48h — R$247</option>
+        <option value="Presença que Agenda R$997">Presença que Agenda — R$997</option>
+      </select>
+      <label>Seu e-mail</label>
+      <input id="email" type="email" required placeholder="voce@email.com"/>
+      <label>WhatsApp (com DDD)</label>
+      <input id="wa" type="tel" required placeholder="85 9xxxx-xxxx"/>
+      <label>4 últimos dígitos / valor do comprovante PIX</label>
+      <input id="digitos" type="text" required maxlength="20" placeholder="ex: 6786 ou 97,00"/>
+      <button class="btn" type="submit">Enviar no WhatsApp</button>
+    </form>
+    <p class="note">Ou e-mail: <a href="mailto:roberttofilho1@hotmail.com?subject=Ja%20paguei%20VITRINEIA" style="color:var(--accent)">roberttofilho1@hotmail.com</a></p>
+  </div>
+</div>
+<script>
+document.getElementById('f').addEventListener('submit', function(e){
+  e.preventDefault();
+  var p=document.getElementById('produto').value;
+  var em=document.getElementById('email').value;
+  var wa=document.getElementById('wa').value;
+  var d=document.getElementById('digitos').value;
+  var msg='Olá VITRINEIA, já paguei.\nProduto: '+p+'\nE-mail: '+em+'\nWhatsApp: '+wa+'\nComprovante (4 dígitos/valor): '+d+'\nPode enviar o pack?';
+  location.href='https://wa.me/5585999286786?text='+encodeURIComponent(msg);
+});
+</script>
+</body>
+</html>
