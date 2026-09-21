@@ -118,5 +118,28 @@
     ],
     "detectadoEm": "2026-09-21T19:34:23.066Z",
     "estado": "NOVA"
+  },
+  {
+    "id": "awt8if",
+    "termo": "Gmail can I recommend Hotmail",
+    "dor": "As an alternative to Gmail can I recommend Hotmail? I recently created an account and a nice feature is that all new email goes into the Junk folder by default. It was obviously designed by a misanthropic hermit, but the benefit is that your emails drop to almost zero. It's a bit of a bummer if you had a job opportunit",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49792366"
+    ],
+    "amostras": [
+      "As an alternative to Gmail can I recommend Hotmail? I recently created an account and a nice feature is that all new email goes into the Junk folder by default. It was obviously designed by a misanthr"
+    ],
+    "detectadoEm": "2026-09-21T23:20:21.222Z",
+    "estado": "NOVA"
   }
 ]
