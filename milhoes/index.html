@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI for Solo Professionals in 7 Days | MILHÕES · Roberto</title>
+  <meta name="description" content="Practical AI prompts & routines for doctors, dentists, lawyers, accountants. USD 19 / BRL 97. Ethics-first. Worldwide." />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg2: #121a2b;
+      --card: #182338;
+      --text: #eef2ff;
+      --muted: #9aa8c7;
+      --accent: #3dd6c6;
+      --accent2: #6ea8fe;
+      --gold: #f0c14b;
+      --danger: #ff8b8b;
+      --radius: 16px;
+      --shadow: 0 20px 50px rgba(0,0,0,.35);
+      --max: 1080px;
+      --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: radial-gradient(1200px 600px at 10% -10%, #1a2a4a 0%, transparent 50%),
+                  radial-gradient(900px 500px at 100% 0%, #14352f 0%, transparent 45%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: var(--accent); }
+    .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.82);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .85rem 0; gap: 1rem;
+    }
+    .brand { font-weight: 800; letter-spacing: .02em; font-size: 1.05rem; }
+    .brand span { color: var(--accent); }
+    .lang-toggle {
+      display: inline-flex; background: var(--card); border-radius: 999px;
+      padding: 3px; border: 1px solid rgba(255,255,255,.08);
+    }
+    .lang-toggle button {
+      border: 0; background: transparent; color: var(--muted);
+      padding: .4rem .85rem; border-radius: 999px; cursor: pointer; font-weight: 600;
+    }
+    .lang-toggle button.active { background: var(--accent); color: #06231f; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+      background: linear-gradient(135deg, var(--accent), #2bb8a8);
+      color: #04241f; font-weight: 800; text-decoration: none;
+      padding: .85rem 1.35rem; border-radius: 999px; border: 0; cursor: pointer;
+      box-shadow: 0 10px 30px rgba(61,214,198,.25);
+    }
+    .btn:hover { filter: brightness(1.05); }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border: 1px solid rgba(255,255,255,.18); box-shadow: none;
+    }
+    .hero { padding: 3.5rem 0 2.5rem; }
+    .hero-grid {
+      display: grid; gap: 2rem;
+      grid-template-columns: 1.2fr .9fr; align-items: center;
+    }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    .eyebrow {
+      display: inline-block; font-size: .78rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent); background: rgba(61,214,198,.1);
+      border: 1px solid rgba(61,214,198,.25); padding: .35rem .7rem; border-radius: 999px;
+    }
+    h1 { font-size: clamp(1.85rem, 4vw, 2.85rem); line-height: 1.15; margin: 1rem 0 .75rem; }
+    .lead { color: var(--muted); font-size: 1.08rem; max-width: 38rem; }
+    .price-row { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: baseline; margin: 1.4rem 0; }
+    .price { font-size: 2rem; font-weight: 800; color: var(--gold); }
+    .price small { font-size: 1rem; color: var(--muted); font-weight: 600; }
+    .badges { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; }
+    .badge {
+      font-size: .8rem; color: var(--muted); background: var(--card);
+      border: 1px solid rgba(255,255,255,.08); padding: .35rem .65rem; border-radius: 999px;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.04), transparent), var(--card);
+      border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius);
+      padding: 1.35rem; box-shadow: var(--shadow);
+    }
+    .card h3 { margin-top: 0; }
+    .card ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .card li { margin: .45rem 0; }
+    section { padding: 2.75rem 0; }
+    .section-title { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0 0 .5rem; }
+    .section-sub { color: var(--muted); margin: 0 0 1.5rem; max-width: 40rem; }
+    .grid-3 { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 800px) {
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    }
+    .day {
+      border-left: 3px solid var(--accent);
+      padding-left: .9rem; margin: .8rem 0;
+    }
+    .day strong { color: var(--accent2); }
+    .warn {
+      background: rgba(255,139,139,.08); border: 1px solid rgba(255,139,139,.35);
+      color: #ffd0d0; border-radius: var(--radius); padding: 1rem 1.15rem; font-size: .95rem;
+    }
+    .example-tag {
+      display: inline-block; font-size: .7rem; font-weight: 800; letter-spacing: .06em;
+      text-transform: uppercase; background: #5a3b00; color: var(--gold);
+      padding: .2rem .5rem; border-radius: 6px; margin-bottom: .5rem;
+    }
+    .quote {
+      font-size: 1.02rem; color: var(--text); margin: 0 0 .75rem; font-style: italic;
+    }
+    .author { color: var(--muted); font-size: .9rem; }
+    .faq details {
+      background: var(--card); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding: .85rem 1rem; margin: .55rem 0;
+    }
+    .faq summary { cursor: pointer; font-weight: 700; }
+    .faq p { color: var(--muted); margin: .6rem 0 0; }
+    footer {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 2rem 0 3rem; color: var(--muted); font-size: .9rem;
+    }
+    .lang-block { display: none; }
+    .lang-block.show { display: block; }
+    .sticky-buy {
+      position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+      z-index: 40; display: none; width: min(100% - 1.5rem, 420px);
+    }
+    @media (max-width: 860px) {
+      .sticky-buy { display: block; }
+      .sticky-buy .btn { width: 100%; box-shadow: 0 12px 40px rgba(0,0,0,.45); }
+    }
+
+    .pix-box {
+      text-align: left; max-width: 36rem; margin: 1.25rem auto 0;
+      background: rgba(61,214,198,.06); border: 1px solid rgba(61,214,198,.28);
+      border-radius: 14px; padding: 1.15rem 1.25rem;
+    }
+    .pix-box h3 { margin: 0 0 .65rem; font-size: 1.05rem; color: var(--accent); }
+    .pix-box ol { margin: .4rem 0 .8rem; padding-left: 1.2rem; color: var(--muted); }
+    .pix-box li { margin: .4rem 0; }
+    .pix-key {
+      display: block; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: var(--bg2); border: 1px dashed rgba(255,255,255,.2);
+      padding: .65rem .85rem; border-radius: 10px; color: var(--gold);
+      word-break: break-all; margin: .35rem 0 .75rem; font-weight: 700;
+    }
+    .pix-note {
+      font-size: .88rem; color: var(--muted); margin: .75rem 0 0;
+      border-top: 1px solid rgba(255,255,255,.08); padding-top: .75rem;
+    }
+    .pix-alert {
+      font-size: .9rem; color: #ffe6a8; background: rgba(240,193,75,.1);
+      border: 1px solid rgba(240,193,75,.35); border-radius: 10px;
+      padding: .65rem .8rem; margin: .75rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">MILHÕES <span>·</span> Roberto</div>
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
+          <button type="button" id="btn-pt" onclick="setLang('pt')">PT</button>
+        </div>
+        <a class="btn" href="#buy" data-i18n="navBuy">Buy — $19</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <div id="lang-en" class="lang-block show">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Digital pack · Worldwide</span>
+          <h1>AI for Solo Professionals in 7 Days</h1>
+          <p class="lead">
+            Practical prompts and routines for WhatsApp, email, content, and calendar —
+            built for doctors (practice management), dentists, lawyers, accountants, and freelancers.
+            Ethics-first. No clinical claims.
+          </p>
+          <div class="price-row">
+            <div class="price">USD 19 <small>or BRL 97</small></div>
+          </div>
+          <div class="badges">
+            <span class="badge">EN master + PT-BR version</span>
+            <span class="badge">PDF-ready ebook</span>
+            <span class="badge">Prompt bank included</span>
+            <span class="badge">Instant digital delivery</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="#buy">Buy now — get the pack</a>
+            <a class="btn btn-ghost" href="#inside">See what’s inside</a>
+          </div>
+          <p style="color:var(--muted);font-size:.88rem;margin-top:1rem;">
+            By <strong>Roberto</strong> — surgeon in Fortaleza teaching AI for business operations
+            (not medical diagnosis). Brand: <strong>MILHÕES</strong>.
+          </p>
+        </div>
+        <div class="card">
+          <h3>In 7 days you will have</h3>
+          <ul>
+            <li>Safe AI setup + ethics checklist</li>
+            <li>WhatsApp triage & quick replies</li>
+            <li>Email skeletons that sound human</li>
+            <li>1 week of ethical content outlines</li>
+            <li>Follow-up SOP + weekly AI rhythm</li>
+            <li>Clear services copy + protective FAQ</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="inside">
+      <div class="wrap">
+        <h2 class="section-title">What’s inside</h2>
+        <p class="section-sub">A short, actionable ebook (≈8–15 pages equivalent) you can finish in one week.</p>
+        <div class="grid-2">
+          <div>
+            <div class="day"><strong>Day 1</strong> — Setup & ethics gate</div>
+            <div class="day"><strong>Day 2</strong> — WhatsApp Business routines</div>
+            <div class="day"><strong>Day 3</strong> — Email that sounds human</div>
+            <div class="day"><strong>Day 4</strong> — Content engine (no hype)</div>
+          </div>
+          <div>
+            <div class="day"><strong>Day 5</strong> — Agenda, follow-ups & SOPs</div>
+            <div class="day"><strong>Day 6</strong> — Offer clarity & FAQ</div>
+            <div class="day"><strong>Day 7</strong> — Weekly AI operating system</div>
+            <div class="day"><strong>Bonus</strong> — Anonymize, notes→actions, LinkedIn bio</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">Who it’s for</h2>
+        <div class="grid-3">
+          <div class="card"><h3>Clinic owners</h3><p style="color:var(--muted);margin:0">Physicians & dentists who need better ops and marketing — not AI diagnosis.</p></div>
+          <div class="card"><h3>Law & accounting</h3><p style="color:var(--muted);margin:0">Solo lawyers and accountants drowning in email and WhatsApp.</p></div>
+          <div class="card"><h3>Freelancers worldwide</h3><p style="color:var(--muted);margin:0">Licensed or consulting professionals who sell expertise and need systems.</p></div>
+        </div>
+        <div class="warn" style="margin-top:1.25rem;">
+          <strong>Clear boundary:</strong> This product teaches AI for <em>practice management and communication</em>.
+          It does <strong>not</strong> provide medical diagnosis, treatment plans, legal opinions, or tax filings.
+          Always review AI drafts. Follow your local ethics and privacy rules (LGPD, GDPR, HIPAA, etc.).
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">Social proof</h2>
+        <p class="section-sub">Placeholders marked EXAMPLE — replace with real reviews before ads.</p>
+        <div class="grid-3">
+          <div class="card">
+            <div class="example-tag">EXAMPLE</div>
+            <p class="quote">“Cut my WhatsApp reply time in half without sounding robotic.”</p>
+            <div class="author">— Dentist, São Paulo (EXAMPLE)</div>
+          </div>
+          <div class="card">
+            <div class="example-tag">EXAMPLE</div>
+            <p class="quote">“Finally prompts that respect ethics — not miracle marketing.”</p>
+            <div class="author">— Family physician, clinic owner (EXAMPLE)</div>
+          </div>
+          <div class="card">
+            <div class="example-tag">EXAMPLE</div>
+            <p class="quote">“Used Day 3 email skeletons the same afternoon. Worth the $19.”</p>
+            <div class="author">— Lawyer, small firm (EXAMPLE)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="wrap">
+        <h2 class="section-title">FAQ</h2>
+        <details open>
+          <summary>Is this medical advice?</summary>
+          <p>No. Roberto is a surgeon who teaches AI for business operations. The pack never claims to diagnose or treat.</p>
+        </details>
+        <details>
+          <summary>Which languages?</summary>
+          <p>English master edition + Brazilian Portuguese version. Same structure.</p>
+        </details>
+        <details>
+          <summary>How do I receive it?</summary>
+          <p>Brazil: pay R$97 via PIX, then send the receipt on WhatsApp or email — we send the pack (PDFs) manually, usually within minutes during business hours. Global (card/PayPal): Gumroad USD 19 when the store link is live again.</p>
+        </details>
+        <details>
+          <summary>Can I buy from any country?</summary>
+          <p>Yes. Brazilians: PIX R$97 now (instructions below). Outside Brazil: contact the seller for USD 19 payment options until Gumroad is available.</p>
+        </details>
+        <details>
+          <summary>Refunds?</summary>
+          <p>PIX purchases: if the pack files were not delivered, contact WhatsApp or email with your receipt and we will resolve. Gumroad purchases follow Gumroad policy when that channel is active.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="buy">
+      <div class="wrap">
+        <div class="card" style="text-align:center;padding:2rem 1.25rem;">
+          <h2 class="section-title" style="margin-bottom:.35rem;">Get the pack</h2>
+          <p class="section-sub" style="margin-inline:auto;">BRL 97 via PIX (Brazil) · USD 19 global (soon) · Personal-use license</p>
+          <div class="cta-row" style="justify-content:center;">
+            <a class="btn" href="#buy-br-en">Buy in Brazil — PIX R$97</a>
+            <a class="btn btn-ghost" href="mailto:roberttofilho1@hotmail.com?subject=MILHOES%20pack%20USD%2019">Global / USD 19 — email seller</a>
+          </div>
+          <div class="pix-box" id="buy-br-en">
+            <h3>Brazil · Pay with PIX (R$97)</h3>
+            <ol>
+              <li>Open your bank app → PIX → Pay with key.</li>
+              <li>Amount: <strong style="color:var(--text)">R$97,00</strong>.</li>
+              <li>Preferred PIX key (email):</li>
+            </ol>
+            <code class="pix-key">roberttofilho1@hotmail.com</code>
+            <p style="margin:0;color:var(--muted);font-size:.92rem;">Alternative PIX key (phone / WhatsApp):</p>
+            <code class="pix-key">+55 85 99928-6786</code>
+            <div class="pix-alert"><strong>Seller note:</strong> the PIX key must be <em>active</em> on Roberto’s bank account before you pay. If the transfer fails, message WhatsApp first.</div>
+            <ol start="4">
+              <li>After paying, send the <strong style="color:var(--text)">receipt (comprovante)</strong> via WhatsApp or email with your name.</li>
+              <li>You receive the pack (ebook-pt.pdf + ebook-en.pdf / zip) by the same channel.</li>
+            </ol>
+            <div class="cta-row" style="margin-top:.5rem;">
+              <a class="btn" href="https://wa.me/5585999286786?text=Ol%C3%A1%20Roberto%2C%20paguei%20o%20pack%20MILH%C3%95ES%20(R%2497)%20via%20PIX.%20Segue%20o%20comprovante.">Send receipt on WhatsApp</a>
+              <a class="btn btn-ghost" href="mailto:roberttofilho1@hotmail.com?subject=Comprovante%20PIX%20MILHOES%20R%2497&body=Ol%C3%A1%20Roberto%2C%0A%0APaguei%20R%2497%20via%20PIX%20pelo%20pack%20MILH%C3%95ES.%20Segue%20o%20comprovante%20em%20anexo.%0A%0ANome%3A%0A">Send receipt by email</a>
+            </div>
+            <p class="pix-note">We never publish bank agency, account number, or CPF on this page — only PIX keys (email and/or phone). Gumroad USD checkout returns when login is restored.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== PORTUGUESE ===================== -->
+  <div id="lang-pt" class="lang-block">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Pack digital · Global</span>
+          <h1>IA no Consultório e Escritório em 7 Dias</h1>
+          <p class="lead">
+            Prompts práticos e rotinas para WhatsApp, e-mail, conteúdo e agenda —
+            para médicos (gestão), dentistas, advogados, contadores e liberais.
+            Ética em primeiro lugar. Sem claims clínicos.
+          </p>
+          <div class="price-row">
+            <div class="price">BRL 97 <small>ou USD 19</small></div>
+          </div>
+          <div class="badges">
+            <span class="badge">EN master + versão PT-BR</span>
+            <span class="badge">Ebook pronto para PDF</span>
+            <span class="badge">Banco de prompts</span>
+            <span class="badge">Entrega digital imediata</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="#buy-pt">Comprar agora — receber o pack</a>
+            <a class="btn btn-ghost" href="#inside-pt">Ver o que tem dentro</a>
+          </div>
+          <p style="color:var(--muted);font-size:.88rem;margin-top:1rem;">
+            Por <strong>Roberto</strong> — cirurgião em Fortaleza que ensina IA para operação do negócio
+            (não diagnóstico médico). Marca: <strong>MILHÕES</strong>.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Em 7 dias você terá</h3>
+          <ul>
+            <li>Setup seguro de IA + checklist ético</li>
+            <li>Triagem e respostas rápidas no WhatsApp</li>
+            <li>Esqueletos de e-mail com tom humano</li>
+            <li>1 semana de conteúdo ético</li>
+            <li>SOP de follow-up + ritmo semanal</li>
+            <li>Textos de serviços + FAQ protetor</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="inside-pt">
+      <div class="wrap">
+        <h2 class="section-title">O que tem dentro</h2>
+        <p class="section-sub">Ebook curto e acionável (≈8–15 páginas equivalentes) para concluir em uma semana.</p>
+        <div class="grid-2">
+          <div>
+            <div class="day"><strong>Dia 1</strong> — Setup e porteira ética</div>
+            <div class="day"><strong>Dia 2</strong> — Rotinas de WhatsApp Business</div>
+            <div class="day"><strong>Dia 3</strong> — E-mail que parece humano</div>
+            <div class="day"><strong>Dia 4</strong> — Motor de conteúdo (sem hype)</div>
+          </div>
+          <div>
+            <div class="day"><strong>Dia 5</strong> — Agenda, follow-ups e SOPs</div>
+            <div class="day"><strong>Dia 6</strong> — Clareza da oferta e FAQ</div>
+            <div class="day"><strong>Dia 7</strong> — Sistema semanal de IA</div>
+            <div class="day"><strong>Bônus</strong> — Anonimizar, notas→ações, bio LinkedIn</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">Para quem é</h2>
+        <div class="grid-3">
+          <div class="card"><h3>Donos de consultório</h3><p style="color:var(--muted);margin:0">Médicos e dentistas que precisam de operação e marketing — não de IA diagnóstica.</p></div>
+          <div class="card"><h3>Direito e contabilidade</h3><p style="color:var(--muted);margin:0">Advogados e contadores solo sobrecarregados de e-mail e WhatsApp.</p></div>
+          <div class="card"><h3>Liberais no mundo</h3><p style="color:var(--muted);margin:0">Profissionais que vendem expertise e precisam de sistema, em qualquer país.</p></div>
+        </div>
+        <div class="warn" style="margin-top:1.25rem;">
+          <strong>Limite claro:</strong> este produto ensina IA para <em>gestão e comunicação da prática</em>.
+          <strong>Não</strong> fornece diagnóstico médico, plano de tratamento, parecer jurídico ou orientação fiscal.
+          Sempre revise rascunhos de IA. Siga ética e privacidade locais (LGPD, GDPR, HIPAA etc.).
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">Prova social</h2>
+        <p class="section-sub">Placeholders marcados EXAMPLE — troque por depoimentos reais antes de anunciar.</p>
+        <div class="grid-3">
+          <div class="card">
+            <div class="example-tag">EXAMPLE</div>
+            <p class="quote">“Metade do tempo no WhatsApp, sem parecer robô.”</p>
+            <div class="author">— Dentista, São Paulo (EXAMPLE)</div>
+          </div>
+          <div class="card">
+            <div class="example-tag">EXAMPLE</div>
+            <p class="quote">“Finalmente prompts que respeitam ética — sem marketing milagroso.”</p>
+            <div class="author">— Médico de família, gestor de clínica (EXAMPLE)</div>
+          </div>
+          <div class="card">
+            <div class="example-tag">EXAMPLE</div>
+            <p class="quote">“Usei os e-mails do Dia 3 no mesmo dia. Valeu os R$97.”</p>
+            <div class="author">— Advogado, escritório pequeno (EXAMPLE)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="wrap">
+        <h2 class="section-title">Perguntas frequentes</h2>
+        <details open>
+          <summary>Isso é aconselhamento médico?</summary>
+          <p>Não. Roberto é cirurgião e ensina IA para operação do negócio. O pack não diagnostica nem trata.</p>
+        </details>
+        <details>
+          <summary>Quais idiomas?</summary>
+          <p>Edição master em inglês + versão em português BR. Mesma estrutura.</p>
+        </details>
+        <details>
+          <summary>Como recebo?</summary>
+          <p>Brasil: pague R$97 via PIX e envie o comprovante no WhatsApp ou e-mail — entregamos o pack (PDFs) manualmente, em geral em minutos no horário comercial. Global (cartão/PayPal): Gumroad USD 19 quando a loja voltar.</p>
+        </details>
+        <details>
+          <summary>Posso comprar de qualquer país?</summary>
+          <p>Sim. No Brasil: PIX R$97 agora (instruções abaixo). Fora do Brasil: fale com o vendedor para opções em USD 19 até o Gumroad estar disponível.</p>
+        </details>
+        <details>
+          <summary>Reembolso?</summary>
+          <p>PIX: se os arquivos do pack não forem entregues, envie o comprovante no WhatsApp ou e-mail e resolvemos. Compras Gumroad seguem a política da Gumroad quando esse canal estiver ativo.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="buy-pt">
+      <div class="wrap">
+        <div class="card" style="text-align:center;padding:2rem 1.25rem;">
+          <h2 class="section-title" style="margin-bottom:.35rem;">Garantir o pack</h2>
+          <p class="section-sub" style="margin-inline:auto;">R$97 via PIX (Brasil) · USD 19 global (em breve) · Licença de uso pessoal</p>
+          <div class="cta-row" style="justify-content:center;">
+            <a class="btn" href="#pix-br">Comprar no Brasil — PIX R$97</a>
+            <a class="btn btn-ghost" href="mailto:roberttofilho1@hotmail.com?subject=Pack%20MILHOES%20USD%2019">Fora do Brasil / USD 19 — e-mail</a>
+          </div>
+          <div class="pix-box" id="pix-br">
+            <h3>Brasil · Pagar com PIX (R$97)</h3>
+            <ol>
+              <li>Abra o app do banco → PIX → Pagar com chave.</li>
+              <li>Valor: <strong style="color:var(--text)">R$97,00</strong>.</li>
+              <li>Chave PIX preferencial (e-mail):</li>
+            </ol>
+            <code class="pix-key">roberttofilho1@hotmail.com</code>
+            <p style="margin:0;color:var(--muted);font-size:.92rem;">Chave PIX alternativa (telefone / WhatsApp):</p>
+            <code class="pix-key">+55 85 99928-6786</code>
+            <div class="pix-alert"><strong>Atenção (Roberto):</strong> a chave PIX precisa estar <em>ativa</em> na conta bancária antes do pagamento. Se a transferência falhar, fale no WhatsApp primeiro.</div>
+            <ol start="4">
+              <li>Depois do PIX, envie o <strong style="color:var(--text)">comprovante</strong> no WhatsApp ou no e-mail, com seu nome.</li>
+              <li>Você recebe o pack (ebook-pt.pdf + ebook-en.pdf / zip) pelo mesmo canal.</li>
+            </ol>
+            <div class="cta-row" style="margin-top:.5rem;">
+              <a class="btn" href="https://wa.me/5585999286786?text=Ol%C3%A1%20Roberto%2C%20paguei%20o%20pack%20MILH%C3%95ES%20(R%2497)%20via%20PIX.%20Segue%20o%20comprovante.">Enviar comprovante no WhatsApp</a>
+              <a class="btn btn-ghost" href="mailto:roberttofilho1@hotmail.com?subject=Comprovante%20PIX%20MILHOES%20R%2497&body=Ol%C3%A1%20Roberto%2C%0A%0APaguei%20R%2497%20via%20PIX%20pelo%20pack%20MILH%C3%95ES.%20Segue%20o%20comprovante%20em%20anexo.%0A%0ANome%3A%0A">Enviar comprovante por e-mail</a>
+            </div>
+            <p class="pix-note">Não publicamos agência, conta nem CPF nesta página — só chaves PIX (e-mail e/ou telefone). Checkout Gumroad em USD volta quando o login for desbloqueado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <strong style="color:var(--text)">MILHÕES · Roberto</strong><br />
+      Fortaleza, Brazil · Teaching AI for professional practice management · Not a medical device · Not clinical advice.<br />
+      © 2026 All rights reserved. Personal-use license for purchasers.
+    </div>
+  </footer>
+
+  <div class="sticky-buy">
+    <a class="btn" href="#buy" id="sticky-cta">Buy — USD 19 / BRL 97</a>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('lang-en').classList.toggle('show', lang === 'en');
+      document.getElementById('lang-pt').classList.toggle('show', lang === 'pt');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      var sticky = document.getElementById('sticky-cta');
+      var navBuy = document.querySelector('[data-i18n="navBuy"]');
+      if (lang === 'pt') {
+        sticky.textContent = 'Comprar — R$97 PIX';
+        sticky.setAttribute('href', '#buy-pt');
+        if (navBuy) { navBuy.textContent = 'Comprar — R$97'; navBuy.setAttribute('href', '#buy-pt'); }
+      } else {
+        sticky.textContent = 'Buy — PIX R$97 / USD 19';
+        sticky.setAttribute('href', '#buy');
+        if (navBuy) { navBuy.textContent = 'Buy — PIX / $19'; navBuy.setAttribute('href', '#buy'); }
+      }
+      try { localStorage.setItem('milhoes-lang', lang); } catch (e) {}
+    }
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('milhoes-lang'); } catch (e) {}
+      if (!saved) {
+        var nav = (navigator.language || 'en').toLowerCase();
+        saved = nav.startsWith('pt') ? 'pt' : 'en';
+      }
+      setLang(saved);
+    })();
+  </script>
+</body>
+</html>
