@@ -23,6 +23,29 @@
     "estado": "NOVA"
   },
   {
+    "id": "lllxm7",
+    "termo": "Effect",
+    "dor": "Show HN: With generators/DI, LazyPromise has become a tiny alternative to Effect",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 46,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 51.99946355762718,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49807665"
+    ],
+    "amostras": [
+      "Show HN: With generators/DI, LazyPromise has become a tiny alternative to Effect"
+    ],
+    "detectadoEm": "2026-09-22T22:14:48.147Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "qfk1s8",
     "termo": "low fee credit card network that merchants didn't charge a fee for, so I could c",
     "dor": ">I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accounting boondoggle. This is called \"Regulate the max fees\" like Europe did, where they still have functioning credit card netw",
