@@ -16,7 +16,8 @@ taste, redesign) · MCP Figma (`https://mcp.figma.com/mcp`, http + OAuth) · Pla
 **Estado:** ✅ **7 skills instaladas** com autorização do operador ("INSTALE AS 7"): impeccable, taste, redesign,
 emil-design-eng, animate, review-animations, improve-animations — origem/commit/licença em `.claude/skills/ORIGEM-DESIGN.md`;
 manifesto 46→53. **Figma** = conector da conta claude.ai (não `.mcp.json`): estava "connect_incomplete", operador tem
-conta Figma, conectou na mesma sessão → vale na nuvem e nos 2 Macs. Pendente: conferir colisão com skills do mestre
+conta Figma, conectou na mesma sessão → vale na nuvem e nos 2 Macs. `whoami` OK, mas **plano Starter + assento View** → cota
+mínima de chamadas MCP (~6/mês) e sem edição de arquivo; uso sério exige assento Dev/Full pago (decisão do operador). Pendente: conferir colisão com skills do mestre
 (`ls ~/.claude/skills | grep -iE 'design|taste|front|ui|anima'`). Revisão: sem código suspeito; impeccable baixa o engine do
 próprio GitHub com checagem sha256.
 **Aprendizado de venda:** formato "Comenta PALAVRA → DM com setup grátis" = captação em massa de leads; replicável
