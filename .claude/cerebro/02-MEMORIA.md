@@ -7,6 +7,20 @@
 
 ## 2026-09
 
+### 2026-09-24 — Reel "Comenta DESIGN" (Max Carrau IA): setup de design para Claude Code mapeado
+
+**Reel:** facebook.com/reel/2579521872488157 — 219K views · 2,5K reações. Isca de DM "comenta DESIGN que eu mando o setup".
+**Setup (repos públicos, dispensa comentar):** `pbakaus/impeccable` (Apache 2.0, @edb9c7f) · `emilkowalski/skill`
+(MIT, @d16ebe6: emil-design-eng, animate, review-animations, improve-animations) · `Leonxlnx/taste-skill` (MIT, @c184364:
+taste, redesign) · MCP Figma (`https://mcp.figma.com/mcp`, http + OAuth) · Playwright (já temos).
+**Estado:** skills copiadas só na sessão; commit em `.claude/skills/` e Figma no `.mcp.json` **aguardam autorização do
+operador** (classificador bloqueou como auto-modificação). Revisão: sem código suspeito; impeccable baixa o engine do
+próprio GitHub com checagem sha256.
+**Aprendizado de venda:** formato "Comenta PALAVRA → DM com setup grátis" = captação em massa de leads; replicável
+("Comenta JOELHO" / "Comenta IA") com sequência de DM que termina em produto pago.
+
+---
+
 ### 2026-09-10 — Segundo merge na `main` ("mergeia"): conselho, recall do mestre, cofre e actions v5 vão para produção
 
 **Por quê:** sessão nova na nuvem nasce da `main`; sem o merge nasceria sem conselho, sem recall do mestre e sem o
