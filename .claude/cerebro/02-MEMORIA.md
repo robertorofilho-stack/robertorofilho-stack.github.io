@@ -13,8 +13,11 @@
 **Setup (repos públicos, dispensa comentar):** `pbakaus/impeccable` (Apache 2.0, @edb9c7f) · `emilkowalski/skill`
 (MIT, @d16ebe6: emil-design-eng, animate, review-animations, improve-animations) · `Leonxlnx/taste-skill` (MIT, @c184364:
 taste, redesign) · MCP Figma (`https://mcp.figma.com/mcp`, http + OAuth) · Playwright (já temos).
-**Estado:** skills copiadas só na sessão; commit em `.claude/skills/` e Figma no `.mcp.json` **aguardam autorização do
-operador** (classificador bloqueou como auto-modificação). Revisão: sem código suspeito; impeccable baixa o engine do
+**Estado:** ✅ **7 skills instaladas** com autorização do operador ("INSTALE AS 7"): impeccable, taste, redesign,
+emil-design-eng, animate, review-animations, improve-animations — origem/commit/licença em `.claude/skills/ORIGEM-DESIGN.md`;
+manifesto 46→53. **Figma** = conector da conta claude.ai (não `.mcp.json`): estava "connect_incomplete", operador tem
+conta Figma, conectou na mesma sessão → vale na nuvem e nos 2 Macs. Pendente: conferir colisão com skills do mestre
+(`ls ~/.claude/skills | grep -iE 'design|taste|front|ui|anima'`). Revisão: sem código suspeito; impeccable baixa o engine do
 próprio GitHub com checagem sha256.
 **Aprendizado de venda:** formato "Comenta PALAVRA → DM com setup grátis" = captação em massa de leads; replicável
 ("Comenta JOELHO" / "Comenta IA") com sequência de DM que termina em produto pago.
