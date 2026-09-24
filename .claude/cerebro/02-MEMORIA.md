@@ -20,6 +20,9 @@ conta Figma, conectou na mesma sessão → vale na nuvem e nos 2 Macs. `whoami` 
 mínima de chamadas MCP (~6/mês) e sem edição de arquivo; uso sério exige assento Dev/Full pago (decisão do operador). Pendente: conferir colisão com skills do mestre
 (`ls ~/.claude/skills | grep -iE 'design|taste|front|ui|anima'`). Revisão: sem código suspeito; impeccable baixa o engine do
 próprio GitHub com checagem sha256.
+**Mestre (`cerebro-backup` master, commit 649dd60):** as 7 skills em `claude-config/skills/` + bloco "🎨 Arsenal de design"
+em diretor-de-produtos/vendas/identidade-digital/auditoria e skill diretor-de-produto · inventário 153→160 · memória
+`arsenal-design-24-09.md` com ponteiro no MEMORY.md (verificar-indice: nenhuma órfã nova). Os Macs recebem no próximo `sincronizar.sh`.
 **Aprendizado de venda:** formato "Comenta PALAVRA → DM com setup grátis" = captação em massa de leads; replicável
 ("Comenta JOELHO" / "Comenta IA") com sequência de DM que termina em produto pago.
 
