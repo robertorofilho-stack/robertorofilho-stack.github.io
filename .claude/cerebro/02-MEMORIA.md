@@ -7,6 +7,18 @@
 
 ## 2026-09
 
+### 2026-09-25 — Auditoria visual (impeccable) do Manual Essencial R$67 e RENDA IA
+
+Primeiro uso real do arsenal de design. Detalhe no mestre: `auditoria-visual-manual-essencial-renda-ia-25-09.md` (commit 2905972).
+Achados 🔴: site Vitrine IA não vende o Manual (só "site grátis"); portfólio com cases falsos (mockups de IA com texto sem
+sentido + resultados afirmados); checkout Cakto sem logo/descrição, parcela 12x em destaque (lei vigente = 11x); RENDA IA
+sem página e criativo sem produto. **Divergência de regra:** este CLAUDE.md ainda diz "parcelar só acima de R$90"; o mestre
+substituiu em 03/09 pela parcela mínima R$6 — atualização proposta ao operador.
+Técnica: Chromium local precisa de `proxy` explícito + `--ignore-certificate-errors-spki-list` com os SPKI das CAs Anthropic
+do `/root/.ccr/ca-bundle.crt`; o MCP playwright do `.mcp.json` falha na nuvem (procura /opt/google/chrome).
+
+---
+
 ### 2026-09-24 — Reel "Comenta DESIGN" (Max Carrau IA): setup de design para Claude Code mapeado
 
 **Reel:** facebook.com/reel/2579521872488157 — 219K views · 2,5K reações. Isca de DM "comenta DESIGN que eu mando o setup".
