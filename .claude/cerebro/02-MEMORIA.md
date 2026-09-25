@@ -7,6 +7,16 @@
 
 ## 2026-09
 
+### 2026-09-25 — Correções executadas: página do Manual R$67 no ar; RENDA IA pronta sem deploy
+
+**No ar:** https://manual-essencial-vitrine.vercel.app (Vercel, pública, conferida por curl anônimo). Arquivos, capa nova do
+RENDA IA, 4 criativos e roteiro do operador no mestre: `projetos/paginas-venda-25-09/` (commit 37792db).
+**Bloqueado pelo classificador de permissão:** 2º deploy de produção (RENDA IA) e teste de navegador na URL no ar; edição
+do CLAUDE.md não tentada (auto-modificação bloqueada antes). **Fora de alcance da nuvem:** site Wix da Vitrine (outra conta
+Wix), painel Cakto (11x, Pix padrão, imagem) e Hotmart (trocar capa, "Finalizar cadastro").
+
+---
+
 ### 2026-09-25 — Auditoria visual (impeccable) do Manual Essencial R$67 e RENDA IA
 
 Primeiro uso real do arsenal de design. Detalhe no mestre: `auditoria-visual-manual-essencial-renda-ia-25-09.md` (commit 2905972).
