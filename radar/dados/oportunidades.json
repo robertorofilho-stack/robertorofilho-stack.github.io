@@ -46,6 +46,29 @@
     "estado": "NOVA"
   },
   {
+    "id": "24rbzl",
+    "termo": "Carbonite (unlimited storage, my encryption) that doesn't hide the VAT until the",
+    "dor": "From Deezer to Spotify many years ago From Opera to Firefox many many years ago From Winzip to WinRar many many years ago From Gemini to ChatGPT a couple of years ago I wish there was an alternative to Carbonite (unlimited storage, my encryption) that doesn't hide the VAT until the checkout so they don't trick on the p",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 46,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 60,
+      "volume": 44.09507022321814,
+      "viabilidade": 30,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49850143"
+    ],
+    "amostras": [
+      "From Deezer to Spotify many years ago From Opera to Firefox many many years ago From Winzip to WinRar many many years ago From Gemini to ChatGPT a couple of years ago I wish there was an alternative t"
+    ],
+    "detectadoEm": "2026-09-25T22:26:15.480Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "qfk1s8",
     "termo": "low fee credit card network that merchants didn't charge a fee for, so I could c",
     "dor": ">I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accounting boondoggle. This is called \"Regulate the max fees\" like Europe did, where they still have functioning credit card netw",
