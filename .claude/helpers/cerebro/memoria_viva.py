@@ -150,6 +150,39 @@ def _cache_dir():
     return os.path.join(base, "memoria-viva")          # FORA dos repositórios: guarda tokens de memória privada
 
 
+# ---------------------------------------------------------------- correção da consulta (27/09/2026)
+# Palavra da consulta que não existe em NENHUMA memória (erro de digitação, flexão, corte) vira a palavra guardada mais
+# próxima por distância de edição (corretor_lexico.py, SymSpell + Damerau-Levenshtein). Palavra que existe não é tocada:
+# consulta limpa fica IDÊNTICA. Medido em 954 consultas perturbadas (3 sementes que nada viu): MRR +0,084
+# [+0,069, +0,099], 0,3 ms/palavra. A "limpeza" pelo espaço de Hilbert (hilbert.py) também funcionava (+0,047) mas
+# PERDEU para este corretor "burro" (−0,037, IC todo negativo) — o conselho de 4 IAs mandou comparar; comparado, fica o burro.
+_CORRETOR = {}
+
+
+def limpar_consulta(docs, consulta):
+    toks = tokens(consulta)
+    freq = {}
+    for d in docs.values():
+        for w, c in d.tf.items():
+            freq[w] = freq.get(w, 0) + c
+    fora = [w for w in toks if len(w) >= 4 and w not in freq]
+    if not fora:
+        return consulta
+    try:
+        import importlib.util
+        chave = (len(freq), sum(freq.values()))
+        if chave not in _CORRETOR:
+            sp = importlib.util.spec_from_file_location("corretor_lexico", os.path.join(os.path.dirname(os.path.abspath(__file__)), "corretor_lexico.py"))
+            cl = importlib.util.module_from_spec(sp)
+            sp.loader.exec_module(cl)
+            _CORRETOR.clear()
+            _CORRETOR[chave] = cl.Corretor(freq)
+        cor = _CORRETOR[chave]
+    except Exception:
+        return consulta
+    return " ".join(cor.corrigir(w)[0] if w in fora else w for w in toks)
+
+
 def _ler_doc(arq, p, hoje):
     with open(p, encoding="utf-8", errors="replace") as f:
         txt = f.read()
@@ -405,10 +438,11 @@ def ultima_resposta(transcript, limite=1500):
 
 
 def buscar(docs, estado, consulta, k=8, hoje=None, meia_vida=MEIA_VIDA_DIAS, pesos=PESOS, vagas_assoc=VAGAS_ASSOCIACAO,
-           contexto="", piso=0.0):
+           contexto="", piso=0.0, limpar=True):
     """Dois canais: TEXTO (BM25 + desempate por importância/associação) ocupa o topo; ASSOCIAÇÃO (PageRank
     personalizado no grafo de links + sinapses) ganha até `vagas_assoc` vagas extras com o que não tem a palavra."""
     hoje = hoje or dt.date.today()
+    consulta = limpar_consulta(docs, consulta) if limpar else consulta
     bruto = bm25(docs, consulta)
     if piso > 0:
         topo = max(bruto.values(), default=0.0)

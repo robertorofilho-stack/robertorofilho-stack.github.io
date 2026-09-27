@@ -58,3 +58,7 @@ _Primeira caçada de infoproduto ainda pendente: `/cacar-produto aberto`._
 
 ## Instalador dos Macs (27/09/2026, mestre)
 - `claude-config/helpers/cerebro/instalar-no-mac.sh` — liga recall vivo, âncoras, anti-loop e uso de skill no `settings.json` de cada Mac, compacta o índice e roda os testes. Um comando por Mac; idempotente. Ver [[02-MEMORIA]].
+
+## Busca da memória: corretor de consulta + biblioteca do espaço de Hilbert (27/09/2026)
+- `helpers/cerebro/corretor_lexico.py` — palavra fora do vocabulário → vizinha por distância de edição; ligado em `memoria_viva.buscar` (+0,11…+0,14 MRR em consulta com erro). Testes: `testar-corretor.py`.
+- `helpers/cerebro/hilbert.py` — FHRR, memória chave→valor, Hopfield moderna, limpeza; `avaliar-hilbert.py` mede contra o BM25. Fora da busca (perdeu na medição). Testes: `testar-hilbert.py`.

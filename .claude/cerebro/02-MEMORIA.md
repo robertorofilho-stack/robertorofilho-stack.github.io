@@ -7,6 +7,17 @@
 
 ## 2026-09
 
+### 2026-09-27 (noite, 5) — Espaço de Hilbert: estudado, corrigido, medido — e perdeu para o corretor burro (mestre `e960f34`)
+
+**Pedido:** "estude a fundo o espaço de Hilbert, corrija os estudos, aprimore, use as IAs" + "revise os códigos
+matemáticos e melhore-os". **Time:** 2 pesquisadores em paralelo (teoria; parecer linha a linha do código colado), conselho
+de 4 IAs (US$ 0,021), Codex pedido (fila do mini). **Feito:** `hilbert.py` rigoroso (FHRR, chave→valor, Hopfield) + 11
+testes; `avaliar-hilbert.py`; estudo `ESTUDO/fichas/espaco-de-hilbert.md` no mestre. **Números:** Hilbert sozinho 0,707 vs
+BM25 0,817; fusão rejeitada; limpeza Hilbert +0,047; conselho 4/4 AJUSTAR → distância de edição +0,084 (vence, IC
+separado). **Adotado:** `corretor_lexico.py` na busca — consulta com erro +0,11…+0,14 MRR, limpa idêntica, 0,3 ms/palavra.
+**Lição:** a solução sofisticada que eu construí perdeu para a burra que o conselho sugeriu; o teste é que decide.
+**Aberto:** gabarito sai dos ganchos (favorece BM25) e sujeira é sintética — coletar 50 consultas reais.
+
 ### 2026-09-27 (noite, 4) — Codex revisou: motores EM PARTE; sync INSEGURO → corrigido (mestre `438abc8`)
 
 **Pedido:** "peça ao Codex para conferir" + "busque na memória" (a parceria já funcionava; eu, na nuvem, tinha pulado o

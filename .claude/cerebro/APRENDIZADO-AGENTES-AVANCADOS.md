@@ -42,6 +42,16 @@ de física aplicado a números aleatórios. Medido, não opinado:
 de pé; 3 das 5 justificativas estavam exageradas (corrigidas acima). Lição: número de auditoria sem a semente e o
 roteiro não é reproduzível — gravar os dois.
 
+**Espaço de Hilbert — estudado a fundo e medido (27/09, noite).** O termo era legítimo; o uso, errado (fase sem relação
+com o conteúdo; limiares 12/15/20 abaixo da média do ruído — com 1% de falso positivo seriam 31/53/120; σ² efetivo do
+N.E.X.U.S. = 3117 por causa das magnitudes, com d = 1024; "média geométrica" era aritmética; sem binding nem cleanup).
+Versão rigorosa em `helpers/cerebro/hilbert.py` (FHRR com inversa exata, memória chave→valor — d=1024: 98% com 100 pares,
+71% com 200 —, Hopfield moderna: 1.000 padrões com ruído 2× o sinal, 100% recuperados; 11 testes). **Na busca, perdeu:**
+sozinho 0,707 vs BM25 0,817; como limpeza de consulta +0,047 MRR; o conselho de 4 IAs exigiu comparar com um corretor
+"burro" de distância de edição, que fez +0,084 em 4,6 ms (Hilbert − edição = −0,037, IC todo negativo). Adotado
+`corretor_lexico.py` em `memoria_viva.buscar`: consulta com erro +0,11…+0,14 MRR, limpa idêntica. Lição: medir o
+sofisticado contra o baseline burro antes de adotar.
+
 **Bugs nas partes sérias (corrigidos no que foi instalado):**
 1. MCTS: `prior = exp(logprob)` de uma frase inteira ≈ 0 → a exploração morre. Certo: normalizar entre irmãos.
 2. MCTS: `√(visitas do pai)` = 0 na primeira descida → nenhuma exploração. Certo: √(N+1).

@@ -43,6 +43,12 @@ jobs:
         run: python3 .claude/helpers/conselho/testar-conselho.py
       - name: Memória viva — ranking, associação, Hebb saturado, episódios, nunca apaga
         run: python3 .claude/helpers/cerebro/testar-memoria-viva.py
+      - name: Corretor da consulta — distância de edição (SymSpell + Damerau-Levenshtein), consulta limpa intocada
+        run: python3 .claude/helpers/cerebro/testar-corretor.py
+      - name: Espaço de Hilbert — FHRR, Rayleigh, capacidade chave→valor, Hopfield moderna
+        run: |
+          python3 -c "import numpy" 2>/dev/null || python3 -m pip install --quiet numpy
+          python3 .claude/helpers/cerebro/testar-hilbert.py
       - name: Árvore de pensamento — PUCT, reflexão, orçamento, juiz não fecha sem verificador
         run: python3 .claude/helpers/pensar/testar-arvore.py
       - name: Rubrica — nota ponderada, auditoria de itens, concordância juiz×humano
