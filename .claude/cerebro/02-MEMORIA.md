@@ -18,7 +18,10 @@ link, com ancestral real); sync por merge, não rebase. Migração 1× por Mac (
 nada apagado). **Ensaio 2 Macs falsos + remoto falso:** edição simultânea dos 2 lados, mini arquivando 10 com o MacBook
 parado → índices idênticos, 0 conflito, 0 órfã, arquivadas não voltaram; Stop hook também. Método público portado:
 `merge-indice.py` + 7 testes no `saude.yml`. **Lição:** sync de texto entre máquinas sem ancestral é bug esperando
-acontecer — use o git como juntador, nunca cópias. **Status:** AGUARDA migração nos 2 Macs.
+acontecer — use o git como juntador, nunca cópias. **Status:** Mac mini ☑. MacBook parou: o clone estava no
+ramo do Codex (`codex/alfred-macbook-*`) — criado `voltar-ao-master.sh` no mestre (sync e migração voltam ao master
+sozinhos, ramo guardado em backup/, trabalho do Codex fundido). Lição: com dois motores no mesmo clone, o ramo é estado
+compartilhado — o sync precisa conferir o ramo, não só os arquivos.
 
 ### 2026-09-27 (noite, 2) — ✅ Instalado nos 2 Macs; incidente do índice curado (mestre `1712d29`)
 
