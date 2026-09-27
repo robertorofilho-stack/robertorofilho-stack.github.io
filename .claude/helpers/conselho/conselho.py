@@ -284,6 +284,10 @@ def consultar(m, tese, contexto="", modo="contra"):
     }
     if m["prov"] == "openrouter":
         dados["usage"] = {"include": True}
+        # CMU 11-768 aula 2 (fala): a taxa de erro depende de QUEM hospeda — FP4 erra muito mais que FP8.
+        # Opcional: CONSELHO_QUANT="fp8,bf16,fp16" restringe provedores; sem a variável, comportamento de sempre.
+        if os.environ.get("CONSELHO_QUANT"):
+            dados["provider"] = {"quantizations": [q.strip() for q in os.environ["CONSELHO_QUANT"].split(",") if q.strip()]}
         # raciocínio curto: o contra-argumento é o produto, não a cadeia de pensamento (modelos sem reasoning ignoram)
         dados["reasoning"] = {"effort": "low"}
     t0 = time.time()
@@ -308,6 +312,7 @@ def consultar(m, tese, contexto="", modo="contra"):
         "texto": (d["choices"][0].get("message") or {}).get("content", "").strip(),
         "tokens_in": ent, "tokens_out": sai,
         "custo_usd": round(float(custo), 4) if custo is not None else None,
+        "provedor": d.get("provider") or "",
     })
     return r
 
@@ -326,6 +331,7 @@ def registrar_saude(res):
         with open(_log_saude(), "a", encoding="utf-8") as f:
             for r in res:
                 f.write(json.dumps({"ts": time.strftime("%Y-%m-%dT%H:%M:%S"), "modelo": r.get("modelo"),
+                                    "provedor": r.get("provedor", ""),
                                     "ok": bool(r.get("ok")), "segundos": r.get("segundos"),
                                     "truncada": bool(r.get("truncada")), "erro": (r.get("erro") or "")[:120]},
                                    ensure_ascii=False) + "\n")
@@ -346,7 +352,8 @@ def saude_provedores():
             j = json.loads(l)
         except ValueError:
             continue
-        d = por.setdefault(j.get("modelo") or "?", {"n": 0, "erro": 0, "trunc": 0, "seg": 0.0})
+        chave = (j.get("modelo") or "?") + (f" via {j['provedor']}" if j.get("provedor") else "")
+        d = por.setdefault(chave, {"n": 0, "erro": 0, "trunc": 0, "seg": 0.0})
         d["n"] += 1
         d["erro"] += 0 if j.get("ok") else 1
         d["trunc"] += 1 if j.get("truncada") else 0

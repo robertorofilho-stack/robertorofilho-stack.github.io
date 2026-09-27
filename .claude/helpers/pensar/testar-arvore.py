@@ -61,6 +61,19 @@ class Busca(unittest.TestCase):
         self.assertGreater(max(p["temperatura"] for p in m.prompts), 0.7)
         self.assertLessEqual(max(p["temperatura"] for p in m.prompts), 1.2)
 
+    def test_sem_nenhum_sinal_para_cedo_e_explica(self):
+        class Perdido(ar.Simulado):
+            def avaliar(self, problema, caminho):
+                self.chamadas += 1
+                return 0.05, "nada a ver"
+
+            def verificar(self, problema, caminho):
+                return None
+        m = Perdido("LUCRO")
+        r = ar.buscar(m, "p", iteracoes=100, k=2, prof_max=5, paciencia=2)
+        self.assertIn("sem sinal", r["parou"])
+        self.assertLess(m.chamadas, 30)
+
     def test_orcamento_duro_para_a_busca(self):
         class Caro(ar.Simulado):
             def propor(self, *a):

@@ -32,6 +32,8 @@
 | Verificador de citação FACT (subagente) + laço Reflect na caçada + pausa final no Stop | `.claude/agents/verificador-citacao.md` · `/cacar-produto` · `lembrar-memoria.sh` | 🟢 hooks 0 falhas | 2026-09-27 |
 | Checkpoint pré-compactação (âncoras literais) + registro de uso de skill (TroVE) | `.claude/hooks/checkpoint.sh` · `.claude/hooks/uso-skill.sh` | 🟢 testados | 2026-09-27 |
 | Rubrica ponderada + auditoria de itens + concordância juiz×humano · erro por provedor no conselho | `.claude/helpers/avaliar/rubrica.py` · `conselho.py --saude` | 🟢 8 + 24 testes | 2026-09-27 |
+| Anti-loop (3 chamadas iguais → parar/mudar/reportar) · checkpoint com proibições e efeitos externos | `.claude/hooks/anti-loop.sh` · `checkpoint.sh` + `_ancoras.py` | 🟢 testados | 2026-09-27 |
+| Teste de mutação (mede se os testes pegam defeito) · varredura de segredo no CI | `.claude/helpers/avaliar/mutacao.py` · job `segredos` (TruffleHog) | 🟢 2 testes · memória viva 49% | 2026-09-27 |
 | Transcrição de aula do YouTube (legenda → cookies → whisper) | `.claude/helpers/aprender/transcrever-youtube.sh` (cópia no mestre) | 🟡 roda no Mac; nuvem bloqueada pelo YouTube (PO Token) | 2026-09-27 |
 
 ## Produtos digitais

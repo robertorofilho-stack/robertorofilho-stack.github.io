@@ -331,6 +331,11 @@ def buscar(motor, problema, iteracoes=12, k=3, prof_max=4, c=1.4, paciencia=3, t
                 temperatura = min(1.2, temperatura + 0.3)
         if log:
             log(f"iter {it+1}: valor {v:.2f} · melhor {melhor_v:.2f} · temp {temperatura:.1f} · chamadas {motor.chamadas}")
+        # "E se nada acerta?" (CMU 11-768 aula 9, fala): sem nenhum sinal positivo não há o que reforçar —
+        # depois de 3×paciência iterações com melhor < 0,3, parar e devolver as reflexões em vez de queimar orçamento.
+        if melhor_v < 0.3 and it + 1 >= 3 * paciencia:
+            parou = "sem sinal: nada promissor após %d iterações — reformular o problema ou dar um exemplo" % (it + 1)
+            break
         if melhor_v >= 1.0:
             fechou = [n for n in _todos(raiz) if n.valor is not None and n.valor >= 1.0]
             if any(id(n) in exatos for n in fechou):

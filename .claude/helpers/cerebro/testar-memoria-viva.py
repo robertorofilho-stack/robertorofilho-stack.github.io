@@ -219,6 +219,80 @@ class Episodios(Base):
         self.assertFalse(os.path.exists(self.estado_arq + ".tmp"))
 
 
+class PisoFormaSkill(Base):
+    def test_piso_zera_consulta_sem_relevancia_e_mantem_a_boa(self):
+        self.assertEqual(mv.buscar(self.docs, self.estado, "ok pode seguir", hoje=HOJE, piso=50.0), [])
+        self.assertTrue(mv.buscar(self.docs, self.estado, "produto preço ROAS", hoje=HOJE, piso=0.5))
+
+    def test_contexto_pode_salvar_consulta_vaga_do_piso(self):
+        vaga = mv.buscar(self.docs, self.estado, "e agora", hoje=HOJE, piso=0.5)
+        com = mv.buscar(self.docs, self.estado, "e agora curso", hoje=HOJE, piso=0.5,
+                        contexto="transcrever curso video whisper ffmpeg")
+        self.assertEqual(vaga, [])
+        self.assertTrue(com)
+
+    def cli(self, *args):
+        return mv.main(["--mem", self.mem, "--estado", self.estado_arq, "--hoje", HOJE.isoformat(), *args])
+
+    def test_ruido_registra_mas_nao_ensina_sinapse(self):
+        self.cli("episodio", "--tarefa", "t", "--resultado", "ok", "--fonte", "teste", "--forma", "ruido",
+                 "--usadas", "produto-preco.md", "auditoria-meta.md")
+        e = mv.ler_estado(self.estado_arq)
+        self.assertEqual(len(e["episodios"]), 1)
+        self.assertEqual(e["episodios"][0]["forma"], "ruido")
+        self.assertEqual(e["sinapses"], {})
+
+    def test_skill_como_usada_liga_uso_ao_resultado(self):
+        self.assertEqual(self.cli("episodio", "--tarefa", "caçada", "--resultado", "falha", "--fonte", "humano",
+                                  "--usadas", "skill:cacar-produto", "produto-preco.md"), 0)
+        e = mv.ler_estado(self.estado_arq)
+        self.assertIn("skill:cacar-produto", e["usos"])
+        self.assertEqual(e["usos"]["skill:cacar-produto"]["ok"], 0)
+
+
+class BrechasDaMutacao(Base):
+    """Testes escritos a partir dos mutantes sobreviventes de 27/09 (mutacao.py: 12/25 mortos antes)."""
+
+    def test_data_mais_recente_do_corpo(self):
+        fm, corpo = mv.frontmatter("---\nname: x\n---\nvisto em 2025-01-02 e revisto em 2026-09-20; nota 2024-05-05\n")
+        self.assertEqual(mv.data_de(fm, corpo, HOJE), dt.date(2026, 9, 20))
+
+    def test_contexto_forte_resgata_pergunta_abaixo_do_piso(self):
+        q, ctx = "estudar", "baixar m3u8 transcrever ffmpeg audio metodo extra"
+        topo_q = max(mv.bm25(self.docs, q).values())
+        topo_c = max(mv.bm25(self.docs, ctx).values())
+        self.assertGreater(topo_c, topo_q)
+        piso = (topo_q + topo_c) / 2
+        self.assertEqual(mv.buscar(self.docs, self.estado, q, hoje=HOJE, piso=piso), [])
+        self.assertTrue(mv.buscar(self.docs, self.estado, q, hoje=HOJE, piso=piso, contexto=ctx))
+
+    def test_vagas_de_associacao_exatas(self):
+        todos = mv.buscar(self.docs, self.estado, "produto ROAS", k=100, hoje=HOJE, vagas_assoc=100)
+        disponiveis = sum(1 for x in todos if x["via"] == "associação")
+        r = mv.buscar(self.docs, self.estado, "produto ROAS", k=3, hoje=HOJE)
+        self.assertEqual(sum(1 for x in r if x["via"] == "associação"), min(mv.VAGAS_ASSOCIACAO, disponiveis, 2))
+        self.assertLessEqual(len(r), 3)
+
+    def test_jaccard(self):
+        self.assertEqual(mv.jaccard("", "pixel campanha"), 0.0)
+        self.assertAlmostEqual(mv.jaccard("pixel campanha", "pixel checkout"), 1 / 3)
+
+    def test_bm25_sem_documentos_nao_divide_por_zero(self):
+        self.assertEqual(mv.bm25({}, "qualquer coisa"), {})
+
+    def test_sinapse_zerada_nao_cria_aresta(self):
+        viz = mv.grafo(self.docs, {mv.chave_sinapse("curso-video.md", "receita-antiga.md"): 0.0})
+        self.assertNotIn("receita-antiga.md", viz["curso-video.md"])
+        viz = mv.grafo(self.docs, {mv.chave_sinapse("curso-video.md", "receita-antiga.md"): 0.4})
+        self.assertIn("receita-antiga.md", viz["curso-video.md"])
+
+    def test_consolidacao_ordena_memorias_por_frequencia(self):
+        est = {"episodios": [{"id": "e1", "resultado": "ok", "licao": "checar pixel antes", "usadas": ["x.md", "y.md"]},
+                             {"id": "e2", "resultado": "ok", "licao": "checar o pixel antes", "usadas": ["y.md"]}],
+               "consolidados": []}
+        self.assertEqual(mv.consolidar(est)[0]["memorias"], ["y.md", "x.md"])
+
+
 class FonteEAvaliacao(Base):
     def test_episodio_sem_fonte_e_recusado(self):
         with self.assertRaises(SystemExit):

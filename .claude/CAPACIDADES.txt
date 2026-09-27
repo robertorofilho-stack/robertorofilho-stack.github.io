@@ -13,13 +13,16 @@ helper:arvore
 helper:conselho
 helper:fundir-indice
 helper:memoria_viva
+helper:mutacao
 helper:rubrica
 helper:testar-arvore
 helper:testar-conselho
 helper:testar-fundir
 helper:testar-memoria-viva
+helper:testar-mutacao
 helper:testar-rubrica
 helper:verificar-indice
+hook:anti-loop
 hook:carregar-cerebro
 hook:checkpoint
 hook:guarda

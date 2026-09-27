@@ -48,9 +48,21 @@ Execute nesta ordem, e **rode de verdade** — não leia o código e imagine:
 
 **7. Dinheiro** — o caminho do pagamento merece ataque dedicado. Valor negativo, cupom duplicado, moeda errada, webhook duplicado, webhook fora de ordem.
 
+## Teste que prova alguma coisa (CMU 11-768 aula 6: "teste bom resolve metade da batalha")
+
+- **Fail → pass:** o teste novo tem de FALHAR no código antigo e passar no novo. Teste que passa nos dois não prova nada.
+- **Pass → pass:** os testes que já passavam continuam passando.
+- Cada asserção aponta um requisito do pedido. Asserção sem requisito é ruído; requisito sem asserção é buraco.
+- Mutação: troque um operador do código testado (`<` por `<=`, `and` por `or`). Se nenhum teste quebrar, o teste é fraco.
+
 ## Regra do navegador
 
 Para qualquer coisa com interface: **abra no navegador de verdade** (Playwright/Chrome). Rode o fluxo. Tire screenshot. Leia o console.
+
+Ordem de preferência (CMU 11-768 aula 7): **API/MCP** antes de tela; na tela, **snapshot de acessibilidade** antes de
+screenshot. Espere por **condição** (`browser_wait_for` texto/elemento), nunca pausa fixa. Em site REAL com conta do
+operador (Meta Ads, Hotmart, checkout): ação de escrita = **uma tentativa só**, sem retry automático — repetir ação dá
+banimento ("you get banned").
 
 "Parece correto pelo código" não é QA. É opinião.
 

@@ -59,6 +59,17 @@ Registrar em `03-ATIVOS.md` o que foi automatizado.
 
 ## 4. Revisar CLAUDE.md e skills
 
+**Skill nova só nasce de experiência real** (CMU 11-768 aula 4, SkillsBench): skill escrita pelo modelo só a partir
+da descrição da tarefa PIORA o desempenho. Toda skill nova traz uma seção `## Origem` citando ≥ 2 episódios reais
+(`memoria_viva.py episodio`) de onde ela saiu. Sem origem → não entra.
+
+**Remendo que o modelo atual já dispensa sai** (aula 1, fala: "o harness expira"): regra ou hook criado para contornar
+fraqueza de um modelo antigo é revisado a cada troca de modelo — se o comportamento já vem certo sem ele, arquivar em
+`.claude/arquivo/` (nunca apagar). Modelo menor/mais barato precisa de MAIS proteção, não menos.
+
+**Uso de skill ligado ao resultado:** `uso-skill.sh --relatorio` mostra o uso; o resultado vem dos episódios com
+`--usadas skill:<nome>`. Falha recorrente numa skill → propor o diff do SKILL.md ao operador.
+
 - Regra que nunca foi acionada em 30 dias → mover para `04-PLAYBOOKS.md` (CLAUDE.md carrega **sempre**; cada linha custa). **Nunca apagar** — Lei da Monotonia.
 - Regra que foi violada → reforçar, ou virar hook (hook obriga; texto aconselha)
 - Skill cuja descrição não bate com o uso real → ajustar a descrição (é ela que decide o disparo)

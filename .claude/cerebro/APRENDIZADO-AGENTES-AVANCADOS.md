@@ -131,3 +131,35 @@ pela missão JARBAS no Mac mini (`transcrever-youtube.sh`). A ficha completa est
 
 **Pendente (depende de outra máquina ou de decisão):** a transcrição falada das aulas (Mac), o `memoria_viva` no hook do Mac, e o
 índice do mestre com 25,7 KB, acima do corte (compactar nas duas cópias, nos Macs).
+
+---
+
+## Fase 6 — a FALA das aulas (27/09, noite): 103.823 palavras, 9 aulas lidas na íntegra
+
+O Mac mini transcreveu os vídeos pela legenda com cookies do Chrome logado, a única rota que funcionou. Três agentes
+leram a fala inteira e anotaram só o que ela acrescenta aos slides. As notas estão no mestre, na ficha
+`ESTUDO/fichas/cmu-11-768-agentes.md`, seção "Fala".
+
+| O que a fala acrescentou | Instalado | Prova |
+|---|---|---|
+| A compactação apaga o "não apague" (caso do e-mail) e repete ação externa (OpenHands: "five pull requests"). Dito nas aulas 1, 2 e 3 | `checkpoint.sh` + `_ancoras.py`: 1º pedido, proibições literais, efeitos externos já feitos, caminho do histórico | cenário de 40 mensagens: proibição, PR e objetivo sobrevivem; ruído fica fora |
+| "You kind of need to test them in the wild" | teste de cenário longo `_testar-ancoras.py` no CI | 3 testes |
+| Over-retrieval nº 1 = "não há nada relevante" (aula 4) | piso de relevância no recall + palavras de conversa ignoradas; ranking vazio desliga o grep antigo | 7/7 prompts certos; o BM25 não separa por sentido ("previsão do tempo" 9,8 contra "previsão de caixa" 9,0) → piso conservador 6 |
+| Skill escrita pelo modelo sem experiência PIORA (SkillsBench, aula 4) | `/manutencao`: skill nova só com `## Origem` citando ≥ 2 episódios | regra; mudar o §7 do CLAUDE.md é decisão do operador |
+| Uso de skill ligado ao resultado (aula 4) | `episodio --usadas skill:<nome>` | teste |
+| A e B, nunca C: limpo e recuperação ensinam, ruído não (aula 8) | `episodio --forma limpo\|recuperacao\|ruido` (ruído não mexe em sinapse) | teste |
+| O RL tirou os loops dos modelos; sem pesos, o loop tem de ser pego no agente (aula 9) | hook `anti-loop.sh`: 3 chamadas iguais em 8 → parar, mudar ou reportar | dispara na 3ª; leitura repetida ignorada |
+| "E se nada acerta?" (aula 9) | `arvore.py` para com "sem sinal" em vez de queimar orçamento | teste |
+| Erro no contexto gera mais erro (aula 6) | o aviso do anti-loop manda recomeçar em subagente limpo | — |
+| A taxa de erro depende de quem hospeda o modelo; FP4 erra mais (aula 2) | `conselho.py` registra o provedor (ao vivo: "OpenAI"); `CONSELHO_QUANT` opcional | teste + chamada real |
+| Teste bom resolve metade da batalha (aula 6) | `mutacao.py` + regra Fail→pass no `qa` | memória viva: 41% → 49% de mutantes mortos (95 sítios) |
+| TruffleHog (aula 6); o repositório é público | job `segredos` no `saude.yml`, fixado por commit | roda a cada push |
+| Navegador: API → acessibilidade → screenshot; espera por condição; site real: 1 tentativa (aula 7, "you get banned") | `qa.md` + `MCP-ARSENAL.md` | regra |
+
+**Bug achado pela própria ferramenta de mutação.** Trocar `==` por `!=` não muda o tamanho do arquivo, e a restauração
+acontecia no mesmo segundo. Com isso, o `.pyc` do mutante era reaproveitado, e o `frias` passava a devolver 1 fora da
+mutação. Corrigido com `-B`, `PYTHONDONTWRITEBYTECODE` e remoção do bytecode; tem teste de regressão.
+**Suíte:** 117 testes Python + hooks 0 falhas · 59 capacidades.
+**Ainda aberto:** embeddings para separar por sentido (medir antes de adotar); rubrica com item de penalidade para
+efeito colateral (aula 7); gabarito de disparo das skills (aula 4); ~50% dos mutantes ainda sobrevivem, boa parte
+equivalentes.

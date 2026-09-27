@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # PreCompact — CHECKPOINT COM ÂNCORAS LITERAIS (CMU 11-768 aula 3, "Context Management").
 #
-# Resumo de resumo apaga restrição ("CUDA 12.4" vira "CUDA recente"). Antes de compactar, grava FORA do
-# contexto o que não pode ser parafraseado: os últimos pedidos do operador (literais), a branch, o que está
-# sem commit e os últimos commits. O carregar-cerebro.sh reinjeta isso quando a sessão volta da compactação.
+# Resumo de resumo apaga restrição ("CUDA 12.4" vira "CUDA recente"). Na fala das aulas 1–3 o mesmo alerta
+# apareceu três vezes: a compactação apagou o "não apague" (caso do e-mail apagado) e fez o OpenHands abrir
+# "five pull requests for the same functionality". Por isso, antes de compactar, grava FORA do contexto:
+#   - o PRIMEIRO pedido (objetivo original) e os 3 últimos, literais;
+#   - toda PROIBIÇÃO dita pelo operador, literal;
+#   - os EFEITOS EXTERNOS já feitos (push, PR, e-mail, anúncio, deploy…) — para não repetir;
+#   - o estado do git e o caminho do histórico completo.
+# O carregar-cerebro.sh reinjeta isso quando a sessão volta da compactação.
 # Guarda em ~/.cache (fora do repositório: os pedidos podem conter assunto privado).
 #
 # Portável: bash 3.2, python3 opcional (sem python o checkpoint sai só com o estado do git).
@@ -24,26 +29,7 @@ ROOT="${CLAUDE_PROJECT_DIR:-$(pwd)}"
   echo "Isto NÃO é resumo: é texto exato gravado antes da compactação. Vale mais que o resumo em caso de conflito."
   echo
   if [ -n "$TR" ] && [ -f "$TR" ] && command -v python3 >/dev/null 2>&1; then
-    echo "### Últimos pedidos do operador (literais)"
-    python3 - "$TR" <<'PY' 2>/dev/null
-import json, sys
-pedidos = []
-for linha in open(sys.argv[1], encoding="utf-8", errors="replace"):
-    try:
-        j = json.loads(linha)
-    except ValueError:
-        continue
-    if j.get("type") != "user":
-        continue
-    c = (j.get("message") or {}).get("content")
-    if isinstance(c, list):   # resultado de ferramenta vem como lista; pedido humano vem como texto
-        c = " ".join(p.get("text", "") for p in c if isinstance(p, dict) and p.get("type") == "text")
-    c = (c or "").strip()
-    if c and not c.startswith(("<system-reminder", "[SYSTEM NOTIFICATION", "<task-notification", "<local-command")):
-        pedidos.append(c)
-for p in pedidos[-3:]:
-    print("> " + p[:1500].replace("\n", "\n> ") + "\n")
-PY
+    python3 "$(dirname "$0")/_ancoras.py" "$TR" 2>/dev/null
   fi
   if git -C "$ROOT" rev-parse --git-dir >/dev/null 2>&1; then
     echo "### Estado do repositório"

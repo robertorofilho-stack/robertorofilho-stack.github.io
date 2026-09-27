@@ -5,6 +5,13 @@
 
 ## Tomadas
 
+### 2026-09-27 — PROPOSTA (decisão do operador): skill nova só nasce de experiência real
+**Evidência:** CMU 11-768 aula 4 (fala, SkillsBench): skill escrita pelo modelo só a partir da descrição da tarefa
+**piora** o desempenho; o ganho de +16,6 pp publicado é otimista (skills filtradas por ajudarem).
+**Proposta:** no §7 do CLAUDE.md, "repetição → skill" passa a exigir seção `## Origem` com ≥ 2 episódios reais.
+Já aplicado no `/manutencao`; a mudança no CLAUDE.md espera o "sim" do operador. Segunda opinião interna: a evidência
+é benchmark externo (SkillsBench) citado em aula, não opinião — o conselho entra se o operador quiser contestar.
+
 ### 2026-09-27 — Memória agêntica: instalar a versão MEDIDA, rejeitar o teatro (N.E.X.U.S. e afins)
 **Contexto:** operador colou arquitetura de "memória holográfica / micro-agentes com morte energética /
 auto-mutação" + MCTS + pgvector/Neo4j e pediu "instale tudo". Tudo foi executado; o que presta foi instalado.

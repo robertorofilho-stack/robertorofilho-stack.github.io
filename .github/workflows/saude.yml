@@ -43,6 +43,24 @@ jobs:
         run: python3 .claude/helpers/pensar/testar-arvore.py
       - name: Rubrica — nota ponderada, auditoria de itens, concordância juiz×humano
         run: python3 .claude/helpers/avaliar/testar-rubrica.py
+      - name: Mutação — a ferramenta mata mutante, restaura o original e não deixa bytecode de mutante
+        run: python3 .claude/helpers/avaliar/testar-mutacao.py
+      - name: Checkpoint — proibição, efeito externo e objetivo sobrevivem a conversa longa
+        run: python3 .claude/hooks/_testar-ancoras.py
+
+  segredos:
+    # Repositório PÚBLICO: segredo vazado = chave comprometida. CMU 11-768 aula 6 recomenda TruffleHog; o guarda.sh
+    # só cobre alguns formatos. --only-verified: só acusa credencial que o provedor confirma que funciona.
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v5
+        with: { fetch-depth: 0 }
+      - name: Segredo vazado (TruffleHog v3.97.9, fixado por commit)
+        uses: trufflesecurity/trufflehog@4dd8831c5f12599465d4d45c3c447b4018a34c85
+        with:
+          extra_args: --only-verified
 
   radar:
     runs-on: ubuntu-latest
@@ -66,7 +84,7 @@ jobs:
         run: node --experimental-strip-types radar-lucro.ts --top 3
 
   alerta:
-    needs: [infraestrutura, radar]
+    needs: [infraestrutura, radar, segredos]
     if: failure()
     runs-on: ubuntu-latest
     permissions: { issues: write }

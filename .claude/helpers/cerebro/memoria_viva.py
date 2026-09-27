@@ -56,7 +56,9 @@ PPR_ALFA, PPR_ITER = 0.15, 30
 STOP = set("""a o e é de da do das dos em no na nos nas um uma uns umas que para por com sem se ao aos à às
 como mais mas ou ser foi são tem ter já não sim isso esta este essa esse está the and for with from that this
 into are was were you your not but all can has have will ele ela eles elas seu sua seus suas nós vai via até
-quando onde qual quais cada todo toda todos todas outro outra muito pouco sobre entre depois antes aqui ali""".split())
+quando onde qual quais cada todo toda todos todas outro outra muito pouco sobre entre depois antes aqui ali
+pode podes posso ver veja entao agora isso isto esse essa esses essas sim nao faz faca fazer vai vamos quero queria
+preciso bom boa tudo obrigado obrigada valeu beleza mandar manda amigo amiga ok certo pronto favor por""".split())
 
 
 # ---------------------------------------------------------------- texto
@@ -369,6 +371,13 @@ def recencia(doc, estado, hoje, meia_vida):
 
 
 # ---------------------------------------------------------------- operações
+# Piso de relevância (CMU 11-768 aula 4, fala: over-retrieval nº 1 = "não há nada relevante na memória").
+# Calibrado em 27/09 com BM25 bruto do topo. Gabarito (frases longas): p5 = 10,35. Mas pergunta CURTA e real soma
+# pouco: "previsão de caixa e CPA real" = 9,0 e "CPA real" = 6,6, contra "previsão do tempo" = 9,8 — BM25 não
+# separa por SENTIDO. Perder a memória certa custa mais que injetar ponteiro de 1 linha → piso CONSERVADOR:
+# 6 corta só o claramente vazio ("bom dia" 2,2 · "dois mais dois" 5,1); as palavras de conversa em STOP fazem o
+# resto. Separar tema de verdade pede embeddings (divergência do conselho, 27/09) — medir antes de adotar.
+PISO_RECALL = 6.0
 PESO_CONTEXTO = 1.0   # AgentIR (CMU 11-768 aula 10): o raciocínio atual foi o sinal mais forte; peso igual ao da pergunta
 
 
@@ -396,11 +405,18 @@ def ultima_resposta(transcript, limite=1500):
 
 
 def buscar(docs, estado, consulta, k=8, hoje=None, meia_vida=MEIA_VIDA_DIAS, pesos=PESOS, vagas_assoc=VAGAS_ASSOCIACAO,
-           contexto=""):
+           contexto="", piso=0.0):
     """Dois canais: TEXTO (BM25 + desempate por importância/associação) ocupa o topo; ASSOCIAÇÃO (PageRank
     personalizado no grafo de links + sinapses) ganha até `vagas_assoc` vagas extras com o que não tem a palavra."""
     hoje = hoje or dt.date.today()
-    rel = _norm(bm25(docs, consulta))
+    bruto = bm25(docs, consulta)
+    if piso > 0:
+        topo = max(bruto.values(), default=0.0)
+        if contexto:
+            topo = max(topo, max(bm25(docs, contexto).values(), default=0.0))
+        if topo < piso:
+            return []                            # nada relevante: injetar zero é melhor que injetar ruído
+    rel = _norm(bruto)
     if contexto and rel:                      # contexto só reordena/amplia; sem acerto da pergunta, não inventa tema
         rc = _norm(bm25(docs, contexto))
         rel = _norm({i: rel.get(i, 0.0) + PESO_CONTEXTO * rc.get(i, 0.0) for i in set(rel) | set(rc)})
@@ -611,9 +627,12 @@ def main(argv=None):
     b.add_argument("--json", action="store_true"); b.add_argument("--nomes", action="store_true")
     b.add_argument("--contexto", default="", help="raciocínio atual (AgentIR)")
     b.add_argument("--transcript", help="transcript JSONL: usa a última resposta do assistente como contexto")
+    b.add_argument("--piso", type=float, default=0.0, help=f"relevância BM25 mínima do topo (recall usa {PISO_RECALL})")
     e = sub.add_parser("episodio"); e.add_argument("--tarefa", required=True)
     e.add_argument("--resultado", choices=["ok", "falha"], required=True)
     e.add_argument("--usadas", nargs="*", default=[]); e.add_argument("--licao", default="")
+    e.add_argument("--forma", choices=["limpo", "recuperacao", "ruido"], default="limpo",
+                   help="CMU 11-768 aula 8: limpo e recuperação ensinam; ruído é registrado mas não mexe em sinapse")
     e.add_argument("--fonte", choices=["humano", "metrica", "teste"], required=True,
                    help="de onde vem o ok/falha. Juiz LLM NÃO é fonte: deu 1,0 a resposta errada em 27/09")
     c = sub.add_parser("consolidar"); c.add_argument("--min", type=int, default=2); c.add_argument("--json", action="store_true")
@@ -632,15 +651,15 @@ def main(argv=None):
 
     if a.cmd == "episodio":
         docs = carregar(pastas, hoje)
-        desconhecidas = [u for u in a.usadas if u not in docs]
+        desconhecidas = [u for u in a.usadas if u not in docs and not u.startswith("skill:")]
         if desconhecidas:
             print("memoria_viva: memória inexistente: " + ", ".join(desconhecidas), file=sys.stderr)
             return 2
         ep = {"id": f"ep-{hoje.isoformat()}-{len(estado['episodios']) + 1:04d}", "data": hoje.isoformat(),
               "tarefa": a.tarefa[:500], "resultado": a.resultado, "usadas": sorted(set(a.usadas)),
-              "licao": a.licao[:1000], "fonte": a.fonte}
+              "licao": a.licao[:1000], "fonte": a.fonte, "forma": a.forma}
         estado["episodios"].append(ep)
-        tocadas = hebb(estado, a.usadas, a.resultado == "ok", hoje)
+        tocadas = {} if a.forma == "ruido" else hebb(estado, a.usadas, a.resultado == "ok", hoje)
         gravar_estado(caminho, estado)
         print(f"episódio {ep['id']} gravado · {len(tocadas)} sinapse(s) atualizada(s) · estado: {caminho}")
         return 0
@@ -673,7 +692,7 @@ def main(argv=None):
     docs = carregar(pastas, hoje, cache=not os.environ.get("MEMORIA_VIVA_SEM_CACHE"))
     if a.cmd == "buscar":
         ctx = a.contexto or (ultima_resposta(a.transcript) if a.transcript else "")
-        res = buscar(docs, estado, a.consulta, a.k, hoje, a.meia_vida, contexto=ctx)
+        res = buscar(docs, estado, a.consulta, a.k, hoje, a.meia_vida, contexto=ctx, piso=a.piso)
         if a.json:
             print(json.dumps(res, ensure_ascii=False, indent=1))
         elif a.nomes:

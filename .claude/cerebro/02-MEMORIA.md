@@ -28,6 +28,11 @@ rubrica, uso de skill, calibrar juiz).
 `rubrica.py` (nota ponderada + auditoria + concordância juiz×humano), `uso-skill.sh` (TroVE) e `conselho.py --saude`
 (erro por provedor). Falso alarme de 83 órfãs era defeito do `verificar-indice.py` (não lia `MEMORY-ARQUIVO.md`), agora
 corrigido: 0 órfãs. Suíte: 100 testes Python + hooks 0 falhas · 56 capacidades.
+**Noite — a fala das aulas:** Mac mini transcreveu as 9 aulas (103.823 palavras; só a rota de cookies do Chrome
+funcionou; o `git pull` abriu o vim e travou o operador → gotcha no mestre). 3 agentes destilaram a fala. Instalado:
+checkpoint com proibições e efeitos externos, piso de relevância no recall (7/7 prompts certos), anti-loop, parada
+"sem sinal" na árvore, provedor no conselho, `mutacao.py` (41% → 49%), TruffleHog no CI, regras de navegador e de
+origem de skill. A mutação achou um bug nela mesma (bytecode do mutante reaproveitado). 117 testes · 59 capacidades.
 **Links:** [[APRENDIZADO-AGENTES-AVANCADOS]] [[03-ATIVOS]] [[05-DECISOES]]
 
 ---

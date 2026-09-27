@@ -59,11 +59,15 @@ MEMS=""
 # Traz também o VIZINHO associado (↔) que o grep não acha. Sem python3 ou sem resultado: grep abaixo.
 # AgentIR (CMU 11-768 aula 10): a última resposta do assistente (transcript) entra como contexto de busca.
 MV="$ROOT/.claude/helpers/cerebro/memoria_viva.py"
+RANQUEOU=0
 if [ -n "$MESTRE" ] && [ -f "$MV" ] && command -v python3 >/dev/null 2>&1; then
+  RANQUEOU=1
   MEMS=$(printf '%s' "$PROMPT" | head -c 2000 | { read -r -d '' Q; T_ARG=(); [ -n "$TRANSCRIPT" ] && [ -f "$TRANSCRIPT" ] && T_ARG=(--transcript "$TRANSCRIPT")
-    python3 "$MV" --mem "$MESTRE" buscar "$Q" --k 8 --nomes ${T_ARG[@]+"${T_ARG[@]}"} 2>/dev/null; } | cut -c1-170)
+    python3 "$MV" --mem "$MESTRE" buscar "$Q" --k 8 --nomes --piso 6 ${T_ARG[@]+"${T_ARG[@]}"} 2>/dev/null; } | cut -c1-170)
 fi
-if [ -n "$MESTRE" ] && [ -z "$MEMS" ]; then
+# Ranking rodou e ficou abaixo do piso = "nada relevante" (CMU 11-768 aula 4): nem grep do mestre nem do satélite.
+if [ "$RANQUEOU" = 1 ] && [ -z "$MEMS" ]; then ACHADOS=""; fi
+if [ -n "$MESTRE" ] && [ -z "$MEMS" ] && [ "$RANQUEOU" = 0 ]; then
   while IFS= read -r kw; do
     [ -n "$kw" ] || continue
     R=$(grep -rliF -- "$kw" "$MESTRE"/*.md 2>/dev/null | grep -v '/MEMORY.md$' | head -4)
