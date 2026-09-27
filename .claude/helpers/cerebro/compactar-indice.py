@@ -59,7 +59,7 @@ def data_da_linha(l, hoje):
         if x > hoje and not m.group(3):
             x = x.replace(year=x.year - 1)
         datas.append(x)
-    return min(datas) if datas else None
+    return max(datas) if datas else None   # a entrada mais nova da linha decide
 
 
 def data_do_arquivo(pasta, nome, hoje):
@@ -86,7 +86,11 @@ def candidatas(texto, hoje, pasta=None):
         lk = LINK.findall(l)
         if not lk or "MEMORY-ARQUIVO.md" in lk:
             continue
-        d = data_da_linha(l, hoje) or (data_do_arquivo(pasta, lk[0], hoje) if pasta else None)
+        # data da linha = a da entrada MAIS NOVA dela: linha agrupada só sai quando TODAS as entradas são antigas
+        # (27/09: a memória do curso CMU, do dia, foi arquivada junto com a de Stanford, de 26/09).
+        ds = [data_da_linha(l, hoje)] + ([data_do_arquivo(pasta, x, hoje) for x in lk] if pasta else [])
+        ds = [x for x in ds if x]
+        d = max(ds) if ds else None
         if d and (hoje - d).days >= 7:
             out.append((d, lk[0], l))
     out.sort(key=lambda x: (x[0], x[1]))
@@ -125,9 +129,13 @@ def aplicar_em(pasta, primeiros_links, hoje, gravar):
         return {"pasta": pasta, "erro": f"ponteiros mudariam: {sorted(antes ^ depois)[:5]}"}
     r = {"pasta": pasta, "saem": len(saem), "bytes_antes": len(texto.encode()), "bytes_depois": len(novo_idx.encode())}
     if gravar and saem:
+        # backup no cache DESTA máquina: dentro da pasta de memória ele era sincronizado e commitado (27/09)
+        bk = os.path.join(os.environ.get("XDG_CACHE_HOME") or os.path.expanduser("~/.cache"), "cerebro", "antes-compactar")
+        os.makedirs(bk, exist_ok=True)
+        marca = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
         for p in (idx, arq):
             if os.path.exists(p):
-                shutil.copy2(p, p + ".antes-compactar")
+                shutil.copy2(p, os.path.join(bk, f"{os.path.basename(p)}.{marca}"))
         for p, conteudo in ((arq, novo_arq), (idx, novo_idx)):
             tmp = p + ".tmp"
             with open(tmp, "w", encoding="utf-8") as f:

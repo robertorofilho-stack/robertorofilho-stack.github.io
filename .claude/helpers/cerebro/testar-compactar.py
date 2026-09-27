@@ -77,6 +77,12 @@ class Compactar(unittest.TestCase):
         self.rodar(200, True)
         self.assertEqual(self.ler(self.repo), depois)
 
+    def test_linha_agrupada_com_entrada_recente_nao_sai(self):
+        """27/09: a memória do curso CMU (do dia) foi arquivada junto com a de Stanford (26/08) na mesma linha."""
+        txt = "# I\n## X\n- [velha (01/08)](v.md) · [nova (26/09)](n.md)\n- [só velha (02/08)](sv.md)\n"
+        saem = {lk for _, lk, _ in ci.candidatas(txt, HOJE)}
+        self.assertEqual(saem, {"sv.md"})
+
     def test_pasta_sem_indice_recusa(self):
         self.assertEqual(ci.main([os.path.join(self.d, "nao-existe")]), 2)
 

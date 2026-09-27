@@ -20,15 +20,25 @@ v4 (10/09/2026 — conserto da involução flagrada pelo MacBook: 244 → 240 li
    faltantes em stderr e sai com 2. Os dois índices ficam exatamente como estavam.
 4. Idempotente: fundir(X, X) == X. O cabeçalho "RECUPERADAS DO OUTRO MAC" não se repete.
 5. Escrita atômica (arquivo temporário + rename): um sync morto no meio nunca deixa índice pela metade.
+7. v5 (27/09/2026 — o MacBook desfez a compactação do Mac mini: 23 KB → 44 KB): memória que está em
+   MEMORY-ARQUIVO.md (de qualquer das duas pastas) foi ARQUIVADA de propósito — não volta ao índice pela
+   união, e conta como preservada no guarda (o ponteiro continua no arquivo). Linha com link vivo não
+   arquivado fica inteira. Lei/gotcha/feedback nunca sai. Para promover de volta: tirar a linha do MEMORY-ARQUIVO.md.
+8. v5 — FUSÃO DE 3 VIAS no texto: cada máquina guarda a última fusão em ~/.cache/cerebro/indice-ultima-fusao-<id>.md
+   (fora da pasta sincronizada). Se o texto local de uma entrada é igual ao dessa fusão, o local NÃO editou — vence o texto do outro
+   lado (27/09: o índice parado do MacBook desfez o encurtamento feito no mini, 23 KB → 34 KB). Sem ancestral
+   (1ª vez), vale a regra antiga: o local vence.
 6. Mantido de v3: REVOGADAS.md (mesma pasta do LOCAL) — alvo banido nunca ressuscita;
    erro de gravação = exit 1 + stderr, nunca silêncio.
 """
+import hashlib
 import os
 import re
 import sys
 
 LINK = re.compile(r"\]\(([^)]+\.md)\)")
 CABECALHO_RECUPERADAS = "## RECUPERADAS DO OUTRO MAC"
+PROTEGIDA = re.compile(r"\bLEI\b|🔴|⭐|lei-|feedback-|gotcha-", re.I)   # mesma regra do compactar-indice.py
 
 
 def ler(p):
@@ -47,6 +57,17 @@ def ler_revogadas(local_p):
         if l and not l.startswith("#") and l.endswith(".md"):
             rev.add(l)
     return rev
+
+
+def ler_arquivados(*indices):
+    """links de MEMORY-ARQUIVO.md nas pastas dos índices dados"""
+    arq = set()
+    for p in indices:
+        for l in ler(os.path.join(os.path.dirname(p) or ".", "MEMORY-ARQUIVO.md")):
+            if not PROTEGIDA.search(l):          # lei/gotcha/feedback arquivado por engano: fica no índice
+                arq.update(LINK.findall(l))
+    arq.discard("MEMORY-ARQUIVO.md")             # o ponteiro para o próprio arquivo mora no índice
+    return arq
 
 
 def links(linha, revogadas=frozenset()):
@@ -75,18 +96,26 @@ def mapa(linhas):
     return m
 
 
-def fundir(ll, lr, revogadas=frozenset()):
+def fundir(ll, lr, revogadas=frozenset(), arquivados=frozenset(), ancestral=None):
     """Fusão pura. Devolve (linhas_de_saida, relatorio). Não toca em disco."""
     revogadas = frozenset(revogadas)
+    arquivados = frozenset(arquivados)
 
-    def banida(l):
-        return bool(LINK.findall(l)) and not links(l, revogadas)
+    def banida(l):  # só revogados, ou só arquivados (e não protegida): não entra no índice
+        vivos = links(l, revogadas)
+        if not LINK.findall(l):
+            return False
+        if not vivos:
+            return True
+        return not PROTEGIDA.search(l) and all(t in arquivados for t in vivos)
 
     m_local, m_repo = mapa(ll), mapa(lr)
+    m_anc = mapa(ancestral) if ancestral else {}   # última fusão gravada NESTA máquina (fusão de 3 vias)
     base = ll if len(m_local) >= len(m_repo) else lr
 
     saida, tem, emitidas = [], set(), set()
-    rel = {"preservadas_local": 0, "duplicadas_por_seguranca": 0, "revogadas": 0, "recuperadas": 0}
+    rel = {"preservadas_local": 0, "duplicadas_por_seguranca": 0, "revogadas": 0, "recuperadas": 0,
+           "editadas_no_outro": 0}
 
     def emitir(l):
         if l in emitidas:
@@ -110,10 +139,16 @@ def fundir(ll, lr, revogadas=frozenset()):
         if banida(pref):
             pref = l
         sl = set(links(pref, revogadas))
-        if sl >= sb:  # local cobre tudo → texto do local vence
-            if pref != l:
-                rel["preservadas_local"] += 1
-            emitir(pref)
+        if sl >= sb:  # local cobre tudo → texto do local vence…
+            rep = m_repo.get(todos[0])
+            if (m_anc and pref == m_anc.get(todos[0]) and rep and rep != pref
+                    and not banida(rep) and set(links(rep, revogadas)) == sl):
+                rel["editadas_no_outro"] += 1   # …salvo se o local está igual à última fusão: quem editou foi o outro lado
+                emitir(rep)
+            else:
+                if pref != l:
+                    rel["preservadas_local"] += 1
+                emitir(pref)
         elif sb > sl:  # base tem links a mais → linha mais rica vence
             emitir(l)
         else:  # cada lado tem link que o outro não tem → as duas ficam
@@ -142,9 +177,10 @@ def fundir(ll, lr, revogadas=frozenset()):
     return saida, rel
 
 
-def faltantes(saida, ll, lr, revogadas=frozenset()):
-    """Guarda independente: re-lê os links do TEXTO de saída e compara com as entradas."""
-    return sorted(alvos_de(ll + lr, revogadas) - alvos_de(saida, revogadas))
+def faltantes(saida, ll, lr, revogadas=frozenset(), arquivados=frozenset()):
+    """Guarda independente: re-lê os links do TEXTO de saída e compara com as entradas.
+    Arquivado conta como presente: o ponteiro vive no MEMORY-ARQUIVO.md."""
+    return sorted(alvos_de(ll + lr, revogadas) - alvos_de(saida, revogadas) - set(arquivados))
 
 
 def gravar_atomico(p, txt):
@@ -178,11 +214,16 @@ def main(argv):
         return 0
 
     revogadas = ler_revogadas(local_p)
-    saida, rel = fundir(ll, lr, revogadas)
+    arquivados = ler_arquivados(local_p, repo_p)
+    # ancestral fica FORA da pasta de memória: ela é sincronizada e o ancestral é desta máquina só
+    cache = os.environ.get("XDG_CACHE_HOME") or os.path.join(os.path.expanduser("~"), ".cache")
+    chave = hashlib.sha1(os.path.abspath(local_p).encode()).hexdigest()[:12]
+    anc_p = os.path.join(cache, "cerebro", f"indice-ultima-fusao-{chave}.md")
+    saida, rel = fundir(ll, lr, revogadas, arquivados, ler(anc_p) or None)
     if simular_perda:  # só para provar que o guarda dispara
         saida = [l for l in saida if f"]({simular_perda})" not in l]
 
-    perdidos = faltantes(saida, ll, lr, revogadas)
+    perdidos = faltantes(saida, ll, lr, revogadas, arquivados)
     if perdidos:
         print(
             f"fundir-indice RECUSOU GRAVAR: {len(perdidos)} ponteiro(s) sumiriam na fusão: "
@@ -194,7 +235,7 @@ def main(argv):
 
     print(
         f"indice fundido: {rel['total']} memorias | +{rel['recuperadas']} recuperadas | "
-        f"{rel['preservadas_local']} preservadas do local | "
+        f"{rel['preservadas_local']} preservadas do local | {rel['editadas_no_outro']} editadas no outro Mac | "
         f"{rel['duplicadas_por_seguranca']} duplicadas por seguranca | "
         f"{rel['revogadas']} revogadas filtradas"
         + (" | SIMULACAO: nada gravado" if simular else "")
@@ -204,7 +245,7 @@ def main(argv):
 
     txt = "\n".join(saida).rstrip("\n") + "\n"
     erros = 0
-    for p in (local_p, repo_p):
+    for p in (local_p, repo_p, anc_p):
         try:
             gravar_atomico(p, txt)
         except Exception as e:

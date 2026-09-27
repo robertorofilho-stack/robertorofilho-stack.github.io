@@ -294,5 +294,55 @@ class TesteAutoDeteccao(unittest.TestCase):
         self.assertEqual(r.stdout.strip().splitlines()[0], outro)
 
 
+class TesteV5ArquivoETresVias(unittest.TestCase):
+    """27/09: o índice parado do MacBook desfez a compactação e o encurtamento feitos no Mac mini (23 KB → 34 KB)."""
+
+    def test_arquivado_nao_volta_pela_uniao_mas_lei_fica(self):
+        local = ["- [velha](velha.md) — texto", "- [LEI: x](lei-x.md)", "- [nova](nova.md)"]
+        repo = ["- [nova](nova.md)"]
+        saida, _ = fi.fundir(local, repo, arquivados={"velha.md", "lei-x.md"})
+        self.assertFalse(any("velha.md" in l for l in saida))          # arquivada: não ressuscita
+        self.assertTrue(any("lei-x.md" in l for l in saida))            # lei nunca sai do índice
+        self.assertEqual(fi.faltantes(saida, local, repo, arquivados={"velha.md"}), [])
+
+    def test_linha_com_link_vivo_nao_arquivado_fica_inteira(self):
+        saida, _ = fi.fundir(["- [a](a.md) · [b](b.md)"], [], arquivados={"a.md"})
+        self.assertIn("- [a](a.md) · [b](b.md)", saida)
+
+    def test_tres_vias_edicao_do_outro_mac_vence_local_parado(self):
+        anc = ["- [A](a.md) — texto longo antigo e detalhado"]
+        local = list(anc)                                              # MacBook não mexeu
+        repo = ["- [A](a.md) — curto"]                                 # mini encurtou
+        saida, rel = fi.fundir(local, repo, ancestral=anc)
+        self.assertEqual(saida, ["- [A](a.md) — curto"])
+        self.assertEqual(rel["editadas_no_outro"], 1)
+
+    def test_tres_vias_edicao_local_ainda_vence(self):
+        anc = ["- [A](a.md) — antigo"]
+        local = ["- [A](a.md) — antigo ✅ RESOLVIDO hoje"]             # edição nova nesta máquina
+        repo = list(anc)
+        saida, _ = fi.fundir(local, repo, ancestral=anc)
+        self.assertEqual(saida, local)
+
+    def test_sem_ancestral_regra_antiga_local_vence(self):
+        saida, _ = fi.fundir(["- [A](a.md) — local"], ["- [A](a.md) — repo"])
+        self.assertEqual(saida, ["- [A](a.md) — local"])
+
+    def test_main_grava_ancestral_fora_da_pasta_e_usa_na_proxima(self):
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "l")); os.makedirs(os.path.join(d, "r"))
+            loc, rep = os.path.join(d, "l", "MEMORY.md"), os.path.join(d, "r", "MEMORY.md")
+            env = dict(os.environ, XDG_CACHE_HOME=os.path.join(d, "cache"))
+            for p, t in ((loc, "- [A](a.md) — longo antigo\n"), (rep, "- [A](a.md) — longo antigo\n")):
+                with open(p, "w") as f:
+                    f.write(t)
+            subprocess.run([sys.executable, FUNDIR, loc, rep], env=env, check=True, capture_output=True)
+            self.assertEqual([n for n in os.listdir(os.path.join(d, "l")) if n.startswith(".")], [])
+            with open(rep, "w") as f:
+                f.write("- [A](a.md) — curto\n")                      # o outro Mac encurtou e empurrou
+            subprocess.run([sys.executable, FUNDIR, loc, rep], env=env, check=True, capture_output=True)
+            self.assertEqual(ler(loc), "- [A](a.md) — curto\n")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

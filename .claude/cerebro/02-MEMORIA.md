@@ -7,6 +7,17 @@
 
 ## 2026-09
 
+### 2026-09-27 (noite, 2) — ✅ Instalado nos 2 Macs; incidente do índice curado (mestre `1712d29`)
+
+**Confirmado:** Roberto — "DEU OK NOS DOIS MACS".
+**Incidente:** o MacBook, com índice local parado, desfez na fusão a compactação do Mac mini (23 → 44 → 34 KB);
+a compactação dele arquivou memórias do dia (linha agrupada levava a data mais velha). Zero ponteiro perdido.
+**Cura na raiz:** `fundir-indice.py` v5 — fusão de 3 vias no texto (ancestral por máquina em `~/.cache`), arquivado não
+ressuscita, lei/gotcha nunca sai; `compactar-indice.py` — data = entrada mais nova, backup fora da pasta sincronizada;
+`reparar-indice.py` (só no mestre: usa índice canônico privado) roda 1× por máquina pelo `sincronizar.sh`.
+Índice: 33,9 → 23,7 KB. Testes: fundir 32 · compactar 5. **Lição:** fusão de 2 vias não sabe quem editou —
+cópia parada parece edição. Todo sync de texto entre máquinas precisa de ancestral.
+
 ### 2026-09-27 (noite) — Hooks do curso levados aos 2 Macs (mestre `e875e41`)
 
 **Pedido:** "esqueça vendas… instalar as mudanças, deixar tudo na memória, Mac mini e MacBook". Caçada de produto PAUSADA.
