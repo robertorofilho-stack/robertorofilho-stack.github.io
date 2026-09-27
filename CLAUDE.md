@@ -186,6 +186,10 @@ Se uma tarefa foi feita **duas vezes**, ela vira sistema na terceira. Não pedir
 
 E registrar no cérebro o que foi automatizado.
 
+**Skill nasce de experiência, nunca de imaginação.** Toda skill nova traz a seção `## Origem`, citando ≥ 2 episódios
+reais (`memoria_viva.py episodio`) de onde ela saiu. Skill escrita pelo modelo só a partir da descrição da tarefa
+**piora** o desempenho (CMU 11-768 aula 4, SkillsBench). Sem origem, não entra. Aprovado pelo operador em 27/09/2026.
+
 ---
 
 ## 7b. Modo Daemon — o que já existe

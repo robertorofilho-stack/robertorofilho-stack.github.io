@@ -33,6 +33,9 @@ funcionou; o `git pull` abriu o vim e travou o operador → gotcha no mestre). 3
 checkpoint com proibições e efeitos externos, piso de relevância no recall (7/7 prompts certos), anti-loop, parada
 "sem sinal" na árvore, provedor no conselho, `mutacao.py` (41% → 49%), TruffleHog no CI, regras de navegador e de
 origem de skill. A mutação achou um bug nela mesma (bytecode do mutante reaproveitado). 117 testes · 59 capacidades.
+**Decisões do operador ("faça tudo", 27/09 noite):** (1) merge na `main`; (2) índice do mestre compactado nas duas
+cópias pelo `compactar-indice.py` (rodado no Mac mini; 11 entradas de jun–set → `MEMORY-ARQUIVO.md`, 0 ponteiro
+perdido); (3) `/cacar-produto aberto` disparado; (4) regra "skill só com `## Origem`" no §7 do CLAUDE.md.
 **Links:** [[APRENDIZADO-AGENTES-AVANCADOS]] [[03-ATIVOS]] [[05-DECISOES]]
 
 ---

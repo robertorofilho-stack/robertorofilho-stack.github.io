@@ -47,6 +47,8 @@ jobs:
         run: python3 .claude/helpers/avaliar/testar-mutacao.py
       - name: Checkpoint — proibição, efeito externo e objetivo sobrevivem a conversa longa
         run: python3 .claude/hooks/_testar-ancoras.py
+      - name: Compactar índice — duas cópias, nenhum ponteiro some, protegidos e recentes ficam
+        run: python3 .claude/helpers/cerebro/testar-compactar.py
 
   segredos:
     # Repositório PÚBLICO: segredo vazado = chave comprometida. CMU 11-768 aula 6 recomenda TruffleHog; o guarda.sh

@@ -10,12 +10,14 @@ agente:quant
 agente:verificador-citacao
 agente:viral
 helper:arvore
+helper:compactar-indice
 helper:conselho
 helper:fundir-indice
 helper:memoria_viva
 helper:mutacao
 helper:rubrica
 helper:testar-arvore
+helper:testar-compactar
 helper:testar-conselho
 helper:testar-fundir
 helper:testar-memoria-viva
