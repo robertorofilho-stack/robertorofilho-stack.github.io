@@ -7,6 +7,19 @@
 
 ## 2026-09
 
+### 2026-09-27 (noite, 3) — Cura ESTRUTURAL do sync de memória entre os 2 Macs (mestre `3c8e3e2`)
+
+**Pergunta do operador:** "já consertei essa sincronização várias vezes — por que ainda não funcionava?" **Resposta:**
+6 consertos (30/08→27/09), cada um de um defeito real, todos sintomas de UMA causa: sync de 2 vias (cópias + rsync +
+união) sem histórico — não sabia quem mudou o quê. Mais um achado: `.gitattributes` usava `merge=union` de LINHAS no
+índice (guardava as duas versões de toda linha mudada nos 2 Macs). **Autorizado ("PODE FAZER") e construído:** a pasta
+de memória de cada Mac vira link simbólico para o repo; o git junta em 3 vias com o driver `merge-indice.py` (por
+link, com ancestral real); sync por merge, não rebase. Migração 1× por Mac (`migrar-memoria-para-repo.sh`, backup,
+nada apagado). **Ensaio 2 Macs falsos + remoto falso:** edição simultânea dos 2 lados, mini arquivando 10 com o MacBook
+parado → índices idênticos, 0 conflito, 0 órfã, arquivadas não voltaram; Stop hook também. Método público portado:
+`merge-indice.py` + 7 testes no `saude.yml`. **Lição:** sync de texto entre máquinas sem ancestral é bug esperando
+acontecer — use o git como juntador, nunca cópias. **Status:** AGUARDA migração nos 2 Macs.
+
 ### 2026-09-27 (noite, 2) — ✅ Instalado nos 2 Macs; incidente do índice curado (mestre `1712d29`)
 
 **Confirmado:** Roberto — "DEU OK NOS DOIS MACS".
