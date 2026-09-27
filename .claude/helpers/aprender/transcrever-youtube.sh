@@ -39,13 +39,16 @@ for alvo in "$@"; do
   esac
 done
 
-ok=0; falha=0
+ok=0; falha=0; total=${#ids[@]}; atual=0
+echo "▶ $total vídeo(s) — progresso abaixo; relatório em $REL"
 for id in "${ids[@]}"; do
   [ -n "$id" ] || continue
+  atual=$((atual+1))
   url="https://www.youtube.com/watch?v=$id"
   titulo=$(yt-dlp --print title --skip-download --ignore-no-formats-error "$url" 2>/dev/null | head -1 | tr '/:' '--')
   nome="${titulo:-$id} [$id]"
-  [ -s "$BASE/transcricoes/$nome.txt" ] && { echo "- ✅ já existe: $nome" >> "$REL"; ok=$((ok+1)); continue; }
+  echo "[$atual/$total] $(date '+%H:%M') ${titulo:-$id}"
+  [ -s "$BASE/transcricoes/$nome.txt" ] && { echo "- ✅ já existe: $nome" >> "$REL"; echo "      já existia"; ok=$((ok+1)); continue; }
   feito=""
   for tentativa in "default" "mweb" "web_safari" "cookies"; do
     args=(--skip-download --ignore-no-formats-error --write-sub --write-auto-sub --sub-lang "$IDIOMA.*,$IDIOMA" --sub-format vtt -o "$BASE/vtt/$id.%(ext)s")
@@ -58,7 +61,9 @@ for id in "${ids[@]}"; do
     v=$(ls "$BASE"/vtt/"$id".*.vtt 2>/dev/null | head -1)
     if [ -n "$v" ]; then vtt_para_txt "$v" > "$BASE/transcricoes/$nome.txt"; feito="legenda ($tentativa)"; break; fi
   done
+  [ -n "$feito" ] && echo "      ✅ $feito"
   if [ -z "$feito" ] && command -v whisper >/dev/null && command -v ffmpeg >/dev/null; then
+    echo "      sem legenda → baixando áudio e transcrevendo com whisper (lento: até ~1 h por aula)"
     for extra in "--extractor-args youtube:player_client=mweb" "--cookies-from-browser $NAVEGADOR"; do
       # shellcheck disable=SC2086
       yt-dlp -q -f "bestaudio/18" $extra -x --audio-format mp3 --postprocessor-args "ffmpeg:-ac 1 -ar 16000" \
@@ -71,8 +76,10 @@ for id in "${ids[@]}"; do
     fi
   fi
   if [ -n "$feito" ]; then
+    [ "${feito#whisper}" != "$feito" ] && echo "      ✅ $feito"
     ok=$((ok+1)); echo "- ✅ $nome — $feito — $(wc -w < "$BASE/transcricoes/$nome.txt") palavras" >> "$REL"
   else
+    echo "      ❌ falhou (sem legenda e sem áudio; ver $REL)"
     falha=$((falha+1)); echo "- ❌ $nome — sem legenda e sem áudio (tentar logar no YouTube no $NAVEGADOR)" >> "$REL"
   fi
 done
