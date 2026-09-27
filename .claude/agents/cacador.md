@@ -42,6 +42,10 @@ Google Trends, sugestões de autocomplete, "pessoas também perguntam", volume e
 **Frente 5 — Contra-tese**
 Procurar ativamente quem diz que o nicho está saturado, morto ou é golpe. Se você não achou nenhuma objeção, sua pesquisa está incompleta.
 
+**Reflexão obrigatória (deep research, CMU 11-768 aula 10):** depois das 5 frentes, liste o que as buscas NÃO
+responderam e rode uma segunda rodada só nessas lacunas. Conclua no escopo do que foi testado. Toda afirmação com
+número leva link, e o `verificador-citacao` confere antes da entrega.
+
 ## Filtro de 7 eixos
 
 Pontue cada oportunidade de 1 a 5. Some. Mostre a matriz.

@@ -41,6 +41,7 @@ class Base(unittest.TestCase):
                                   "Transcrição por whisper; ver (metodo-extra.md)."),
             "metodo-extra.md": mem("metodo-extra", "ffmpeg só áudio", "Baixar m3u8 e transcrever."),
             "MEMORY.md": "# índice — ignorado\n- [x](produto-preco.md)\n",
+            "MEMORY-ARQUIVO.md": "# índice de arquivo — ignorado\n[[produto-preco]] [[curso-video]] [[auditoria-meta]]\n",
         }
         for n, t in arquivos.items():
             with open(os.path.join(self.mem, n), "w", encoding="utf-8") as f:
@@ -56,6 +57,7 @@ class Base(unittest.TestCase):
 class Corpus(Base):
     def test_ignora_indice_e_le_frontmatter(self):
         self.assertNotIn("MEMORY.md", self.docs)
+        self.assertNotIn("MEMORY-ARQUIVO.md", self.docs)          # hub de índice não entra no grafo
         self.assertEqual(len(self.docs), 6)
         self.assertEqual(self.docs["produto-preco.md"].data, dt.date(2026, 9, 27))
 
@@ -86,6 +88,25 @@ class Busca(Base):
         self.assertIn("auditoria-meta.md", ids)                 # não contém "produto" nem "roas"
         self.assertEqual(ids["auditoria-meta.md"]["via"], "associação")
 
+    def test_contexto_agentir_reordena_sem_inventar_tema(self):
+        sem = [x["id"] for x in mv.buscar(self.docs, self.estado, "estudar", hoje=HOJE, vagas_assoc=0)]
+        com = [x["id"] for x in mv.buscar(self.docs, self.estado, "estudar", hoje=HOJE, vagas_assoc=0,
+                                          contexto="baixar m3u8 e transcrever com ffmpeg")]
+        self.assertIn("metodo-extra.md", com)
+        self.assertNotIn("metodo-extra.md", sem)
+        self.assertEqual(mv.buscar(self.docs, self.estado, "xyzzy", hoje=HOJE, contexto="produto ffmpeg"), [])
+
+    def test_ultima_resposta_do_transcript(self):
+        p = os.path.join(self.dir, "t.jsonl")
+        with open(p, "w", encoding="utf-8") as f:
+            f.write(json.dumps({"type": "user", "message": {"content": "oi"}}) + "\n")
+            f.write(json.dumps({"type": "assistant", "message": {"content": [{"type": "text", "text": "primeira"}]}}) + "\n")
+            f.write("linha quebrada {\n")
+            f.write(json.dumps({"type": "assistant", "message": {"content": [{"type": "tool_use", "name": "x"}]}}) + "\n")
+            f.write(json.dumps({"type": "assistant", "message": {"content": [{"type": "text", "text": "segunda resposta"}]}}) + "\n")
+        self.assertEqual(mv.ultima_resposta(p), "segunda resposta")
+        self.assertEqual(mv.ultima_resposta(os.path.join(self.dir, "nao-existe")), "")
+
     def test_consulta_vazia_ou_sem_acerto(self):
         self.assertEqual(mv.buscar(self.docs, self.estado, "", hoje=HOJE), [])
         self.assertEqual(mv.buscar(self.docs, self.estado, "xyzzyqwerty", hoje=HOJE), [])
@@ -110,12 +131,29 @@ class Busca(Base):
 
 
 class Hebb(Base):
-    def test_sinapse_cresce_saturada_e_nunca_passa_de_1(self):
+    def test_sinapse_cresce_monotona_e_nunca_passa_de_1(self):
+        k = mv.chave_sinapse("curso-video.md", "receita-antiga.md")
+        ws = []
         for _ in range(200):
             mv.hebb(self.estado, ["curso-video.md", "receita-antiga.md"], True, HOJE)
-        w = self.estado["sinapses"][mv.chave_sinapse("curso-video.md", "receita-antiga.md")]
-        self.assertGreater(w, 0.99)
-        self.assertLessEqual(w, 1.0)
+            ws.append(self.estado["sinapses"][k])
+        self.assertEqual(ws, sorted(ws))
+        self.assertLessEqual(ws[-1], 1.0)
+        self.assertGreater(ws[-1], 0.3)
+
+    def test_sucesso_esperado_reforca_menos_que_surpreendente(self):
+        """GRPO/vantagem relativa: o 50º sucesso seguido quase não muda a sinapse; o 1º muda muito."""
+        k = mv.chave_sinapse("a.md", "b.md")
+        mv.hebb(self.estado, ["a.md", "b.md"], True, HOJE)
+        primeiro = self.estado["sinapses"][k]
+        for _ in range(48):
+            mv.hebb(self.estado, ["a.md", "b.md"], True, HOJE)
+        antes = self.estado["sinapses"][k]
+        mv.hebb(self.estado, ["a.md", "b.md"], True, HOJE)
+        self.assertLess(self.estado["sinapses"][k] - antes, primeiro / 10)
+        # fracasso depois de muitos sucessos = surpresa grande = queda forte
+        mv.hebb(self.estado, ["a.md", "b.md"], False, HOJE)
+        self.assertLess(self.estado["sinapses"][k], antes)
 
     def test_fracasso_enfraquece_e_nunca_fica_negativa(self):
         k = mv.chave_sinapse("a.md", "b.md")

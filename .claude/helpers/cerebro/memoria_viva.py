@@ -184,7 +184,7 @@ def carregar(pastas, hoje=None, cache=True):
         if not pasta or not os.path.isdir(pasta):
             continue
         for arq in sorted(os.listdir(pasta)):
-            if not arq.endswith(".md") or arq == "MEMORY.md" or arq in docs:
+            if not arq.endswith(".md") or arq.startswith("MEMORY") or arq in docs:   # índices (MEMORY*.md) não são memória: viram hub e poluem a associação
                 continue                      # primeira pasta vence em nome repetido (mestre antes do satélite)
             p = os.path.join(pasta, arq)
             try:
@@ -325,9 +325,14 @@ def chave_sinapse(a, b):
 
 
 def hebb(estado, usadas, sucesso, hoje=None, eta=ETA):
-    """Regra de Hebb saturada. Retorna as sinapses tocadas."""
+    """Regra de Hebb saturada com VANTAGEM RELATIVA (CMU 11-768 aula 9; GRPO: Â = r − média do grupo).
+    Linha de base = confiança média das memórias usadas ANTES do episódio. Sucesso esperado (memórias que
+    sempre dão certo) quase não reforça; sucesso surpreendente reforça muito; fracasso enfraquece na medida
+    da surpresa. w continua em [0, 1]. Retorna as sinapses tocadas."""
     usadas = sorted(set(usadas))
     hoje = (hoje or dt.date.today()).isoformat()
+    base = sum(confianca(estado, u) for u in usadas) / len(usadas) if usadas else 0.5
+    vantagem = (1.0 if sucesso else 0.0) - base
     for u in usadas:
         reg = estado["usos"].setdefault(u, {"n": 0, "ok": 0, "ultimo": hoje})
         reg["n"] += 1
@@ -338,8 +343,8 @@ def hebb(estado, usadas, sucesso, hoje=None, eta=ETA):
         for b in usadas[i + 1:]:
             k = chave_sinapse(a, b)
             w = estado["sinapses"].get(k, 0.0)
-            w = w + eta * (1 - w) if sucesso else w * (1 - eta)
-            estado["sinapses"][k] = round(w, 6)
+            w = w + eta * vantagem * (1 - w) if vantagem > 0 else w * (1 - eta * abs(vantagem))
+            estado["sinapses"][k] = round(min(1.0, max(0.0, w)), 6)
             tocadas[k] = estado["sinapses"][k]
     return tocadas
 
@@ -364,11 +369,41 @@ def recencia(doc, estado, hoje, meia_vida):
 
 
 # ---------------------------------------------------------------- operações
-def buscar(docs, estado, consulta, k=8, hoje=None, meia_vida=MEIA_VIDA_DIAS, pesos=PESOS, vagas_assoc=VAGAS_ASSOCIACAO):
+PESO_CONTEXTO = 1.0   # AgentIR (CMU 11-768 aula 10): o raciocínio atual foi o sinal mais forte; peso igual ao da pergunta
+
+
+def ultima_resposta(transcript, limite=1500):
+    """Último texto do assistente num transcript JSONL do Claude Code (para buscar com o raciocínio atual)."""
+    ultimo = ""
+    try:
+        with open(transcript, encoding="utf-8", errors="replace") as f:
+            for linha in f:
+                if '"assistant"' not in linha:
+                    continue
+                try:
+                    j = json.loads(linha)
+                except ValueError:
+                    continue
+                if j.get("type") != "assistant":
+                    continue
+                partes = (j.get("message") or {}).get("content") or []
+                txt = " ".join(p.get("text", "") for p in partes if isinstance(p, dict) and p.get("type") == "text")
+                if txt.strip():
+                    ultimo = txt
+    except OSError:
+        return ""
+    return ultimo[-limite:]
+
+
+def buscar(docs, estado, consulta, k=8, hoje=None, meia_vida=MEIA_VIDA_DIAS, pesos=PESOS, vagas_assoc=VAGAS_ASSOCIACAO,
+           contexto=""):
     """Dois canais: TEXTO (BM25 + desempate por importância/associação) ocupa o topo; ASSOCIAÇÃO (PageRank
     personalizado no grafo de links + sinapses) ganha até `vagas_assoc` vagas extras com o que não tem a palavra."""
     hoje = hoje or dt.date.today()
     rel = _norm(bm25(docs, consulta))
+    if contexto and rel:                      # contexto só reordena/amplia; sem acerto da pergunta, não inventa tema
+        rc = _norm(bm25(docs, contexto))
+        rel = _norm({i: rel.get(i, 0.0) + PESO_CONTEXTO * rc.get(i, 0.0) for i in set(rel) | set(rc)})
     if not rel:
         return []
     viz = grafo(docs, estado["sinapses"])
@@ -396,8 +431,12 @@ def buscar(docs, estado, consulta, k=8, hoje=None, meia_vida=MEIA_VIDA_DIAS, pes
     texto = sorted((item(i, "texto") for i in rel), key=lambda r: (-r["score"], r["id"]))
     vizinhos = sorted((item(i, "associação") for i, v in assoc.items() if i not in rel and v >= 0.25),
                       key=lambda r: (-r["partes"]["associacao"], r["id"]))
+    if vagas_assoc <= 0:
+        return texto[:k]
     extra = min(vagas_assoc, len(vizinhos), max(0, k - 1))
-    return texto[:k - extra] + vizinhos[:extra] if len(texto) >= k - extra else (texto + vizinhos)[:k]
+    if len(texto) >= k - extra:
+        return texto[:k - extra] + vizinhos[:extra]
+    return (texto + vizinhos)[:k]            # poucos acertos de texto: vizinhos ocupam as vagas que sobraram
 
 
 def frias(docs, estado, limiar=0.2, hoje=None, meia_vida=MEIA_VIDA_DIAS):
@@ -500,9 +539,11 @@ Tarefa: abstrair UMA regra operacional reutilizável. Responda só JSON:
  "quando_aplica": "gatilho concreto",
  "quando_nao_aplica": "o limite da regra — obrigatório",
  "contraexemplo": "um caso real ou plausível em que seguir a regra daria errado",
+ "evitar": "o que os episódios de FALHA ensinam a não fazer (vazio se não houver falha)",
  "evidencia": ["ids dos episódios que sustentam"],
  "confianca": 0-1}
-Regras: não invente fato fora dos episódios; se ok e falha se contradizem, diga isso em quando_nao_aplica e
+Regras: falha é tão informativa quanto sucesso — extraia dela a estratégia de evitar (ReasoningBank);
+não invente fato fora dos episódios; se ok e falha se contradizem, diga isso em quando_nao_aplica e
 baixe a confiança; sem saudação, sem log repetido, sem detalhe sintático."""
 
 
@@ -568,6 +609,8 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     b = sub.add_parser("buscar"); b.add_argument("consulta"); b.add_argument("--k", type=int, default=8)
     b.add_argument("--json", action="store_true"); b.add_argument("--nomes", action="store_true")
+    b.add_argument("--contexto", default="", help="raciocínio atual (AgentIR)")
+    b.add_argument("--transcript", help="transcript JSONL: usa a última resposta do assistente como contexto")
     e = sub.add_parser("episodio"); e.add_argument("--tarefa", required=True)
     e.add_argument("--resultado", choices=["ok", "falha"], required=True)
     e.add_argument("--usadas", nargs="*", default=[]); e.add_argument("--licao", default="")
@@ -629,7 +672,8 @@ def main(argv=None):
 
     docs = carregar(pastas, hoje, cache=not os.environ.get("MEMORIA_VIVA_SEM_CACHE"))
     if a.cmd == "buscar":
-        res = buscar(docs, estado, a.consulta, a.k, hoje, a.meia_vida)
+        ctx = a.contexto or (ultima_resposta(a.transcript) if a.transcript else "")
+        res = buscar(docs, estado, a.consulta, a.k, hoje, a.meia_vida, contexto=ctx)
         if a.json:
             print(json.dumps(res, ensure_ascii=False, indent=1))
         elif a.nomes:

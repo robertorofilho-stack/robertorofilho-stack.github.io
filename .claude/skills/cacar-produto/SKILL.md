@@ -32,6 +32,13 @@ Use `cacador` para as frentes de mercado. Se o nicho for aberto, dispare 3 inst�
 | Demanda | Google Trends, autocomplete, "pessoas também perguntam" | tendência 12 e 24 meses |
 | Contra-tese | busca ativa por "saturado", "não funciona mais", "golpe" | as objeções reais |
 
+## Fase 1b — Refletir e buscar de novo (CMU 11-768 aula 10, deep research)
+
+Antes de pontuar, escreva 3 linhas de **REFLECT**: *o que as buscas NÃO responderam? que resultado
+parece prova mas mede outra coisa?* Um anúncio rodando prova tráfego, não margem; muitos afiliados provam
+comissão, não conversão. Depois rode uma rodada nova de busca **só sobre essas lacunas**. A conclusão fica limitada
+ao que foi testado: "promissor em X, não verificado em Y". Nada de "o nicho é ótimo".
+
 ## Fase 2 — Filtro
 
 Pontue de 1 a 5 em cada eixo. Mostre a matriz completa, inclusive dos descartados.
@@ -41,6 +48,9 @@ Dor · Poder de compra · Prova de mercado · Facilidade de entrega · Escala ·
 **Corte em 24/35.** Não apresente perdedor por educação.
 
 ## Fase 3 — Red team
+
+Antes do auditor: o subagente `verificador-citacao` confere se cada número e link sustenta a afirmação (método FACT).
+Afirmação sem suporte sai do relatório ou é reescrita no escopo da fonte.
 
 Rode o subagente `auditor` na oportunidade #1. Se ela não sobreviver, promova a #2 e repita.
 

@@ -12,7 +12,9 @@ set -uo pipefail
 ROOT="${CLAUDE_PROJECT_DIR:-$(pwd)}"; DIR="$ROOT/.claude/cerebro"
 [ -d "$DIR" ] || { echo '{}'; exit 0; }
 
-PROMPT=$(json_get_field prompt)
+ENTRADA=$(cat)
+PROMPT=$(printf '%s' "$ENTRADA" | json_get_field prompt)
+TRANSCRIPT=$(printf '%s' "$ENTRADA" | json_get_field transcript_path)
 [ "${#PROMPT}" -ge 12 ] || { echo '{}'; exit 0; }       # "ok", "/brief" etc.: nada a lembrar
 case "$PROMPT" in                                        # notificação de sistema não é pedido
   "[SYSTEM NOTIFICATION"*|*"<task-notification>"*|*"<wake "*|*"<webhook-payload>"*) echo '{}'; exit 0;;
@@ -23,12 +25,14 @@ for l in C.UTF-8 pt_BR.UTF-8 en_US.UTF-8; do
   if locale -a 2>/dev/null | grep -qix "$l"; then export LC_ALL="$l"; break; fi
 done
 
-STOP='porque|tambem|também|quando|sempre|mesmo|agora|depois|antes|sobre|entre|muito|muita|muitos|todos|todas|outro|outra|outros|coisa|coisas|fazer|preciso|quero|queria|gostaria|favor|please|should|would|could|about|there|their|which|where|these|those|thing|things|really|something|anything|everything|projeto|sistema|arquivo|codigo|código|claude|cerebro|cérebro|memoria|memória|ainda|apenas|entao|então|vamos|podem|precisa|precisamos|fazendo|criar|criando|novos|novas|dessa|desse|nesse|nessa|nossa|nosso|melhor|maior|forma|através|atraves|assim|aquilo|aquele|aquela|explique|explica|resposta|pergunta|entendeu|importante|possivel|possível|inclusive|exemplo|apenas'
+STOP='porque|tambem|também|quando|sempre|mesmo|agora|depois|antes|sobre|entre|muito|muita|muitos|todos|todas|outro|outra|outros|coisa|coisas|fazer|preciso|quero|queria|gostaria|favor|please|should|would|could|about|there|their|which|where|these|those|thing|things|really|something|anything|everything|projeto|sistema|arquivo|codigo|código|claude|cerebro|cérebro|memoria|memória|ainda|apenas|entao|então|vamos|podem|precisa|precisamos|fazendo|criar|criando|novos|novas|dessa|desse|nesse|nessa|nossa|nosso|melhor|maior|forma|através|atraves|assim|aquilo|aquele|aquela|explique|explica|resposta|pergunta|entendeu|importante|possivel|possível|inclusive|exemplo|apenas|seguir|continue|continua|continuar|prossiga|obrigado|obrigada|perfeito|beleza|certeza|pronto|entendi'
 
 KWS=$(printf '%s\n' "$PROMPT" | tr '[:upper:]' '[:lower:]' \
   | grep -oE '[[:alpha:]]{6,}' 2>/dev/null \
   | grep -vxE "$STOP" | awk '!seen[$0]++' | head -8)
-[ -n "$KWS" ] || { echo '{}'; exit 0; }
+# sem palavra-chave longa ("e agora?"): o grep não tem o que buscar, mas o ranking com o transcript ainda tem.
+# Sem palavra-chave E sem transcript: nada a injetar — memória irrelevante piora o agente (CMU 11-768 aula 4).
+if [ -z "$KWS" ] && { [ -z "$TRANSCRIPT" ] || [ ! -f "$TRANSCRIPT" ]; }; then echo '{}'; exit 0; fi
 
 ACHADOS=""
 while IFS= read -r kw; do
@@ -53,9 +57,11 @@ done
 MEMS=""
 # Memória viva (27/09): ranking relevância + associação no grafo de links + recência + importância.
 # Traz também o VIZINHO associado (↔) que o grep não acha. Sem python3 ou sem resultado: grep abaixo.
+# AgentIR (CMU 11-768 aula 10): a última resposta do assistente (transcript) entra como contexto de busca.
 MV="$ROOT/.claude/helpers/cerebro/memoria_viva.py"
 if [ -n "$MESTRE" ] && [ -f "$MV" ] && command -v python3 >/dev/null 2>&1; then
-  MEMS=$(printf '%s' "$PROMPT" | head -c 2000 | { read -r -d '' Q; python3 "$MV" --mem "$MESTRE" buscar "$Q" --k 8 --nomes 2>/dev/null; } | cut -c1-170)
+  MEMS=$(printf '%s' "$PROMPT" | head -c 2000 | { read -r -d '' Q; T_ARG=(); [ -n "$TRANSCRIPT" ] && [ -f "$TRANSCRIPT" ] && T_ARG=(--transcript "$TRANSCRIPT")
+    python3 "$MV" --mem "$MESTRE" buscar "$Q" --k 8 --nomes ${T_ARG[@]+"${T_ARG[@]}"} 2>/dev/null; } | cut -c1-170)
 fi
 if [ -n "$MESTRE" ] && [ -z "$MEMS" ]; then
   while IFS= read -r kw; do

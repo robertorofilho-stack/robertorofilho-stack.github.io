@@ -90,3 +90,34 @@ mais diretos:
 1. **`/cacar-produto aberto`**, a pendência nº 1. O `memoria_viva` agora traz para dentro da caçada os números reais de campanha que vivem no mestre privado.
 2. **Pricing e oferta com `/arvore`** sempre que houver verificador numérico, por exemplo a conta de margem e payback do gate G5 (N1–N5).
 3. **Registrar episódio** ao fim de cada missão de venda. Sem isso, as sinapses não aprendem e o motor fica só com o ranking.
+
+---
+
+## Fase 5 — CMU 11-768 lido na íntegra e instalado (27/09, tarde)
+
+Os vídeos estão bloqueados na nuvem: o YouTube pede PO Token para IP de datacenter. Testei os clientes default, mweb, tv,
+android_vr, ios e web_safari, além de Jina, youtubetranscript, Invidious e Piped. Por isso a fonte foram os
+**10 PDFs oficiais de slides** (666 páginas), a melhor fonte segundo o método do Diretor, Fase 1A. A fala das aulas vem
+pela missão JARBAS no Mac mini (`transcrever-youtube.sh`). A ficha completa está no mestre:
+`ESTUDO/fichas/cmu-11-768-agentes.md`.
+
+| Técnica da aula | Instalado em | Medição / prova |
+|---|---|---|
+| Menos memória é melhor (aula 4, ReasoningBank: 1 experiência 49,7 contra 4 experiências 44,4) | recall: prompt sem palavra-chave nem transcript não injeta nada; palavras de conversa ignoradas; índices `MEMORY*.md` fora do grafo (eram hub em toda busca) | "ok, pode seguir" → saída vazia; ponteiros mantidos em k=8 (recall 0,936 contra 0,901 com k=5), porque o achado vale para experiência inteira, não para ponteiro de 1 linha |
+| Buscar com o raciocínio atual (aula 10, AgentIR) | `memoria_viva.py buscar --transcript/--contexto`; `recall.sh` passa o `transcript_path` | a pergunta vaga "e agora, próximo passo?" passou a trazer `diretor-aprendizado` em vez de ruído |
+| Verificar citação lendo a fonte (aula 10, FACT) | agente `verificador-citacao` + trava em `/cacar-produto` e `cacador` | conteúdo médico só com 100% SUSTENTA |
+| Plan → Search → Reflect → Search again (aula 10) | `/cacar-produto` Fase 1b + `cacador` | conclusão limitada ao que foi testado |
+| "You just signaled task completion. Let's pause and think again." (aula 5, Test-Time Interaction) | `lembrar-memoria.sh` (Stop): bloqueia **uma vez** se há trabalho não commitado | testado: bloqueia → segunda passagem libera (`stop_hook_active`) → stdin vazio não trava |
+| Vantagem relativa (aula 9, GRPO: Â = r − média) | `hebb()`: o sucesso esperado quase não reforça, a surpresa reforça | teste: o 50º sucesso seguido muda menos que 1/10 do primeiro |
+| Falha vira estratégia (aula 4, ReasoningBank: 46,5 → 49,7 com falhas) | prompt lobo frontal ganhou o campo `evitar` | — |
+
+**Bug achado pelo teste novo:** com `vagas_assoc=0`, os vizinhos completavam as vagas que sobravam. Corrigido.
+**Avaliação final (gabarito, 171 casos):** BM25 puro MRR 0,792 · recall@5 0,901 → pilha calibrada **0,803 · 0,906**.
+**Testes:** memória viva 27 · árvore 15.
+
+**Ainda não instalado (próxima rodada, na ordem):**
+1. Checkpoint com âncoras literais no PreCompact (aula 3).
+2. Rubrica ponderada auditada (aula 10).
+3. Log de uso de skill com poda estilo TroVE (aula 4).
+4. Calibrar o juiz LLM contra gabarito humano (79% contra 80% de concordância entre especialistas) e registrar a taxa de erro por provedor no conselho (aula 2: até 15,1%).
+5. Levar o `memoria_viva` para o hook de recall do Mac.

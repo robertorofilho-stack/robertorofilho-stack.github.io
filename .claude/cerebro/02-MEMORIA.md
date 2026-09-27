@@ -7,6 +7,27 @@
 
 ## 2026-09
 
+### 2026-09-27 — Aprendizado de fronteira em agentes: estudado, auditado, instalado e MEDIDO
+
+**Pedido:** "aprenda tudo, instale tudo" (material colado com MCTS, memória vetorial/grafo, N.E.X.U.S., links de cursos).
+**Fontes:** Stanford CS329A já estava dominado (Fase 0, não reestudado); CMU 11-768 lido na íntegra pelos slides
+(10 aulas, 666 págs.); Berkeley e DeepLearning.AI verificados; NUS descartado (não é fronteira).
+**Instalado:** `memoria_viva.py` (recall ranqueado + associação + AgentIR + Hebb com vantagem + episódio com fonte +
+consolidação "lobo frontal" + avaliação), `arvore.py` + `/arvore`, `verificador-citacao`, laço Reflect na caçada,
+pausa final no Stop, `transcrever-youtube.sh`. Tudo copiado no mestre (`559fdad`) + missão JARBAS (`ccf5302`).
+**Números:** gabarito 171 casos — BM25 MRR 0,792 → calibrado 0,803; v0 com associação no score 0,740 (rejeitada).
+Jogo 24 ao vivo 3/3 solúveis com prova exata, 1 difícil falhou, 1 impossível corretamente não declarado. Conselho 4/4
+AJUSTAR, US$ 0,0185. Testes: memória 27 · árvore 15 · hooks 0 falhas.
+**Lições:** (1) juiz LLM deu 1,0 a solução errada → só verificador exato fecha, e juiz nunca ensina sinapse;
+(2) a pilha "óbvia" perdia do BM25 até ser medida — medir antes de adotar; (3) N.E.X.U.S./S.E.P.H.I.R.O.T.H.
+executados = ruído aleatório; (4) YouTube bloqueia nuvem → Mac; (5) hook que lê stdin precisa de prazo (`read -t`).
+**Pendências:** 83 memórias órfãs no índice do mestre (pré-existentes, provável compactação de hoje — corrigir nas
+duas cópias, nos Macs); índice do mestre em 25,7 KB (acima do corte ~24,4 KB); próxima rodada da CMU (PreCompact,
+rubrica, uso de skill, calibrar juiz).
+**Links:** [[APRENDIZADO-AGENTES-AVANCADOS]] [[03-ATIVOS]] [[05-DECISOES]]
+
+---
+
 ### 2026-09-10 — Segundo merge na `main` ("mergeia"): conselho, recall do mestre, cofre e actions v5 vão para produção
 
 **Por quê:** sessão nova na nuvem nasce da `main`; sem o merge nasceria sem conselho, sem recall do mestre e sem o

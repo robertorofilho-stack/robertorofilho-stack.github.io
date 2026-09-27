@@ -19,6 +19,17 @@ if [ "${DEC_NOVA:-0}" -gt 0 ] && [ "${DEC_CONS:-0}" -eq 0 ]; then
   exit 0
 fi
 
+# PAUSA FINAL (CMU 11-768 aula 5, Test-Time Interaction — Shen, NeurIPS 2025): com o mesmo compute, voltar a
+# INTERAGIR com o ambiente rende mais que pensar mais. Trabalho não commitado ao encerrar = entrega não verificada:
+# bloqueia UMA vez (stop_hook_active impede laço) e manda checar no ambiente real.
+ENTRADA=""
+[ -t 0 ] || IFS= read -r -d '' -t 2 ENTRADA 2>/dev/null || true   # stdin do hook, com prazo (nunca trava)
+ATIVO=$(printf '%s' "$ENTRADA" | json_get_field stop_hook_active 2>/dev/null || true)
+if [ "${MUDOU:-0}" -gt 0 ] && [ "$ATIVO" != "true" ] && [ -z "${PAUSA_FINAL_DESLIGADA:-}" ]; then
+  printf '%s\n' '{"decision":"block","reason":"You just signaled task completion. Lets pause and think again: há trabalho NÃO commitado. Antes de encerrar, verifique no ambiente real (rodar o teste, abrir o resultado, conferir a saída) — não pense mais, INTERAJA. Se estiver verificado: grave a memória, commite e encerre. Se o operador pediu para não commitar, apenas encerre."}'
+  exit 0
+fi
+
 if [ "${MUDOU:-0}" -gt 0 ] && [ "${CEREBRO:-0}" -eq 0 ]; then
   json_hook Stop additionalContext "LEMBRETE: houve trabalho nesta sessão mas .claude/cerebro/ não foi atualizado. Se esta sessão produziu decisão, número, aprendizado ou ativo, grave em .claude/cerebro/02-MEMORIA.md e commite antes de encerrar."
 else

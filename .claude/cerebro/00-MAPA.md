@@ -14,6 +14,8 @@
 | [[05-DECISOES]] | Decisões estratégicas e o porquê | Ao decidir algo relevante |
 | [[06-METRICAS]] | Números reais observados | Ao medir qualquer coisa |
 | [[APRENDIZADO-PROJETO-SUPREMO]] | Base técnica instalada | Referência |
+| [[APRENDIZADO-AGENTES-AVANCADOS]] | Agentes/memória de fronteira (CMU, Stanford): o que foi instalado e medido | Antes de mexer em memória, recall ou busca |
+| `../helpers/cerebro/memoria_viva.py` · `../helpers/pensar/arvore.py` | Recall ranqueado + associação + episódios · busca em árvore com verificador | `/memoria buscar`, `/arvore`, `/manutencao` |
 | [`../KIT-RECUPERACAO.md`](../KIT-RECUPERACAO.md) | Perdi tudo → como voltar (cópia no Drive) | Referência |
 | `../backup.sh` | Bundle do repo + config pessoal → Drive/iCloud | Rodar 1x, depois cron |
 | `../helpers/cerebro/` | `fundir-indice.py` (v4, por link, recusa perda) · `verificar-indice.py` (órfãs) · testes | Mestre presente: rodar no `/manutencao` |
