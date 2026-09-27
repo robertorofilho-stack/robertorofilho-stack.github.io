@@ -32,11 +32,15 @@ de física aplicado a números aleatórios. Medido, não opinado:
 
 | Afirmação | Teste (`auditar_nexus`, 100 pulsos) | Resultado |
 |---|---|---|
-| "ressoa com a frequência do problema" | vetores de fase aleatória, sem relação com o conteúdo | ressonância esperada ≈ 55,9 com limiar 20 → **tudo "ressoa" sempre**; estímulo zero = nada |
+| "ressoa com a frequência do problema" | vetores de fase aleatória, sem relação com o conteúdo | ~~55,9, "tudo ressoa sempre"~~ → **corrigido pelo Codex:** 55,9 era o RMS; a média é ~49,5 e ativa **87,9%** dos pares (não 100%). A fase continua sem relação com o conteúdo |
 | "cria código que nenhum humano escreveria" | comparar os híbridos | todo híbrido é **o mesmo molde fixo**; saída = `len(texto) × 2,71828` |
-| "morte digital seleciona o mais apto" | energia após 100 pulsos | 102 nós, energia 150 → 32.728, **zero mortes** → não há seleção |
-| "espaço de Hilbert / quântico" | — | produto interno de numpy. "Holográfico" de verdade é HRR (Plate 1995): recuperação ruidosa, sem ganho medido em agente |
+| "morte digital seleciona o mais apto" | energia após 100 pulsos | ~~"zero mortes"~~ → **corrigido pelo Codex:** depende da semente (0: 73 mortes · 1: 0 · 2: 1). Defeito real mais forte: nó ativado ganha >80 e perde só 60 por erro → **até quem erra engorda**; não há seleção por acerto |
+| "espaço de Hilbert / quântico" | — | ~~"é só numpy"~~ → **corrigido pelo Codex:** espaço vetorial complexo finito com produto interno É um espaço de Hilbert; o nome é legítimo, mas não prova inteligência nem computação quântica. HRR (Plate 1995) não está implementado |
 | `exec()` do código auto-gerado | — | risco de segurança sem verificador; a versão segura já existe: skill/hook como arquivo + git + `saude.yml` |
+
+**Revisão independente (Codex, 27/09, 23 simulações): CONCORDO EM PARTE, confiança 98.** A decisão de não instalar ficou
+de pé; 3 das 5 justificativas estavam exageradas (corrigidas acima). Lição: número de auditoria sem a semente e o
+roteiro não é reproduzível — gravar os dois.
 
 **Bugs nas partes sérias (corrigidos no que foi instalado):**
 1. MCTS: `prior = exp(logprob)` de uma frase inteira ≈ 0 → a exploração morre. Certo: normalizar entre irmãos.

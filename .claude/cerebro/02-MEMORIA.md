@@ -7,6 +7,18 @@
 
 ## 2026-09
 
+### 2026-09-27 (noite, 4) — Codex revisou: motores EM PARTE; sync INSEGURO → corrigido (mestre `438abc8`)
+
+**Pedido:** "peça ao Codex para conferir" + "busque na memória" (a parceria já funcionava; eu, na nuvem, tinha pulado o
+Nível 2 em duas decisões). **Pareceres:** motores — decisão mantida, 3 números meus exagerados; sync — 9 erros com git
+real, o pior: gravação feita durante o pull sumia (memória como link para dentro da árvore do git). **Correção:** memória
+viva volta a ser pasta; `sync-memoria.py` (3 vias + comparar-e-trocar), `_sync-seguro.sh`, `merge-indice` v2
+(`git merge-file --diff3`), `merge-memoria`; 14 testes com git real cobrindo os 9 achados; ensaio de ponta a ponta com
+os 2 Macs no estado atual (link) → convertem sozinhos, edições simultâneas sem perda. Reenviado ao Codex.
+**Lições:** (1) na nuvem não há `/codex` — Nível 2 vai pela fila do mini, antes de declarar pronto; (2) meu ensaio
+testou o caminho feliz; o revisor independente testou corrida, ramo e merge aberto — é por isso que ele existe;
+(3) número de auditoria sem semente não é reproduzível.
+
 ### 2026-09-27 (noite, 3) — Cura ESTRUTURAL do sync de memória entre os 2 Macs (mestre `3c8e3e2`)
 
 **Pergunta do operador:** "já consertei essa sincronização várias vezes — por que ainda não funcionava?" **Resposta:**

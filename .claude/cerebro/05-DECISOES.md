@@ -5,6 +5,20 @@
 
 ## Tomadas
 
+### 2026-09-27 — Divergências do Codex aceitas (Nível 2 que a nuvem tinha pulado)
+
+**Contexto:** duas decisões da sessão na nuvem foram tomadas SEM o Codex, contra a Lei do Escalonamento (Nível 2 =
+Codex por reflexo em decisão cara de desfazer e em fato/evidência). O operador pegou. Pedidos pela fila do Mac mini.
+**Motores N.E.X.U.S. & cia — CONCORDO EM PARTE:** decisão mantida (não instalar); 3 justificativas corrigidas
+(RMS≠média, 87,9%≠100%, mortes dependem da semente; "Hilbert" é termo legítimo). Defeito real mais forte que o meu:
+quem erra ganha energia.
+**Sync da memória para dentro do repo — INSEGURO (9 erros com git real):** aceito inteiro. Corrigido no mesmo dia no
+mestre: memória viva volta a ser pasta; git junta numa área só dele; volta por comparar-e-trocar; nada é commitado
+fora do master nem com merge aberto; juntador do índice v2 com `git merge-file --diff3`. Reenviado ao Codex.
+**Divergência NÃO resolvida:** ele recomenda o Codex trabalhar em worktree separado do clone canônico. É território do
+Codex (`AGENTS.md`/`~/.codex`) — este motor não edita; proposta para o operador decidir.
+**Regra nova:** na nuvem, Nível 2 = `revisoes/<tema>/PEDIDO.md` + missão na fila do mini, ANTES de declarar pronto.
+
 ### 2026-09-27 — APROVADO pelo operador ("faça tudo"): skill nova só nasce de experiência real
 **Evidência:** CMU 11-768 aula 4 (fala, SkillsBench): skill escrita pelo modelo só a partir da descrição da tarefa
 **piora** o desempenho; o ganho de +16,6 pp publicado é otimista (skills filtradas por ajudarem).
