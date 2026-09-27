@@ -55,3 +55,6 @@ _Primeira caçada de infoproduto ainda pendente: `/cacar-produto aberto`._
 
 | Ativo | Por que morreu | Custo | Lição |
 |---|---|---|---|
+
+## Instalador dos Macs (27/09/2026, mestre)
+- `claude-config/helpers/cerebro/instalar-no-mac.sh` — liga recall vivo, âncoras, anti-loop e uso de skill no `settings.json` de cada Mac, compacta o índice e roda os testes. Um comando por Mac; idempotente. Ver [[02-MEMORIA]].

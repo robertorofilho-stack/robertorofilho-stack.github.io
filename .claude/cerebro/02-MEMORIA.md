@@ -7,6 +7,18 @@
 
 ## 2026-09
 
+### 2026-09-27 (noite) — Hooks do curso levados aos 2 Macs (mestre `e875e41`)
+
+**Pedido:** "esqueça vendas… instalar as mudanças, deixar tudo na memória, Mac mini e MacBook". Caçada de produto PAUSADA.
+**Feito no mestre:** `recall-vivo.sh` (UserPromptSubmit, ranking piso 6 + transcript), `checkpoint.sh`+`_ancoras.py`
+(PreCompact), `reinjetar-checkpoint.sh` (SessionStart compact), `anti-loop.sh`, `uso-skill.sh` (usa `~/.claude/skills`),
+skill `/arvore`, agente `verificador-citacao`, e o instalador `instalar-no-mac.sh` → `instalar-hooks-novos.py`
+(só acrescenta ao settings.json, backup, idempotente) + compactação do índice (25,9 KB → ~23,2 KB, 11 entradas).
+**Por quê um comando por Mac:** o `sincronizar.sh` leva helpers mas NUNCA restaura `settings.json` (é por máquina).
+**Verificado:** HOME falso com layout do Mac, 2 execuções: 5 hooks, 0 duplicados, 4 suítes verdes, 0 órfã, recall responde.
+**Gotcha:** o `sincronizar.sh` usa `-Users-macroberto-Claude/memory` também no MacBook; o recall procura primeiro a
+memória do projeto aberto e cai nessa. **Status:** AGUARDA `✅ INSTALADO OK` do Mac mini e do MacBook.
+
 ### 2026-09-27 — Aprendizado de fronteira em agentes: estudado, auditado, instalado e MEDIDO
 
 **Pedido:** "aprenda tudo, instale tudo" (material colado com MCTS, memória vetorial/grafo, N.E.X.U.S., links de cursos).
