@@ -41,6 +41,8 @@ jobs:
         run: python3 .claude/helpers/cerebro/testar-memoria-viva.py
       - name: Árvore de pensamento — PUCT, reflexão, orçamento, juiz não fecha sem verificador
         run: python3 .claude/helpers/pensar/testar-arvore.py
+      - name: Rubrica — nota ponderada, auditoria de itens, concordância juiz×humano
+        run: python3 .claude/helpers/avaliar/testar-rubrica.py
 
   radar:
     runs-on: ubuntu-latest

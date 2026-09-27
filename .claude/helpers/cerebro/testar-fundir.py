@@ -206,6 +206,14 @@ class TesteVerificarIndice(unittest.TestCase):
         self.assertEqual(quebrados, ["x-nao-existe.md"])
         self.assertEqual((n_p, n_a), (3, 4))
 
+    def test_ponteiro_no_indice_de_arquivo_nao_e_orfa(self):
+        """27/09: 83 memórias movidas para MEMORY-ARQUIVO.md eram acusadas como órfãs (falso alarme)."""
+        with open(os.path.join(self.d, "MEMORY-ARQUIVO.md"), "w") as f:
+            f.write("# Arquivo\n- [D antiga](d-orfa.md)\n")
+        orfas, quebrados, n_p, n_a = vi.verificar(self.d)
+        self.assertEqual(orfas, [])
+        self.assertEqual(n_a, 4)                          # o próprio índice de arquivo não conta como memória
+
     def test_exit_1_com_orfa_e_0_sem(self):
         r = subprocess.run([sys.executable, VERIFICAR, self.d], capture_output=True, text=True)
         self.assertEqual(r.returncode, 1)

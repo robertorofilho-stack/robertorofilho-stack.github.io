@@ -12,6 +12,7 @@ import unittest
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CONSELHO = os.path.join(AQUI, "conselho.py")
+os.environ["CONSELHO_SEM_LOG"] = "1"   # testes não escrevem no registro real de saúde dos provedores
 spec = importlib.util.spec_from_file_location("conselho", CONSELHO)
 c = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(c)
@@ -295,6 +296,29 @@ class TesteConselho(Base):
         res, _ = c.rodar("tese")
         self.assertTrue(res[0]["ok"])
         self.assertEqual(vezes["n"], 2)
+
+
+class SaudeProvedores(unittest.TestCase):
+    def test_registra_e_resume_taxa_de_erro(self):
+        d = tempfile.mkdtemp()
+        os.environ["XDG_CACHE_HOME"] = d
+        os.environ.pop("CONSELHO_SEM_LOG", None)
+        try:
+            c.registrar_saude([{"modelo": "a/x", "ok": True, "segundos": 2}, {"modelo": "b/y", "ok": False, "erro": "HTTP 502"}])
+            c.registrar_saude([{"modelo": "b/y", "ok": True, "segundos": 4, "truncada": True}])
+            txt = c.saude_provedores()
+            self.assertIn("`b/y` ⚠ | 2 | 50%", txt)
+            self.assertIn("`a/x` | 1 | 0%", txt)
+        finally:
+            os.environ.pop("XDG_CACHE_HOME", None)
+            os.environ["CONSELHO_SEM_LOG"] = "1"
+
+    def test_sem_registro_nao_quebra(self):
+        os.environ["XDG_CACHE_HOME"] = tempfile.mkdtemp()
+        try:
+            self.assertIn("sem registro", c.saude_provedores())
+        finally:
+            os.environ.pop("XDG_CACHE_HOME", None)
 
 
 if __name__ == "__main__":

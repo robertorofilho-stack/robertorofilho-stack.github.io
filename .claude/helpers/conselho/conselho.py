@@ -9,6 +9,7 @@ Uso:
   conselho.py --status                       quais chaves/motores estão prontos (exit 2 = nenhum)
   conselho.py --listar                       modelos disponíveis por provedor (rede)
   conselho.py --saldo                        crédito do OpenRouter (comprado, usado, restante) e limite da chave
+  conselho.py --saude                        taxa de erro/truncamento por modelo (registro local, sem rede)
   conselho.py --tese "..." [--contexto "..."] [--modo contra|livre] [--max 4] [--saida x.md] [--json]
   conselho.py --arquivo tese.md              tese lida de arquivo (stdin com "-")
   --modelo prov:id  (repetível) força modelos; ou env CONSELHO_MODELOS="openrouter:openai/gpt-5,gemini:gemini-2.5-pro"
@@ -311,12 +312,60 @@ def consultar(m, tese, contexto="", modo="contra"):
     return r
 
 
+def _log_saude():
+    return os.path.join(os.environ.get("XDG_CACHE_HOME") or os.path.expanduser("~/.cache"), "cerebro", "conselho-provedores.jsonl")
+
+
+def registrar_saude(res):
+    """Uma linha por consulta (modelo, ok, segundos, truncada, erro curto) — FORA do repo. CMU 11-768 aula 2: provedor
+    no OpenRouter chegou a 15,1% de erro em chamada de ferramenta; sem registro, ninguém vê qual falha mais."""
+    if os.environ.get("CONSELHO_SEM_LOG"):
+        return
+    try:
+        os.makedirs(os.path.dirname(_log_saude()), exist_ok=True)
+        with open(_log_saude(), "a", encoding="utf-8") as f:
+            for r in res:
+                f.write(json.dumps({"ts": time.strftime("%Y-%m-%dT%H:%M:%S"), "modelo": r.get("modelo"),
+                                    "ok": bool(r.get("ok")), "segundos": r.get("segundos"),
+                                    "truncada": bool(r.get("truncada")), "erro": (r.get("erro") or "")[:120]},
+                                   ensure_ascii=False) + "\n")
+    except OSError:
+        pass
+
+
+def saude_provedores():
+    """Taxa de erro e de truncamento por modelo, a partir do registro local."""
+    por = {}
+    try:
+        with open(_log_saude(), encoding="utf-8") as f:
+            linhas = f.read().splitlines()
+    except OSError:
+        return "sem registro ainda (" + _log_saude() + ")"
+    for l in linhas:
+        try:
+            j = json.loads(l)
+        except ValueError:
+            continue
+        d = por.setdefault(j.get("modelo") or "?", {"n": 0, "erro": 0, "trunc": 0, "seg": 0.0})
+        d["n"] += 1
+        d["erro"] += 0 if j.get("ok") else 1
+        d["trunc"] += 1 if j.get("truncada") else 0
+        d["seg"] += float(j.get("segundos") or 0)
+    out = ["| Modelo | Chamadas | Erro | Truncada | Tempo médio |", "|---|---|---|---|---|"]
+    for m, d in sorted(por.items(), key=lambda x: -x[1]["erro"] / x[1]["n"]):
+        alerta = " ⚠" if d["erro"] / d["n"] > 0.10 else ""
+        out.append(f"| `{m}`{alerta} | {d['n']} | {d['erro'] / d['n']:.0%} | {d['trunc'] / d['n']:.0%} | {d['seg'] / d['n']:.1f} s |")
+    out.append("⚠ = erro acima de 10% → forçar outro modelo da família com --modelo")
+    return "\n".join(out)
+
+
 def rodar(tese, contexto="", modo="contra", maximo=4, forcados=None):
     modelos, erros = resolver(forcados, maximo)
     if not modelos:
         return [], erros
     with cf.ThreadPoolExecutor(max_workers=max(1, len(modelos))) as ex:
         res = list(ex.map(lambda m: consultar(m, tese, contexto, modo), modelos))
+    registrar_saude(res)
     return res, erros
 
 
@@ -375,7 +424,7 @@ def main(argv):
     carregar_chaves()
     detectar_proxy()
     a = {"tese": None, "arquivo": None, "contexto": "", "modo": "contra", "max": 4, "saida": None,
-         "json": False, "status": False, "listar": False, "quieto": False, "modelos": [], "saldo": False}
+         "json": False, "status": False, "listar": False, "quieto": False, "modelos": [], "saldo": False, "saude": False}
     it = iter(argv)
     for x in it:
         if x == "--tese": a["tese"] = next(it, None)
@@ -389,10 +438,14 @@ def main(argv):
         elif x == "--status": a["status"] = True
         elif x == "--listar": a["listar"] = True
         elif x == "--saldo": a["saldo"] = True
+        elif x == "--saude": a["saude"] = True
         elif x == "--quieto": a["quieto"] = True
         else:
             print(f"conselho: opção desconhecida {x}", file=sys.stderr); return 64
 
+    if a["saude"]:
+        print(saude_provedores())
+        return 0
     presentes = chaves_presentes()
     if a["status"]:
         if not presentes:

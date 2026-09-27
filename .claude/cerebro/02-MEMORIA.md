@@ -24,6 +24,10 @@ executados = ruído aleatório; (4) YouTube bloqueia nuvem → Mac; (5) hook que
 **Pendências:** 83 memórias órfãs no índice do mestre (pré-existentes, provável compactação de hoje — corrigir nas
 duas cópias, nos Macs); índice do mestre em 25,7 KB (acima do corte ~24,4 KB); próxima rodada da CMU (PreCompact,
 rubrica, uso de skill, calibrar juiz).
+**Fim da tarde — rodada final:** instaladas as 4 técnicas restantes da CMU: checkpoint PreCompact com âncoras literais,
+`rubrica.py` (nota ponderada + auditoria + concordância juiz×humano), `uso-skill.sh` (TroVE) e `conselho.py --saude`
+(erro por provedor). Falso alarme de 83 órfãs era defeito do `verificar-indice.py` (não lia `MEMORY-ARQUIVO.md`), agora
+corrigido: 0 órfãs. Suíte: 100 testes Python + hooks 0 falhas · 56 capacidades.
 **Links:** [[APRENDIZADO-AGENTES-AVANCADOS]] [[03-ATIVOS]] [[05-DECISOES]]
 
 ---

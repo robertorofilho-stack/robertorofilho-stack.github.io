@@ -11,6 +11,16 @@ DIR="${CLAUDE_PROJECT_DIR:-$(pwd)}/.claude/cerebro"
 
 CTX="## CÉREBRO CARREGADO (.claude/cerebro/)"$'\n\n'
 
+# Volta de compactação: reinjeta as âncoras literais gravadas pelo checkpoint.sh (PreCompact, CMU 11-768 aula 3)
+ENTRADA=""
+[ -t 0 ] || IFS= read -r -d '' -t 2 ENTRADA 2>/dev/null || true
+if [ "$(printf '%s' "$ENTRADA" | json_get_field source 2>/dev/null)" = "compact" ]; then
+  SID=$(printf '%s' "$ENTRADA" | json_get_field session_id 2>/dev/null | tr -cd 'A-Za-z0-9_-')
+  CK="${XDG_CACHE_HOME:-$HOME/.cache}/cerebro/checkpoint-${SID:-sem-sessao}.md"
+  [ -f "$CK" ] && CTX+="$(head -c 6000 "$CK")"$'\n\n'
+fi
+
+
 for f in 00-MAPA.md 01-PERFIL.md; do
   [ -f "$DIR/$f" ] && CTX+="### $f"$'\n'"$(head -c 3000 "$DIR/$f")"$'\n\n'
 done

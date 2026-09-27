@@ -30,6 +30,8 @@
 | Memória viva: recall ranqueado (BM25 + desempate) + canal de associação (PageRank nos 1.559 links) + Hebb por episódio com fonte + consolidação com prompt "lobo frontal" | `.claude/helpers/cerebro/memoria_viva.py` + `recall.sh` | 🟢 27 testes · recall ~215 ms · gabarito 171 casos: MRR 0,803 vs BM25 0,792 · AgentIR + Hebb com vantagem · cópia no mestre | 2026-09-27 |
 | Árvore de pensamento (MCTS/PUCT + reflexão LATS + verificador exato) | `.claude/helpers/pensar/arvore.py` + `/arvore` | 🟢 15 testes · Jogo 24 ao vivo 3/3 solúveis resolvidos com prova (1 difícil falhou) | 2026-09-27 |
 | Verificador de citação FACT (subagente) + laço Reflect na caçada + pausa final no Stop | `.claude/agents/verificador-citacao.md` · `/cacar-produto` · `lembrar-memoria.sh` | 🟢 hooks 0 falhas | 2026-09-27 |
+| Checkpoint pré-compactação (âncoras literais) + registro de uso de skill (TroVE) | `.claude/hooks/checkpoint.sh` · `.claude/hooks/uso-skill.sh` | 🟢 testados | 2026-09-27 |
+| Rubrica ponderada + auditoria de itens + concordância juiz×humano · erro por provedor no conselho | `.claude/helpers/avaliar/rubrica.py` · `conselho.py --saude` | 🟢 8 + 24 testes | 2026-09-27 |
 | Transcrição de aula do YouTube (legenda → cookies → whisper) | `.claude/helpers/aprender/transcrever-youtube.sh` (cópia no mestre) | 🟡 roda no Mac; nuvem bloqueada pelo YouTube (PO Token) | 2026-09-27 |
 
 ## Produtos digitais

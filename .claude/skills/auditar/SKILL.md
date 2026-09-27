@@ -51,3 +51,9 @@ Probabilidade de sucesso: X% — e o que mais moveria esse número.
 ```
 
 Nenhum furo encontrado? Liste **exatamente o que você atacou**. Aprovação sem lista de ataques não vale nada.
+
+## Rubrica (CMU 11-768 aula 10)
+
+Quando o veredito depender de critérios, escreva a rubrica em JSON (`[{"item": "...", "peso": N}]`) e rode
+`python3 .claude/helpers/avaliar/rubrica.py auditar rubrica.json` ANTES de usar: item vago, curto ou duplicado
+é corrigido primeiro. A nota é `rubrica.py nota` (Σ peso·atendido / Σ peso), por item, nunca pela extensão do texto.

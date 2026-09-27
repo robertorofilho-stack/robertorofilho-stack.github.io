@@ -30,6 +30,9 @@ python3 .claude/helpers/cerebro/testar-memoria-viva.py       # ranking, associa�
 python3 .claude/helpers/pensar/testar-arvore.py              # busca em árvore: PUCT, reflexão, orçamento
 python3 .claude/helpers/cerebro/memoria_viva.py consolidar   # lições repetidas → regra candidata (promover com revisão)
 python3 .claude/helpers/cerebro/memoria_viva.py frias        # candidatas a ARQUIVO (nunca apagar)
+python3 .claude/helpers/avaliar/testar-rubrica.py            # rubrica ponderada + calibração do juiz
+bash .claude/hooks/uso-skill.sh --relatorio                  # uso das skills; candidatas a arquivo (TroVE)
+python3 .claude/helpers/conselho/conselho.py --saude         # erro/truncamento por modelo; ⚠ > 10% → trocar modelo
 ```
 
 Falhou → corrigir **agora**, antes de qualquer outra coisa. Sistema com teste vermelho não evolui, degrada.

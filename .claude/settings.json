@@ -47,6 +47,30 @@
           }
         ]
       }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/checkpoint.sh",
+            "timeout": 15,
+            "statusMessage": "Gravando âncoras antes de compactar..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/uso-skill.sh",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   },
   "env": {

@@ -115,9 +115,19 @@ pela missão JARBAS no Mac mini (`transcrever-youtube.sh`). A ficha completa est
 **Avaliação final (gabarito, 171 casos):** BM25 puro MRR 0,792 · recall@5 0,901 → pilha calibrada **0,803 · 0,906**.
 **Testes:** memória viva 27 · árvore 15.
 
-**Ainda não instalado (próxima rodada, na ordem):**
-1. Checkpoint com âncoras literais no PreCompact (aula 3).
-2. Rubrica ponderada auditada (aula 10).
-3. Log de uso de skill com poda estilo TroVE (aula 4).
-4. Calibrar o juiz LLM contra gabarito humano (79% contra 80% de concordância entre especialistas) e registrar a taxa de erro por provedor no conselho (aula 2: até 15,1%).
-5. Levar o `memoria_viva` para o hook de recall do Mac.
+**Rodada final (27/09, fim da tarde): as 4 técnicas restantes da CMU foram instaladas e testadas.**
+
+| Técnica | Instalado em | Prova |
+|---|---|---|
+| Checkpoint com âncoras literais (aula 3) | `hooks/checkpoint.sh` (PreCompact) → `carregar-cerebro.sh` reinjeta quando a sessão volta da compactação | "CUDA 12.4 exatamente" sai literal; resultado de ferramenta fica de fora; sessão nova não recebe checkpoint |
+| Rubrica ponderada auditada (aula 10) | `helpers/avaliar/rubrica.py` + `/auditar` | 8 testes; acusa item curto, vago, duplicado e peso inválido |
+| Calibração do juiz (aula 10: 79% contra 80%) | `rubrica.py concordancia` (acordo + kappa) | juiz que só diz "sim" tem 80% de acordo e kappa ≤ 0 → não automatiza |
+| Uso de skill + poda TroVE (aula 4) | `hooks/uso-skill.sh` (PostToolUse Skill) + `--relatorio` no `/manutencao` | entrada maliciosa neutralizada; lista candidatas a arquivo, nunca apaga |
+| Erro por provedor (aula 2: até 15,1%) | `conselho.py --saude` + registro local | ⚠ acima de 10% → forçar outro modelo |
+
+**Bônus da auditoria:** `verificar-indice.py` acusava 83 memórias órfãs, que eram falso alarme. Todas tinham ponteiro no
+`MEMORY-ARQUIVO.md` criado hoje, que o verificador não lia. Corrigido nos dois repositórios, com teste de regressão:
+**0 órfãs**.
+
+**Pendente (depende de outra máquina ou de decisão):** a transcrição falada das aulas (Mac), o `memoria_viva` no hook do Mac, e o
+índice do mestre com 25,7 KB, acima do corte (compactar nas duas cópias, nos Macs).

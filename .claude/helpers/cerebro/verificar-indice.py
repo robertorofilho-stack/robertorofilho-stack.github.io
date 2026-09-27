@@ -24,7 +24,10 @@ import sys
 import re
 
 LINK = re.compile(r"\]\(([^)]+\.md)\)")
-IGNORAR = {"MEMORY.md", "REVOGADAS.md"}
+IGNORAR = {"MEMORY.md", "REVOGADAS.md", "MEMORY-ARQUIVO.md"}
+# Índice de arquivo (27/09): entradas históricas saem do MEMORY.md (que é cortado acima de ~24,4 KB) e ganham
+# ponteiro em MEMORY-ARQUIVO.md. Ponteiro lá = memória preservada, não órfã.
+ARQUIVO = "MEMORY-ARQUIVO.md"
 
 
 def ler(p):
@@ -60,7 +63,7 @@ def verificar(d, indice=None):
     """Devolve (orfas, quebrados, n_ponteiros, n_arquivos)."""
     indice = indice or os.path.join(d, "MEMORY.md")
     alvos = set()
-    for l in ler(indice):
+    for l in ler(indice) + ler(os.path.join(os.path.dirname(indice), ARQUIVO)):
         alvos.update(LINK.findall(l))
     arqs = arquivos(d)
     rev = revogadas(d)
