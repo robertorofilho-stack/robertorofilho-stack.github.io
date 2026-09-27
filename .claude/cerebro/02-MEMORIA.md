@@ -16,7 +16,7 @@ a compactação dele arquivou memórias do dia (linha agrupada levava a data mai
 ressuscita, lei/gotcha nunca sai; `compactar-indice.py` — data = entrada mais nova, backup fora da pasta sincronizada;
 `reparar-indice.py` (só no mestre: usa índice canônico privado) roda 1× por máquina pelo `sincronizar.sh`.
 Índice: 33,9 → 23,7 KB. Testes: fundir 32 · compactar 5. **MacBook reparado** (6/6 etapas, 23,6 KB, sync `2cd4eb8`); backups `*.antes-compactar`
-que voltavam do MacBook travados no rsync e no `.gitignore` do mestre. Mac mini: reparo automático pendente. **Lição:** fusão de 2 vias não sabe quem editou —
+que voltavam do MacBook travados no rsync e no `.gitignore` do mestre. **Mac mini reparado** (sync `109d88f`, 23,8 KB, 0 órfã). ✅ MISSÃO FECHADA nos 2 Macs. **Lição:** fusão de 2 vias não sabe quem editou —
 cópia parada parece edição. Todo sync de texto entre máquinas precisa de ancestral.
 
 ### 2026-09-27 (noite) — Hooks do curso levados aos 2 Macs (mestre `e875e41`)
