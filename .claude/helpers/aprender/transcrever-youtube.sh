@@ -50,7 +50,7 @@ for id in "${ids[@]}"; do
   echo "[$atual/$total] $(date '+%H:%M') ${titulo:-$id}"
   [ -s "$BASE/transcricoes/$nome.txt" ] && { echo "- ✅ já existe: $nome" >> "$REL"; echo "      já existia"; ok=$((ok+1)); continue; }
   feito=""
-  for tentativa in "default" "mweb" "web_safari" "cookies"; do
+  for tentativa in "default" "cookies" "mweb" "web_safari"; do   # 27/09: só "cookies" funcionou no Mac (9/9)
     args=(--skip-download --ignore-no-formats-error --write-sub --write-auto-sub --sub-lang "$IDIOMA.*,$IDIOMA" --sub-format vtt -o "$BASE/vtt/$id.%(ext)s")
     case "$tentativa" in
       default) ;;
