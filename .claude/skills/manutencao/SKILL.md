@@ -26,6 +26,10 @@ jq -e . .claude/settings.json .mcp.json >/dev/null && echo "config OK"
 (cd radar && npm audit --omit=dev --audit-level=high)
 python3 .claude/helpers/cerebro/testar-fundir.py    # fusão do índice por link: nenhum ponteiro some
 python3 .claude/helpers/cerebro/verificar-indice.py          # auto-detecta o cofre (~/.claude/projects/*/memory, cerebro-backup); memória órfã = vermelho
+python3 .claude/helpers/cerebro/testar-memoria-viva.py       # ranking, associação, Hebb, episódios
+python3 .claude/helpers/pensar/testar-arvore.py              # busca em árvore: PUCT, reflexão, orçamento
+python3 .claude/helpers/cerebro/memoria_viva.py consolidar   # lições repetidas → regra candidata (promover com revisão)
+python3 .claude/helpers/cerebro/memoria_viva.py frias        # candidatas a ARQUIVO (nunca apagar)
 ```
 
 Falhou → corrigir **agora**, antes de qualquer outra coisa. Sistema com teste vermelho não evolui, degrada.

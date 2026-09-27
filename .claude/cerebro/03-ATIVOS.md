@@ -27,6 +27,9 @@
 | Verificador de memória órfã (bootstrap, sessão, manutenção) | `.claude/helpers/cerebro/verificar-indice.py` | 🟢 auto-detecta o cofre · 25 ms / 246 memórias · 25 testes | 2026-09-10 |
 | Soberania de motor (pre-commit + manifesto SHA-256 no CI) | `.claude/git-hooks/pre-commit` + `_integridade.sh` | 🟢 invasão simulada bloqueada | 2026-09-10 |
 | Conselho de outros motores (GPT, Grok, Gemini, DeepSeek em paralelo) | `.claude/helpers/conselho/conselho.py` + `/conselho` | 🟢 ativo na nuvem e nos Macs · 1ª rodada 4/4, US$ 0,093 | 2026-09-10 |
+| Memória viva: recall ranqueado (BM25 + desempate) + canal de associação (PageRank nos 1.559 links) + Hebb por episódio com fonte + consolidação com prompt "lobo frontal" | `.claude/helpers/cerebro/memoria_viva.py` + `recall.sh` | 🟢 30 testes · recall 215 ms · gabarito 170 casos: MRR 0,801 vs BM25 0,790 | 2026-09-27 |
+| Árvore de pensamento (MCTS/PUCT + reflexão LATS + verificador exato) | `.claude/helpers/pensar/arvore.py` + `/arvore` | 🟢 15 testes · Jogo 24 ao vivo 3/3 solúveis resolvidos com prova (1 difícil falhou) | 2026-09-27 |
+| Transcrição de aula do YouTube (legenda → cookies → whisper) | `.claude/helpers/aprender/transcrever-youtube.sh` (cópia no mestre) | 🟡 roda no Mac; nuvem bloqueada pelo YouTube (PO Token) | 2026-09-27 |
 
 ## Produtos digitais
 

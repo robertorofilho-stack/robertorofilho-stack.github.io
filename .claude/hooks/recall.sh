@@ -51,7 +51,13 @@ for cand in "${CEREBRO_PRIVADO:-}" "$HOME/Claude/cerebro-backup" "$HOME/cerebro-
   [ -n "$cand" ] && [ -d "$cand/claude-config/memory" ] && { MESTRE="$cand/claude-config/memory"; break; }
 done
 MEMS=""
-if [ -n "$MESTRE" ]; then
+# Memória viva (27/09): ranking relevância + associação no grafo de links + recência + importância.
+# Traz também o VIZINHO associado (↔) que o grep não acha. Sem python3 ou sem resultado: grep abaixo.
+MV="$ROOT/.claude/helpers/cerebro/memoria_viva.py"
+if [ -n "$MESTRE" ] && [ -f "$MV" ] && command -v python3 >/dev/null 2>&1; then
+  MEMS=$(printf '%s' "$PROMPT" | head -c 2000 | { read -r -d '' Q; python3 "$MV" --mem "$MESTRE" buscar "$Q" --k 8 --nomes 2>/dev/null; } | cut -c1-170)
+fi
+if [ -n "$MESTRE" ] && [ -z "$MEMS" ]; then
   while IFS= read -r kw; do
     [ -n "$kw" ] || continue
     R=$(grep -rliF -- "$kw" "$MESTRE"/*.md 2>/dev/null | grep -v '/MEMORY.md$' | head -4)

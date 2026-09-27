@@ -5,6 +5,25 @@
 
 ## Tomadas
 
+### 2026-09-27 — Memória agêntica: instalar a versão MEDIDA, rejeitar o teatro (N.E.X.U.S. e afins)
+**Contexto:** operador colou arquitetura de "memória holográfica / micro-agentes com morte energética /
+auto-mutação" + MCTS + pgvector/Neo4j e pediu "instale tudo". Tudo foi executado; o que presta foi instalado.
+**Decisão:** (1) N.E.X.U.S./S.E.P.H.I.R.O.T.H./H.E.V.E.N. NÃO entram: medidos, são ruído aleatório (tudo
+"ressoa", saída = len(texto)×constante, zero seleção). (2) Entram `memoria_viva.py` e `arvore.py`, corrigindo 8
+bugs do material. (3) Sem pgvector/Neo4j/embeddings nesta escala (424 memórias). (4) Associação é **canal
+separado** (vagas ↔), não peso no score. (5) Juiz LLM nunca fecha solução nem ensina sinapse: `--fonte`
+obrigatória (humano|metrica|teste).
+**Conselho (4/4 AJUSTAR, US$ 0,0185) — o que mudou por causa dele:** pediram prova no corpus → criado
+`memoria_viva.py avaliar` (gabarito do MEMORY.md, 170 casos). A pilha v0 PERDIA do BM25 puro (recall@5
+0,835 × 0,900) → recalibrada: MRR 0,801 × 0,790, recall@5 empatado. Hebb contaminável pelo juiz → fonte
+obrigatória. **Divergências mantidas:** Gemini propôs eliminar PPR/Hebb/MCTS — mantidos, porque a associação
+agora não pode piorar o topo e a árvore só roda com verificador. DeepSeek/Grok: "nunca apagar" conflita com
+LGPD → **dado pessoal de terceiro sujeito a LGPD pode e deve ser eliminado, com o operador decidindo**; a Lei
+da Monotonia vale para capacidade e conhecimento operacional, não sobrepõe lei. Embeddings: reabrir quando o
+gabarito de paráfrases mostrar recall < BM25 (teste proposto pelo conselho, ainda não rodado).
+**Alternativa rejeitada:** instalar o material colado como está — seria vender ruído como inteligência.
+**Links:** [[APRENDIZADO-AGENTES-AVANCADOS]] [[03-ATIVOS]]
+
 ### 2026-09-10 — Cérebro público separado de cérebro privado
 **Contexto:** o repositório do site é público e serve o domínio médico.
 **Decisão:** metodologia e playbooks ficam aqui; dado de paciente, financeiro,

@@ -41,7 +41,20 @@ Se for **número de negócio** → também em `06-METRICAS.md`
 Depois: `git add .claude/cerebro && git commit` e push. **Memória não commitada não existe.**
 
 **`buscar <termo>`**
-`grep -ri "<termo>" .claude/cerebro/` e sintetizar o que achou.
+`python3 .claude/helpers/cerebro/memoria_viva.py buscar "<termo>"` — ranking por relevância + associação
+(grafo de links do mestre) + recência + importância; `↔` = veio por associação, não por palavra. Sem python:
+`grep -ri "<termo>" .claude/cerebro/`. Sintetizar o que achou.
+
+**`episodio`** (fim de missão — é o que ensina o Cérebro a associar)
+```bash
+python3 .claude/helpers/cerebro/memoria_viva.py episodio --tarefa "<missão>" --resultado ok|falha \
+  --usadas <memórias que DE FATO decidiram a missão>.md ... --licao "<o que muda daqui pra frente, 1 frase>"
+```
+Sucesso fortalece a sinapse entre as memórias usadas juntas (Hebb saturado); fracasso enfraquece.
+
+**`consolidar`** (no `/manutencao`)
+`memoria_viva.py consolidar` lista lições repetidas em ≥2 episódios = regra candidata. Promover = escrever a
+memória com revisão (verificador ≠ autor). `memoria_viva.py frias` lista candidatas a ARQUIVO — nunca apagar.
 
 ## Regras
 

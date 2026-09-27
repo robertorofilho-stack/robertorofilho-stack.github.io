@@ -8,10 +8,14 @@ agente:ortopedista
 agente:qa
 agente:quant
 agente:viral
+helper:arvore
 helper:conselho
 helper:fundir-indice
+helper:memoria_viva
+helper:testar-arvore
 helper:testar-conselho
 helper:testar-fundir
+helper:testar-memoria-viva
 helper:verificar-indice
 hook:carregar-cerebro
 hook:guarda
@@ -27,6 +31,7 @@ sistema:qa-adversarial
 sistema:radar-lucro
 skill:adversarial
 skill:analise-cripto
+skill:arvore
 skill:auditar
 skill:brief
 skill:cacar-produto

@@ -37,6 +37,10 @@ jobs:
         run: python3 .claude/helpers/cerebro/testar-fundir.py
       - name: Conselho de outros motores — helper sem rede (chaves, escolha de modelo, falhas)
         run: python3 .claude/helpers/conselho/testar-conselho.py
+      - name: Memória viva — ranking, associação, Hebb saturado, episódios, nunca apaga
+        run: python3 .claude/helpers/cerebro/testar-memoria-viva.py
+      - name: Árvore de pensamento — PUCT, reflexão, orçamento, juiz não fecha sem verificador
+        run: python3 .claude/helpers/pensar/testar-arvore.py
 
   radar:
     runs-on: ubuntu-latest
