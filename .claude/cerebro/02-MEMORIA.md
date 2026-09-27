@@ -22,6 +22,10 @@ acontecer — use o git como juntador, nunca cópias. **Status:** Mac mini ☑. 
 ramo do Codex (`codex/alfred-macbook-*`) — criado `voltar-ao-master.sh` no mestre (sync e migração voltam ao master
 sozinhos, ramo guardado em backup/, trabalho do Codex fundido). Lição: com dois motores no mesmo clone, o ramo é estado
 compartilhado — o sync precisa conferir o ramo, não só os arquivos.
+**✅ MIGRADO nos 2 Macs.** A migração do MacBook inflou o índice (23,9→27,8 KB: índice antigo entrou como "local");
+refeito a 23,9 KB (índice bom + 2 links novos), migração corrigida para só acrescentar link. Ganho: a pasta
+`-Users-macairroberto-Claude`, que nunca sincronizava, trouxe memórias reais; 2 versões divergentes tinham dado novo e
+foram juntadas. Lição: em fusão de migração, o repositório é a referência — cópia local só acrescenta.
 
 ### 2026-09-27 (noite, 2) — ✅ Instalado nos 2 Macs; incidente do índice curado (mestre `1712d29`)
 
