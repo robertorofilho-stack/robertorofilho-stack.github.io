@@ -1,5 +1,30 @@
 [
   {
+    "id": "e0he6w",
+    "termo": "fitness",
+    "dor": "2026 Fitness Olympia Prejudging Report & Analysis · 2026 Fit Model Olympia Results — Shealynn Burnett Wins · Bodybuilding Just Invented a Division for People Who Don’t Want the Bodybuilder Look",
+    "volumeEstimado": 2300,
+    "urgencia": "MEDIA",
+    "score": 60,
+    "fatores": {
+      "velocidade": 88,
+      "dorExplicita": 30,
+      "volume": 95.67170024429058,
+      "viabilidade": 38,
+      "recorrencia": 92
+    },
+    "fontes": [
+      "https://trends.google.com/trends/explore?q=fitness&geo=US",
+      "https://news.ycombinator.com/item?id=49808616"
+    ],
+    "amostras": [
+      "2026 Fitness Olympia Prejudging Report & Analysis · 2026 Fit Model Olympia Results — Shealynn Burnett Wins · Bodybuilding Just Invented a Division for People Who Don’t Want the Bodybuilder Look",
+      "Gadgetbridge: A FOSS alternative to your fitness watch's app"
+    ],
+    "detectadoEm": "2026-09-28T07:00:55.153Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "91kfab",
     "termo": "time limit on how long they store prompts",
     "dor": "A question I have about Jev is, who are the \"Service Providers\" that they provide prompt information, and why is there no time limit on how long they store prompts? One of the Use Cases marketed is having Jev flag if personal information is contained in text. It's not a strong use case for it really.",
