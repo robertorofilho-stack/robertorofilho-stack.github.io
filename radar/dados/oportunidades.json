@@ -25,6 +25,29 @@
     "estado": "NOVA"
   },
   {
+    "id": "tlrx3s",
+    "termo": "cloud image converters and compressors",
+    "dor": "A private alternative to cloud image converters and compressors",
+    "volumeEstimado": 300,
+    "urgencia": "MEDIA",
+    "score": 56,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 55.14311071290718,
+      "viabilidade": 100,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49882034"
+    ],
+    "amostras": [
+      "A private alternative to cloud image converters and compressors"
+    ],
+    "detectadoEm": "2026-09-28T22:06:19.870Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "91kfab",
     "termo": "time limit on how long they store prompts",
     "dor": "A question I have about Jev is, who are the \"Service Providers\" that they provide prompt information, and why is there no time limit on how long they store prompts? One of the Use Cases marketed is having Jev flag if personal information is contained in text. It's not a strong use case for it really.",
