@@ -30,9 +30,9 @@
     "dor": "A private alternative to cloud image converters and compressors",
     "volumeEstimado": 300,
     "urgencia": "MEDIA",
-    "score": 56,
+    "score": 53,
     "fatores": {
-      "velocidade": 44,
+      "velocidade": 29,
       "dorExplicita": 30,
       "volume": 55.14311071290718,
       "viabilidade": 100,
@@ -44,7 +44,7 @@
     "amostras": [
       "A private alternative to cloud image converters and compressors"
     ],
-    "detectadoEm": "2026-09-29T15:57:08.340Z",
+    "detectadoEm": "2026-09-29T20:52:03.946Z",
     "estado": "NOVA"
   },
   {
