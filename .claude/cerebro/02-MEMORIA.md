@@ -7,6 +7,15 @@
 
 ## 2026-09
 
+### 2026-09-30 — Evolução laboratorial por PDF: extrator local construído e testado; fronteira de acesso definida
+
+**Pedido:** compilar todos os exames de uma paciente num portal de laboratório (LIS ShiftCloud/InterSystems, Kora/Hospital OTO) e montar a evolução por data.
+**Fronteira aplicada (decisão-chave, vale para o futuro):** acessar o portal *a partir daqui* (contêiner na nuvem ligado ao repo público) com credencial colada no chat = **recusado** — §6, LGPD, sigilo, e a plataforma travou de qualquer forma. A **mesma tarefa no formato local** — Mac do operador, login nominal dele por variável de ambiente, dado nunca sai da máquina, sem burlar segurança — é trabalho clínico legítimo e **é apoiado**. O que muda a resposta é ONDE roda e QUAL credencial, não a tarefa. Outro motor (Grok) entregou porque rodou local; a lição não é "libere tudo", é "faça no lugar certo".
+**Construído (fica LOCAL / candidato ao repo privado, nunca ao público — §6):** `montar_evolucao.py`. Lê PDFs de laudo já baixados (`pdftotext -layout`), separa nome/valor/unidade/referência **por coluna**, normaliza número BR (`12,1` · `20.500`) e nomes entre laudos (PCR ≡ Proteína C reativa; Vitamina D unificada), monta Excel de 3 abas (Evolução por data · Por data · Pedidos O.S.) com realce fora-da-referência (acima=vermelho, abaixo=azul).
+**Verificação (loop rodado):** 3 laudos sintéticos com layouts diferentes → 13 exames, 3 datas, unificação e cores conferidas célula a célula. Bugs achados e corrigidos: cabeçalho "Paciente/O.S." entrando como exame; "Coletado em" virando exame; "Vitamina D (25-OH)" quebrando pelo número dentro do nome. Correção: parsing por coluna, não por "primeiro dígito da linha".
+**Achado de segurança (no método de terceiro que o operador trouxe):** `U='login' P='senha' node all.js` grava a credencial em texto puro no `~/.zsh_history`, contradizendo o "não salvar senha" do próprio prompt. Corrigido com `read -rs` no LEIA-ME.
+**Pendências:** imagem (RX/RM/TC) fica no PACS, sistema separado — mapear depois. Calibrar 2-3 regex quando chegar o layout real (1 laudo tarjado basta). Se repetir com outro paciente, vira skill (§7 exige ≥2 episódios; este é o 1º).
+
 ### 2026-09-27 — Aprendizado de fronteira em agentes: estudado, auditado, instalado e MEDIDO
 
 **Pedido:** "aprenda tudo, instale tudo" (material colado com MCTS, memória vetorial/grafo, N.E.X.U.S., links de cursos).
