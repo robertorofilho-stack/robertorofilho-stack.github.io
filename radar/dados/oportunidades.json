@@ -1,5 +1,30 @@
 [
   {
+    "id": "z4te4j",
+    "termo": "the voice",
+    "dor": "Albany’s Lexi Stephens lands 4-chair turn on NBC’s The Voice · The Voice Season 30 Blind Auditions Breakdown: Every Performance & Result, Recapped · The Voice Season 30: An Epic Fake-Out Leaves Adam Levine 'Crushed' In Week Two — Vote For Y",
+    "volumeEstimado": 3200,
+    "urgencia": "MEDIA",
+    "score": 62,
+    "fatores": {
+      "velocidade": 88,
+      "dorExplicita": 30,
+      "volume": 100,
+      "viabilidade": 46,
+      "recorrencia": 92
+    },
+    "fontes": [
+      "https://trends.google.com/trends/explore?q=the%20voice&geo=US",
+      "https://news.ycombinator.com/item?id=49836576"
+    ],
+    "amostras": [
+      "Albany’s Lexi Stephens lands 4-chair turn on NBC’s The Voice · The Voice Season 30 Blind Auditions Breakdown: Every Performance & Result, Recapped · The Voice Season 30: An Epic Fake-Out Leaves Adam L",
+      "Show HN: A $25 DIY alternative to $159 AI voice recorders – BYOK or local"
+    ],
+    "detectadoEm": "2026-09-30T00:32:05.637Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "e0he6w",
     "termo": "fitness",
     "dor": "2026 Fitness Olympia Prejudging Report & Analysis · 2026 Fit Model Olympia Results — Shealynn Burnett Wins · Bodybuilding Just Invented a Division for People Who Don’t Want the Bodybuilder Look",
@@ -44,7 +69,7 @@
     "amostras": [
       "A private alternative to cloud image converters and compressors"
     ],
-    "detectadoEm": "2026-09-29T20:52:03.946Z",
+    "detectadoEm": "2026-09-30T00:32:05.637Z",
     "estado": "NOVA"
   },
   {
