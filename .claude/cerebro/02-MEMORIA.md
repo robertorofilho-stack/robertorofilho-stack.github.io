@@ -39,6 +39,11 @@ DM = Zernio `automacao-direct` (grátis, vale para a conta toda) + ManyChat (con
 consulta). Do vídeo entram só 3 peças que faltam na esteira: garimpo viral pelo Apify, edição por tipo de trecho no
 Remotion e comentário→DM com trava de seguidor. Roteiro: trocar Sonnet por **Codex** (preferência do operador).
 Leis que continuam: mostrar o vídeo antes de postar; rótulo de IA; CFM.
+**Correção 2 (operador):** a Zernio NÃO está mais no @robertorodriguesmd — em 02/10 ele a trocou pelo @vitrineia_
+(plano grátis = 2 contas; a vaga restante estava indicada para o @falar.detudo; 3ª conta = US$ 6/mês). Logo, no
+@robertorodriguesmd: publicação = Upload-Post (POSTAR.py, já conectado) e comentário→DM = **ManyChat** (conta dele,
+fluxo SEMDOR já escrito em `iscas-app/manychat-fluxo-SEMDOR.md`). Lição: a memória `zernio-instagram` (28/08) estava
+velha; o estado vivo estava em `projeto-vitrineia-instagram-organico` (02/10) → ler a mais recente antes de afirmar.
 
 ## 2026-09
 
