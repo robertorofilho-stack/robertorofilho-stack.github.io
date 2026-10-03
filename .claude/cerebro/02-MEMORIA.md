@@ -68,6 +68,9 @@ para o mini (página, ManyChat, esteira 3x com Codex + Apify + voz automática +
 ManyChat exige login no Chrome do Mac; escrita no mestre negada nesta sessão. Tudo entregue como pacote para o mini.
 Lições: PubMed bloqueia WebFetch → Europe PMC REST confere abstract por PMID; o guia de joelho já tinha o aviso CFM —
 faltava só no formulário.
+**Decisão do operador (03/10):** "esqueça o Mac mini, está com pouca memória, deixe no MacBook" → toda a esteira,
+ManyChat e voz automática passam a rodar no **MacBook**. Missões reescritas com um Bloco 0 (sheet do clone, shebang do venv,
+sem libass, Chrome com JS de Eventos da Apple, launchd seg/qua/sex 06:00 que roda ao acordar — MacBook dorme).
 
 ## 2026-09
 
