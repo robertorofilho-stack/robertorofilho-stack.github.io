@@ -49,6 +49,13 @@ defeitos pagos; kie.ai exige aprovação por SHA a cada geração → não roda 
 imagem da Lia em 02/10 → "sem saldo desde 08/09" pode estar velho: rodar `apimart doctor` no Mac antes de recarregar.
 Recarga sugerida: US$ 10 de teste (≈ 10 vídeos), não o mês. **Voz já é automática:** `ferramentas/TROCAR-VOZ.sh`
 (07/09, Chrome do mini por osascript) → a "decisão 2" não existia; eu não tinha lido `voz-automatizada-make-it-yours`.
+**Voz — 2 elos faltando (lidos no código):** TROCAR-VOZ.sh converte mas não baixa da Biblioteca; VIDEO.py não chama o
+script. Missão escrita para o mini (passo 7 baixar + encadear + teste 10 s); pedido de escrita no mestre negado nesta
+sessão → missão entregue ao operador para colar no Mac.
+**SEMDOR no ar (correção):** o 404 era URL errada minha. Página viva = `iscas-roberto.vercel.app/dor-joelho-sem-cirurgia/lead`
+(200, capturada a 390 px: logo, título, nome/e-mail/WhatsApp, "Quero o guia"). Falta só: ligar a palavra SEMDOR no ManyChat
+(fluxo em `iscas-app/manychat-fluxo-SEMDOR.md`) num Reel novo; página sem o aviso "Conteúdo educativo" (CFM).
+Gotcha nuvem: Chromium do Playwright não confiou no CA do proxy → `--ignore-certificate-errors-spki-list=<SPKI do CA do proxy>`.
 
 ## 2026-09
 
