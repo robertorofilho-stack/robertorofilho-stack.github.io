@@ -56,6 +56,18 @@ sessão → missão entregue ao operador para colar no Mac.
 (200, capturada a 390 px: logo, título, nome/e-mail/WhatsApp, "Quero o guia"). Falta só: ligar a palavra SEMDOR no ManyChat
 (fluxo em `iscas-app/manychat-fluxo-SEMDOR.md`) num Reel novo; página sem o aviso "Conteúdo educativo" (CFM).
 Gotcha nuvem: Chromium do Playwright não confiou no CA do proxy → `--ignore-certificate-errors-spki-list=<SPKI do CA do proxy>`.
+**Ordens do operador (03/10, fim):** "pode ligar" SEMDOR no ManyChat (revoga o cancelamento que ele mandou ao Codex
+em 28/08) · "pode colocar o aviso" · esteira com o clone **seg/qua/sex**, ortopedia (joelho + coluna lombar) · isca vira
+**"Dor no joelho ou nas costas? O que fazer antes de pensar em cirurgia"**, palavra SEMDOR mantida.
+**Feito na nuvem:** `GRADE_ORTO.py` (3 dias, herda look/cenário aprovados, CTA SEMDOR fixo, hashtags p/ Apify; testado) ·
+seção lombar do guia (blocos 6–10) escrita pelo `ortopedista`, **reprovada** pelo `verificador-citacao` (69%: 7
+parciais, 5 sem fonte, NICE inacessível, 4 riscos CFM de crítica implícita a colega) → corrigida com o texto que a fonte
+sustenta; NICE retirado; sinais de alerta pendentes de conferir no texto completo de Finucane 2020 · missão completa
+para o mini (página, ManyChat, esteira 3x com Codex + Apify + voz automática + launchd dom/ter/qui 23h, 1º vídeo segunda).
+**Não feito daqui (e por quê):** Vercel MCP trunca arquivos → redeploy montado pela nuvem arriscaria a captura de leads;
+ManyChat exige login no Chrome do Mac; escrita no mestre negada nesta sessão. Tudo entregue como pacote para o mini.
+Lições: PubMed bloqueia WebFetch → Europe PMC REST confere abstract por PMID; o guia de joelho já tinha o aviso CFM —
+faltava só no formulário.
 
 ## 2026-09
 
