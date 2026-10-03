@@ -73,6 +73,11 @@ ManyChat e voz automática passam a rodar no **MacBook**. Missões reescritas co
 sem libass, Chrome com JS de Eventos da Apple, launchd seg/qua/sex 06:00 que roda ao acordar — MacBook dorme).
 **Pendência registrada:** operador vai comprar Mac mini novo e mais potente → migrar o que roda no MacBook para lá.
 Checklist completo em [[05-DECISOES]] › Em aberto.
+**Confirmado pelo operador (03/10, fim do dia):** "ok, deixa no MacBook" — MacBook é a máquina da esteira até o mini novo.
+Opção futura registrada: VPS Hostinger 24h (tudo menos a troca de voz no MIY; rever o aviso de limite de uso de 22/09).
+**Bloqueio de entrega:** esta sessão é nuvem (aberta no iPhone) e não alcança o MacBook; operador não sabe usar Terminal.
+Caminho dado: app Claude → aba Code → nova sessão local na pasta `cerebro-backup` → colar 1 linha que manda ler esta
+memória + `PARA-O-CLAUDE-DO-MACBOOK.md`. Próxima vez: oferecer isso logo no início em vez de gerar "missões".
 
 ## 2026-09
 
