@@ -44,6 +44,11 @@ Leis que continuam: mostrar o vídeo antes de postar; rótulo de IA; CFM.
 @robertorodriguesmd: publicação = Upload-Post (POSTAR.py, já conectado) e comentário→DM = **ManyChat** (conta dele,
 fluxo SEMDOR já escrito em `iscas-app/manychat-fluxo-SEMDOR.md`). Lição: a memória `zernio-instagram` (28/08) estava
 velha; o estado vivo estava em `projeto-vitrineia-instagram-organico` (02/10) → ler a mais recente antes de afirmar.
+**Decisão de provedor (recomendação ao operador):** clipes = **APIMart** (VIDEO.py já escrito e depurado nela, 9
+defeitos pagos; kie.ai exige aprovação por SHA a cada geração → não roda sozinha; 32 créditos = reserva). APIMart gerou
+imagem da Lia em 02/10 → "sem saldo desde 08/09" pode estar velho: rodar `apimart doctor` no Mac antes de recarregar.
+Recarga sugerida: US$ 10 de teste (≈ 10 vídeos), não o mês. **Voz já é automática:** `ferramentas/TROCAR-VOZ.sh`
+(07/09, Chrome do mini por osascript) → a "decisão 2" não existia; eu não tinha lido `voz-automatizada-make-it-yours`.
 
 ## 2026-09
 
