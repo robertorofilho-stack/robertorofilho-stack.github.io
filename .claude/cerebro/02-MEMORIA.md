@@ -5,6 +5,30 @@
 
 ---
 
+## 2026-10
+
+### 2026-10-03 — Diretor de Aprendizado: 2 vídeos assistidos NA NUVEM (bloqueio do YouTube contornado)
+
+**Pedido:** "Diretor de aprendizado olha isso" — 2 links do YouTube.
+**Descoberta técnica:** o Gemini via OpenRouter (`video_url` com URL do YouTube) assiste o vídeo pelo lado do Google →
+a nuvem não depende mais do Mac para aprender de vídeo. Virou `.claude/helpers/aprender/assistir-video.py`
+(retry + queda para Flash). Custo medido: Pro US$ 1,15 / 25 min; Flash US$ 0,16. 502 transitório é comum (1 em 3).
+Prova cruzada: Pro e Flash, chamadas independentes, deram o mesmo comando (`iptables -D INPUT 5`).
+**Vídeo 1 — "Maestros da IA", fábrica de conteúdo no piloto automático (SfZyhxE8Nf8):** Apify (garimpa viral) →
+roteiro Claude/Codex → avatar HeyGen + voz ElevenLabs → edição Remotion com regra por trecho (frase de efeito = tela
+cheia; site = print com rolagem; conceito = motion) → Metricool/Blotato posta → ManyChat: comentário-palavra →
+DM → exige seguir → entrega link → comunidade. Alegação: 925 mil views/30 dias em conta nova. **O produto real é a
+comunidade paga; o agente é isca/bônus** — esse é o modelo de infoproduto a copiar.
+**Vídeo 2 — Tiago Matos, VPS grátis Oracle (bk5sWon4tnE):** Always Free Ampere 4 OCPU/24 GB/200 GB; upgrade para
+Pay-as-you-go para ter capacidade; IP público efêmero manual; liberar 80/443 na Security List; apagar a regra
+REJECT do iptables da imagem Ubuntu. Sem venda no vídeo.
+**Veredito:** V1 = alta aplicação (mesmo arsenal já conectado: HeyGen, ElevenLabs, Higgsfield, Meta). V2 = baixa
+urgência: radar já roda grátis no GitHub Actions; VPS só se a fábrica precisar de render 24/7 (Remotion).
+**Ressalvas:** "0% humano" é hipérbole; conta médica com avatar IA sem revisão = risco CFM e rótulo de IA da Meta →
+fábrica automática vai para contas NÃO médicas; @robertorodriguesmd mantém revisão humana. Oracle: IP de datacenter
+também é bloqueado pelo YouTube; conta gratuita pode ser encerrada sem aviso — nunca único lugar de nada.
+**Próximo passo de receita:** piloto da fábrica (V1) numa conta de nicho não médico do `/cacar-produto aberto`.
+
 ## 2026-09
 
 ### 2026-09-27 — Aprendizado de fronteira em agentes: estudado, auditado, instalado e MEDIDO

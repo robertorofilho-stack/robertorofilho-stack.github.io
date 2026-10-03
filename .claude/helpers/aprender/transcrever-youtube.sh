@@ -6,6 +6,8 @@
 # you're not a bot"; web_safari passa mas descarta legendas sem PO Token; Jina Reader, youtubetranscript,
 # Invidious e Piped também bloqueados. Por isso: missão na fila JARBAS → Mac executa.
 #
+# NA NUVEM: use assistir-video.py (Gemini lê o YouTube pelo lado do Google — funciona, medido 03/10/2026).
+#
 # Cascata por vídeo (para no primeiro que der texto):
 #   1. legenda (manual ou automática) — clientes default, mweb, web_safari
 #   2. mesma coisa com cookies do navegador logado (--cookies-from-browser), só leitura
