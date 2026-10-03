@@ -28,6 +28,17 @@ urgência: radar já roda grátis no GitHub Actions; VPS só se a fábrica preci
 fábrica automática vai para contas NÃO médicas; @robertorodriguesmd mantém revisão humana. Oracle: IP de datacenter
 também é bloqueado pelo YouTube; conta gratuita pode ser encerrada sem aviso — nunca único lugar de nada.
 **Próximo passo de receita:** piloto da fábrica (V1) numa conta de nicho não médico do `/cacar-produto aberto`.
+**🔴 CORREÇÃO (mesmo dia, bronca do operador):** recomendei HeyGen/ElevenLabs/Metricool **sem ler o mestre** — erro
+nº 1 do §0 (pular Recall/Inventário). O mestre já tinha quase tudo: clone = `clone-perfeito` (character sheet v2 +
+Veo 3.1 na APIMart + realismo + voz Make It Yours "Roberto Filho"); esteira diária do @robertorodriguesmd =
+`ferramentas/esteira-diaria/` (GRADE/PAUTA/VIDEO, 7 âncoras) parada desde 08/09 (APIMart sem saldo + voz MIY manual +
+instalação no mini); publicação = POSTAR.py/Upload-Post (fila Fortaleza) + Zernio já conectada ao @robertorodriguesmd;
+DM = Zernio `automacao-direct` (grátis, vale para a conta toda) + ManyChat (conta existe; isca SEMDOR sem armar desde
+07/07); Apify = `APIFY_TOKEN` no cofre; Remotion = Motion Studio em `~/Documents/Squads100/motion-studio` (Mac).
+**Veredito revisto:** a fábrica VAI no @robertorodriguesmd (decisão do operador: conteúdo educativo de saúde não é
+consulta). Do vídeo entram só 3 peças que faltam na esteira: garimpo viral pelo Apify, edição por tipo de trecho no
+Remotion e comentário→DM com trava de seguidor. Roteiro: trocar Sonnet por **Codex** (preferência do operador).
+Leis que continuam: mostrar o vídeo antes de postar; rótulo de IA; CFM.
 
 ## 2026-09
 
