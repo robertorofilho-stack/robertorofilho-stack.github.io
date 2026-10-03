@@ -71,6 +71,8 @@ faltava só no formulário.
 **Decisão do operador (03/10):** "esqueça o Mac mini, está com pouca memória, deixe no MacBook" → toda a esteira,
 ManyChat e voz automática passam a rodar no **MacBook**. Missões reescritas com um Bloco 0 (sheet do clone, shebang do venv,
 sem libass, Chrome com JS de Eventos da Apple, launchd seg/qua/sex 06:00 que roda ao acordar — MacBook dorme).
+**Pendência registrada:** operador vai comprar Mac mini novo e mais potente → migrar o que roda no MacBook para lá.
+Checklist completo em [[05-DECISOES]] › Em aberto.
 
 ## 2026-09
 

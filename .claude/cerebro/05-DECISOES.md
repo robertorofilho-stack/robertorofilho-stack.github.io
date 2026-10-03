@@ -156,6 +156,15 @@ pagamento ou clique no checkout. Relatório completo entregue ao operador (não 
 
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto` **com viés não-médico ou B2B profissional** (ver Conselho 10/09 abaixo); guia de joelho para leigos NÃO é o primeiro produto pago
 - [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)
+- [ ] **MIGRAR MacBook → Mac mini NOVO (mais potente)** — decisão do operador 03/10/2026: o mini atual tem pouca
+  memória; tudo roda no MacBook até o novo chegar. **Quando o mini novo chegar, levar o que estiver rodando no MacBook:**
+  esteira de Reels seg/qua/sex (`esteira-diaria/` + `GRADE_ORTO.py` + launchd 06:00) · voz automática (`TROCAR-VOZ.sh`,
+  Chrome logado no Make It Yours com "JavaScript de Eventos da Apple") · ManyChat SEMDOR (só o login do Chrome; a
+  automação vive no ManyChat) · cofre `~/.config/vha-vibe-marketing/.env` + Keychain (apimart, kie-ai) + `~/.zernio.env`
+  · `~/Claude/CLONE-ROBERTO/` (character sheet v2) · venv do `vaa-hub` · Codex CLI logado · whisper medium · libass
+  (o mini antigo tinha; o MacBook não). Roteiro: `git clone cerebro-backup` → `instalar.sh` → cofre por pendrive/AirDrop
+  (nunca pelo git) → rodar 1 vídeo de teste → só então desligar o launchd do MacBook (nunca os dois ao mesmo tempo:
+  vídeo duplicado). Lembrar o operador quando ele disser que o mini chegou.
 - [ ] **Meta Ads / Supermetrics conectados à conta real de anúncio?**
 - [ ] **Gateway de pagamento definido** — Hotmart/Kiwify (mais simples) vs Stripe+Asaas (mais margem, mais trabalho)
 - [ ] **PIX_KEY preenchida em `radar/.env`** — sem ela o paywall roda em sandbox
