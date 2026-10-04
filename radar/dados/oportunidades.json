@@ -69,7 +69,7 @@
     "amostras": [
       "A private alternative to cloud image converters and compressors"
     ],
-    "detectadoEm": "2026-10-04T13:16:05.276Z",
+    "detectadoEm": "2026-10-04T17:39:58.691Z",
     "estado": "NOVA"
   },
   {
@@ -94,7 +94,7 @@
       "I mean sure, but even if people have the ability to select a different app store, why are they going to do this? Even if you MAKE them do it, on device setup as was commented elsewhere, do we mandate ",
       "My account is banned, so for whomever with [showdead] on: It's unfortunate that the supposed pillar of security dismisses Rust on dubious grounds. Yes, there is agenda coming from Ubuntu. And yet, Rus"
     ],
-    "detectadoEm": "2026-10-04T13:16:05.275Z",
+    "detectadoEm": "2026-10-04T17:39:58.691Z",
     "estado": "NOVA"
   },
   {
@@ -284,6 +284,29 @@
       "As an alternative to Gmail can I recommend Hotmail? I recently created an account and a nice feature is that all new email goes into the Junk folder by default. It was obviously designed by a misanthr"
     ],
     "detectadoEm": "2026-09-22T10:03:23.816Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "yyri0c",
+    "termo": "millenial version of \"too old to click around for 99 hours\" where they just allo",
+    "dor": "I wish there was a millenial version of \"too old to click around for 99 hours\" where they just allow bots. Maybe they can be certain servers or certain account types, like ironman. We can call it botman.",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49953837"
+    ],
+    "amostras": [
+      "I wish there was a millenial version of \"too old to click around for 99 hours\" where they just allow bots. Maybe they can be certain servers or certain account types, like ironman. We can call it botm"
+    ],
+    "detectadoEm": "2026-10-04T17:39:58.692Z",
     "estado": "NOVA"
   }
 ]
