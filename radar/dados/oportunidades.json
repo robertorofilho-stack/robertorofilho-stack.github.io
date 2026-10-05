@@ -50,6 +50,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "50effj",
+    "termo": "a HTAP system like TiDB + TiFlash with a Postgres-compatible syntax, but LLMs di",
+    "dor": "I was actually just recently looking if there is a self-hostable alternative to a HTAP system like TiDB + TiFlash with a Postgres-compatible syntax, but LLMs didn't really pick up on CedarDB yet. These guys know game.",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 51,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 60,
+      "volume": 50.67031326325076,
+      "viabilidade": 46,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49962758",
+      "https://news.ycombinator.com/item?id=49943790"
+    ],
+    "amostras": [
+      "I was actually just recently looking if there is a self-hostable alternative to a HTAP system like TiDB + TiFlash with a Postgres-compatible syntax, but LLMs didn't really pick up on CedarDB yet. Thes",
+      "I really wish there was a way to know if LLMs hallucinate these switches incorrectly, like I do. Feels like this would be exactly the kind of thing they would get wrong. Fur exactly, the training set "
+    ],
+    "detectadoEm": "2026-10-05T16:07:08.725Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "tlrx3s",
     "termo": "cloud image converters and compressors",
     "dor": "A private alternative to cloud image converters and compressors",
@@ -69,7 +94,7 @@
     "amostras": [
       "A private alternative to cloud image converters and compressors"
     ],
-    "detectadoEm": "2026-10-05T07:08:35.924Z",
+    "detectadoEm": "2026-10-05T16:07:08.725Z",
     "estado": "NOVA"
   },
   {
