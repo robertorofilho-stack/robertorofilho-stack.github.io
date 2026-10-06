@@ -71,7 +71,7 @@
       "I was actually just recently looking if there is a self-hostable alternative to a HTAP system like TiDB + TiFlash with a Postgres-compatible syntax, but LLMs didn't really pick up on CedarDB yet. Thes",
       "I really wish there was a way to know if LLMs hallucinate these switches incorrectly, like I do. Feels like this would be exactly the kind of thing they would get wrong. Fur exactly, the training set "
     ],
-    "detectadoEm": "2026-10-05T22:42:43.420Z",
+    "detectadoEm": "2026-10-06T03:03:46.499Z",
     "estado": "NOVA"
   },
   {
