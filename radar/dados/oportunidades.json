@@ -3,27 +3,30 @@
     "id": "6o8wim",
     "termo": "for that",
     "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 300,
+    "volumeEstimado": 400,
     "urgencia": "MEDIA",
-    "score": 66,
+    "score": 68,
     "fatores": {
-      "velocidade": 52,
+      "velocidade": 56,
       "dorExplicita": 60,
-      "volume": 54.52846290306455,
+      "volume": 57.26917619764401,
       "viabilidade": 100,
-      "recorrencia": 48
+      "recorrencia": 49
     },
     "fontes": [
       "https://news.ycombinator.com/item?id=49977334",
       "https://news.ycombinator.com/item?id=49898688",
-      "https://news.ycombinator.com/item?id=49969260"
+      "https://news.ycombinator.com/item?id=49969260",
+      "https://news.ycombinator.com/item?id=49983323",
+      "https://news.ycombinator.com/item?id=49982315"
     ],
     "amostras": [
       "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
-      "I absolutely loathe reddit now. It used to be so great. It's filled with ban-happy moderators, AI slop posts and comments, reposts of comments and posts, memes, low effort posts, and of course astrotu",
+      "I really need an open-source alternative to TradingView, ideally something that can run locally. Now got it, thanks :)",
+      "Null and zero are synonymous, but null is preferable when used as an adjective and zero is preferable when used as a noun. There are 2 words for the same concept because \"null\" comes from Latin, while",
       "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
     ],
-    "detectadoEm": "2026-10-06T17:15:07.693Z",
+    "detectadoEm": "2026-10-06T21:42:56.422Z",
     "estado": "NOVA"
   },
   {
