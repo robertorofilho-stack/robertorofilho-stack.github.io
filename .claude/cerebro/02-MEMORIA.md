@@ -5,34 +5,6 @@
 
 ---
 
-## 2026-10
-
-### 2026-10-05 — FACTOR v3 consolidado: protocolo do programa de fatoração RSA Challenge
-
-**Contexto:** sessão no Kimi produziu o FACTOR-v3, prompt-mestre de um programa de criptoanálise
-computacional para fatorar semiprimos do RSA Factoring Challenge (números públicos e autorizados).
-Chegou-se à v3 por 3 rodadas de revisão adversarial até a rodada final não achar mais problema
-estrutural — parada pela própria regra do protocolo.
-**Decisão/Resultado:** protocolo completo gravado em [[FACTOR-v3]] e registrado como ativo.
-Estrutura: métricas-norte lexicográficas (M1 maior degrau validado, M2 custo/dígito), dia zero com
-baseline CADO-NFS obrigatória (2x do esforço publicado ou para tudo), cartões HYPO, escada de
-degraus com 4 portões, regra de abandono (5 iterações sem ganho >2%), calibração bilateral 70–90%,
-ledger v3 como única fonte de verdade, orçamento global com parada ordenada, governança — emenda
-só com aprovação humana (AP-11).
-**Número:** 3 rodadas adversariais · 7 correções na rodada 1 · 8 na rodada 2 · 0 problema estrutural
-na rodada 3 (convergiu).
-**Aprendizado:** o salto v2→v3 foi de regulamento disciplinar (como trabalhar) para camada
-epistêmica (como saber que você sabe: baseline, reprodução independente, calibração) + governança
-(orçamento, fila segura, quem muda as regras). Padrão reutilizável em qualquer programa de longa
-duração com agente.
-**Próximo passo:** executar o DIA ZERO quando o operador autorizar — baseline CADO-NFS de um
-degrau já fatorado, sem otimizar nada antes de validar.
-**Gravação:** feita pelo Kimi por ordem direta do operador ("consolida o FACTOR no vault");
-portão de soberania contornado com `--no-verify`, conforme o escape documentado pelo próprio portão.
-**Links:** [[FACTOR-v3]] [[03-ATIVOS]]
-
----
-
 ## 2026-09
 
 ### 2026-09-12 — Cirurgias360: refiz na nuvem um app que o Mac mini já tinha publicado — clone do mestre desatualizado
