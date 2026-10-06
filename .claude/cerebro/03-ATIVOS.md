@@ -29,6 +29,7 @@
 | Verificador de memória órfã (bootstrap, sessão, manutenção) | `.claude/helpers/cerebro/verificar-indice.py` | 🟢 auto-detecta o cofre · 25 ms / 246 memórias · 25 testes | 2026-09-10 |
 | Soberania de motor (pre-commit + manifesto SHA-256 no CI) | `.claude/git-hooks/pre-commit` + `_integridade.sh` | 🟢 invasão simulada bloqueada | 2026-09-10 |
 | Conselho de outros motores (GPT, Grok, Gemini, DeepSeek em paralelo) | `.claude/helpers/conselho/conselho.py` + `/conselho` | 🟢 ativo na nuvem e nos Macs · 1ª rodada 4/4, US$ 0,093 | 2026-09-10 |
+| Protocolo FACTOR v3 (programa de fatoração RSA Challenge) | `.claude/cerebro/FACTOR-v3.md` | 🟢 consolidado · dia zero pendente | 2026-10-05 |
 
 ## Produtos digitais
 

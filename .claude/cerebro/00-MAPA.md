@@ -14,6 +14,7 @@
 | [[05-DECISOES]] | Decisões estratégicas e o porquê | Ao decidir algo relevante |
 | [[06-METRICAS]] | Números reais observados | Ao medir qualquer coisa |
 | [[APRENDIZADO-PROJETO-SUPREMO]] | Base técnica instalada | Referência |
+| [[FACTOR-v3]] | Protocolo do programa de fatoração RSA Challenge | Referência · ao evoluir a versão |
 | [`../KIT-RECUPERACAO.md`](../KIT-RECUPERACAO.md) | Perdi tudo → como voltar (cópia no Drive) | Referência |
 | `../backup.sh` | Bundle do repo + config pessoal → Drive/iCloud | Rodar 1x, depois cron |
 | `../helpers/cerebro/` | `fundir-indice.py` (v4, por link, recusa perda) · `verificar-indice.py` (órfãs) · testes | Mestre presente: rodar no `/manutencao` |
