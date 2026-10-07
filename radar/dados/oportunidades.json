@@ -3,15 +3,15 @@
     "id": "6o8wim",
     "termo": "for that",
     "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 500,
+    "volumeEstimado": 400,
     "urgencia": "MEDIA",
-    "score": 69,
+    "score": 68,
     "fatores": {
-      "velocidade": 60,
+      "velocidade": 56,
       "dorExplicita": 60,
-      "volume": 59.396429969079406,
+      "volume": 57.26917619764401,
       "viabilidade": 100,
-      "recorrencia": 50
+      "recorrencia": 49
     },
     "fontes": [
       "https://news.ycombinator.com/item?id=49977334",
@@ -20,16 +20,16 @@
       "https://news.ycombinator.com/item?id=49983323",
       "https://news.ycombinator.com/item?id=49982315",
       "https://news.ycombinator.com/item?id=49986141",
-      "https://news.ycombinator.com/item?id=49985216"
+      "https://news.ycombinator.com/item?id=49985216",
+      "https://news.ycombinator.com/item?id=49989600"
     ],
     "amostras": [
       "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
+      "Interesting read, your experience gave me some ideas to reduce dependency on Apple ecosystem. A few questions: 1. \"Don't use safari\" Why? 2. Is there an alternative to \"Find My\" that I can use with Ai",
       "That goes in circles though. Ignore the fact that we are human and thing our ingenuity is unique. Is definitionally linking human ingenuity and creativity useful when trying to compare to others? I co",
-      "I'd be opposed to nationalizing Google. There are way too many downsides. I think, if we're going to be heavy-hitting about this, the more proper thing to do is to force Google to split their search o",
-      "I really need an open-source alternative to TradingView, ideally something that can run locally. Now got it, thanks :)",
       "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
     ],
-    "detectadoEm": "2026-10-07T01:36:50.183Z",
+    "detectadoEm": "2026-10-07T08:46:09.142Z",
     "estado": "NOVA"
   },
   {
@@ -105,6 +105,29 @@
       "I really wish there was a way to know if LLMs hallucinate these switches incorrectly, like I do. Feels like this would be exactly the kind of thing they would get wrong. Fur exactly, the training set "
     ],
     "detectadoEm": "2026-10-06T03:03:46.499Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "ub59bn",
+    "termo": "Parseable",
+    "dor": "Iceberg is a table format. It adds snapshots and a catalog layer on top of Parquet files. Parseable is a full-stack observability tool. Its storage layer could theoretically use Iceberg as the table format on top of Parquet file format. Iceberg is not a direct alternative to Parseable.",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 51,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 88,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49988574"
+    ],
+    "amostras": [
+      "Iceberg is a table format. It adds snapshots and a catalog layer on top of Parquet files. Parseable is a full-stack observability tool. Its storage layer could theoretically use Iceberg as the table f"
+    ],
+    "detectadoEm": "2026-10-07T08:46:09.142Z",
     "estado": "NOVA"
   },
   {
