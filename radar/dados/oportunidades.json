@@ -3,15 +3,15 @@
     "id": "6o8wim",
     "termo": "for that",
     "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 400,
+    "volumeEstimado": 300,
     "urgencia": "MEDIA",
-    "score": 68,
+    "score": 66,
     "fatores": {
-      "velocidade": 56,
+      "velocidade": 52,
       "dorExplicita": 60,
-      "volume": 57.26917619764401,
+      "volume": 54.52846290306455,
       "viabilidade": 100,
-      "recorrencia": 49
+      "recorrencia": 48
     },
     "fontes": [
       "https://news.ycombinator.com/item?id=49977334",
@@ -28,10 +28,9 @@
     "amostras": [
       "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
       "no. cabal chat is different. ...but you can also checkout quibble as an alternative to keet that is open source. https:&#x2F;&#x2F;codeberg.org&#x2F;LTC-GT&#x2F;Quibble i think the most awaited thing ",
-      "Ok, understood. It seemed like you were proposing an alternative to permanent-DST that should be worse by your own logic (unnatural standard), but if it's tongue in cheek, then I'm much less confused.",
       "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
     ],
-    "detectadoEm": "2026-10-08T16:33:50.488Z",
+    "detectadoEm": "2026-10-08T22:08:32.393Z",
     "estado": "NOVA"
   },
   {
