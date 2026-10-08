@@ -841,3 +841,104 @@ p{max-width:66ch}
   .kit-preco{padding:28px 20px}
   .guia-btn{align-self:stretch}
 }
+
+/* --------- página de vendas /kit-sem-dor/ (07/10/2026) --------- */
+.ksd-hero .wrap{padding-block:64px 72px}
+.ksd-hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.ksd-hero .h1{font-size:clamp(36px,4.2vw,58px)}
+.ksd-preco-linha{display:flex;align-items:center;gap:18px;margin-top:26px}
+.ksd-preco-v{font-family:var(--serif);font-size:64px;font-weight:600;line-height:1;color:var(--navy)}
+.ksd-preco-v span{font-size:24px;vertical-align:.95em;margin-right:4px}
+.ksd-preco-t{font-size:15px;line-height:1.45;color:#4a545f}
+.ksd-btn{gap:10px}
+.ksd-mock{position:relative;height:420px;max-width:440px;margin-inline:auto}
+.ksd-capa{position:absolute;width:210px;height:290px;border-radius:6px 12px 12px 6px;padding:26px 20px;
+  display:flex;flex-direction:column;gap:8px;background:linear-gradient(160deg,var(--navy-2),var(--navy));
+  color:#fff;box-shadow:0 18px 40px rgba(11,31,58,.28);border-left:8px solid var(--petrol)}
+.ksd-capa-k{font-size:11.5px;letter-spacing:.16em;color:var(--silver);font-weight:600}
+.ksd-capa-t{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1.05}
+.ksd-capa-s{font-size:14px;color:#d4dce5;line-height:1.35}
+.ksd-capa-a{margin-top:auto;font-size:11px;color:var(--silver);line-height:1.4}
+.ksd-capa-j{left:0;top:96px;transform:rotate(-5deg);z-index:3}
+.ksd-capa-l{left:150px;top:118px;transform:rotate(4deg);z-index:4;background:linear-gradient(160deg,#1d4f4c,var(--petrol-d));border-left-color:var(--silver)}
+.ksd-capa-b1,.ksd-capa-b2{width:170px;height:230px;background:var(--white);color:var(--navy);border-left-color:var(--silver);box-shadow:var(--shadow)}
+.ksd-capa-b1 .ksd-capa-t,.ksd-capa-b2 .ksd-capa-t{font-size:26px}
+.ksd-capa-b1 .ksd-capa-s,.ksd-capa-b2 .ksd-capa-s{color:#4a545f}
+.ksd-capa-b1{left:40px;top:0;transform:rotate(-9deg);z-index:1}
+.ksd-capa-b2{left:230px;top:10px;transform:rotate(8deg);z-index:2}
+.ksd-sec{padding-block:88px}
+.ksd-estreito{max-width:880px}
+.ksd-perg{display:grid;gap:12px;margin:26px 0 28px}
+.ksd-perg li{background:#fff;border:1px solid var(--line);border-left:4px solid var(--petrol);border-radius:var(--r);
+  padding:14px 18px;font-size:17px;color:var(--navy)}
+.ksd-tab-wrap{margin-top:28px}
+.ksd-tab{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:16px}
+.ksd-tab th,.ksd-tab td{padding:14px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.ksd-tab tr:last-child td{border-bottom:0}
+.ksd-tab th{background:var(--navy);color:#fff;font-weight:600;font-size:15px}
+.ksd-tab th:last-child{background:var(--petrol)}
+.ksd-tab td:first-child{color:#5a636d;width:38%}
+.ksd-dois{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.ksd-list li{color:var(--ink)}
+.ksd-list .ic{color:var(--petrol)}
+.ksd-alerta{background:#fff;border:1px solid #d9b8b0;border-top:4px solid #a4473a;border-radius:var(--r);padding:28px 26px}
+.ksd-alerta .h3{color:#7c2f25;margin-bottom:10px}
+.ksd-alerta ul{padding-left:20px;display:grid;gap:8px;margin:12px 0 16px;font-size:16px}
+.ksd-itens{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:30px}
+.ksd-item{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 26px}
+.ksd-item .h3{margin-bottom:10px}
+.ksd-num{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--petrol);margin-bottom:6px}
+.ksd-bonus{border-style:dashed}
+.ksd-ul{padding-left:20px;display:grid;gap:6px;font-size:16px}
+.ksd-item p{font-size:16px}
+.ksd-item .micro{margin-top:10px}
+.ksd-amostra-t{margin-top:52px}
+.ksd-figs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.ksd-fig{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.ksd-fig img{width:100%;height:auto}
+.ksd-fig figcaption{font-size:14px;color:#4a545f;padding:12px 16px;border-top:1px solid var(--line)}
+.ksd-tl{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px;counter-reset:none}
+.ksd-etapa{background:var(--mist);border-radius:var(--r);padding:24px 22px;border-top:3px solid var(--petrol)}
+.ksd-etapa-k{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--petrol)}
+.ksd-etapa .h3{margin:6px 0 8px}
+.ksd-etapa p:last-child{font-size:15.5px;color:#3a434d}
+.ksd-saidas{margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.ksd-saidas-t{font-weight:600;color:var(--navy);margin-bottom:10px}
+.ksd-saidas ul{display:grid;gap:8px}
+.ksd-quote{margin-top:28px;border-left:3px solid var(--silver);padding:4px 0 4px 20px;font-family:var(--serif);
+  font-size:24px;line-height:1.35;color:var(--navy);max-width:60ch}
+.ksd-autor{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center}
+.ksd-autor-foto img{border-radius:14px;box-shadow:var(--shadow)}
+.ksd-cred{font-size:15px;color:#4a545f;margin:6px 0 18px}
+.section-dark .h3{margin-top:22px;margin-bottom:6px}
+.kit-parc strong{color:#fff}
+.ksd-legal{margin:44px auto 0;max-width:70ch;display:grid;gap:8px;font-size:13.5px;color:#5a636d;line-height:1.55}
+.ksd-legal a{color:inherit}
+@media (max-width:920px){
+  .ksd-hero-grid,.ksd-dois,.ksd-autor{grid-template-columns:1fr;gap:36px}
+  .ksd-tl{grid-template-columns:repeat(2,1fr)}
+  .ksd-autor-foto{max-width:300px}
+}
+@media (max-width:640px){
+  .ksd-hero .wrap{padding-block:40px 48px}
+  .ksd-sec{padding-block:56px}
+  .ksd-preco-v{font-size:52px}
+  .ksd-btn{width:100%}
+  .ksd-mock{height:290px;max-width:330px}
+  .ksd-capa{width:146px;height:204px;padding:16px 14px;gap:6px;border-left-width:6px}
+  .ksd-capa-t{font-size:25px}
+  .ksd-capa-s{font-size:12.5px}
+  .ksd-capa-k{font-size:10px}
+  .ksd-capa-a{font-size:9.5px}
+  .ksd-capa-b1,.ksd-capa-b2{width:120px;height:164px}
+  .ksd-capa-b1 .ksd-capa-t,.ksd-capa-b2 .ksd-capa-t{font-size:19px}
+  .ksd-capa-j{left:4%;top:72px}
+  .ksd-capa-l{left:46%;top:84px}
+  .ksd-capa-b1{left:10%;top:4px}
+  .ksd-capa-b2{left:52%;top:8px}
+  .ksd-itens,.ksd-figs,.ksd-tl{grid-template-columns:1fr}
+  .ksd-tab{font-size:14.5px}
+  .ksd-tab th,.ksd-tab td{padding:12px 12px}
+  .ksd-alerta,.ksd-item{padding:22px 18px}
+  .ksd-quote{font-size:20px}
+}
