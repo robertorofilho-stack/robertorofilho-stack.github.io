@@ -421,3 +421,8 @@ conhecimento em arquivo compõe.
 **Links:** [[APRENDIZADO-PROJETO-SUPREMO]] [[04-PLAYBOOKS]] [[05-DECISOES]]
 
 ---
+
+### 2026-10-08 — Método MCT/FOP (Lúcio Artes) estudado e reconstruído
+**Pedido:** aprender o método do curso MCT-131 e realizar. **Fontes:** página pública de venda + docs oficiais Meta (parâmetros do cliente, dedup). Curso pago não acessado.
+**Método:** Pixel + CAPI server-side (Cloudflare/Supabase/Edge Functions), Advanced Matching, dedup por event_id, 9 eventos por estágio do funil, Hotmart webhook -> Purchase, nota = EMQ.
+**Feito:** `.claude/helpers/tracking/` (capi.mjs, client.js, testar.mjs verde, README). **Pendente:** Pixel ID/token do operador, deploy, Supabase, dashboard. Veredito do curso: tema real, promessas de ganho sem prova.
