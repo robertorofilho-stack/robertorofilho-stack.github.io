@@ -50,41 +50,6 @@
     "estado": "NOVA"
   },
   {
-    "id": "6o8wim",
-    "termo": "for that",
-    "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 300,
-    "urgencia": "MEDIA",
-    "score": 57,
-    "fatores": {
-      "velocidade": 52,
-      "dorExplicita": 30,
-      "volume": 54.52846290306455,
-      "viabilidade": 100,
-      "recorrencia": 48
-    },
-    "fontes": [
-      "https://news.ycombinator.com/item?id=49977334",
-      "https://news.ycombinator.com/item?id=49898688",
-      "https://news.ycombinator.com/item?id=49969260",
-      "https://news.ycombinator.com/item?id=49983323",
-      "https://news.ycombinator.com/item?id=49982315",
-      "https://news.ycombinator.com/item?id=49986141",
-      "https://news.ycombinator.com/item?id=49985216",
-      "https://news.ycombinator.com/item?id=49989600",
-      "https://news.ycombinator.com/item?id=49993334",
-      "https://news.ycombinator.com/item?id=50004366",
-      "https://news.ycombinator.com/item?id=50020003"
-    ],
-    "amostras": [
-      "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
-      "Sorry, my comment was probably unclear if you're not familiar with the current psychiatric debates around ADHD. Long story short, it's where depression was 20 years ago, and where Chronic Fatigue Synd",
-      "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
-    ],
-    "detectadoEm": "2026-10-09T16:19:53.065Z",
-    "estado": "NOVA"
-  },
-  {
     "id": "50effj",
     "termo": "a HTAP system like TiDB + TiFlash with a Postgres-compatible syntax, but LLMs di",
     "dor": "I was actually just recently looking if there is a self-hostable alternative to a HTAP system like TiDB + TiFlash with a Postgres-compatible syntax, but LLMs didn't really pick up on CedarDB yet. These guys know game.",
@@ -130,6 +95,40 @@
       "Iceberg is a table format. It adds snapshots and a catalog layer on top of Parquet files. Parseable is a full-stack observability tool. Its storage layer could theoretically use Iceberg as the table f"
     ],
     "detectadoEm": "2026-10-07T08:46:09.142Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "6o8wim",
+    "termo": "for that",
+    "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 50,
+    "fatores": {
+      "velocidade": 18,
+      "dorExplicita": 30,
+      "volume": 50.67031326325076,
+      "viabilidade": 100,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49977334",
+      "https://news.ycombinator.com/item?id=49898688",
+      "https://news.ycombinator.com/item?id=49969260",
+      "https://news.ycombinator.com/item?id=49983323",
+      "https://news.ycombinator.com/item?id=49982315",
+      "https://news.ycombinator.com/item?id=49986141",
+      "https://news.ycombinator.com/item?id=49985216",
+      "https://news.ycombinator.com/item?id=49989600",
+      "https://news.ycombinator.com/item?id=49993334",
+      "https://news.ycombinator.com/item?id=50004366",
+      "https://news.ycombinator.com/item?id=50020003"
+    ],
+    "amostras": [
+      "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
+      "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
+    ],
+    "detectadoEm": "2026-10-09T21:43:46.536Z",
     "estado": "NOVA"
   },
   {
