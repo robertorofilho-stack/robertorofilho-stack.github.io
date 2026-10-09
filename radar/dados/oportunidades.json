@@ -1,39 +1,5 @@
 [
   {
-    "id": "6o8wim",
-    "termo": "for that",
-    "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 300,
-    "urgencia": "MEDIA",
-    "score": 66,
-    "fatores": {
-      "velocidade": 52,
-      "dorExplicita": 60,
-      "volume": 54.52846290306455,
-      "viabilidade": 100,
-      "recorrencia": 48
-    },
-    "fontes": [
-      "https://news.ycombinator.com/item?id=49977334",
-      "https://news.ycombinator.com/item?id=49898688",
-      "https://news.ycombinator.com/item?id=49969260",
-      "https://news.ycombinator.com/item?id=49983323",
-      "https://news.ycombinator.com/item?id=49982315",
-      "https://news.ycombinator.com/item?id=49986141",
-      "https://news.ycombinator.com/item?id=49985216",
-      "https://news.ycombinator.com/item?id=49989600",
-      "https://news.ycombinator.com/item?id=49993334",
-      "https://news.ycombinator.com/item?id=50004366"
-    ],
-    "amostras": [
-      "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
-      "no. cabal chat is different. ...but you can also checkout quibble as an alternative to keet that is open source. https:&#x2F;&#x2F;codeberg.org&#x2F;LTC-GT&#x2F;Quibble i think the most awaited thing ",
-      "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
-    ],
-    "detectadoEm": "2026-10-09T09:14:48.933Z",
-    "estado": "NOVA"
-  },
-  {
     "id": "z4te4j",
     "termo": "the voice",
     "dor": "Albany’s Lexi Stephens lands 4-chair turn on NBC’s The Voice · The Voice Season 30 Blind Auditions Breakdown: Every Performance & Result, Recapped · The Voice Season 30: An Epic Fake-Out Leaves Adam Levine 'Crushed' In Week Two — Vote For Y",
@@ -81,6 +47,41 @@
       "Gadgetbridge: A FOSS alternative to your fitness watch's app"
     ],
     "detectadoEm": "2026-09-28T07:00:55.153Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "6o8wim",
+    "termo": "for that",
+    "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
+    "volumeEstimado": 300,
+    "urgencia": "MEDIA",
+    "score": 57,
+    "fatores": {
+      "velocidade": 52,
+      "dorExplicita": 30,
+      "volume": 54.52846290306455,
+      "viabilidade": 100,
+      "recorrencia": 48
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49977334",
+      "https://news.ycombinator.com/item?id=49898688",
+      "https://news.ycombinator.com/item?id=49969260",
+      "https://news.ycombinator.com/item?id=49983323",
+      "https://news.ycombinator.com/item?id=49982315",
+      "https://news.ycombinator.com/item?id=49986141",
+      "https://news.ycombinator.com/item?id=49985216",
+      "https://news.ycombinator.com/item?id=49989600",
+      "https://news.ycombinator.com/item?id=49993334",
+      "https://news.ycombinator.com/item?id=50004366",
+      "https://news.ycombinator.com/item?id=50020003"
+    ],
+    "amostras": [
+      "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
+      "Sorry, my comment was probably unclear if you're not familiar with the current psychiatric debates around ADHD. Long story short, it's where depression was 20 years ago, and where Chronic Fatigue Synd",
+      "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
+    ],
+    "detectadoEm": "2026-10-09T16:19:53.065Z",
     "estado": "NOVA"
   },
   {
