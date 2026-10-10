@@ -1,42 +1,5 @@
 [
   {
-    "id": "6o8wim",
-    "termo": "for that",
-    "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 400,
-    "urgencia": "MEDIA",
-    "score": 68,
-    "fatores": {
-      "velocidade": 56,
-      "dorExplicita": 60,
-      "volume": 57.26917619764401,
-      "viabilidade": 100,
-      "recorrencia": 49
-    },
-    "fontes": [
-      "https://news.ycombinator.com/item?id=49977334",
-      "https://news.ycombinator.com/item?id=49898688",
-      "https://news.ycombinator.com/item?id=49969260",
-      "https://news.ycombinator.com/item?id=49983323",
-      "https://news.ycombinator.com/item?id=49982315",
-      "https://news.ycombinator.com/item?id=49986141",
-      "https://news.ycombinator.com/item?id=49985216",
-      "https://news.ycombinator.com/item?id=49989600",
-      "https://news.ycombinator.com/item?id=49993334",
-      "https://news.ycombinator.com/item?id=50004366",
-      "https://news.ycombinator.com/item?id=50020003",
-      "https://news.ycombinator.com/item?id=50029661"
-    ],
-    "amostras": [
-      "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
-      "Prop 65 gets a lot of shit, but the way it is implemented makes a reasonable amount of sense. If there is evidence that the substance causes harm, it gets listed and companies producing products that ",
-      "> 1. \"Don't use safari\" Why? Like everything else, it's tied to your Apple account. You risk losing your browser history etc. You _can_ export it if it happens, but it's easier to not have the issue i",
-      "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
-    ],
-    "detectadoEm": "2026-10-10T20:07:07.350Z",
-    "estado": "NOVA"
-  },
-  {
     "id": "z4te4j",
     "termo": "the voice",
     "dor": "Albany’s Lexi Stephens lands 4-chair turn on NBC’s The Voice · The Voice Season 30 Blind Auditions Breakdown: Every Performance & Result, Recapped · The Voice Season 30: An Epic Fake-Out Leaves Adam Levine 'Crushed' In Week Two — Vote For Y",
@@ -84,6 +47,43 @@
       "Gadgetbridge: A FOSS alternative to your fitness watch's app"
     ],
     "detectadoEm": "2026-09-28T07:00:55.153Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "6o8wim",
+    "termo": "for that",
+    "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
+    "volumeEstimado": 400,
+    "urgencia": "MEDIA",
+    "score": 59,
+    "fatores": {
+      "velocidade": 56,
+      "dorExplicita": 30,
+      "volume": 57.26917619764401,
+      "viabilidade": 100,
+      "recorrencia": 49
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49977334",
+      "https://news.ycombinator.com/item?id=49898688",
+      "https://news.ycombinator.com/item?id=49969260",
+      "https://news.ycombinator.com/item?id=49983323",
+      "https://news.ycombinator.com/item?id=49982315",
+      "https://news.ycombinator.com/item?id=49986141",
+      "https://news.ycombinator.com/item?id=49985216",
+      "https://news.ycombinator.com/item?id=49989600",
+      "https://news.ycombinator.com/item?id=49993334",
+      "https://news.ycombinator.com/item?id=50004366",
+      "https://news.ycombinator.com/item?id=50020003",
+      "https://news.ycombinator.com/item?id=50029661"
+    ],
+    "amostras": [
+      "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
+      "A natural r&d project would be a high frequency oms or something like an nyse bid&#x2F;ask&#x2F;match book manager. These apps tend to do kernel bypass anyway for net i&#x2F;o after hard scrubbing the",
+      "Prop 65 gets a lot of shit, but the way it is implemented makes a reasonable amount of sense. If there is evidence that the substance causes harm, it gets listed and companies producing products that ",
+      "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
+    ],
+    "detectadoEm": "2026-10-10T23:36:50.313Z",
     "estado": "NOVA"
   },
   {
