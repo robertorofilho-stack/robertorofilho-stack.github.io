@@ -3,15 +3,15 @@
     "id": "6o8wim",
     "termo": "for that",
     "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 300,
+    "volumeEstimado": 400,
     "urgencia": "MEDIA",
-    "score": 66,
+    "score": 68,
     "fatores": {
-      "velocidade": 52,
+      "velocidade": 56,
       "dorExplicita": 60,
-      "volume": 54.52846290306455,
+      "volume": 57.26917619764401,
       "viabilidade": 100,
-      "recorrencia": 48
+      "recorrencia": 49
     },
     "fontes": [
       "https://news.ycombinator.com/item?id=49977334",
@@ -29,10 +29,11 @@
     ],
     "amostras": [
       "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
+      "Prop 65 gets a lot of shit, but the way it is implemented makes a reasonable amount of sense. If there is evidence that the substance causes harm, it gets listed and companies producing products that ",
       "> 1. \"Don't use safari\" Why? Like everything else, it's tied to your Apple account. You risk losing your browser history etc. You _can_ export it if it happens, but it's easier to not have the issue i",
       "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
     ],
-    "detectadoEm": "2026-10-10T15:25:27.128Z",
+    "detectadoEm": "2026-10-10T20:07:07.350Z",
     "estado": "NOVA"
   },
   {
