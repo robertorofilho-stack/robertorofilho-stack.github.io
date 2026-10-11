@@ -129,7 +129,7 @@
       "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
       "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
     ],
-    "detectadoEm": "2026-10-11T12:58:54.372Z",
+    "detectadoEm": "2026-10-11T18:07:42.287Z",
     "estado": "NOVA"
   },
   {
@@ -390,6 +390,31 @@
       "I wish there was a millenial version of \"too old to click around for 99 hours\" where they just allow bots. Maybe they can be certain servers or certain account types, like ironman. We can call it botm"
     ],
     "detectadoEm": "2026-10-05T07:08:35.924Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "817sm7",
+    "termo": "Homebrew",
+    "dor": "Zerobrew: A faster alternative to Homebrew",
+    "volumeEstimado": 11500,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 30,
+      "volume": 91.5573415263786,
+      "viabilidade": 30,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50001580",
+      "https://news.ycombinator.com/item?id=50043229"
+    ],
+    "amostras": [
+      "Zerobrew: A faster alternative to Homebrew",
+      "I used nix years ago on a Mac just as a sort of alternative to what I’d otherwise use homebrew for and I really liked it, so I decided a few times that i would try nixos for my laptop. Each time I was"
+    ],
+    "detectadoEm": "2026-10-11T18:07:42.287Z",
     "estado": "NOVA"
   }
 ]
