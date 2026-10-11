@@ -53,15 +53,15 @@
     "id": "6o8wim",
     "termo": "for that",
     "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 400,
+    "volumeEstimado": 300,
     "urgencia": "MEDIA",
-    "score": 59,
+    "score": 57,
     "fatores": {
-      "velocidade": 56,
+      "velocidade": 52,
       "dorExplicita": 30,
-      "volume": 57.26917619764401,
+      "volume": 54.52846290306455,
       "viabilidade": 100,
-      "recorrencia": 49
+      "recorrencia": 48
     },
     "fontes": [
       "https://news.ycombinator.com/item?id=49977334",
@@ -80,10 +80,9 @@
     "amostras": [
       "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
       "A natural r&d project would be a high frequency oms or something like an nyse bid&#x2F;ask&#x2F;match book manager. These apps tend to do kernel bypass anyway for net i&#x2F;o after hard scrubbing the",
-      "Prop 65 gets a lot of shit, but the way it is implemented makes a reasonable amount of sense. If there is evidence that the substance causes harm, it gets listed and companies producing products that ",
       "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
     ],
-    "detectadoEm": "2026-10-10T23:36:50.313Z",
+    "detectadoEm": "2026-10-11T05:54:50.841Z",
     "estado": "NOVA"
   },
   {
