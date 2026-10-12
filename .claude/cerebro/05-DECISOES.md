@@ -5,6 +5,25 @@
 
 ## Tomadas
 
+### 2026-10-12 — Google Maps é motor de insumo, não produto; a saída é e-mail ou ligação, nunca WhatsApp frio
+
+**Decisão:** o scraper entra no Cérebro como `leads/` (motor gratuito, R$ 0 por lead) alimentando a máquina de prospecção do
+mestre (`prospeccao-com-agentes` → ranquear → canal permitido). **Não** vira produto: nem lista, nem SaaS, nem curso.
+**Por quê:** pesquisa do `cacador` (12/10, matriz de 7 eixos, corte 24/35): lista 17 · ferramenta 19 · curso 19 · motor para
+oferta local high-ticket 24 (TESTAR). Mercado ancorado em "grátis" (extensões com 90k e 70k usuários; Apify US$ 1,50/1k com
+40k usuários/mês; vídeo BR de 239k views "DE GRAÇA"); no Brasil ninguém mostrou volume pago (8 vendas num extrator; 3 produtos
+Hotmart sem avaliação). O que vende no Hotmart é "Google Meu Negócio" (124 e 50 avaliações) — **pista para `/cacar-produto`**
+(hipótese, não decisão). Lei do mestre: número banido 2× por disparo frio; Meta baniu 6,8 mi de contas no 1º sem/2025 e
+endureceu em 15/01/2026; ANPD classificou raspagem como alto risco e a orientação está atrasada.
+**Alternativa rejeitada:** Google Places API (New) — campos úteis caem no SKU Enterprise (US$ 35/1k chamadas; 1.000 grátis/mês
+≈ 20 mil lugares), mas o contrato proíbe armazenar/revender o dado e não há e-mail nem rede social. Fica como opção legal
+para consulta pontual, não para base.
+**Onde roda:** Mac (IP residencial, modo completo) é o uso diário; Mac mini ligado 24/7 é o "servidor"; nuvem do Claude Code
+serve para rodar avulso em modo rápido (`leads/nuvem.sh`); GitHub Actions descartado como caminho principal (IP de datacenter).
+**Próximo passo que gera receita:** `/scrape` por bairro no nicho escolhido (fisioterapia em Fortaleza: 35% sem site, 90% celular),
+`sem_site=sim` vai para ligação/e-mail com oferta de presença digital; quem tem site e e-mail entra na campanha de e-mail frio
+do mestre. O gargalo não é lead: é o OK do operador no canal de saída.
+
 ### 2026-09-27 — APROVADO pelo operador ("faça tudo"): skill nova só nasce de experiência real
 **Evidência:** CMU 11-768 aula 4 (fala, SkillsBench): skill escrita pelo modelo só a partir da descrição da tarefa
 **piora** o desempenho; o ganho de +16,6 pp publicado é otimista (skills filtradas por ajudarem).
@@ -154,6 +173,7 @@ pagamento ou clique no checkout. Relatório completo entregue ao operador (não 
 
 ## Em aberto
 
+- [ ] **Canal de saída dos leads do Maps** — e-mail frio (campanha do mestre) e/ou ligação para os sem site; decisão do operador. Confirmar modo completo no Mac (IP residencial).
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto` **com viés não-médico ou B2B profissional** (ver Conselho 10/09 abaixo); guia de joelho para leigos NÃO é o primeiro produto pago
 - [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)
 - [ ] **Meta Ads / Supermetrics conectados à conta real de anúncio?**

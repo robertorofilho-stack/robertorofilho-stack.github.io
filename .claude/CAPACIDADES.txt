@@ -36,6 +36,7 @@ operacao:KIT-RECUPERACAO.md
 operacao:backup.sh
 operacao:bootstrap.sh
 sistema:gerador-micro-saas
+sistema:leads-google-maps
 sistema:pix-brcode
 sistema:qa-adversarial
 sistema:radar-lucro
@@ -56,6 +57,7 @@ skill:nobel
 skill:oferta
 skill:reels
 skill:saas
+skill:scrape
 skill:tendencia
 skill:vsl
 workflow:radar

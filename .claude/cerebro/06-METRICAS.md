@@ -61,3 +61,15 @@ _Referência para comparar sessões de rotina: devem custar uma fração disto._
 ## Baseline
 
 _Sem baseline não existe melhora — só sensação. Preencher antes da primeira campanha._
+
+## Leads do Google Maps (`leads/`, nuvem do Claude Code, 12/10/2026)
+
+| Métrica | Valor | Data | Fonte |
+|---|---|---|---|
+| Fichas em modo completo de IP de datacenter (pt e en) | 20/20 vazias (só o link) | 2026-10-12 | `prova-fisio-fortaleza-bruto.csv`, `prova-en-bruto.csv` |
+| `fast_mode`, 1 termo ("clínicas de fisioterapia em Fortaleza CE") | 20 negócios em 12 s · telefone 20 · celular 18 · site 13 · sem site 7 | 2026-10-12 | `prova-fast.md` |
+| `--redes` sobre os 13 sites | 8 s · Instagram 8 · Facebook 4 · LinkedIn 2 · WhatsApp no site 8 · e-mail 3 | 2026-10-12 | `prova-fast.md` |
+| 3 bairros, completo → fallback automático → rápido | 59 únicos em 1m30 · 33 sites · Instagram 19 · Facebook 15 · LinkedIn 10 · WhatsApp no site 17 · e-mail 11 | 2026-10-12 | `prova-bairros.md` |
+| Custo por lead | R$ 0 (Docker local; proxy da sessão) | 2026-10-12 | — |
+| Comparação: caçador OSM do mestre | ~6% e-mail · ~21% site · ~40% celular | 2026-09-26 | memória do mestre |
+| Testes do `leads/` | 37, 0 falhas, ~1,6 s | 2026-10-12 | `leads/testes/testar_leads.py` |

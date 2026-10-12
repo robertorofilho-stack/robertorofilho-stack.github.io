@@ -39,3 +39,6 @@ radar/saas-gerados/
 # chaves de qualquer helper (conselho.env etc.) — só o .example entra
 *.env
 !*.env.example
+
+# Leads do Google Maps — saída é dado de terceiros, nunca no repo público
+leads/dados/

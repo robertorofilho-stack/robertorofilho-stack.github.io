@@ -1,0 +1,26 @@
+# Scraper do Google Maps (gosom/google-maps-scraper) rodando na SUA máquina, em modo web/API.
+#
+#   subir:    docker compose -f leads/docker-compose.yml up -d
+#   conferir: curl http://localhost:8080/api/v1/jobs      → "null" ou "[]" = de pé, sem busca ainda
+#   derrubar: docker compose -f leads/docker-compose.yml down
+#
+# A imagem NÃO tem autenticação. Por isso ela só escuta em 127.0.0.1 (só o seu computador enxerga).
+# Nunca troque para 0.0.0.0 sem um proxy com senha na frente.
+# Porta ocupada? Copie .env.example para .env e mude SCRAPER_PORT (o scrape.py lê o mesmo arquivo).
+services:
+  google-maps-scraper:
+    # Versão fixada de propósito (reprodutível). A v1.15 tinha um driver do Playwright que sumiu do CDN
+    # da Microsoft; a v1.18.1 (20/09/2026) sobe limpa. Suba a versão de propósito, não por acaso.
+    image: gosom/google-maps-scraper:v1.18.1
+    # Mac com chip Apple (M1/M2/M3/M4) roda a imagem amd64 por emulação. Se não subir, descomente:
+    # platform: linux/amd64
+    container_name: gmaps-scraper
+    restart: unless-stopped
+    command: ["-web", "-data-folder", "/gmapsdata"]
+    ports:
+      - "127.0.0.1:${SCRAPER_PORT:-8080}:8080"
+    volumes:
+      - gmaps_data:/gmapsdata     # resultados dos jobs sobrevivem a reinício
+
+volumes:
+  gmaps_data:

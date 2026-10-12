@@ -1,0 +1,32 @@
+# Bairros de Fortaleza com mais comércio e serviço. Use: --por-bairros leads/exemplos/bairros-fortaleza.txt
+# Um termo por bairro, no mesmo job: é como passar de ~20 para centenas no modo rápido.
+Aldeota
+Meireles
+Centro
+Fátima
+Benfica
+Joaquim Távora
+Dionísio Torres
+Varjota
+Papicu
+Cocó
+Parquelândia
+Montese
+Parangaba
+Messejana
+Cambeba
+Edson Queiroz
+Água Fria
+Maraponga
+Praia de Iracema
+Mucuripe
+José Bonifácio
+Jardim das Oliveiras
+Bom Futuro
+Vila União
+Jóquei Clube
+Rodolfo Teófilo
+Damas
+Antônio Bezerra
+Barra do Ceará
+Sapiranga

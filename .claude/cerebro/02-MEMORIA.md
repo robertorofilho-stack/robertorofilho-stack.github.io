@@ -5,6 +5,36 @@
 
 ---
 
+## 2026-10
+
+### 2026-10-12 — Leads do Google Maps: o kit do tutorial virou `leads/` + `/scrape`, provado na nuvem com Docker
+
+**Pedido:** operador trouxe 11 telas de um tutorial ("AutomateFlow") que ensina a montar o scraper gosom/google-maps-scraper
+com Docker + Claude Code, mais o link do upstream, e perguntou "isso está rodando no servidor?".
+**Recall/inventário:** o mestre já tinha prospecção (skill `prospeccao-com-agentes`, captura via Apify com teto de gasto;
+caçador antigo em OpenStreetMap com ~6% de e-mail e ~21% de site) e a Lei "nunca disparo frio no WhatsApp". Decisão:
+motor gratuito que alimenta o pipeline existente (mesmo JSON do ator da Apify), não um pipeline novo.
+**Instalado:** `leads/` (compose fixado em v1.18.1 · `scrape.py` cliente da API + `--motor docker` + `--de-csv` ·
+`normalizar.py` telefone BR/E.164, wa.me, bairro/cidade/UF, dedupe, CSV anti-injeção de fórmula, JSON formato Apify ·
+`enriquecer.py` redes/e-mail/WhatsApp do botão do site, anti-SSRF + robots.txt · `nuvem.sh` sobe daemon + contêiner com o
+proxy da sessão · 37 testes stdlib no `saude.yml`), skill `/scrape` (Origem: `ep-2026-10-12-0001`), `sistema:leads-google-maps`
+no manifesto (63 capacidades).
+**Números (reais, nuvem, saída em IP Google Cloud/EUA, custo R$ 0):** API `null` em 10 s · modo completo (pt e en): 20 fichas
+"success", **todas vazias** — sonda no Chromium: bloco de 4 KB sem o nome, com qualquer agente → é IP de datacenter, não idioma ·
+`fast_mode`: **20 clínicas de fisioterapia de Fortaleza em 12 s** (telefone 20/20, 18 celulares · site 13/20 · sem site 7/20) ·
+`--redes` em 8 s: Instagram 8 · WhatsApp no site 8 · e-mail 3 · **3 bairros com fallback automático ao vivo: 59 únicos em 1m30**,
+33 sites, Instagram 19, WhatsApp no site 17, e-mail 11.
+**Lições:** (1) `lang` exige 2 letras (`pt`); `pt-BR` = 422. (2) Campo `proxies` do job exige usuário e senha — na nuvem o proxy
+vai pelo ambiente do contêiner e o certificado pelo NSS (`/root/.pki`). (3) O Google serve a ficha vazia para IP de datacenter,
+mas o endpoint do `fast_mode` entrega — o script cai para o rápido sozinho (`--sem-fallback` desliga). (4) Rápido = ~20 por termo;
+escala é um termo por bairro no mesmo job. (5) Pesquisa do `cacador`: "AutomateFlow" não existe publicamente (domínio não
+resolve; Hotmart zero); o tutorial reempacota o kit gratuito Mahanaicoach (1,4k★ em 61 dias). Vender lista/ferramenta/curso
+pontuou 17/19/19 em 35 (corte 24): mercado ancorado em "grátis" (extensões com 90k+70k usuários; vídeo BR de 239k views
+"DE GRAÇA"; 3 extratores no Hotmart sem avaliação). Places API (New): campo útil é SKU Enterprise, US$ 35/1k chamadas,
+1.000 grátis/mês, contrato proíbe guardar/revender, sem e-mail nem redes.
+**Pendências:** confirmar modo completo no Mac (IP residencial, como o autor do kit relata); relatório do QA adversarial;
+decisão do operador sobre canal de saída (e-mail/ligação — nunca WhatsApp frio).
+
 ## 2026-09
 
 ### 2026-09-27 — Aprendizado de fronteira em agentes: estudado, auditado, instalado e MEDIDO

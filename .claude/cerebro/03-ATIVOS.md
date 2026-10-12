@@ -35,6 +35,7 @@
 | Anti-loop (3 chamadas iguais → parar/mudar/reportar) · checkpoint com proibições e efeitos externos | `.claude/hooks/anti-loop.sh` · `checkpoint.sh` + `_ancoras.py` | 🟢 testados | 2026-09-27 |
 | Teste de mutação (mede se os testes pegam defeito) · varredura de segredo no CI | `.claude/helpers/avaliar/mutacao.py` · job `segredos` (TruffleHog) | 🟢 2 testes · memória viva 49% | 2026-09-27 |
 | Transcrição de aula do YouTube (legenda → cookies → whisper) | `.claude/helpers/aprender/transcrever-youtube.sh` (cópia no mestre) | 🟡 roda no Mac; nuvem bloqueada pelo YouTube (PO Token) | 2026-09-27 |
+| Leads do Google Maps: gosom v1.18.1 em Docker · API + `fast_mode` com fallback automático · normalização BR (E.164, wa.me, bairro) · enriquecimento de site anti-SSRF/robots · ponte JSON-Apify → `prospeccao-com-agentes` (mestre) | `leads/` + `/scrape` + `leads/nuvem.sh` | 🟢 provado na nuvem: 59 clínicas de Fortaleza em 1m30, R$ 0 · 37 testes · no `saude.yml` · modo completo em IP residencial ainda não confirmado | 2026-10-12 |
 
 ## Produtos digitais
 

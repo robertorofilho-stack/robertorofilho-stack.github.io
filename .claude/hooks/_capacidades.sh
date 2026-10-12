@@ -20,6 +20,7 @@ atual() {
   [ -f radar/gerar-saas.ts ]  && echo "sistema:gerador-micro-saas"
   [ -f radar/qa.ts ]          && echo "sistema:qa-adversarial"
   [ -f radar/src/pagamento/pix.ts ] && echo "sistema:pix-brcode"
+  [ -f leads/scrape.py ] && [ -f leads/docker-compose.yml ] && echo "sistema:leads-google-maps"
   for s in .claude/bootstrap.sh .claude/backup.sh .claude/KIT-RECUPERACAO.md .claude/cerebro/00-MAPA.md; do
     [ -f "$s" ] && echo "operacao:$(basename "$s")"
   done
