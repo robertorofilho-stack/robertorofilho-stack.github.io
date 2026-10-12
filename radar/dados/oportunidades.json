@@ -1,41 +1,5 @@
 [
   {
-    "id": "6o8wim",
-    "termo": "for that",
-    "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
-    "volumeEstimado": 300,
-    "urgencia": "MEDIA",
-    "score": 66,
-    "fatores": {
-      "velocidade": 52,
-      "dorExplicita": 60,
-      "volume": 54.52846290306455,
-      "viabilidade": 100,
-      "recorrencia": 48
-    },
-    "fontes": [
-      "https://news.ycombinator.com/item?id=49977334",
-      "https://news.ycombinator.com/item?id=49898688",
-      "https://news.ycombinator.com/item?id=49969260",
-      "https://news.ycombinator.com/item?id=49983323",
-      "https://news.ycombinator.com/item?id=49982315",
-      "https://news.ycombinator.com/item?id=49986141",
-      "https://news.ycombinator.com/item?id=49985216",
-      "https://news.ycombinator.com/item?id=49989600",
-      "https://news.ycombinator.com/item?id=49993334",
-      "https://news.ycombinator.com/item?id=50004366",
-      "https://news.ycombinator.com/item?id=50020003",
-      "https://news.ycombinator.com/item?id=50029661"
-    ],
-    "amostras": [
-      "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
-      "If you also support TOTP and physical security keys as an alternative to passkeys, that should be enough to provide a stable long-term alternative for users of FOSS devices. And of course, RP-side you",
-      "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
-    ],
-    "detectadoEm": "2026-10-12T01:22:51.484Z",
-    "estado": "NOVA"
-  },
-  {
     "id": "z4te4j",
     "termo": "the voice",
     "dor": "Albany’s Lexi Stephens lands 4-chair turn on NBC’s The Voice · The Voice Season 30 Blind Auditions Breakdown: Every Performance & Result, Recapped · The Voice Season 30: An Epic Fake-Out Leaves Adam Levine 'Crushed' In Week Two — Vote For Y",
@@ -86,6 +50,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "vxpbd2",
+    "termo": "their SOP at all",
+    "dor": "As somebody that’s had to deal with US banks and their bizarre “authentication” schemes: I wish. Many would actually rather you close their account with them than them making the tiniest compromise or offering any alternative to their SOP at all. That SOP strongly assumes things like “all customers have a mobile phone ",
+    "volumeEstimado": 216,
+    "urgencia": "MEDIA",
+    "score": 53,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 30,
+      "volume": 36.78615287458579,
+      "viabilidade": 79,
+      "recorrencia": 92
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50052430",
+      "https://stackoverflow.com/questions/80008992/how-to-automate-mapping-process-variables-with-their-corresponding-values-locat"
+    ],
+    "amostras": [
+      "As somebody that’s had to deal with US banks and their bizarre “authentication” schemes: I wish. Many would actually rather you close their account with them than them making the tiniest compromise or",
+      "Main goal: A way to avoid a manual process to match each variable with its corresponding value that is located in a disk file, for example .txt file, taking into account that this process can be error"
+    ],
+    "detectadoEm": "2026-10-12T09:19:33.339Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "50effj",
     "termo": "a HTAP system like TiDB + TiFlash with a Postgres-compatible syntax, but LLMs di",
     "dor": "I was actually just recently looking if there is a self-hostable alternative to a HTAP system like TiDB + TiFlash with a Postgres-compatible syntax, but LLMs didn't really pick up on CedarDB yet. These guys know game.",
@@ -131,6 +120,41 @@
       "Iceberg is a table format. It adds snapshots and a catalog layer on top of Parquet files. Parseable is a full-stack observability tool. Its storage layer could theoretically use Iceberg as the table f"
     ],
     "detectadoEm": "2026-10-07T08:46:09.142Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "6o8wim",
+    "termo": "for that",
+    "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 50,
+    "fatores": {
+      "velocidade": 18,
+      "dorExplicita": 30,
+      "volume": 50.67031326325076,
+      "viabilidade": 100,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=49977334",
+      "https://news.ycombinator.com/item?id=49898688",
+      "https://news.ycombinator.com/item?id=49969260",
+      "https://news.ycombinator.com/item?id=49983323",
+      "https://news.ycombinator.com/item?id=49982315",
+      "https://news.ycombinator.com/item?id=49986141",
+      "https://news.ycombinator.com/item?id=49985216",
+      "https://news.ycombinator.com/item?id=49989600",
+      "https://news.ycombinator.com/item?id=49993334",
+      "https://news.ycombinator.com/item?id=50004366",
+      "https://news.ycombinator.com/item?id=50020003",
+      "https://news.ycombinator.com/item?id=50029661"
+    ],
+    "amostras": [
+      "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means ",
+      "Very wishy washy and confused. Does this person know anything of thermodynamics, turing computability, information theory and probability? If she doesn't, she should be dismissed. Regarding \"is it a g"
+    ],
+    "detectadoEm": "2026-10-12T09:19:33.338Z",
     "estado": "NOVA"
   },
   {
@@ -416,6 +440,30 @@
       "I used nix years ago on a Mac just as a sort of alternative to what I’d otherwise use homebrew for and I really liked it, so I decided a few times that i would try nixos for my laptop. Each time I was"
     ],
     "detectadoEm": "2026-10-12T01:22:51.484Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "g0nf2w",
+    "termo": "the Android/iOS duopoly",
+    "dor": "Will Linux phones become a viable alternative to the Android/iOS duopoly?",
+    "volumeEstimado": 14700,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 30,
+      "volume": 94.16821625530262,
+      "viabilidade": 30,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50051530",
+      "https://news.ycombinator.com/item?id=50008334"
+    ],
+    "amostras": [
+      "Will Linux phones become a viable alternative to the Android/iOS duopoly?"
+    ],
+    "detectadoEm": "2026-10-12T09:19:33.338Z",
     "estado": "NOVA"
   }
 ]
