@@ -150,7 +150,19 @@ def rodar_docker(termos, lat, lon, profundidade, email, idioma, zoom, raio, prox
     pasta = tempfile.mkdtemp(prefix="leads-")
     with open(os.path.join(pasta, "termos.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(termos) + "\n")
-    cmd = ["docker", "run", "--rm", "-v", f"{pasta}:/dados", imagem, "-input", "/dados/termos.txt",
+    cmd = ["docker", "run", "--rm", "-v", f"{pasta}:/dados"]
+    proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
+    if proxy:                                           # nuvem do Claude Code: mesma receita do leads/nuvem.sh
+        ca = os.environ.get("SSL_CERT_FILE", "")
+        cmd += ["--network", "host"]
+        for k in ("HTTPS_PROXY", "https_proxy", "HTTP_PROXY", "http_proxy"):
+            cmd += ["-e", f"{k}={proxy}"]
+        cmd += ["-e", f"NO_PROXY={os.environ.get('NO_PROXY', 'localhost,127.0.0.1')}"]
+        if ca and os.path.isfile(ca):
+            cmd += ["-e", f"SSL_CERT_FILE={ca}", "-v", f"{ca}:{ca}:ro"]
+        if os.path.isdir("/root/.pki"):
+            cmd += ["-v", "/root/.pki:/root/.pki:ro"]
+    cmd += [imagem, "-input", "/dados/termos.txt",
            "-results", "/dados/resultado.csv", "-depth", str(profundidade), "-lang", idioma,
            "-geo", f"{lat},{lon}", "-zoom", str(zoom), "-radius", str(raio), "-exit-on-inactivity", "3m"]
     if email and not rapido:

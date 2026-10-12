@@ -1,5 +1,5 @@
 # Um termo por linha. Cidade dentro do termo melhora o resultado. Linhas com # são ignoradas.
-# Negócio local que compra site, automação e presença digital (público da Vitrine IA):
+# Negócio local que compra site, automação e presença digital:
 clínicas de fisioterapia em Fortaleza CE
 clínicas odontológicas em Fortaleza CE
 clínicas de estética em Fortaleza CE

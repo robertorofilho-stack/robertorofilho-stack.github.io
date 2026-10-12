@@ -96,6 +96,7 @@ Nuvem do Claude Code, saída do proxy em IP do Google Cloud (EUA), imagem `v1.18
 | Job **rápido** (`fast_mode:true`), 1 termo | **20 clínicas em 12 s**: telefone 20/20 (18 celulares), site 13/20, nota e endereço em todas |
 | `--redes` (visita aos 13 sites pelo proxy) | 8 s: Instagram 8 · Facebook 4 · LinkedIn 2 · **WhatsApp no botão do site 8** · e-mail 3 · **sem site 7/20 (35%)** |
 | 3 bairros (`--por-bairros`), modo completo → **fallback automático** para rápido, ao vivo | **59 clínicas únicas em 1m30**; 33 sites visitados: Instagram 19 · Facebook 15 · LinkedIn 10 · WhatsApp no site 17 · e-mail 11 |
+| `--motor docker --rapido` (sem o compose de pé; `docker run --rm` avulso) | 20 pet shops de Fortaleza em **2 s**, telefone 20/20 |
 | Campo `proxies` do job com o proxy da sessão | falha: `username and password are required` (o scraper exige credencial em proxy HTTP). Solução: proxy pelo ambiente do contêiner |
 
 No seu Mac (IP residencial) o modo completo tende a funcionar como no tutorial (é o que o autor do kit relata: 60 dentistas em SP).
