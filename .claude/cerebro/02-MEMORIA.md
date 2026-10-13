@@ -7,6 +7,26 @@
 
 ## 2026-10
 
+### 2026-10-13 — Organização do Cérebro: "diretores ou tudo integrado?" — diagnóstico medido, Arcanjo, conselho, recomendação
+
+**Pedido:** o operador perguntou se dividir por diretores facilita ou se era melhor "tudo integrado", e como o Cérebro pode saber tudo que
+tem e usar sem perder nada ("o Claude não diz 'ative o diretor tal'"). Pediu para discutir com o Diretor Supremo e com o ChatGPT.
+**Método:** levantamento read-only do mestre (subagente Explore, 98 chamadas) · parecer do Arcanjo como Supremo (subagente com o
+protocolo, Nível 1) · `/conselho` por API (GPT, Grok, Gemini, DeepSeek; US$ 0,05; 4/4 AJUSTAR) · síntese do Claude. Detalhes e números
+completos ficam no mestre (memória `organizacao-cerebro-diagnostico-e-proposta-13-10`), porque descrevem a estrutura privada.
+**Achados que cabem aqui:** a contagem pública "111 skills" (10/09) está velha — são 181 `SKILL.md` no mestre; o roteamento é feito pelo
+modelo lendo prosa (sem despacho mecânico), há cinco tabelas de roteamento paralelas e o próprio hook manda "não anunciar o roteamento"
+— é a causa direta da queixa; só 32 % das memórias e 23 de 45 leis entram no índice injetado; as 10 falhas documentadas são de
+acionamento, nenhuma de capacidade ausente (com a ressalva do conselho: amostra, não censo).
+**Recomendação (convergente):** nem "tudo integrado" nem "diretores como roteador" — índice de capacidades gerado dos frontmatters como
+fonte única; diretor nomeado por código dentro de 7 domínios; poucas opções por decisão; linha de rota obrigatória verificada por hook;
+dieta de contexto; medir ANTES com gabarito held-out escrito pelo operador; arquivar, nunca apagar; nenhum super-diretor nem lei nova.
+**Divergência registrada:** os motores externos temem BM25 em pedido inédito/transversal; o Arcanjo quer BM25 primeiro por ser
+determinístico e já existir. O gabarito decide (ferramenta@5 ≥ 80 % mantém; < 60 % vai de semântica).
+**Lição para este satélite:** o mesmo risco existe aqui em menor escala (19 skills, 9 agentes): `CAPACIDADES.txt` é manifesto de
+existência, não de gatilhos. Quando o gerador de índice nascer no mestre, instalar aqui por cópia.
+**Pendências:** operador escrever 20–30 pedidos novos (held-out) e decidir se "Não anuncie" vira "Nomeie" no hook do mestre.
+
 ### 2026-10-12 — Leads do Google Maps: o kit do tutorial virou `leads/` + `/scrape`, provado na nuvem com Docker
 
 **Pedido:** operador trouxe 11 telas de um tutorial ("AutomateFlow") que ensina a montar o scraper gosom/google-maps-scraper

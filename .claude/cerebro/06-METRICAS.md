@@ -73,3 +73,13 @@ _Sem baseline não existe melhora — só sensação. Preencher antes da primeir
 | Custo por lead | R$ 0 (Docker local; proxy da sessão) | 2026-10-12 | — |
 | Comparação: caçador OSM do mestre | ~6% e-mail · ~21% site · ~40% celular | 2026-09-26 | memória do mestre |
 | Testes do `leads/` | 37, 0 falhas, ~1,6 s | 2026-10-12 | `leads/testes/testar_leads.py` |
+
+## Conselho e levantamento — organização do Cérebro (13/10/2026)
+
+| Métrica | Valor | Data | Fonte |
+|---|---|---|---|
+| Conselho (GPT 6.1 sol-pro, Grok 4.7, Gemini 3.8 flash, DeepSeek V4.1 flash) | 4/4 responderam · 4/4 AJUSTAR · 33 s · US$ 0,0509 | 2026-10-13 | `conselho.py --saida` (cópia no mestre) |
+| Crédito OpenRouter restante antes da rodada | US$ 20,48 de US$ 40 | 2026-10-13 | `conselho.py --saldo` |
+| Mestre: skills / agentes / memórias / leis | 181 · 156 (+12 pastas) · 637 · 45 | 2026-10-13 | levantamento Explore (HEAD 50fba20e) |
+| Memórias apontadas pelo índice injetado | 204 de 637 (32 %) · leis 23 de 45 | 2026-10-13 | idem |
+| Tabelas de roteamento paralelas | 5 | 2026-10-13 | parecer do Arcanjo |

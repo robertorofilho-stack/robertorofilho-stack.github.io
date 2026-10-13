@@ -5,6 +5,18 @@
 
 ## Tomadas
 
+### 2026-10-13 — Organização do Cérebro: roteamento mecânico e verificado, diretores como personas de domínio (recomendação, aguarda o operador)
+
+**Decisão recomendada:** não dissolver diretores nem reforçar diretores como camada de roteamento. Fonte única = índice de capacidades
+gerado automaticamente; diretor do domínio nomeado por código; 3–5 opções por decisão; linha de rota obrigatória conferida por hook;
+"Não anuncie" → "Nomeie". Nada muda antes de medir num gabarito held-out escrito pelo operador.
+**Por quê:** levantamento medido + parecer do Arcanjo + conselho 4/4 AJUSTAR convergem no diagnóstico (o gargalo é seleção e obediência,
+não capacidade). O desenho atual já é "ver tudo" e falhou em 12/10. Detalhe no mestre.
+**Alternativas rejeitadas:** arquivo único (já tentado, parado desde 18/09); super-diretor roteador (mais prosa); começar por embeddings
+ou LLM-roteador (custo e falha silenciosa; só se o BM25 falhar no gabarito).
+**Precisa do operador:** 20–30 pedidos reais novos com diretor/capacidade esperados; aval para mudar o hook e, depois de medir, o mecanismo
+da Lei Gênesis (a intenção fica).
+
 ### 2026-10-12 — Google Maps é motor de insumo, não produto; a saída é e-mail ou ligação, nunca WhatsApp frio
 
 **Decisão:** o scraper entra no Cérebro como `leads/` (motor gratuito, R$ 0 por lead) alimentando a máquina de prospecção do
@@ -173,6 +185,7 @@ pagamento ou clique no checkout. Relatório completo entregue ao operador (não 
 
 ## Em aberto
 
+- [ ] **Gabarito held-out de roteamento** (20–30 pedidos do operador) e aval para "Nomeie" no hook do mestre — sem isso o plano de 7 dias não começa.
 - [ ] **Canal de saída dos leads do Maps** — e-mail frio (campanha do mestre) e/ou ligação para os sem site; decisão do operador. Confirmar modo completo no Mac (IP residencial).
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto` **com viés não-médico ou B2B profissional** (ver Conselho 10/09 abaixo); guia de joelho para leigos NÃO é o primeiro produto pago
 - [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)
