@@ -32,8 +32,14 @@ resolve; Hotmart zero); o tutorial reempacota o kit gratuito Mahanaicoach (1,4k�
 pontuou 17/19/19 em 35 (corte 24): mercado ancorado em "grátis" (extensões com 90k+70k usuários; vídeo BR de 239k views
 "DE GRAÇA"; 3 extratores no Hotmart sem avaliação). Places API (New): campo útil é SKU Enterprise, US$ 35/1k chamadas,
 1.000 grátis/mês, contrato proíbe guardar/revender, sem e-mail nem redes.
-**Pendências:** confirmar modo completo no Mac (IP residencial, como o autor do kit relata); relatório do QA adversarial;
-decisão do operador sobre canal de saída (e-mail/ligação — nunca WhatsApp frio).
+**QA adversarial (subagente `qa`, ~230 casos hostis + 28 mutantes):** reprovou a 1ª versão com 3 bloqueantes (CI não disparava em
+`leads/**`; telefone com `+` ganhava apóstrofo anti-fórmula; dedupe colapsava no fast_mode porque `place_id`/`cid` vêm vazios —
+`data_id` resolve) + 9 altos + 12 médios + 7 baixos. Tudo corrigido no mesmo dia; 51 testes, `-W error` limpo; mutantes morrem.
+**Diretores (pergunta do operador "já temos diretor que faz isso?"):** sim — Diretor de WhatsApp (frente 1 → `prospeccao-com-agentes`)
+e Diretor Arcanjo (Garimpeiro de Leads da Mesa Spark 08/10, nunca ativado). O poder entrou nos dois (mestre: `diretor-whatsapp/SKILL.md`,
+`agents/diretor-arcanjo/INTEGRACOES.md`, skill `prospeccao-com-agentes` § 2.2b). Nenhum diretor novo.
+**Pendências:** confirmar modo completo no Mac (IP residencial, como o autor do kit relata); decisão do operador sobre canal de
+saída (e-mail/ligação — nunca WhatsApp frio).
 
 ## 2026-09
 
