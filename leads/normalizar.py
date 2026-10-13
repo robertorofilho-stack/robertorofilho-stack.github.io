@@ -256,11 +256,11 @@ def deduplicar(leads):
 def ler_csv(texto):
     """Lê o CSV do scraper. `newline=""` é o que o módulo csv pede; quebra de linha crua dentro de campo
     (CSV malformado) é normalizada em vez de derrubar a leitura."""
-    texto = (texto or "").lstrip("\ufeff")
+    texto = (texto or "").lstrip("\ufeff").replace("\r\n", "\n").replace("\r", "")   # o scraper só escreve \n
     try:
         return list(csv.DictReader(io.StringIO(texto, newline="")))
     except csv.Error:
-        return list(csv.DictReader(io.StringIO(texto.replace("\r", ""), newline="")))
+        return []
 
 
 def celula_segura(v):
