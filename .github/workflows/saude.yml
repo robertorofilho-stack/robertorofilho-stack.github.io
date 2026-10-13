@@ -9,7 +9,7 @@ on:
     - cron: "0 8 * * 1"          # segunda 05:00 Fortaleza
   workflow_dispatch:
   push:
-    paths: [".claude/**", ".mcp.json", "CLAUDE.md", "radar/**", ".github/workflows/saude.yml"]
+    paths: [".claude/**", ".mcp.json", "CLAUDE.md", "radar/**", "leads/**", ".github/workflows/saude.yml"]
 
 permissions:
   contents: read

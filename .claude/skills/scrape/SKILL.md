@@ -1,7 +1,7 @@
 ---
 name: scrape
 description: Extrai negócios do Google Maps (nome, telefone, WhatsApp, e-mail, site, Instagram/Facebook/LinkedIn, nota, endereço) com o scraper local gosom/google-maps-scraper e devolve planilha limpa para prospecção no Brasil. Use em "me traz os dentistas de Fortaleza", "lista de clínicas em X", "leads do Google Maps", "sobe o scraper", "/scrape <termo>". Também alimenta a campanha da skill prospeccao-com-agentes do mestre. NÃO é para Instagram/TikTok (isso é Apify no mestre).
-argument-hint: "<termo com cidade> [--cidade 'Cidade, UF'] [--profundidade 5] [--redes] [--campanha ~/prospeccao/x]"
+argument-hint: "<termo com cidade> [--cidade 'Cidade, UF'] [--rapido] [--por-bairros arquivo] [--redes] [--campanha ~/prospeccao/x]"
 effort: medium
 ---
 
@@ -27,7 +27,7 @@ Sem Docker instalado: pare e peça ao operador para abrir o Docker Desktop (dock
 ```bash
 python3 leads/scrape.py "clínicas de fisioterapia em Fortaleza CE" --cidade "Fortaleza, CE" --profundidade 5 --redes
 ```
-- **Cidade dentro do termo** e em `--cidade` (capitais resolvem sem rede; outras usam Nominatim).
+- **Cidade dentro do termo** ("… em Fortaleza CE") — o script tira a cidade do termo; `--cidade "Cidade, UF"` quando não houver. Capitais e cidades grandes resolvem sem rede; outras usam Nominatim.
 - **Profundidade 5** na primeira vez (≈ 40–60 negócios por termo). Só suba depois que a primeira passou.
 - Vários termos no **mesmo job**: `--termo "dentistas em Fortaleza CE" --termo "ortodontia em Fortaleza CE"`, ou `--arquivo leads/exemplos/termos.txt`.
 - `--redes` visita o site de cada negócio: Instagram/Facebook/LinkedIn, e-mail e **o WhatsApp do botão do site** (zero token: é regex, não LLM).
@@ -39,7 +39,8 @@ python3 leads/scrape.py "clínicas de fisioterapia em Fortaleza CE" --cidade "Fo
 - O poll usa `sleep` dentro do script: rode em **segundo plano** (`run_in_background`) e leia a saída quando avisar.
 
 Saída em `leads/dados/<termo>-<data>.csv` (planilha), `.json` (formato Apify) e `.md` (resumo com os 15 melhores).
-Códigos de saída: 2 = zero resultados (termo sem negócios ou IP limitado; passa em 1–2 h) · 3 = fichas vazias e `--sem-fallback` ligado.
+Códigos de saída: 1 = erro (argumento, API, download que não é CSV) · 2 = zero resultados (termo sem negócios ou IP limitado; passa em 1–2 h) ·
+3 = todas as fichas vazias (modo rápido também vazio, ou `--sem-fallback`). Timeout? O job segue no scraper: retome com `--job <id>`.
 
 ## Passo 2 — entregar
 

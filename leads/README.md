@@ -37,7 +37,8 @@ Saída em `leads/dados/`:
 | `<termo>-<data>.md` | resumo: contagens + os 15 melhores |
 
 Colunas do CSV: `nome, categoria, telefone, telefone_e164, tipo_telefone, whatsapp, emails, site, instagram, facebook, linkedin,
-whatsapp_site, nota, avaliacoes, endereco, bairro, cidade, uf, maps, sem_site, sem_redes, place_id, termo`.
+whatsapp_site, nota, avaliacoes, endereco, bairro, cidade, uf, maps, sem_site, sem_redes, place_id, data_id, termo`.
+Telefone sai como `(85) 99999-0001` (sem `+`, para a planilha não ler como fórmula) e `telefone_e164` como `5585999990001`.
 
 ### Opções que importam
 
@@ -54,10 +55,11 @@ whatsapp_site, nota, avaliacoes, endereco, bairro, cidade, uf, maps, sem_site, s
 | `--campanha ~/prospeccao/clinicas` | grava `raw/<nome>.json` na campanha do mestre; depois é só `ranquear.py` |
 | `--motor docker` | sem `compose up`: roda `docker run --rm` uma vez e sai |
 | `--proxies http://u:s@host:porta,...` | só para volume de verdade (o scraper exige usuário e senha em proxy HTTP) |
-| `--bruto` | guarda também o CSV original de 34 colunas |
+| `--bruto` | guarda também o CSV original de 36 colunas |
+| `--job <id>` | só espera, baixa e processa um job já criado (retomar depois de um timeout) |
 
-Códigos de saída: `2` = zero resultados (termo sem negócios **ou** IP limitado; passa em 1–2 h) · `3` = as fichas vieram vazias
-(o Google serviu a página sem dados). **Sem você fazer nada**, quando o modo completo devolve fichas vazias o script refaz em
+Códigos de saída: `1` = erro (argumento inválido, API fora, download que não é CSV) · `2` = zero resultados (termo sem negócios **ou** IP limitado;
+passa em 1–2 h) · `3` = as fichas vieram vazias (o Google serviu a página sem dados). **Sem você fazer nada**, quando o modo completo devolve fichas vazias o script refaz em
 modo rápido sozinho (`--sem-fallback` desliga isso).
 
 ## O jeito Claude (sem digitar comando)
