@@ -9,7 +9,8 @@
 
 **Decisão recomendada:** não dissolver diretores nem reforçar diretores como camada de roteamento. Fonte única = índice de capacidades
 gerado automaticamente; diretor do domínio nomeado por código; 3–5 opções por decisão; linha de rota obrigatória conferida por hook;
-"Não anuncie" → "Nomeie". Nada muda antes de medir num gabarito held-out escrito pelo operador.
+"Não anuncie" → "Abra com a linha ROTA". Ordem: contrato (cumprimento) primeiro, sugestão (seleção) depois; pedido inédito = `INEDITO` →
+Arcanjo, nunca pergunta de "qual diretor". Nada liga antes de medir num gabarito held-out escrito pelo operador.
 **Por quê:** levantamento medido + parecer do Arcanjo + conselho 4/4 AJUSTAR convergem no diagnóstico (o gargalo é seleção e obediência,
 não capacidade). O desenho atual já é "ver tudo" e falhou em 12/10. Detalhe no mestre.
 **Alternativas rejeitadas:** arquivo único (já tentado, parado desde 18/09); super-diretor roteador (mais prosa); começar por embeddings

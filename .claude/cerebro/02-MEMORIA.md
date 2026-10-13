@@ -22,7 +22,10 @@ acionamento, nenhuma de capacidade ausente (com a ressalva do conselho: amostra,
 fonte única; diretor nomeado por código dentro de 7 domínios; poucas opções por decisão; linha de rota obrigatória verificada por hook;
 dieta de contexto; medir ANTES com gabarito held-out escrito pelo operador; arquivar, nunca apagar; nenhum super-diretor nem lei nova.
 **Divergência registrada:** os motores externos temem BM25 em pedido inédito/transversal; o Arcanjo quer BM25 primeiro por ser
-determinístico e já existir. O gabarito decide (ferramenta@5 ≥ 80 % mantém; < 60 % vai de semântica).
+determinístico e já existir. O gabarito decide (ferramenta@5 ≥ 80 % mantém; < 60 % vai de semântica). O Arcanjo revisou o próprio
+parecer após o conselho: **contrato primeiro** (linha de rota obrigatória conferida por hook no Stop, bloqueio 1× por missão, declarado ×
+invocado), sugestão por BM25 só depois de passar no held-out; pedido inédito vira `INEDITO` → Arcanjo com suposição declarada, não
+pergunta ao operador (violaria a lei de orquestração por intenção).
 **Lição para este satélite:** o mesmo risco existe aqui em menor escala (19 skills, 9 agentes): `CAPACIDADES.txt` é manifesto de
 existência, não de gatilhos. Quando o gerador de índice nascer no mestre, instalar aqui por cópia.
 **Pendências:** operador escrever 20–30 pedidos novos (held-out) e decidir se "Não anuncie" vira "Nomeie" no hook do mestre.
