@@ -51,6 +51,10 @@ jobs:
         run: python3 .claude/helpers/cerebro/testar-compactar.py
       - name: Leads — telefone BR, endereço, dedupe, ponte Apify, CSV seguro, cliente da API (servidor falso)
         run: python3 leads/testes/testar_leads.py
+      - name: Capacidades — índice gerado dos frontmatters, domínios, gatilhos, ponteiros mortos, --estrito
+        run: python3 .claude/helpers/cerebro/testar-capacidades.py && python3 .claude/helpers/cerebro/gerar-capacidades.py --raiz satelite=. --saida /tmp/capacidades.json --relatorio /tmp/relatorio.md
+      - name: Contrato de rota — hook Stop em sombra e bloqueio, fail-open, transcript falso
+        run: node .claude/helpers/cerebro/testar-rota-hook.mjs
 
   segredos:
     # Repositório PÚBLICO: segredo vazado = chave comprometida. CMU 11-768 aula 6 recomenda TruffleHog; o guarda.sh

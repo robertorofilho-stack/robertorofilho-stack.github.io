@@ -186,7 +186,7 @@ pagamento ou clique no checkout. Relatório completo entregue ao operador (não 
 
 ## Em aberto
 
-- [ ] **Gabarito held-out de roteamento** (20–30 pedidos do operador) e aval para "Nomeie" no hook do mestre — sem isso o plano de 7 dias não começa.
+- [ ] **Gabarito held-out de roteamento** (20–30 pedidos do operador) e "liga o bloqueio" (`touch ~/.cache/cerebro/rota-bloquear`). D1 parcial, D2 e D3 (sombra) feitos em 13/10 após o "Vai"; faltam D4–D7.
 - [ ] **Canal de saída dos leads do Maps** — e-mail frio (campanha do mestre) e/ou ligação para os sem site; decisão do operador. Confirmar modo completo no Mac (IP residencial).
 - [ ] **Primeiro nicho de infoproduto** — aguarda `/cacar-produto aberto` **com viés não-médico ou B2B profissional** (ver Conselho 10/09 abaixo); guia de joelho para leigos NÃO é o primeiro produto pago
 - [x] **Vault privado** — já existia: `cerebro-backup` (privado, sincronizado nos 2 Macs)

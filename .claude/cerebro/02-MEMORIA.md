@@ -28,7 +28,16 @@ invocado), sugestão por BM25 só depois de passar no held-out; pedido inédito 
 pergunta ao operador (violaria a lei de orquestração por intenção).
 **Lição para este satélite:** o mesmo risco existe aqui em menor escala (19 skills, 9 agentes): `CAPACIDADES.txt` é manifesto de
 existência, não de gatilhos. Quando o gerador de índice nascer no mestre, instalar aqui por cópia.
-**Pendências:** operador escrever 20–30 pedidos novos (held-out) e decidir se "Não anuncie" vira "Nomeie" no hook do mestre.
+**Executado após o "Vai" (13/10, ~01h — D1 parcial, D2, D3 em sombra):** linha de base medida no TASK_LOG do mestre: **0 das 30
+missões mais recentes nomeiam diretor** no campo "Agentes usados". `gerar-capacidades.py` (evolução do gerador de inventário do mestre;
+aqui em `.claude/helpers/cerebro/`, cópia no mestre) → `CAPACIDADES.json`: mestre+satélite 349 capacidades (162 skills · 148 subagentes ·
+14 diretores · 13 squads · 9 pastas de prompts), 29 sem domínio, 62 sem gatilho extraível, 10 ponteiros mortos na tabela de roteamento;
+satélite sozinho 30 (20 skills · 10 subagentes). `rota-hook.mjs` no Stop dos dois repositórios, **modo sombra** (só registra se a resposta
+abriu com a linha `ROTA: dominio | diretor | capacidades | nivel`); bloqueio liga com um arquivo-sinal. No mestre, o roteador trocou
+"Não anuncie este roteamento" pelo contrato + vocabulário do índice e parou de misturar 3 tabelas na lista de categorias (73 → 64).
+Aqui, `recall.sh` injeta o contrato em toda missão. 15 testes novos (9 hook, 6 gerador), `saude.yml` roda os dois.
+**Pendências:** operador escrever 20–30 pedidos novos (held-out) e ligar o bloqueio (`touch ~/.cache/cerebro/rota-bloquear`) quando quiser
+que o Cérebro seja devolvido ao faltar a linha; D4–D7 do plano.
 
 ### 2026-10-12 — Leads do Google Maps: o kit do tutorial virou `leads/` + `/scrape`, provado na nuvem com Docker
 

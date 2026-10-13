@@ -1,0 +1,3 @@
+ROTA: dominio=<VENDER|CONTEUDO|MEDICO|EMPRESA|CONSTRUIR|PENSAR|CEREBRO|INEDITO> | diretor=<id> | capacidades=<ids ou nenhuma, porque…> | nivel=<0-3>
+Domínios→donos: VENDER→? · CONTEUDO→? · MEDICO→? · EMPRESA→? · CONSTRUIR→? · PENSAR→? · CEREBRO→? · INEDITO→?
+Diretores: nenhum neste repositório (use os do mestre)

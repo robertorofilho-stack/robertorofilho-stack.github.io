@@ -46,6 +46,15 @@
             "timeout": 15
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.claude/helpers/cerebro/rota-hook.mjs",
+            "timeout": 10
+          }
+        ]
       }
     ],
     "PreCompact": [

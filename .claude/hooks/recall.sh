@@ -84,9 +84,25 @@ if [ -n "$MESTRE" ] && printf '%s' "$PROMPT" | grep -qiE 'chave|api.?key|token|c
     | grep -oE '\b[A-Z][A-Z0-9]*(_[A-Z0-9]+)*_(API_KEY|TOKEN|SECRET|KEY|SECRET_KEY|CLIENT_ID|VOICE_ID)\b' | sort -u | tr '\n' ' ')
 fi
 
-[ -n "$ACHADOS$MEMS$CHAVES" ] || { echo '{}'; exit 0; }
+# 13/10/2026 — CONTRATO DE ROTA (decisão organizacao-cerebro-13-10): vocabulário gerado por gerar-capacidades.py.
+# Vai em toda missão não-trivial, mesmo sem memória relacionada. O rota-hook.mjs confere a linha no Stop (modo sombra).
+ROTA=""
+VOCAB="$ROOT/.claude/VOCABULARIO-ROTA.txt"
+# com o mestre clonado ao lado (nuvem) ou em ~/Claude (Mac), o vocabulário dele vale mais: tem os diretores de negócio
+for cand in "$MESTRE/../../VOCABULARIO-ROTA.txt" "$HOME/Claude/cerebro-backup/VOCABULARIO-ROTA.txt"; do
+  [ -n "$MESTRE" ] || [ "${cand#"$HOME"}" != "$cand" ] || continue
+  [ -f "$cand" ] && { VOCAB="$cand"; break; }
+done
+if [ -f "$VOCAB" ]; then
+  ROTA="📍 CONTRATO DE ROTA — abra a resposta com UMA linha, antes de qualquer coisa:"$'\n'"$(cat "$VOCAB")"$'\n'
+  ROTA+="Pedido fora do mapa: dominio=INEDITO | diretor=diretor-arcanjo, com a suposição declarada — nunca pergunte \"qual diretor?\"."$'\n'
+  ROTA+="Diretores de negócio vivem no mestre (os ids acima só valem se existirem lá); aqui, nomeie o subagente do satélite em capacidades."$'\n\n'
+fi
 
-TXT="🧠 MEMÓRIA RELACIONADA — busca automática por: $(printf '%s' "$KWS" | tr '\n' ' ')"$'\n\n'
+[ -n "$ACHADOS$MEMS$CHAVES$ROTA" ] || { echo '{}'; exit 0; }
+
+TXT="$ROTA"
+TXT+="🧠 MEMÓRIA RELACIONADA — busca automática por: $(printf '%s' "$KWS" | tr '\n' ' ')"$'\n\n'
 [ -n "$ACHADOS" ] && TXT+="Satélite (.claude/cerebro):"$'\n'"$ACHADOS"$'\n\n'
 [ -n "$MEMS" ] && TXT+="CÉREBRO MESTRE (privado) — abrir antes de decidir:"$'\n'"$MEMS"$'\n\n'
 [ -n "$CHAVES" ] && TXT+="🔑 CHAVES QUE JÁ EXISTEM no cofre do mestre (~/.config/vha-vibe-marketing/.env; nomes, valores só lá): $CHAVES"$'\n'"NÃO pedir ao operador para criar, assinar ou comprar o que já existe. Ler chaves-credenciais.md e cofre-env-vibe.md antes de responder."$'\n\n'

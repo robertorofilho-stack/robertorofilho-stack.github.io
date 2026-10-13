@@ -1,0 +1,781 @@
+{
+ "versao": 1,
+ "gerado_em": "2026-10-13T01:24:22Z",
+ "raizes": [
+  {
+   "nome": "satelite",
+   "caminho": "/home/user/robertorofilho-stack.github.io"
+  }
+ ],
+ "regras_de_dominio": "/home/user/cerebro-backup/claude-config/helpers/cerebro/gerar-inventario.py",
+ "router": "",
+ "dominios": {
+  "VENDER": {
+   "titulo": "produto, oferta, copy, campanha, tráfego, checkout",
+   "diretores": []
+  },
+  "CONTEUDO": {
+   "titulo": "roteiro, vídeo, imagem, voz, redes, marca",
+   "diretores": []
+  },
+  "MEDICO": {
+   "titulo": "evidência, literatura, laudo, presença clínica",
+   "diretores": []
+  },
+  "EMPRESA": {
+   "titulo": "financiamento, governo, jurídico, fiscal, dinheiro",
+   "diretores": []
+  },
+  "CONSTRUIR": {
+   "titulo": "app, código, infra, deploy, segurança",
+   "diretores": []
+  },
+  "PENSAR": {
+   "titulo": "estratégia, auditoria, verificação, pesquisa",
+   "diretores": []
+  },
+  "CEREBRO": {
+   "titulo": "memória, contexto, manutenção, orquestração",
+   "diretores": []
+  },
+  "INEDITO": {
+   "titulo": "pedido fora do mapa → Nível 1 (Arcanjo) com suposição declarada",
+   "diretores": []
+  }
+ },
+ "capacidades": [
+  {
+   "id": "adversarial",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "adversarial",
+   "descricao": "Debate adversarial Alfa/Ômega — o Construtor propõe, o Auditor tenta destruir com testes reais, repete até 3 rodadas ou até nada quebrar. Use para validar tese técnica, arquitetura, modelo matemático,",
+   "dominios": [
+    "PENSAR"
+   ],
+   "gatilhos": [
+    "validar tese técnica",
+    "arquitetura",
+    "modelo matemático"
+   ],
+   "como_invocar": "/adversarial",
+   "caminhos": [
+    ".claude/skills/adversarial/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "analise-cripto",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "analise-cripto",
+   "descricao": "Análise de cripto, ativo financeiro ou cenário macro, com tese, risco, invalidação e tamanho de posição. Use para \"vale a pena comprar\", \"o que está acontecendo no mercado\", análise de moeda, timing o",
+   "dominios": [
+    "EMPRESA"
+   ],
+   "gatilhos": [
+    "vale a pena comprar",
+    "o que está acontecendo no mercado",
+    "análise de moeda",
+    "timing o"
+   ],
+   "como_invocar": "/analise-cripto",
+   "caminhos": [
+    ".claude/skills/analise-cripto/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "arquiteto",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "arquiteto",
+   "descricao": "Arquiteto de sistemas. Primeira camada da cascata multi-agente. Use ANTES de escrever código em qualquer sistema não-trivial. Decide stack, estrutura, modelo de dados, custo de infra e superfície de a",
+   "dominios": [
+    "CONSTRUIR",
+    "PENSAR"
+   ],
+   "gatilhos": [],
+   "como_invocar": "Agent(subagent_type=arquiteto)",
+   "caminhos": [
+    ".claude/agents/arquiteto.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "arvore",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "arvore",
+   "descricao": "Busca em árvore de pensamentos (MCTS/PUCT + reflexão verbal, estilo LATS) para problema difícil com resposta VERIFICÁVEL — conta, código com teste, restrição checável, quebra-cabeça, plano com critéri",
+   "dominios": [
+    "CONTEUDO",
+    "CONSTRUIR"
+   ],
+   "gatilhos": [],
+   "como_invocar": "/arvore",
+   "caminhos": [
+    ".claude/skills/arvore/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "auditar",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "auditar",
+   "descricao": "Red team adversarial em qualquer plano, copy, oferta, código, decisão ou investimento. Use antes de publicar, lançar, gastar ou executar. Existe para destruir a ideia enquanto ainda é barato destruí-l",
+   "dominios": [
+    "PENSAR"
+   ],
+   "gatilhos": [],
+   "como_invocar": "/auditar",
+   "caminhos": [
+    ".claude/skills/auditar/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "auditor",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "auditor",
+   "descricao": "Red team adversarial. Use ANTES de publicar, lançar, investir ou executar qualquer coisa importante. Existe para destruir a ideia enquanto ela ainda é barata de destruir.",
+   "dominios": [
+    "PENSAR"
+   ],
+   "gatilhos": [],
+   "como_invocar": "Agent(subagent_type=auditor)",
+   "caminhos": [
+    ".claude/agents/auditor.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "brief",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "brief",
+   "descricao": "Briefing diário de inteligência — mercado, cripto, oportunidades, tendências e o que fazer hoje. Use quando pedirem o resumo do dia, panorama, \"o que está acontecendo\" ou briefing.",
+   "dominios": [
+    "OUTROS"
+   ],
+   "gatilhos": [
+    "pedirem o resumo do dia",
+    "panorama",
+    "o que está acontecendo",
+    "briefing"
+   ],
+   "como_invocar": "/brief",
+   "caminhos": [
+    ".claude/skills/brief/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "cacador",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "cacador",
+   "descricao": "Caçador de produto e oportunidade de mercado. Use proativamente para encontrar o que vender, validar demanda, mapear concorrência, analisar anúncios rodando e achar nichos com dinheiro na mesa. Retorn",
+   "dominios": [
+    "PENSAR",
+    "VENDER"
+   ],
+   "gatilhos": [],
+   "como_invocar": "Agent(subagent_type=cacador)",
+   "caminhos": [
+    ".claude/agents/cacador.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "cacar-produto",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "cacar-produto",
+   "descricao": "Caça um infoproduto ou oferta para vender, com pesquisa profunda e evidência real de mercado. Use quando o pedido for \"o que eu vendo\", \"acha um produto\", \"que nicho entrar\", \"oportunidade de mercado\"",
+   "dominios": [
+    "VENDER"
+   ],
+   "gatilhos": [
+    "o pedido for \"o que eu vendo",
+    "acha um produto",
+    "que nicho entrar",
+    "oportunidade de mercado",
+    "o que eu vendo"
+   ],
+   "como_invocar": "/cacar-produto",
+   "caminhos": [
+    ".claude/skills/cacar-produto/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "conselho",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "conselho",
+   "descricao": "Segunda opinião adversarial de outros motores (GPT, Grok, Gemini, DeepSeek) sobre uma tese, decisão, oferta ou produto — em paralelo, por API, com síntese das divergências. Use antes de fechar qualque",
+   "dominios": [
+    "VENDER",
+    "CONSTRUIR"
+   ],
+   "gatilhos": [],
+   "como_invocar": "/conselho",
+   "caminhos": [
+    ".claude/skills/conselho/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "copychief",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "copychief",
+   "descricao": "Diretor de copy de resposta direta. Use para escrever ou reescrever qualquer texto que precisa vender — VSL, página, anúncio, e-mail, bio, headline, oferta. Escreve para conversão, não para aplauso.",
+   "dominios": [
+    "VENDER",
+    "CONTEUDO"
+   ],
+   "gatilhos": [
+    "escrever",
+    "reescrever qualquer texto que precisa vender — VSL",
+    "página",
+    "anúncio",
+    "e-mail",
+    "bio",
+    "headline",
+    "oferta"
+   ],
+   "como_invocar": "Agent(subagent_type=copychief)",
+   "caminhos": [
+    ".claude/agents/copychief.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "funil",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "funil",
+   "descricao": "Engenheiro de funil e conversão. Use para estruturar funil de venda, página, checkout, tracking, pixel, e-mail, upsell, precificação e qualquer coisa entre o clique e o dinheiro na conta.",
+   "dominios": [
+    "VENDER"
+   ],
+   "gatilhos": [
+    "estruturar funil de venda",
+    "página",
+    "checkout",
+    "tracking",
+    "pixel",
+    "e-mail",
+    "upsell",
+    "precificação e qualquer coisa entre o clique e o dinheiro na conta"
+   ],
+   "como_invocar": "Agent(subagent_type=funil)",
+   "caminhos": [
+    ".claude/agents/funil.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "ganchos",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "ganchos",
+   "descricao": "Gera 30 ganchos (hooks) prontos para vídeo curto, anúncio ou headline sobre um tema. Use quando pedirem ganchos, headlines, ideias de abertura, títulos ou \"como começar o vídeo\".",
+   "dominios": [
+    "VENDER",
+    "CONTEUDO"
+   ],
+   "gatilhos": [
+    "pedirem ganchos",
+    "headlines",
+    "ideias de abertura",
+    "títulos",
+    "como começar o vídeo"
+   ],
+   "como_invocar": "/ganchos",
+   "caminhos": [
+    ".claude/skills/ganchos/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "grants",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "grants",
+   "descricao": "Encontra e escreve candidaturas a grants, editais, fundos de inovação e fomento — nacionais e internacionais. Use para buscar dinheiro não-diluitivo, editais abertos, financiamento de pesquisa, prêmio",
+   "dominios": [
+    "EMPRESA"
+   ],
+   "gatilhos": [
+    "buscar dinheiro não-diluitivo",
+    "editais abertos",
+    "financiamento de pesquisa",
+    "prêmio"
+   ],
+   "como_invocar": "/grants",
+   "caminhos": [
+    ".claude/skills/grants/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "lancamento",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "lancamento",
+   "descricao": "Pipeline completo de lançamento de infoproduto, do zero à venda — pesquisa, oferta, copy, página, funil, criativos, anúncios e tracking. Use quando o pedido for \"lança um produto\", \"cria o funil compl",
+   "dominios": [
+    "VENDER",
+    "PENSAR"
+   ],
+   "gatilhos": [
+    "o pedido for \"lança um produto",
+    "cria o funil compl",
+    "lança um produto"
+   ],
+   "como_invocar": "/lancamento",
+   "caminhos": [
+    ".claude/skills/lancamento/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "laudo",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "laudo",
+   "descricao": "Gera documentos médicos ortopédicos — laudo, relatório, justificativa de cirurgia para convênio, resposta a glosa ou negativa, atestado, parecer. Use para qualquer documento clínico formal.",
+   "dominios": [
+    "MEDICO"
+   ],
+   "gatilhos": [
+    "qualquer documento clínico formal"
+   ],
+   "como_invocar": "/laudo",
+   "caminhos": [
+    ".claude/skills/laudo/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "manutencao",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "manutencao",
+   "descricao": "Passagem de evolução contínua do sistema — consolida memória, revisa CLAUDE.md, transforma repetição em skill, atualiza dependências, roda os testes de saúde e commita. Use semanalmente, ou quando ped",
+   "dominios": [
+    "CEREBRO"
+   ],
+   "gatilhos": [
+    "manalmente",
+    "ou quando ped"
+   ],
+   "como_invocar": "/manutencao",
+   "caminhos": [
+    ".claude/skills/manutencao/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "memoria",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "memoria",
+   "descricao": "Lê ou grava o cérebro persistente do operador (vault Obsidian em .claude/cerebro). Use no início de trabalho estratégico para carregar contexto, e no fim para gravar decisão, número, aprendizado ou at",
+   "dominios": [
+    "CEREBRO"
+   ],
+   "gatilhos": [],
+   "como_invocar": "/memoria",
+   "caminhos": [
+    ".claude/skills/memoria/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "nobel",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "nobel",
+   "descricao": "Diretor Nobel — mecanismo de descoberta científica multidomínio. Cruza disciplinas que não se falam, acha \"links perdidos\" na literatura e estrutura hipóteses inéditas e testáveis com protocolo experi",
+   "dominios": [
+    "MEDICO",
+    "PENSAR"
+   ],
+   "gatilhos": [
+    "links perdidos"
+   ],
+   "como_invocar": "/nobel",
+   "caminhos": [
+    ".claude/skills/nobel/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "oferta",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "oferta",
+   "descricao": "Constrói uma oferta irresistível completa — promessa, mecanismo, stack de valor, preço, ancoragem, bônus, garantia e escada de produtos. Use quando houver um produto ou serviço e for preciso definir C",
+   "dominios": [
+    "VENDER"
+   ],
+   "gatilhos": [
+    "houver um produto",
+    "serviço e for preciso definir C"
+   ],
+   "como_invocar": "/oferta",
+   "caminhos": [
+    ".claude/skills/oferta/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "ortopedista",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "ortopedista",
+   "descricao": "Especialista em evidência ortopédica. Use para qualquer conteúdo, documento ou afirmação clínica — laudo, relatório, resposta a convênio, artigo, roteiro médico, revisão de literatura. Ancora tudo em ",
+   "dominios": [
+    "MEDICO"
+   ],
+   "gatilhos": [
+    "qualquer conteúdo",
+    "documento",
+    "afirmação clínica — laudo",
+    "relatório",
+    "resposta a convênio",
+    "artigo",
+    "roteiro médico",
+    "revisão de literatura"
+   ],
+   "como_invocar": "Agent(subagent_type=ortopedista)",
+   "caminhos": [
+    ".claude/agents/ortopedista.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "qa",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "qa",
+   "descricao": "Engenheiro de QA adversarial. Camada final da cascata multi-agente. Use SEMPRE antes de declarar qualquer sistema pronto. Tenta quebrar o que foi construído. Não valida — ataca.",
+   "dominios": [
+    "PENSAR",
+    "CONSTRUIR"
+   ],
+   "gatilhos": [
+    "MPRE antes de declarar qualquer sistema pronto"
+   ],
+   "como_invocar": "Agent(subagent_type=qa)",
+   "caminhos": [
+    ".claude/agents/qa.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "quant",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "quant",
+   "descricao": "Analista de mercado financeiro e cripto. Use para análise de ativos, cripto, macro, timing de entrada e saída, risco e alocação. Frio, quantitativo, sem torcida.",
+   "dominios": [
+    "EMPRESA"
+   ],
+   "gatilhos": [
+    "análise de ativos",
+    "cripto",
+    "macro",
+    "timing de entrada e saída",
+    "risco e alocação"
+   ],
+   "como_invocar": "Agent(subagent_type=quant)",
+   "caminhos": [
+    ".claude/agents/quant.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "reels",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "reels",
+   "descricao": "Cria roteiros completos de Reels, TikTok ou Shorts, prontos para filmar, com timeline, legenda, hashtags e comentário-isca. Use para vídeo curto, conteúdo de rede social, calendário editorial ou pauta",
+   "dominios": [
+    "VENDER",
+    "CONTEUDO"
+   ],
+   "gatilhos": [
+    "vídeo curto",
+    "conteúdo de rede social",
+    "calendário editorial",
+    "pauta"
+   ],
+   "como_invocar": "/reels",
+   "caminhos": [
+    ".claude/skills/reels/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "saas",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "saas",
+   "descricao": "Constrói um micro-SaaS ou ferramenta web do zero até rodando — arquitetura, banco, código, interface, pagamento, deploy e QA. Use quando o pedido for construir um sistema, app, ferramenta, dashboard o",
+   "dominios": [
+    "EMPRESA",
+    "CONSTRUIR"
+   ],
+   "gatilhos": [
+    "o pedido for construir um sistema",
+    "app",
+    "ferramenta",
+    "dashboard o"
+   ],
+   "como_invocar": "/saas",
+   "caminhos": [
+    ".claude/skills/saas/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "scrape",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "scrape",
+   "descricao": "Extrai negócios do Google Maps (nome, telefone, WhatsApp, e-mail, site, Instagram/Facebook/LinkedIn, nota, endereço) com o scraper local gosom/google-maps-scraper e devolve planilha limpa para prospec",
+   "dominios": [
+    "CONTEUDO",
+    "EMPRESA"
+   ],
+   "gatilhos": [],
+   "como_invocar": "/scrape",
+   "caminhos": [
+    ".claude/skills/scrape/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "tendencia",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "tendencia",
+   "descricao": "Detecta uma tendência em ascensão e converte em ferramenta web monetizável em 24-72h. Use para \"fábrica de micro-SaaS\", aproveitar trend, criar ferramenta rápida, ou transformar demanda emergente em p",
+   "dominios": [
+    "VENDER",
+    "CONSTRUIR"
+   ],
+   "gatilhos": [
+    "fábrica de micro-SaaS",
+    "aproveitar trend",
+    "criar ferramenta rápida",
+    "ou transformar demanda emergente em p"
+   ],
+   "como_invocar": "/tendencia",
+   "caminhos": [
+    ".claude/skills/tendencia/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "verificador-citacao",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "verificador-citacao",
+   "descricao": "Checa, afirmação por afirmação, se a fonte citada SUSTENTA o que o texto diz (método FACT, DeepResearch Bench, ICLR 2026 — CMU 11-768 aula 10). Use antes de publicar conteúdo médico, relatório de pesq",
+   "dominios": [
+    "MEDICO",
+    "CONTEUDO"
+   ],
+   "gatilhos": [],
+   "como_invocar": "Agent(subagent_type=verificador-citacao)",
+   "caminhos": [
+    ".claude/agents/verificador-citacao.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "viral",
+   "tipo": "subagente",
+   "papel": "",
+   "nome": "viral",
+   "descricao": "Roteirista de vídeo curto e engenheiro de algoritmo. Use para Reels, TikTok, Shorts, ganchos, ideias de conteúdo, calendário editorial e qualquer coisa que precise de retenção e compartilhamento.",
+   "dominios": [
+    "CONTEUDO"
+   ],
+   "gatilhos": [
+    "Reels",
+    "TikTok",
+    "Shorts",
+    "ganchos",
+    "ideias de conteúdo",
+    "calendário editorial e qualquer coisa que precise de retenção e compartilhamento"
+   ],
+   "como_invocar": "Agent(subagent_type=viral)",
+   "caminhos": [
+    ".claude/agents/viral.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  },
+  {
+   "id": "vsl",
+   "tipo": "skill",
+   "papel": "",
+   "nome": "vsl",
+   "descricao": "Escreve VSL (video sales letter) ou carta de vendas completa, pronta para gravar ou publicar. Use para roteiro de venda, carta de vendas, script de webinário ou página longa de conversão.",
+   "dominios": [
+    "VENDER",
+    "CONTEUDO"
+   ],
+   "gatilhos": [
+    "roteiro de venda",
+    "carta de vendas",
+    "script de webinário",
+    "página longa de conversão"
+   ],
+   "como_invocar": "/vsl",
+   "caminhos": [
+    ".claude/skills/vsl/SKILL.md"
+   ],
+   "dono": "satelite",
+   "fontes": [
+    "frontmatter"
+   ]
+  }
+ ],
+ "contagens": {
+  "total": 30,
+  "por_tipo": {
+   "skill": 20,
+   "subagente": 10
+  },
+  "por_dono": {
+   "satelite": 30
+  },
+  "diretores": 0,
+  "sem_dominio": 1,
+  "cegas": 5,
+  "gatilhos_semeados_pelo_router": 0,
+  "ponteiros_mortos_router": 0
+ },
+ "inconsistencias": {
+  "diretores_por_fonte": {},
+  "quase_duplicatas": [],
+  "sem_dominio": [
+   "brief"
+  ],
+  "cegas": [
+   "arvore",
+   "auditar",
+   "conselho",
+   "memoria",
+   "scrape"
+  ],
+  "diretores_sem_dominio": [],
+  "dominios_sem_diretor": [
+   "VENDER",
+   "CONTEUDO",
+   "MEDICO",
+   "EMPRESA",
+   "CONSTRUIR",
+   "PENSAR",
+   "CEREBRO",
+   "INEDITO"
+  ],
+  "ponteiros_mortos_router": []
+ }
+}

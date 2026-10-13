@@ -36,6 +36,8 @@
 | Teste de mutação (mede se os testes pegam defeito) · varredura de segredo no CI | `.claude/helpers/avaliar/mutacao.py` · job `segredos` (TruffleHog) | 🟢 2 testes · memória viva 49% | 2026-09-27 |
 | Transcrição de aula do YouTube (legenda → cookies → whisper) | `.claude/helpers/aprender/transcrever-youtube.sh` (cópia no mestre) | 🟡 roda no Mac; nuvem bloqueada pelo YouTube (PO Token) | 2026-09-27 |
 | Leads do Google Maps: gosom v1.18.1 em Docker · API + `fast_mode` com fallback automático · normalização BR (E.164, wa.me, bairro) · enriquecimento de site anti-SSRF/robots · ponte JSON-Apify → `prospeccao-com-agentes` (mestre) | `leads/` + `/scrape` + `leads/nuvem.sh` | 🟢 provado na nuvem: 59 clínicas de Fortaleza em 1m30, R$ 0 · 37 testes · no `saude.yml` · modo completo em IP residencial ainda não confirmado | 2026-10-12 |
+| Índice de capacidades gerado do disco (skills, subagentes, diretores, squads, prompts; domínios, gatilhos, ponteiros mortos) | `.claude/helpers/cerebro/gerar-capacidades.py` + `testar-capacidades.py` → `.claude/CAPACIDADES.json`, `RELATORIO-CAPACIDADES.md`, `VOCABULARIO-ROTA.txt` (cópia no mestre) | 🟢 6 testes · mestre+satélite 349 capacidades · no `saude.yml` | 2026-10-13 |
+| Contrato de rota: linha `ROTA:` obrigatória conferida por hook Stop (sombra; bloqueio por arquivo-sinal) + vocabulário injetado pelo `recall.sh` | `.claude/helpers/cerebro/rota-hook.mjs` + `testar-rota-hook.mjs` · `recall.sh` · `settings.json` (cópia no mestre: `router-hook.mjs` sem o "Não anuncie") | 🟢 9 testes · fail-open · registra em `~/.cache/cerebro/roteamento.jsonl` · linha de base 0/30 | 2026-10-13 |
 
 ## Produtos digitais
 

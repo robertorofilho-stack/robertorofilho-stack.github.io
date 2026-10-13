@@ -83,3 +83,13 @@ _Sem baseline não existe melhora — só sensação. Preencher antes da primeir
 | Mestre: skills / agentes / memórias / leis | 181 · 156 (+12 pastas) · 637 · 45 | 2026-10-13 | levantamento Explore (HEAD 50fba20e) |
 | Memórias apontadas pelo índice injetado | 204 de 637 (32 %) · leis 23 de 45 | 2026-10-13 | idem |
 | Tabelas de roteamento paralelas | 5 | 2026-10-13 | parecer do Arcanjo |
+
+## Contrato de rota e índice de capacidades (13/10/2026)
+
+| Métrica | Valor | Data | Fonte |
+|---|---|---|---|
+| Linha de base: missões recentes do TASK_LOG do mestre que nomeiam diretor em "Agentes usados" | **0 de 30** (2 citam "diretor" em algum campo) | 2026-10-13 | TASK_LOG, 30 mais recentes (11–12/10) |
+| Índice mestre+satélite | 349 capacidades · 14 diretores · 29 sem domínio · 62 sem gatilho · 10 ponteiros mortos · 51 gatilhos semeados | 2026-10-13 | `RELATORIO-CAPACIDADES.md` |
+| Índice do satélite | 30 capacidades (20 skills · 10 subagentes) · 1 sem domínio · 5 sem gatilho | 2026-10-13 | `.claude/RELATORIO-CAPACIDADES.md` |
+| Roteador do mestre, bytes injetados por prompt (HOME simulado) | 1º prompt 46,8 KB · 2º 17,3 KB · categorias 64 (antes 73, com 3 tabelas) | 2026-10-13 | teste local do `router-hook.mjs` |
+| Testes novos | hook 9 · gerador 6 · 0 falhas | 2026-10-13 | `testar-rota-hook.mjs`, `testar-capacidades.py` |
