@@ -229,6 +229,29 @@
     "estado": "NOVA"
   },
   {
+    "id": "k8ivlc",
+    "termo": "Codex, and I installed it",
+    "dor": "I just created a Google account, which was a hassle. I tried to find an app and found AI Studio, but I’m not sure what that is. Then I found Antigravity, which apparently is Google’s alternative to Codex, and I installed it. Then I tried to buy the small Gemini AI Ultra package, but it didn’t let me pay. It accepted ne",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 47,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 71,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50075927"
+    ],
+    "amostras": [
+      "I just created a Google account, which was a hassle. I tried to find an app and found AI Studio, but I’m not sure what that is. Then I found Antigravity, which apparently is Google’s alternative to Co"
+    ],
+    "detectadoEm": "2026-10-13T22:50:56.002Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "g0nf2w",
     "termo": "the Android/iOS duopoly",
     "dor": "Will Linux phones become a viable alternative to the Android/iOS duopoly?",
