@@ -512,5 +512,28 @@
     ],
     "detectadoEm": "2026-10-13T09:30:00.935Z",
     "estado": "NOVA"
+  },
+  {
+    "id": "5rqr8o",
+    "termo": "way to silence the warning for that specific tag",
+    "dor": "We have AirTags registered to my wife's account because I use Android. I have one in my work backpack, and every morning I get a notification that an unknown tracker is following me. I wish there was a way to silence the warning for that specific tag.",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50099718"
+    ],
+    "amostras": [
+      "We have AirTags registered to my wife's account because I use Android. I have one in my work backpack, and every morning I get a notification that an unknown tracker is following me. I wish there was "
+    ],
+    "detectadoEm": "2026-10-15T07:31:09.301Z",
+    "estado": "NOVA"
   }
 ]
