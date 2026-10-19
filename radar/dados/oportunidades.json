@@ -50,6 +50,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "xwiepn",
+    "termo": "plex media server malware exploitation",
+    "dor": "PSA: Patch your Plex media server before someone hacks it · Hackers Exploit Plex2Shell Flaws to Install Crypto Miners and Linux Proxy Backdoor · Plex2Shell Exploit Chain Weaponized Against Plex Servers Hours After Disclosure",
+    "volumeEstimado": 300,
+    "urgencia": "MEDIA",
+    "score": 57,
+    "fatores": {
+      "velocidade": 88,
+      "dorExplicita": 30,
+      "volume": 79.93852773619001,
+      "viabilidade": 38,
+      "recorrencia": 92
+    },
+    "fontes": [
+      "https://trends.google.com/trends/explore?q=plex%20media%20server%20malware%20exploitation&geo=US",
+      "https://news.ycombinator.com/item?id=50158488"
+    ],
+    "amostras": [
+      "PSA: Patch your Plex media server before someone hacks it · Hackers Exploit Plex2Shell Flaws to Install Crypto Miners and Linux Proxy Backdoor · Plex2Shell Exploit Chain Weaponized Against Plex Server",
+      "I use Pleezy which has been a nice open source alternative to the Plex UI. The only issue we've had is that on wake, you have to press back once to do anything else. I'll eventually debug it and see i"
+    ],
+    "detectadoEm": "2026-10-19T22:25:14.679Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "vxpbd2",
     "termo": "their SOP at all",
     "dor": "As somebody that’s had to deal with US banks and their bizarre “authentication” schemes: I wish. Many would actually rather you close their account with them than them making the tiniest compromise or offering any alternative to their SOP at all. That SOP strongly assumes things like “all customers have a mobile phone ",
@@ -144,7 +169,7 @@
       "This is amazing -- I was looking for a tool exactly like this to DIY a bookshelf. That said - I noticed none of the patterns had curved edges (or curved sides e.g. for a corner bookshelf. Is that tech",
       "I love the origins GTA This is awesome but I wish there was a boost or have this be 5x faster, like “killfrenzy” from forever ago"
     ],
-    "detectadoEm": "2026-10-19T17:31:32.479Z",
+    "detectadoEm": "2026-10-19T22:25:14.679Z",
     "estado": "NOVA"
   },
   {
@@ -581,7 +606,7 @@
     "amostras": [
       "Alternative to Flatpak and to the counterless adhoc Repositories, what's the most reliable source for getting apps installed under Debian?"
     ],
-    "detectadoEm": "2026-10-19T17:31:32.479Z",
+    "detectadoEm": "2026-10-19T22:25:14.680Z",
     "estado": "NOVA"
   }
 ]
