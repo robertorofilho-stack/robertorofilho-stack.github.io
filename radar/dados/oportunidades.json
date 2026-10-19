@@ -535,5 +535,28 @@
     ],
     "detectadoEm": "2026-10-16T01:26:08.342Z",
     "estado": "NOVA"
+  },
+  {
+    "id": "ajk9l5",
+    "termo": "Flatpak and to the counterless adhoc Repositories, what's the most reliable sour",
+    "dor": "Alternative to Flatpak and to the counterless adhoc Repositories, what's the most reliable source for getting apps installed under Debian?",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50150264"
+    ],
+    "amostras": [
+      "Alternative to Flatpak and to the counterless adhoc Repositories, what's the most reliable source for getting apps installed under Debian?"
+    ],
+    "detectadoEm": "2026-10-19T10:50:51.092Z",
+    "estado": "NOVA"
   }
 ]
