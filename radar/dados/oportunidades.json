@@ -148,31 +148,6 @@
     "estado": "NOVA"
   },
   {
-    "id": "hzvqki",
-    "termo": "exactly like this to DIY a bookshelf",
-    "dor": "This is amazing -- I was looking for a tool exactly like this to DIY a bookshelf. That said - I noticed none of the patterns had curved edges (or curved sides e.g. for a corner bookshelf. Is that technically possible or out of scope for now?",
-    "volumeEstimado": 200,
-    "urgencia": "MEDIA",
-    "score": 51,
-    "fatores": {
-      "velocidade": 48,
-      "dorExplicita": 60,
-      "volume": 50.67031326325076,
-      "viabilidade": 46,
-      "recorrencia": 47
-    },
-    "fontes": [
-      "https://news.ycombinator.com/item?id=50098335",
-      "https://news.ycombinator.com/item?id=50151178"
-    ],
-    "amostras": [
-      "This is amazing -- I was looking for a tool exactly like this to DIY a bookshelf. That said - I noticed none of the patterns had curved edges (or curved sides e.g. for a corner bookshelf. Is that tech",
-      "I love the origins GTA This is awesome but I wish there was a boost or have this be 5x faster, like “killfrenzy” from forever ago"
-    ],
-    "detectadoEm": "2026-10-20T07:40:12.399Z",
-    "estado": "NOVA"
-  },
-  {
     "id": "6o8wim",
     "termo": "for that",
     "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
@@ -253,6 +228,31 @@
       "My account is banned, so for whomever with [showdead] on: It's unfortunate that the supposed pillar of security dismisses Rust on dubious grounds. Yes, there is agenda coming from Ubuntu. And yet, Rus"
     ],
     "detectadoEm": "2026-10-04T21:33:59.268Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "hzvqki",
+    "termo": "exactly like this to DIY a bookshelf",
+    "dor": "This is amazing -- I was looking for a tool exactly like this to DIY a bookshelf. That said - I noticed none of the patterns had curved edges (or curved sides e.g. for a corner bookshelf. Is that technically possible or out of scope for now?",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 48,
+    "fatores": {
+      "velocidade": 33,
+      "dorExplicita": 60,
+      "volume": 50.67031326325076,
+      "viabilidade": 46,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50098335",
+      "https://news.ycombinator.com/item?id=50151178"
+    ],
+    "amostras": [
+      "This is amazing -- I was looking for a tool exactly like this to DIY a bookshelf. That said - I noticed none of the patterns had curved edges (or curved sides e.g. for a corner bookshelf. Is that tech",
+      "I love the origins GTA This is awesome but I wish there was a boost or have this be 5x faster, like “killfrenzy” from forever ago"
+    ],
+    "detectadoEm": "2026-10-20T13:36:20.737Z",
     "estado": "NOVA"
   },
   {
