@@ -50,6 +50,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "lrumoc",
+    "termo": "starlink",
+    "dor": "Exclusive | Musk Ordered Starlink Slowdown That Blindsided Ukraine · Trump says Musk has restored Ukraine's internet access · When Starshield Cut Out, Ukrainian Drones Fell From the Skies",
+    "volumeEstimado": 1100,
+    "urgencia": "MEDIA",
+    "score": 60,
+    "fatores": {
+      "velocidade": 88,
+      "dorExplicita": 30,
+      "volume": 95.13466682471037,
+      "viabilidade": 38,
+      "recorrencia": 92
+    },
+    "fontes": [
+      "https://trends.google.com/trends/explore?q=starlink&geo=BR",
+      "https://news.ycombinator.com/item?id=50201557"
+    ],
+    "amostras": [
+      "Exclusive | Musk Ordered Starlink Slowdown That Blindsided Ukraine · Trump says Musk has restored Ukraine's internet access · When Starshield Cut Out, Ukrainian Drones Fell From the Skies",
+      "This is the first step in having a Ukrainian-controlled alternative to Starlink & Starshield, which will be arbitrary restricted any time Musk and the Trump administration are upset with you. Between "
+    ],
+    "detectadoEm": "2026-10-22T22:23:58.762Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "xwiepn",
     "termo": "plex media server malware exploitation",
     "dor": "PSA: Patch your Plex media server before someone hacks it · Hackers Exploit Plex2Shell Flaws to Install Crypto Miners and Linux Proxy Backdoor · Plex2Shell Exploit Chain Weaponized Against Plex Servers Hours After Disclosure",
