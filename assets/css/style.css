@@ -942,3 +942,27 @@ p{max-width:66ch}
   .ksd-alerta,.ksd-item{padding:22px 18px}
   .ksd-quote{font-size:20px}
 }
+
+/* ============================================================
+/* v2 — redesenho por camada (Diretor de Site, 21/10/2026). Rota A: recombinação onemedical.com + parsleyhealth.com
+   (design-refs/saude-clinica) com a identidade do Dr. Roberto (marinho + petróleo). Lista negra: sai a serifa Cormorant. */
+:root{
+  --serif:"Instrument Sans","Manrope",system-ui,sans-serif;  /* títulos deixam de ser serifados */
+  --white:#F8F6F2;   /* branco quente (era frio) */
+  --mist:#EFEBE4;
+  --line:rgba(11,31,58,.12);
+  --r:22px;
+  --shadow:0 1px 0 rgba(11,31,58,.04),0 18px 40px -18px rgba(11,31,58,.18);
+}
+body{background:var(--white)}
+.h1,.h2,.h3,h1,h2,h3,.prob-card h3,.art-card h3,.opg-tit{letter-spacing:-.028em!important;font-weight:600!important}
+.h1{line-height:1.02}
+.prob-card,.art-card,.opcao,.ig-card,.etapas li,.doc-card{border-radius:var(--r)!important;background:#FFFDF9;border:1px solid var(--line)!important;box-shadow:var(--shadow)}
+.btn{border-radius:999px!important}
+.consent{border-radius:18px!important;max-width:640px}
+/* celular: o aviso de cookies cobria ~40% da primeira tela */
+@media (max-width:760px){
+  .consent{padding:12px 14px!important;gap:10px!important;left:10px!important;right:10px!important;bottom:10px!important}
+  .consent p{font-size:12.5px!important;line-height:1.45}
+  .consent-acts{width:100%}.consent-acts .btn{flex:1;padding:9px 12px!important;font-size:13.5px!important;min-height:0!important}
+}
