@@ -327,6 +327,29 @@
     "estado": "NOVA"
   },
   {
+    "id": "zgcpmv",
+    "termo": "git add -p that I generated that I find much more ergonomic) - stuff that’s a gi",
+    "dor": "I’m seeing two types of software: - stuff that’s easily replicable that I can tailor to my use-case (e.g. I have an alternative to git add -p that I generated that I find much more ergonomic) - stuff that’s a giant boondoggle to replicate because there are so many edge cases and considerations that it takes years of it",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 47,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 71,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50215647"
+    ],
+    "amostras": [
+      "I’m seeing two types of software: - stuff that’s easily replicable that I can tailor to my use-case (e.g. I have an alternative to git add -p that I generated that I find much more ergonomic) - stuff "
+    ],
+    "detectadoEm": "2026-10-23T22:16:23.274Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "g0nf2w",
     "termo": "the Android/iOS duopoly",
     "dor": "Will Linux phones become a viable alternative to the Android/iOS duopoly?",
