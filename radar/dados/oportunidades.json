@@ -100,6 +100,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "x64hbi",
+    "termo": "this is us",
+    "dor": "Inside Chrissy Metz's stunning home that could pass as a retreat – see rare photo · Chrissy Metz Stuns in Form-Fitting Gown After 60-Lb. Weight Loss · Chrissy Metz, 46, wows in slinky dress as she highlights 60lbs weight loss on red carpet",
+    "volumeEstimado": 300,
+    "urgencia": "MEDIA",
+    "score": 54,
+    "fatores": {
+      "velocidade": 88,
+      "dorExplicita": 30,
+      "volume": 73.96216561071016,
+      "viabilidade": 30,
+      "recorrencia": 92
+    },
+    "fontes": [
+      "https://trends.google.com/trends/explore?q=this%20is%20us&geo=BR",
+      "https://news.ycombinator.com/item?id=50151178"
+    ],
+    "amostras": [
+      "Inside Chrissy Metz's stunning home that could pass as a retreat – see rare photo · Chrissy Metz Stuns in Form-Fitting Gown After 60-Lb. Weight Loss · Chrissy Metz, 46, wows in slinky dress as she hig",
+      "I love the origins GTA This is awesome but I wish there was a boost or have this be 5x faster, like “killfrenzy” from forever ago"
+    ],
+    "detectadoEm": "2026-10-24T05:58:23.122Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "vxpbd2",
     "termo": "their SOP at all",
     "dor": "As somebody that’s had to deal with US banks and their bizarre “authentication” schemes: I wish. Many would actually rather you close their account with them than them making the tiniest compromise or offering any alternative to their SOP at all. That SOP strongly assumes things like “all customers have a mobile phone ",
@@ -346,7 +371,7 @@
     "amostras": [
       "I’m seeing two types of software: - stuff that’s easily replicable that I can tailor to my use-case (e.g. I have an alternative to git add -p that I generated that I find much more ergonomic) - stuff "
     ],
-    "detectadoEm": "2026-10-24T00:49:10.840Z",
+    "detectadoEm": "2026-10-24T05:58:23.122Z",
     "estado": "NOVA"
   },
   {
