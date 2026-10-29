@@ -396,7 +396,7 @@
       "I vibe coded an alternative to splitwise free",
       "Last week I built an alternative to splitwise (I called it sharebucks) completely for free. So if you share netflix, spotify, house bills or planning to share spending for a trip, feel free to use it!"
     ],
-    "detectadoEm": "2026-10-29T10:05:55.402Z",
+    "detectadoEm": "2026-10-29T16:57:41.699Z",
     "estado": "NOVA"
   },
   {
@@ -705,6 +705,29 @@
       "Alternative to Flatpak and to the counterless adhoc Repositories, what's the most reliable source for getting apps installed under Debian?"
     ],
     "detectadoEm": "2026-10-20T07:40:12.400Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "92d12p",
+    "termo": "what I said (which is that they are able but not willing)",
+    "dor": "I tried to be as charitable as possible. > I don’t mean that. So you actually think the USA, the most powerful and richest country in the history of the world, is unable to police its borders? That is the only alternative to what I said (which is that they are able but not willing). > I’m saying you do have to control ",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50291641"
+    ],
+    "amostras": [
+      "I tried to be as charitable as possible. > I don’t mean that. So you actually think the USA, the most powerful and richest country in the history of the world, is unable to police its borders? That is"
+    ],
+    "detectadoEm": "2026-10-29T16:57:41.699Z",
     "estado": "NOVA"
   }
 ]
