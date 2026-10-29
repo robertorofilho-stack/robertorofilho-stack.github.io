@@ -375,6 +375,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "eqp0mq",
+    "termo": "splitwise free",
+    "dor": "I vibe coded an alternative to splitwise free",
+    "volumeEstimado": 300,
+    "urgencia": "MEDIA",
+    "score": 47,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 30,
+      "volume": 55.43621586306581,
+      "viabilidade": 63,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50226520",
+      "https://news.ycombinator.com/item?id=50284838"
+    ],
+    "amostras": [
+      "I vibe coded an alternative to splitwise free",
+      "Last week I built an alternative to splitwise (I called it sharebucks) completely for free. So if you share netflix, spotify, house bills or planning to share spending for a trip, feel free to use it!"
+    ],
+    "detectadoEm": "2026-10-29T10:05:55.402Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "g0nf2w",
     "termo": "the Android/iOS duopoly",
     "dor": "Will Linux phones become a viable alternative to the Android/iOS duopoly?",
