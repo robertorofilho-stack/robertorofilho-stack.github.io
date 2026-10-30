@@ -281,6 +281,29 @@
     "estado": "NOVA"
   },
   {
+    "id": "lx2jvt",
+    "termo": "interest in making a unicode-but-better format which solves all the problems wit",
+    "dor": "Not at all, actually. In fact that's the opposite of what I'm arguing. There are countless things left to invent. It's just not worth doing most of the time. As a trivial example, Unicode is not a 100% perfect text encoding scheme. Why don't we have something better than unicode? Why is there no interest in making a un",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 49,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 80,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50304295"
+    ],
+    "amostras": [
+      "Not at all, actually. In fact that's the opposite of what I'm arguing. There are countless things left to invent. It's just not worth doing most of the time. As a trivial example, Unicode is not a 100"
+    ],
+    "detectadoEm": "2026-10-30T15:58:37.299Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "hzvqki",
     "termo": "exactly like this to DIY a bookshelf",
     "dor": "This is amazing -- I was looking for a tool exactly like this to DIY a bookshelf. That said - I noticed none of the patterns had curved edges (or curved sides e.g. for a corner bookshelf. Is that technically possible or out of scope for now?",
