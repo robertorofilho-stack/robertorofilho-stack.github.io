@@ -5,6 +5,19 @@
 
 ## Tomadas
 
+### 2026-10-31 — Curso de edição: vender só o que existe; nenhum CTA público sem produto + link + atendente instruída
+**Contexto:** divulgação no Instagram saiu antes de o produto existir em plataforma; leads chegaram à atendente de
+WhatsApp sem nenhuma instrução sobre o curso. Conselho de 4 motores (GPT, Grok, Gemini, DeepSeek): 4/4 AJUSTAR.
+**Decisão:** (1) pré-venda de conteúdo não gravado rejeitada (CDC arts. 30/35/37/49: arrependimento conta do recebimento;
+reter entrega só empurra a janela); (2) atendente em modo lista de espera com data declarada até o produto existir, sem
+cobrar; (3) segundo curso "para qualquer profissão" não nasce agora: mesma oferta, segunda porta de entrada; (4) critério
+de corte em 30 dias (conversão e reembolso) registrado no mestre.
+**Regra nova (vira checklist/hook na próxima repetição, §7):** antes de publicar qualquer chamada para ação, conferir três
+itens: produto criado na plataforma, link de checkout testado com compra-teste, atendente com a seção do produto publicada.
+Preço, oferta e roteiro ficam no mestre privado (§6).
+**Próximo passo que gera receita:** gravar as 8 aulas da Parte 1 (roteiro pronto) e criar o produto; a partir daí a
+atendente vende com link no mesmo minuto.
+
 ### 2026-09-27 — APROVADO pelo operador ("faça tudo"): skill nova só nasce de experiência real
 **Evidência:** CMU 11-768 aula 4 (fala, SkillsBench): skill escrita pelo modelo só a partir da descrição da tarefa
 **piora** o desempenho; o ganho de +16,6 pp publicado é otimista (skills filtradas por ajudarem).

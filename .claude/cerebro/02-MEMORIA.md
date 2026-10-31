@@ -5,6 +5,24 @@
 
 ---
 
+## 2026-10
+
+### 2026-10-31 — Curso de edição com IA: status urgente, nada à venda, Lia em lista de espera
+
+**Pedido:** "como está o curso de edição? já está à venda? gente falando com a Lia depois da divulgação no Instagram."
+**Fontes:** mestre privado (clonado, só leitura), Drive, Gmail, conselho de 4 motores (`/conselho`, US$ 0,04).
+**Achado:** o pacote de texto do curso existe no mestre (29/10), mas nada está em plataforma, sem link, sem área de membros,
+16 de 17 aulas não gravadas, e a base viva da atendente de WhatsApp não tinha uma linha sobre o curso. Divulgação saiu
+antes de existir passo de venda.
+**Conselho 4/4 AJUSTAR:** pré-venda de conteúdo não gravado morta (CDC 30/35/37/49); vender só o que existe; atendente
+corrigida hoje; segundo curso "para qualquer profissão" = mesma oferta com segunda porta, não produto novo.
+**Entregue (no Drive, pasta "Curso Edita com IA — missão 31-10", e para o mestre):** relatório de status com plano de 7 dias
+e roteiro de execução; script idempotente que insere a seção do curso na base da atendente (modo lista de espera / modo venda,
+testado 357 → 407 linhas); parecer dos 4 motores; memória para o índice do mestre. Push ao mestre a partir da nuvem foi
+negado pelo classificador → o Claude do Mac copia.
+**Lição (vira regra):** nenhum CTA público ("comenta X", "chama no WhatsApp") sem três coisas prontas: produto criado,
+link de checkout e atendente instruída. Detalhe de preço/oferta fica no mestre (§6: produto não lançado não entra aqui).
+
 ## 2026-09
 
 ### 2026-09-27 — Aprendizado de fronteira em agentes: estudado, auditado, instalado e MEDIDO
