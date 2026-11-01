@@ -100,6 +100,33 @@
     "estado": "NOVA"
   },
   {
+    "id": "2487m",
+    "termo": "test",
+    "dor": "South Africa vs Australia LIVE: Third Test, day five, Newlands, Cape Town - cricket score & updates · Aussies fold on final day as Proteas take series, No.1 ranking · Aussies humiliated after another batting collapse in Cape Town",
+    "volumeEstimado": 785,
+    "urgencia": "MEDIA",
+    "score": 57,
+    "fatores": {
+      "velocidade": 92,
+      "dorExplicita": 30,
+      "volume": 82.68940113851437,
+      "viabilidade": 30,
+      "recorrencia": 100
+    },
+    "fontes": [
+      "https://trends.google.com/trends/explore?q=test&geo=BR",
+      "https://news.ycombinator.com/item?id=50313806",
+      "https://stackoverflow.com/questions/80013228/how-to-import-typescript-project-files-in-mocha-test-file"
+    ],
+    "amostras": [
+      "South Africa vs Australia LIVE: Third Test, day five, Newlands, Cape Town - cricket score & updates · Aussies fold on final day as Proteas take series, No.1 ranking · Aussies humiliated after another ",
+      "No it is not an alternative to a colonoscopy it is a different test. If this test finds something then the next step is not treatment it is you need a colonoscopy. It is a test that cuts down on the n",
+      "I'm trying to run tests on my project base, but Mocha seems entirely unwilling to respect my TypeScript configuration so it can build properly. When the test is run, this is the output: Console loggin"
+    ],
+    "detectadoEm": "2026-11-01T10:34:36.695Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "x64hbi",
     "termo": "this is us",
     "dor": "Inside Chrissy Metz's stunning home that could pass as a retreat – see rare photo · Chrissy Metz Stuns in Form-Fitting Gown After 60-Lb. Weight Loss · Chrissy Metz, 46, wows in slinky dress as she highlights 60lbs weight loss on red carpet",
@@ -419,7 +446,7 @@
     "amostras": [
       "Not at all, actually. In fact that's the opposite of what I'm arguing. There are countless things left to invent. It's just not worth doing most of the time. As a trivial example, Unicode is not a 100"
     ],
-    "detectadoEm": "2026-11-01T02:17:24.959Z",
+    "detectadoEm": "2026-11-01T10:34:36.698Z",
     "estado": "NOVA"
   },
   {
