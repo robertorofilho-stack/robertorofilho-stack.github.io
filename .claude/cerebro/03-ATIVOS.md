@@ -6,6 +6,7 @@
 
 | Ativo | Local | Estado | Data |
 |---|---|---|---|
+| Motor de videoaula (HTML `renderAt(t)` → Playwright → ffmpeg; sincronia por pausas da narração; capas, pacotes, folha de quadros) | mestre privado `projetos/produtos-saude/edicao-com-ia-para-saude/motor-videoaula/` (cópia local não rastreada em `.claude/helpers/videoaula/`) | 🟢 18 aulas em 31/10 (1,7× tempo real por fila); v2 com telas reais no servidor | 2026-11-03 |
 | Site institucional | www.drrobertorodrigues.com | 🟢 no ar | — |
 | `llms.txt` (descoberta por IA) | `/llms.txt` | 🟢 no ar | — |
 | Infraestrutura de agente | `.claude/` + `CLAUDE.md` | 🟢 ativo | 2026-09-10 |
@@ -40,6 +41,7 @@
 
 | Produto | Nicho | Preço | Estado | Receita | Data |
 |---|---|---|---|---|---|
+| Curso de edição com IA, 2 partes (método do operador; 18 videoaulas sem clone; público geral desde v2) | mestre privado: produto, preço, links e entrega | 🟢 à venda desde 01/11 na plataforma de checkout com área de membros; atendente em modo venda | 2026-11-03 |
 | Exemplo gerado sob demanda (`gerar-saas.ts --fixture`; não versionado — CI regenera) | CSV bancário → resumo mensal de gastos | R$9,90 / US$1,90 | 🧪 esqueleto | R$0 | 2026-09-10 |
 
 _Primeira caçada de infoproduto ainda pendente: `/cacar-produto aberto`._

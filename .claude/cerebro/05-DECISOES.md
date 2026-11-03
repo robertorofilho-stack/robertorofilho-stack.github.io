@@ -5,6 +5,17 @@
 
 ## Tomadas
 
+### 2026-11-03 — Passagem entre sessões: branch de passagem + script idempotente + missão; push ao mestre só com autorização escrita
+**Contexto:** o produto nasceu na nuvem e a venda exige o Mac (chaves, SSH, painel). Push ao mestre foi negado duas vezes.
+**Decisão:** entregar por 5 ZIPs + `assumir.sh` + `MISSAO-MAC.md`; push só depois de o operador autorizar por escrito, num
+branch de passagem; nunca master; a sessão do Mac puxa a pasta e segue. Memória do Cérebro que nasce na nuvem vai em branch
+próprio do mestre até o operador fundir.
+**Regra:** mídia pesada não entra no master do mestre (ZIP/MP4 ignorados; viajam só no branch de passagem).
+
+### 2026-11-01 — Garantia sempre 7 dias (lei do operador, registrada no mestre)
+Nunca propor 15 ou 30 dias como argumento de venda; proteção contra "consome e cancela" vem de liberação em etapas avisada,
+streaming sem download e marca d'água, não de garantia maior.
+
 ### 2026-10-31 — Curso de edição: vender só o que existe; nenhum CTA público sem produto + link + atendente instruída
 **Contexto:** divulgação no Instagram saiu antes de o produto existir em plataforma; leads chegaram à atendente de
 WhatsApp sem nenhuma instrução sobre o curso. Conselho de 4 motores (GPT, Grok, Gemini, DeepSeek): 4/4 AJUSTAR.
@@ -181,3 +192,5 @@ pagamento ou clique no checkout. Relatório completo entregue ao operador (não 
 - [x] **`fundir-indice.py` v4 + `verificar-indice.py` no mestre** — instalados pelo Claude do Mac (`c96d37e`), prova 244 → 244
 - [x] **Regra READ-ONLY do Codex no mestre** — seção nos dois AGENTS.md + portão pre-commit (`935dc1d`)
 - [ ] **Portão do mestre no Mac mini** — vive em `.git/hooks` (não viaja); no mini: recriar o hook ou versionar via `core.hooksPath`
+- [ ] **Fundir `claude/memoria-curso-edicao-03-11` no master do mestre** — memória da missão do curso fica fora do índice até lá (branch só com 2 arquivos de memória)
+- [ ] **Fundir `claude/curso-edicao-status-31-10` na `main` daqui** — memória pública 31/10 + 03/11
