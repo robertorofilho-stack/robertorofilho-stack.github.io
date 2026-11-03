@@ -1,5 +1,5 @@
 # SOBERANIA DO MOTOR — hashes dos arquivos do motor Claude Code. Regravado só pelo Claude Code.
-fc78aeb8e32f46c9f3142e28d4449259e7dc8b26fb7563c9e274eef7c6624126  .claude/CAPACIDADES.txt
+a7c13e10f0387261aab86f44a0552beb6358a701a44e7d3ff09fa65d2eed98ba  .claude/CAPACIDADES.txt
 2b97a96a2848e2a14d5cddb1676ab549e82d29d2b0ecb78a60d1e735c11a7119  .claude/KIT-RECUPERACAO.md
 71322cffacba4ed594745402b9bc02174b37bf3a6605e6469cb6cf306af9fa55  .claude/MCP-ARSENAL.md
 635d11da28cda70b6dd5ac1d63ba87a2c74083704266896ad4b469300785d7e8  .claude/agents/arquiteto.md
@@ -32,6 +32,14 @@ a1baaa94b041659843ca89874cbad6776c171bb5d72812c01476578115ba5ad4  .claude/helper
 dc74e217b6ffa6dcb5192ae11580f0c1da8c81d713b4e96555b8740e3cbf6a3b  .claude/helpers/conselho/testar-conselho.py
 99c70d63443e8e76974c56f63fe8d4418d09b6484077fc4b1fcda2bba5fc8475  .claude/helpers/pensar/arvore.py
 a279b32cc45e31ca1f18826150f4c715b6718e172438976bac8a5f389bb1e98e  .claude/helpers/pensar/testar-arvore.py
+17673d1ebafde13f1349409781a971f6dc5c5b9a1bdac9e3fa2c463e5387c8d7  .claude/helpers/videoaula/README.md
+f07fe817f52a7cc2cdc2a0763c6dfc14aa1361583305e639496be14153b835e9  .claude/helpers/videoaula/aula.html
+59741c133c827994dfa9461385786efa26808c6f7d795d16fb88cebf63dd35a5  .claude/helpers/videoaula/mux.sh
+dca9214932345a41abfbdaa3ebcabccd6e1ed55e1098425c7d590112c278f291  .claude/helpers/videoaula/narrar_prep.py
+880f02cf118f5fc4365db4481d8fce21db75aada5e7efe5e8e104ecbf9e97ace  .claude/helpers/videoaula/producao.sh
+c592482b1e94084eb3352ef80a3f199fdfd426473ccb3c1a7ca63764510d0c1b  .claude/helpers/videoaula/quadros.mjs
+acef343ba26c0b23d3421034a14d9b8ff8767e5bad656e45b1a3c152a46c8cbd  .claude/helpers/videoaula/render.mjs
+63b62608e09360a19a8aa1ce2072c748c8623dc41e186f3ff1b3f09c3afde632  .claude/helpers/videoaula/sincronizar.py
 ab92b1e3d07ccb9b76fcc1b1fda123a6146e096b924c5aba61ef46817dc3034e  .claude/hooks/_ancoras.py
 5efbae554c789109e678484f9dc7a062b230a72f57a09a3abdac09e5ef91e59f  .claude/hooks/_capacidades.sh
 78f6b9f0801e9b3b7c0349b9fb04c68991f70d1c6eda1fe99261250b8d31f66d  .claude/hooks/_integridade.sh

@@ -5,6 +5,51 @@
 
 ---
 
+## 2026-11
+
+### 2026-11-03 — Curso de edição com IA: produzido na nuvem (31/10), passado ao Mac e à venda desde 01/11
+
+**Pedido (31/10):** "terminar tudo; curso em vídeo, passo a passo didático, prompts prontos, pasta para baixar; urgente"; depois
+"um comando para o cérebro do MacBook assumir"; depois "atualize a memória e veja como está" (03/11).
+**Feito na nuvem (31/10):** 18 videoaulas explicativas sem clone (telas animadas + narração por voz de IA, 1 take por aula),
+2 pacotes do aluno, capas, 7 textos da Mesa do Marketing, auditoria red-team com 15 achados aplicados, remendo idempotente da
+atendente de WhatsApp (modo lista de espera / modo venda), runbook da plataforma e memória para o mestre. Motor de videoaula
+reutilizável para qualquer curso (ver `03-ATIVOS`).
+**Passagem nuvem → Mac:** 5 ZIPs + `assumir.sh` (acha os ZIPs em Downloads, instala motor/atendente/memória no mestre, abre o
+Claude do Mac com `MISSAO-MAC.md`; idempotente, testado em sandbox com nome "(1).zip"). Push ao mestre: negado duas vezes pelo
+classificador; feito só depois de autorização por escrito do operador, em branch de passagem, nunca master. A sessão do Mac
+puxou pelo branch e seguiu.
+**Feito no Mac/servidor (01–02/11, por outra sessão):** versão 2 para público geral (telas reais, exemplo de negócio comum,
+10 narrações refeitas), produção movida para o servidor, 2 produtos criados na plataforma de checkout com área de membros
+(9 aulas cada + pacote), atendente publicada em modo venda a partir da base viva, aviso à lista de espera com ordem explícita.
+**Conferido hoje da nuvem:** os dois checkouts respondem e mostram Pix e cartão em até 10x, sem boleto (prints no chat).
+A memória da missão não estava no índice do mestre (ficou dentro da pasta de passagem) → gravada em branch próprio do mestre.
+A sessão do Mac caiu por login expirado em 02/11.
+**Lições:** (1) base viva da atendente ≠ arquivo do git: publicar a partir do banco, nunca do arquivo defasado; (2) passagem
+entre sessões = branch de passagem + script idempotente + arquivo de missão, e a mensagem entre sessões só passa com o cartão
+de confiança aprovado pelo operador; (3) avisar lista por filtro de palavra pega quem queria outra coisa (1 aviso errado) →
+filtrar pelo pedido registrado; (4) garantia = 7 dias, lei do operador desde 01/11, nunca propor mais; (5) o classificador
+barra push "como meio", ativação de produto e envio de WhatsApp: pedir a palavra do operador, não contornar.
+Detalhe de preço, links, entrega e pendências fica no mestre (§6).
+
+## 2026-10
+
+### 2026-10-31 — Curso de edição com IA: status urgente, nada à venda, Lia em lista de espera
+
+**Pedido:** "como está o curso de edição? já está à venda? gente falando com a Lia depois da divulgação no Instagram."
+**Fontes:** mestre privado (clonado, só leitura), Drive, Gmail, conselho de 4 motores (`/conselho`, US$ 0,04).
+**Achado:** o pacote de texto do curso existe no mestre (29/10), mas nada está em plataforma, sem link, sem área de membros,
+16 de 17 aulas não gravadas, e a base viva da atendente de WhatsApp não tinha uma linha sobre o curso. Divulgação saiu
+antes de existir passo de venda.
+**Conselho 4/4 AJUSTAR:** pré-venda de conteúdo não gravado morta (CDC 30/35/37/49); vender só o que existe; atendente
+corrigida hoje; segundo curso "para qualquer profissão" = mesma oferta com segunda porta, não produto novo.
+**Entregue (no Drive, pasta "Curso Edita com IA — missão 31-10", e para o mestre):** relatório de status com plano de 7 dias
+e roteiro de execução; script idempotente que insere a seção do curso na base da atendente (modo lista de espera / modo venda,
+testado 357 → 407 linhas); parecer dos 4 motores; memória para o índice do mestre. Push ao mestre a partir da nuvem foi
+negado pelo classificador → o Claude do Mac copia.
+**Lição (vira regra):** nenhum CTA público ("comenta X", "chama no WhatsApp") sem três coisas prontas: produto criado,
+link de checkout e atendente instruída. Detalhe de preço/oferta fica no mestre (§6: produto não lançado não entra aqui).
+
 ## 2026-09
 
 ### 2026-09-27 — Aprendizado de fronteira em agentes: estudado, auditado, instalado e MEDIDO
