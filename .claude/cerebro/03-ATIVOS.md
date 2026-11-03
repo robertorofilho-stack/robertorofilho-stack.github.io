@@ -6,7 +6,7 @@
 
 | Ativo | Local | Estado | Data |
 |---|---|---|---|
-| Motor de videoaula (HTML `renderAt(t)` → Playwright → ffmpeg; sincronia por pausas da narração; capas, pacotes, folha de quadros) | mestre privado `projetos/produtos-saude/edicao-com-ia-para-saude/motor-videoaula/` (cópia local não rastreada em `.claude/helpers/videoaula/`) | 🟢 18 aulas em 31/10 (1,7× tempo real por fila); v2 com telas reais no servidor | 2026-11-03 |
+| Motor de videoaula (HTML `renderAt(t)` → Playwright → ffmpeg; sincronia por pausas da narração; capas, pacotes, folha de quadros) | mestre privado `projetos/produtos-saude/edicao-com-ia-para-saude/motor-videoaula/` (motor genérico rastreado aqui em `.claude/helpers/videoaula/`; capas e entrega do produto só no mestre) | 🟢 18 aulas em 31/10 (1,7× tempo real por fila); v2 com telas reais no servidor | 2026-11-03 |
 | Site institucional | www.drrobertorodrigues.com | 🟢 no ar | — |
 | `llms.txt` (descoberta por IA) | `/llms.txt` | 🟢 no ar | — |
 | Infraestrutura de agente | `.claude/` + `CLAUDE.md` | 🟢 ativo | 2026-09-10 |
