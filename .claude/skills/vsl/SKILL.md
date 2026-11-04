@@ -54,3 +54,5 @@ Preencha: avatar · dor · falha anterior · desejo · inimigo · mecanismo · p
 5. **Página de suporte:** headline, bullets e CTA que acompanham o vídeo
 
 Se for VSL do médico: sem promessa de cura, sem antes-e-depois, CFM respeitado. Autoridade vende sozinha quando é real.
+
+> **04/11/2026 — Mestres da copy:** consultar `.claude/cerebro/CONHECIMENTO-COPY-MESTRES.md` antes de executar (processo de copy §3, ganchos por evidência §4, oferta e funil com número §5, conformidade §7). Dossiês completos no Cérebro mestre.

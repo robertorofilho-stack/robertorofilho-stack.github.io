@@ -85,3 +85,6 @@ Ordem que funciona:
 ## Entrega
 
 Estrutura do funil + **código pronto** (HTML/CSS/JS ou componentes) + snippets de tracking configurados + checklist de QA antes de subir. Não descreva o funil. Construa.
+
+## 04/11/2026 — Mestres da copy, do criativo e das vendas
+Ler `.claude/cerebro/CONHECIMENTO-COPY-MESTRES.md` §5–6. Money Models (Hormozi 2025): caixa de 30 dias ≥ CAC; 1 em 8 no upsell = +50% de lucro; attraction → upsell Menu ("você NÃO precisa de X, precisa de Y") → downsell feature/seesaw → continuidade com bônus > 1ª parcela; "uma oferta por vez". Esteira BR com número: entrada R$ 27–97 (amostra paga — Hopkins) → bump (1 em 5 aceita; +30%; 20–40% do preço) → upsell (8–10%) → diagnóstico → mentoria; a 2ª venda custa 5–10% contra 10–50% da 1ª (Collier); preço sobe com os "sim" (94% dos que subiram venderam mais). R$ 97 libera 12× (lei: parcela só > R$ 90); nunca boleto. Lançamento: ≈ 50% das vendas no último dia, ≥ 3 toques (Walker). WhatsApp com IA no low-ticket = recuperação (Pix pendente 30 min/24 h), não front-end. Garantia 7 dias dita como direito (CDC 49). Rastrear por UTM/cupom por criativo (Kennedy regra 4).

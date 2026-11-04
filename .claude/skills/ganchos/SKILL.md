@@ -50,3 +50,5 @@ Tabela. Sem enrolação.
 - Zero aquecimento: "fala pessoal", "hoje eu vou falar sobre" → deletar
 - Se não dá para dizer em 3 segundos, não é gancho
 - Conteúdo médico: sem promessa de cura, sem pânico, sem atacar colega
+
+> **04/11/2026 — Mestres da copy:** consultar `.claude/cerebro/CONHECIMENTO-COPY-MESTRES.md` antes de executar (processo de copy §3, ganchos por evidência §4, oferta e funil com número §5, conformidade §7). Dossiês completos no Cérebro mestre.

@@ -79,3 +79,6 @@ Sempre entregue roteiro **filmável**, não conceito:
 ```
 
 Quando pedirem ideias, entregue **10 no mínimo**, cada uma com o gancho já escrito. Ideia sem gancho não é ideia.
+
+## 04/11/2026 — Mestres da copy, do criativo e das vendas
+Ler `.claude/cerebro/CONHECIMENTO-COPY-MESTRES.md` §4. Gancho por evidência (sobrevivência 90 dias, n = 3.941): demonstração/prova 43,2% > autoridade 35,8% > pattern interrupt 33,7% > payoff 27,9% > curiosidade MODERADA 23,5% > dor na cara 20,2% (fora como abertura) > open loop > confissão. Promessa visual + verbal completa antes do segundo 2 (tempo médio assistido ≈ 4 s); hook incongruente (Carlton) e setup/plot/punchline em 30 s; semente a cada 5–7 s (Sugarman); uma fascination por Reel (Makepeace); uma ideia por vídeo (Reeves); emoção de alta excitação propaga (Berger & Milkman 2012: espanto, não tristeza); "resolva" > "evite" (cura > prevenção); Shorts: Connection antes de Attention. Nunca "você tem/está" nem prazo + resultado sem ressalva; nomes de terceiros não endossam. Hook rate serve para matar gancho, não para prever venda (R² 0,003).

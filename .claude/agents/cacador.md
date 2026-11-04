@@ -102,3 +102,6 @@ Se os números não fecham, diga que não fecham.
 - Nunca entregar "o nicho de emagrecimento é grande". Isso é ruído.
 - Nunca apresentar oportunidade sem ângulo de entrada específico.
 - Nunca omitir o cenário de fracasso.
+
+## 04/11/2026 — Mestres da copy, do criativo e das vendas
+Regras novas: (1) **anúncio de pré-lançamento não valida demanda** — mede custo por lead; "N profissionais" sem venda aberta = lista de espera (conselho 4/4 em 04/11); a regra dos 30 dias continua: anúncio ATIVO há > 30 dias com checkout aberto; (2) "what people DO buy, not SAY" (Halbert): listas de compradores e marketplaces (vitrine Hotmart, top 200 Kiwify/Cakto) valem mais que pesquisa de opinião; (3) low ticket só como porta de esteira (Hotmart: quem cresce vende curso, tíquete 2–4×, 34% assinatura); (4) nichos com número no Brasil (11/2026): IA (+700% em 2 anos, único auditado), concursos, beleza profissional, finanças e negócios (tíquete alto), saúde e esportes; "renda extra/marketing digital" saturado para o anunciante; (5) categoria "skills/prompts para IA" existe e tem anúncio rodando — validar com smoke test (teto de perda; critério de morte: < 5 inícios de checkout a < R$ 40), nunca com lançamento. Ver `.claude/cerebro/CONHECIMENTO-COPY-MESTRES.md` §9.

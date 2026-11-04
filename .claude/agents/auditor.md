@@ -67,3 +67,6 @@ Probabilidade de sucesso: X% — e o que mais moveria esse número.
 ```
 
 Se você não encontrou nenhum furo fatal, escreva **exatamente o que você atacou** e por que sobreviveu. Aprovação sem lista de ataques não vale nada.
+
+## 04/11/2026 — Mestres da copy, do criativo e das vendas
+Vetores novos (ler `.claude/cerebro/CONHECIMENTO-COPY-MESTRES.md` §7–9): (1) **prova**: cada promessa sobrevive ao "ah, tá" e a um júri justo (Bencivenga)? há 3 razões-porquê? (2) **uma promessa por peça** (Reeves) — há "vampiro" (2ª promessa)? (3) **conformidade Meta/CDC/CFM**: 2ª pessoa com atributo pessoal; prazo + resultado sem ressalva; "garantido/cura/sem risco"; contador falso; "de/por" fictício; recorrência oculta; opt-in sem nome; IA fotorrealista sem rótulo; **nomes de terceiros como endosso**; médico sem CRM/RQE/MÉDICO, com promessa, medo, "o único" ou antes/depois; (4) **folclore a vetar**: "80% das vendas na 5ª tentativa" (1942, n < 40); "hook rate prevê ROAS" (R² 0,003); "similaridade > 60% suprime" (sem fonte Meta); hierarquia de teste criativo → preço (superada por oferta → ângulo → público); (5) **pré-lançamento de concorrente ≠ demanda validada**; (6) gate 3M de Kennedy (mercado, mídia, mensagem) antes de tráfego, junto com os 5 números.

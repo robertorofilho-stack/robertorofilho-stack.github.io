@@ -25,6 +25,19 @@ Quase sempre. Testar antes de assumir o contrário.
 Entregar sem rodar é apostar. Abrir no navegador, rodar o teste, checar a saída real —
 custa minutos e economiza retrabalho de horas.
 
+### Gancho de demonstração vence gancho de dor (evidência 2026)
+Em 3.941 anúncios (UGC Factory, out/2026), o gancho que demonstra/prova sobrevive 43,2% (1,6× a média);
+"dor na cara" é o mais usado e rende 20,2%. Autoridade (credencial no 1º frame) vem em 2º. Aplicação: abrir
+mostrando o resultado ou o produto agindo; a dor entra em 3ª pessoa, depois.
+
+### Hook rate mata gancho, não decide escala
+Mediana 20,9% na Meta (set/2026); em infoproduto, R² de 0,003 entre hook rate e ROAS (abr/2024). Abaixo
+de 20%: trocar gancho. Escalar: só por CPA/ROAS. Ordem de teste: oferta → ângulo → público → gancho → formato.
+
+### Pré-lançamento de concorrente não é demanda validada
+Anúncio para página sem checkout mede custo por lead. "N profissionais" sem venda aberta é lista de espera.
+A regra dos 30 dias exige anúncio ativo COM checkout aberto. (Conselho de 4 motores, 04/11/2026, 4/4.)
+
 ## Aprendido na operação
 
 _A preencher com resultado real._

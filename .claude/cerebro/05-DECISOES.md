@@ -5,6 +5,26 @@
 
 ## Tomadas
 
+### 2026-11-04 — Mestres da copy: absorver no Cérebro, não lançar produto em 14 dias; próximo passo de receita é a Lia
+**Contexto:** o operador mandou aprender um manual de copy (10 mestres) e um anúncio concorrente que vende "esses mestres
+dentro da sua IA" (produto low-ticket de skills para Claude/ChatGPT, em pré-lançamento), repassar aos diretores e
+pesquisar muito mais. Primeira reação: lançar produto igual em 14 dias.
+**Conselho de 4 motores (GPT, Grok, Gemini, DeepSeek; modo contra; US$ 0,04): 4/4 AJUSTAR.** Pré-lançamento mede CPL,
+não demanda; a conta não fecha no ticket de entrada sem bump/upsell; sem fosso (prompt vaza); empilhar nomes de
+terceiros sugere endosso (CONAR/Meta) e atrai só copywriters; ortopedista sem prova no nicho; WhatsApp com IA
+encarece o CAC no low-ticket.
+**Decisão:** (1) o conhecimento entra no Cérebro (30 dossiês, destilação de 64 itens, catálogo de ganchos, guia de
+conformidade, guia da Lia) e nos agentes daqui; (2) **nenhum produto novo agora**; (3) próximo passo de receita, custo
+zero: A/B de 14 dias na atendente de WhatsApp (script atual × checklist dos mestres de vendas); (4) antes de qualquer
+gasto, fechar a lacuna da Biblioteca de Anúncios (login) da máquina do operador; (5) se houver smoke test da categoria
+"skills de IA", é com teto de perda, gancho de mecanismo (sem nomes) e critério de morte explícito (< 5 inícios de
+checkout a < R$ 40), sob o gate G5 e aprovação do operador.
+**Divergências registradas:** Gemini sugere R$ 97 com 12× e 2 bumps; Grok sugere lista de espera sem Pix; GPT e DeepSeek
+exigem checkout real. Contradições entre mestres (hype × prova; medo × positivo; volume × "menos e melhores"; lançamento
+× perpétuo; fechar × não fechar) resolvidas por "dado medido > mestre" — ver CONHECIMENTO-COPY-MESTRES §8.
+**Regra nova:** "anúncio ativo há > 30 dias" só vale com checkout aberto; pré-lançamento não conta.
+
+
 ### 2026-11-03 — Passagem entre sessões: branch de passagem + script idempotente + missão; push ao mestre só com autorização escrita
 **Contexto:** o produto nasceu na nuvem e a venda exige o Mac (chaves, SSH, painel). Push ao mestre foi negado duas vezes.
 **Decisão:** entregar por 5 ZIPs + `assumir.sh` + `MISSAO-MAC.md`; push só depois de o operador autorizar por escrito, num

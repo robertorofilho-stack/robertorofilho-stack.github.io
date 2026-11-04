@@ -7,6 +7,31 @@
 
 ## 2026-11
 
+### 2026-11-04 — Mestres da copy, do criativo e das vendas: aprendidos, gravados e repassados (Diretor de Aprendizado)
+
+**Pedido:** "Aprenda tudo isso. Coloque na memória. Passe aos diretores interessados. E busque muito mais sobre eles" + "Peça ao
+diretor de aprendizado". Material: manual de copy de 10 mestres (rascunho Gemini, 331 linhas) + gravação de tela de 13,7 s.
+**Vídeo decifrado (áudio + 14 quadros):** anúncio patrocinado de um concorrente no Instagram — "Imagine Hopkins, Caples, Ogilvy,
+Schwartz, Cialdini, Halbert, Makepeace, Kennedy, Brunson e Hormozi dentro da sua IA" — vendendo um pacote de skills de copy
+para Claude/ChatGPT (low-ticket, garantia 7 dias, vendas ainda não abertas). O manual nasceu dessa premissa.
+**Feito:** mestre privado anexado e clonado; Diretor de Aprendizado (skill v3, 8 leis) assumiu; 6 subagentes de pesquisa em
+paralelo (clássicos, era de ouro, oferta/funil, criativo 2024–26, vendas/fechamento, Brasil) = ≈ 44 mil palavras com fonte e
+data, LACUNAs declaradas, 51 pessoas/escolas cobertas com críticas e lado sombrio; conselho de 4 motores sobre o próximo passo
+de receita (4/4 AJUSTAR: não lançar produto em 14 dias). **No mestre** (branch de passagem `claude/aprendizado-copy-mestres-04-11`,
+aguarda fusão pelo operador): pasta `aprendizado-copy-mestres-2026-11-04/` (manual original, análise do vídeo, destilação com
+64 itens "instalo ou não", catálogo de ~95 ganchos com flags Meta/CFM, guia de conformidade CDC/LGPD/CFM 2.336/Meta, guia da Lia
+com 25 objeções + cadência + checklist, repasse, 6 pesquisas); `marketing-council` de 12 para 30 dossiês; seções datadas em 17
+arquivos de diretores/skills; arsenal §10; memória + índice. **Aqui:** `CONHECIMENTO-COPY-MESTRES.md`, seções nos agentes
+copychief/viral/funil/cacador/auditor, ponteiros em vsl/oferta/ganchos/lancamento, playbooks, decisão.
+**Números:** transcrição US$ 0,02 (Gemini 3.8 Flash via OpenRouter); conselho US$ 0,04; subagentes ≈ 2,1 M tokens.
+**Lições:** (1) OpenRouter lista variantes `:batch` que não aceitam chat/completions — filtrar; (2) Biblioteca de Anúncios e TikTok
+Top Ads pedem login na nuvem — a regra dos 30 dias só fecha da máquina do operador; (3) `ffmpeg -v error` esconde o
+`volumedetect`; (4) pré-lançamento de concorrente ≠ demanda validada (regra nova no playbook); (5) os mestres convergem em
+método de prova e teste, não em frases — e o dado de 2026 (demonstração 43% > dor 20%) bate com Hopkins (positivo 4:1).
+**Próximo passo que gera receita:** A/B de 14 dias na atendente de WhatsApp com o guia da Lia (custo zero); depois, Biblioteca
+de Anúncios no Chrome do operador para os 5 nichos com evidência; só então smoke test sob o gate G5.
+
+
 ### 2026-11-03 — Curso de edição com IA: produzido na nuvem (31/10), passado ao Mac e à venda desde 01/11
 
 **Pedido (31/10):** "terminar tudo; curso em vídeo, passo a passo didático, prompts prontos, pasta para baixar; urgente"; depois

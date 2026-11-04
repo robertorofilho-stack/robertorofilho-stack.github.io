@@ -6,6 +6,7 @@
 
 | Ativo | Local | Estado | Data |
 |---|---|---|---|
+| Conhecimento dos mestres da copy, criativo e vendas (51 pessoas/escolas, 6 frentes, fontes datadas) + repasse a 5 agentes e 4 skills; no mestre: 30 dossiês do conselho, catálogo de ~95 ganchos com flags, guia de conformidade, guia da Lia, destilação de 64 itens | `.claude/cerebro/CONHECIMENTO-COPY-MESTRES.md` · mestre privado `aprendizado-copy-mestres-2026-11-04/` | 🟢 instalado; branch de passagem no mestre aguarda fusão | 2026-11-04 |
 | Motor de videoaula (HTML `renderAt(t)` → Playwright → ffmpeg; sincronia por pausas da narração; capas, pacotes, folha de quadros) | mestre privado `projetos/produtos-saude/edicao-com-ia-para-saude/motor-videoaula/` (motor genérico rastreado aqui em `.claude/helpers/videoaula/`; capas e entrega do produto só no mestre) | 🟢 18 aulas em 31/10 (1,7× tempo real por fila); v2 com telas reais no servidor | 2026-11-03 |
 | Site institucional | www.drrobertorodrigues.com | 🟢 no ar | — |
 | `llms.txt` (descoberta por IA) | `/llms.txt` | 🟢 no ar | — |
