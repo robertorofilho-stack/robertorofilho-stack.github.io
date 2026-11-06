@@ -225,6 +225,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "8liyqt",
+    "termo": "in Windows that will dump all of a process context to debug these kind of things",
+    "dor": "Is there a tool in Windows that will dump all of a process context to debug these kind of things: CWD, env vars, current user, elevation, etc.",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 51,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 60,
+      "volume": 50.67031326325076,
+      "viabilidade": 46,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50307576",
+      "https://news.ycombinator.com/item?id=50393700"
+    ],
+    "amostras": [
+      "Is there a tool in Windows that will dump all of a process context to debug these kind of things: CWD, env vars, current user, elevation, etc.",
+      "> no one in the established “expert” car companies thought that mainstream EVs were feasible No executive in the established \"expert\" car companies had any reason to rock the boat. Establishing EVs as"
+    ],
+    "detectadoEm": "2026-11-06T15:58:17.768Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "6o8wim",
     "termo": "for that",
     "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
