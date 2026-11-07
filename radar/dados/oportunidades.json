@@ -152,6 +152,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "vwiue7",
+    "termo": "publishing a long blog post is creating a presentation, which by design only all",
+    "dor": "Agreed. I think a better alternative to publishing a long blog post is creating a presentation, which by design only allows bite-sized chunks of information per slide.",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 54,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 60,
+      "volume": 50.67031326325076,
+      "viabilidade": 55,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50405818",
+      "https://news.ycombinator.com/item?id=50321671"
+    ],
+    "amostras": [
+      "Agreed. I think a better alternative to publishing a long blog post is creating a presentation, which by design only allows bite-sized chunks of information per slide.",
+      "I wish there was a minimal Casio watch which only had heart rate tracking (with high frequency polling too)."
+    ],
+    "detectadoEm": "2026-11-07T20:16:14.510Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "vxpbd2",
     "termo": "their SOP at all",
     "dor": "As somebody that’s had to deal with US banks and their bizarre “authentication” schemes: I wish. Many would actually rather you close their account with them than them making the tiniest compromise or offering any alternative to their SOP at all. That SOP strongly assumes things like “all customers have a mobile phone ",
@@ -549,13 +574,13 @@
     "id": "cdeeri",
     "termo": "archive",
     "dor": "Alternative to archive.is No CAPTCHA, no Javascript, no geo-blocking, no BS https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20261106180654if_&#x2F;https:&#x2F;&#x2F;www.th...",
-    "volumeEstimado": 203,
+    "volumeEstimado": 204,
     "urgencia": "MEDIA",
     "score": 46,
     "fatores": {
       "velocidade": 48,
       "dorExplicita": 30,
-      "volume": 46.05527707356917,
+      "volume": 46.13202028617724,
       "viabilidade": 46,
       "recorrencia": 92
     },
@@ -567,7 +592,7 @@
       "Alternative to archive.is No CAPTCHA, no Javascript, no geo-blocking, no BS https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20261106180654if_&#x2F;https:&#x2F;&#x2F;www.th...",
       "I am building a security lab environment inside Microsoft Azure and am currently stuck trying to deploy Filebeat 8.15.0 to two backend web servers running Ubuntu Server (22.04/24.04 LTS) [2.1]. The Se"
     ],
-    "detectadoEm": "2026-11-07T15:42:39.910Z",
+    "detectadoEm": "2026-11-07T20:16:14.510Z",
     "estado": "NOVA"
   },
   {
