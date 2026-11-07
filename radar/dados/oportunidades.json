@@ -546,6 +546,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "cdeeri",
+    "termo": "archive",
+    "dor": "Alternative to archive.is No CAPTCHA, no Javascript, no geo-blocking, no BS https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20261106180654if_&#x2F;https:&#x2F;&#x2F;www.th...",
+    "volumeEstimado": 203,
+    "urgencia": "MEDIA",
+    "score": 46,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 30,
+      "volume": 46.05527707356917,
+      "viabilidade": 46,
+      "recorrencia": 92
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50404001",
+      "https://stackoverflow.com/questions/80014485/ansible-playbook-dpkg-fails-with-einvalid-archive-signature-when-installing-fil"
+    ],
+    "amostras": [
+      "Alternative to archive.is No CAPTCHA, no Javascript, no geo-blocking, no BS https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20261106180654if_&#x2F;https:&#x2F;&#x2F;www.th...",
+      "I am building a security lab environment inside Microsoft Azure and am currently stuck trying to deploy Filebeat 8.15.0 to two backend web servers running Ubuntu Server (22.04/24.04 LTS) [2.1]. The Se"
+    ],
+    "detectadoEm": "2026-11-07T15:42:39.910Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "qfk1s8",
     "termo": "low fee credit card network that merchants didn't charge a fee for, so I could c",
     "dor": ">I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accounting boondoggle. This is called \"Regulate the max fees\" like Europe did, where they still have functioning credit card netw",
