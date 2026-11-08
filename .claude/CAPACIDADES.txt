@@ -10,6 +10,7 @@ agente:quant
 agente:verificador-citacao
 agente:viral
 helper:arvore
+helper:assistir-video
 helper:compactar-indice
 helper:conselho
 helper:fundir-indice

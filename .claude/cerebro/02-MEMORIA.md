@@ -7,6 +7,23 @@
 
 ## 2026-11
 
+### 2026-11-08 — Diretor de Aprendizado: vídeo do Pedrão da Licitação + Cérebro passa a assistir Instagram na nuvem
+
+**Pedido:** link de post do Instagram + "Assiste".
+**Capacidade nova:** `assistir-video.py` aceita Instagram: página pública `/embed/captioned/` → URL do mp4 no CDN (sem
+login) → ffmpeg 480p/15fps → Gemini via OpenRouter como data URL. Medido: 90 s, Pro US$ 0,08 · Flash US$ 0,01; os dois deram
+os mesmos números. O arquivo veio da branch `claude/diretor-aprendizado-videos-1003`, que **nunca foi fundida na main**
+(lá estão as memórias de 03/10: SEMDOR, grade 3x, migração do mini) → fundir quando o operador autorizar.
+**O vídeo (Demw4amATon, 17/10/2026, @pedraodalicitacao, 90 s):** gancho "vender pro governo como se você tivesse 10 anos" →
+tela do PNCP (dispensa, UF=SP, palavra-chave) → lâmpada de projetor Epson ELPLP80, Franca-SP, R$ 941/un × R$ 293 no Mercado
+Livre, 5 un., "uns R$ 3 mil" → "o cadastro fica pra outro vídeo" → aula grátis ("saiba mais"). Nada novo de método: o
+perfil inteiro já foi estudado e auditado em 13–14/09 (`missao-pedrao-licitacao-vendas-governo`, DESTILACAO-PEDRAO.md).
+Esse mesmo exemplo já tinha sido conferido em set: vencedor só 1,4% abaixo do estimado (em outros casos dele, 45–49%).
+Não conferido hoje: o PNCP não responde a acesso da nuvem (resposta vazia).
+**O que serve ao operador:** o FORMATO (tutorial de tela de 90 s → número real → lacuna "fica pra outro vídeo" → isca) para
+os Reels SEMDOR e infoprodutos. Negócio: o kit "IA aplicada a compras públicas" (Arcanjo, 06/10) segue travado pelo CNPJ
+da Vitrine IA — esse é o passo que gera receita no tema governo.
+
 ### 2026-11-03 — Curso de edição com IA: produzido na nuvem (31/10), passado ao Mac e à venda desde 01/11
 
 **Pedido (31/10):** "terminar tudo; curso em vídeo, passo a passo didático, prompts prontos, pasta para baixar; urgente"; depois
