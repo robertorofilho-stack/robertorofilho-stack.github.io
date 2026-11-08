@@ -7,6 +7,17 @@
 
 ## 2026-11
 
+### 2026-11-08 — "Personal Finance" da Anthropic (conectar banco): não serve no Brasil; o caminho é o Belvo MCP
+
+**Pedido:** "Personal finance" = "atualização da Anthropic que conecta o banco".
+**Fato (3 fontes, 05/11/2026):** beta "Personal Finance" no Claude, liga contas por **Plaid**, só leitura, até 24 meses de
+transações, **só EUA**, planos pagos (TechCrunch, 9to5Mac, Yahoo Finance). Bancos brasileiros não entram.
+**Para o operador (Brasil):** conector **Belvo MCP** no diretório do Claude (oficial desde ~15/10/2026, segundo a Let's
+Money; não conferido na fonte da Belvo) lê contas via **Open Finance Brasil** — saldo, transações, renda; só leitura.
+Alternativas: Open Finance Data MCP (Cumbuca, instituição de pagamento autorizada). Estado: nenhum conector financeiro
+instalado na conta; instalar é ação do operador em claude.ai → Conectores.
+**Regra:** dado financeiro pessoal nunca entra neste repo público (§6) — análise vai para o Cérebro privado ou fica no chat.
+
 ### 2026-11-08 — Diretor de Aprendizado: vídeo do Pedrão da Licitação + Cérebro passa a assistir Instagram na nuvem
 
 **Pedido:** link de post do Instagram + "Assiste".
