@@ -75,6 +75,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "l4j4ff",
+    "termo": "cbs sports",
+    "dor": "Coaches Poll top 25: Notre Dame rises, Miami drops in Week 11 college football rankings · AP Top 25 live updates: Notre Dame and Georgia in line for No. 1 · Coaches Poll, Week 11: Georgia climbs to No. 1, 8 SEC teams crack latest top 25",
+    "volumeEstimado": 5100,
+    "urgencia": "MEDIA",
+    "score": 60,
+    "fatores": {
+      "velocidade": 88,
+      "dorExplicita": 30,
+      "volume": 100,
+      "viabilidade": 38,
+      "recorrencia": 92
+    },
+    "fontes": [
+      "https://trends.google.com/trends/explore?q=cbs%20sports&geo=US",
+      "https://news.ycombinator.com/item?id=50352707"
+    ],
+    "amostras": [
+      "Coaches Poll top 25: Notre Dame rises, Miami drops in Week 11 college football rankings · AP Top 25 live updates: Notre Dame and Georgia in line for No. 1 · Coaches Poll, Week 11: Georgia climbs to No",
+      "I love the Lotus Elise and desperately wish there was a similar affordable, super light weight; no frills, sports car made today. Here I thought I was just a niche market that’s not profitable for man"
+    ],
+    "detectadoEm": "2026-11-08T18:52:12.590Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "xwiepn",
     "termo": "plex media server malware exploitation",
     "dor": "PSA: Patch your Plex media server before someone hacks it · Hackers Exploit Plex2Shell Flaws to Install Crypto Miners and Linux Proxy Backdoor · Plex2Shell Exploit Chain Weaponized Against Plex Servers Hours After Disclosure",
