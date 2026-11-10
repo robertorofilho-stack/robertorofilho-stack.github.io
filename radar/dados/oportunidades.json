@@ -879,5 +879,28 @@
     ],
     "detectadoEm": "2026-10-29T21:50:13.714Z",
     "estado": "NOVA"
+  },
+  {
+    "id": "et1b3i",
+    "termo": "\"here's a service that converts a zipcode to a polygon, and coordinates to a lis",
+    "dor": "Well the alternative to \"here's a service that converts a zipcode to a polygon, and coordinates to a list of polygons, and here's the fine print of limitations and how they are communicated\" is declaring that postcodes are arcane entities and their connection with the mortal plane is only an illusion, and no such servi",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50436089"
+    ],
+    "amostras": [
+      "Well the alternative to \"here's a service that converts a zipcode to a polygon, and coordinates to a list of polygons, and here's the fine print of limitations and how they are communicated\" is declar"
+    ],
+    "detectadoEm": "2026-11-10T04:39:22.799Z",
+    "estado": "NOVA"
   }
 ]
