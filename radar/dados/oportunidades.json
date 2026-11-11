@@ -902,5 +902,28 @@
     ],
     "detectadoEm": "2026-11-11T01:17:04.125Z",
     "estado": "NOVA"
+  },
+  {
+    "id": "mdqe3n",
+    "termo": "a website that I didn't care to pay for",
+    "dor": "No it absolutely is not. I spent a good 2 weekends using an agent to develop an alternative to a website that I didn't care to pay for. After all of that time, while it's functional and I do occasionally use it for its intended purpose, if you take into account the amount I paid in tokens and the amount of time I spent",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50456838"
+    ],
+    "amostras": [
+      "No it absolutely is not. I spent a good 2 weekends using an agent to develop an alternative to a website that I didn't care to pay for. After all of that time, while it's functional and I do occasiona"
+    ],
+    "detectadoEm": "2026-11-11T22:48:22.053Z",
+    "estado": "NOVA"
   }
 ]
