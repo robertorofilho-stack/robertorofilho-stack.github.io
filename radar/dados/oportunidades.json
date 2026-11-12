@@ -621,6 +621,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "4mvljg",
+    "termo": "Granola",
+    "dor": "Show HN: Yogurt – Free, private, open-source alternative to Granola",
+    "volumeEstimado": 25900,
+    "urgencia": "MEDIA",
+    "score": 46,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 30,
+      "volume": 98.62667542671286,
+      "viabilidade": 30,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50454625",
+      "https://news.ycombinator.com/item?id=50461846"
+    ],
+    "amostras": [
+      "Show HN: Yogurt – Free, private, open-source alternative to Granola",
+      "Recently, n8n has launched Nod, which can be configured as an open-source alternative to Granola."
+    ],
+    "detectadoEm": "2026-11-12T12:50:24.602Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "qfk1s8",
     "termo": "low fee credit card network that merchants didn't charge a fee for, so I could c",
     "dor": ">I wish there was a low fee credit card network that merchants didn't charge a fee for, so I could continue the simplicity of digital payments but opt out of this crazy Visa Infinite rewards accounting boondoggle. This is called \"Regulate the max fees\" like Europe did, where they still have functioning credit card netw",
@@ -923,32 +948,7 @@
     "amostras": [
       "No it absolutely is not. I spent a good 2 weekends using an agent to develop an alternative to a website that I didn't care to pay for. After all of that time, while it's functional and I do occasiona"
     ],
-    "detectadoEm": "2026-11-12T03:51:50.469Z",
-    "estado": "NOVA"
-  },
-  {
-    "id": "4mvljg",
-    "termo": "Granola",
-    "dor": "Show HN: Yogurt – Free, private, open-source alternative to Granola",
-    "volumeEstimado": 19500,
-    "urgencia": "MEDIA",
-    "score": 45,
-    "fatores": {
-      "velocidade": 48,
-      "dorExplicita": 30,
-      "volume": 96.02053460933155,
-      "viabilidade": 30,
-      "recorrencia": 47
-    },
-    "fontes": [
-      "https://news.ycombinator.com/item?id=50454625",
-      "https://news.ycombinator.com/item?id=50461846"
-    ],
-    "amostras": [
-      "Show HN: Yogurt – Free, private, open-source alternative to Granola",
-      "Recently, n8n has launched Nod, which can be configured as an open-source alternative to Granola."
-    ],
-    "detectadoEm": "2026-11-12T03:51:50.468Z",
+    "detectadoEm": "2026-11-12T12:50:24.602Z",
     "estado": "NOVA"
   }
 ]
