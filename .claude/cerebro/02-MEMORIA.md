@@ -7,6 +7,17 @@
 
 ## 2026-11
 
+### 2026-11-12 — Vídeo com hologramas no ambiente: briefing para o editor (reel de referência não aberto)
+
+**Pedido:** reel de referência do Instagram; "quero gravar e as coisas aparecerem do meu lado, hologramas reais e imagens reais".
+**Feito:** briefing de gravação + pós-produção entregue no chat (3 níveis; recomendado: câmera rastreada + oclusão + luz prática).
+**Não feito:** o reel não foi assistido — `www.instagram.com` está fora da rede permitida da sessão na nuvem. Briefing parte da
+leitura do pedido, não do vídeo. Pendente: operador anexar o arquivo do reel para análise quadro a quadro.
+**Lições:** (1) referência de Instagram na nuvem = pedir o arquivo anexado, o link não abre; (2) o que faz holograma parecer real
+se decide na gravação (paralaxe, espaço vazio, luz colorida real no rosto, marcador de olhar, plate limpo), não na edição;
+(3) vídeo gerado por IA em cima do rosto do médico e de anatomia = rejeitado (distorce identidade e anatomia); imagem de exame
+só genérica e licenciada, nunca de paciente.
+
 ### 2026-11-03 — Curso de edição com IA: produzido na nuvem (31/10), passado ao Mac e à venda desde 01/11
 
 **Pedido (31/10):** "terminar tudo; curso em vídeo, passo a passo didático, prompts prontos, pasta para baixar; urgente"; depois
