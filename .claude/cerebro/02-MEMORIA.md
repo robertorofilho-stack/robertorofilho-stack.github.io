@@ -7,6 +7,20 @@
 
 ## 2026-11
 
+### 2026-11-13 — Veredito: "AI Marketing Engineer Playbook" (Klint AI, David Roberts — Google Doc)
+
+**O que é:** isca de comentário ("SYSTEM") da Klint (API de contexto social, vende o item 5). 10 sistemas com Claude Code +
+GitHub Actions + MCP, todos começando em modo só-relatório: (1) agente de anúncios Meta, (2) SEO programático, (3) vídeo
+de anúncio com IA, (4) recriar anúncio do concorrente > 60 dias, (5) influenciadores, (6) ser citado pelo ChatGPT,
+(7) página por anúncio, (8) rastreio navegador + servidor sem duplicar, (9) fluxos de e-mail/SMS com 10% de grupo
+controle, (10) relatório de segunda escrito por IA.
+**Cruzamento com o arsenal:** 1/4 = conector oficial Meta Ads (hoje pedindo nova autorização) + regra dos anúncios §5 + G5
+(só o Roberto aprova verba); 2/6/7 = skills `mkt-programmatic-seo`, `mkt-ai-seo`, `mkt-cro` no mestre + `llms.txt` do site;
+3 = Higgsfield Ads Studio + clone; 5 = produto da Klint, dispensável. **Lacunas reais:** (8) API de Conversões do Meta com
+deduplicação nos checkouts (Cakto) antes de escalar tráfego; (10) relatório semanal automático (Supermetrics + Meta);
+(9) fluxos de e-mail de comportamento (o canal hoje é WhatsApp/Lia).
+**Próximo passo de receita:** item 8 primeiro — sem rastreio certo, o agente de anúncios aprende com número errado.
+
 ### 2026-11-13 — Janela do Mundo publicada + veredito "MotionSites" (RCK060)
 
 **Janela do Mundo:** operador quis "ver as câmeras do mundo todo e tudo que eu possa ver" (produto/automação depois).
