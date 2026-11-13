@@ -7,6 +7,18 @@
 
 ## 2026-11
 
+### 2026-11-13 — Janela do Mundo publicada + veredito "MotionSites" (RCK060)
+
+**Janela do Mundo:** operador quis "ver as câmeras do mundo todo e tudo que eu possa ver" (produto/automação depois).
+Página privada: https://claude.ai/artifact/4gQRuTW4nrfgm7uinyc9jw — Argos Atlas no centro + 28 fontes ao vivo em 8 abas
+(câmeras, céu, aviões, navios/portos, clima, terremotos/incêndios, mundo), favoritos no aparelho, relógios. Links conferidos
+13/11 (FR24, MarineTraffic e GitHub dão 403 a servidor; abrem no navegador). Excluído de propósito: Insecam (câmera
+particular sem senha). Próximo, quando ele pedir: God's Eye View no MacBook / alertas com APIs abertas (adsb.lol, CelesTrak).
+**RCK060 (ia.rckbusiness.digital, "RICK I.A" / @pedrorick.ia):** isca grátis "MotionSites — do brief ao site": skill de
+Claude para criar página com brief, plano, construção e revisão; pede nome, e-mail, telefone e site. Sem preço visível
+(funil para venda depois). Veredito: dispensável — o Cérebro já tem `briefing-de-site` + `criar-site-motion` +
+`frontend-design` + `impeccable` (método Vitrine IA). Só valeria baixar para comparar, sem dar o telefone pessoal.
+
 ### 2026-11-13 — Argos Atlas (PDF VibeHub/Fabiano) + skill nova `/veredito`
 
 **Pedido:** PDF "Argos Atlas: 200 mil câmeras, aviões, navios e satélites ao vivo" + "e esse?".
