@@ -7,6 +7,22 @@
 
 ## 2026-11
 
+### 2026-11-13 — Veredito: 3 guias oficiais da Meta sobre WhatsApp Business (agente de IA, transmissões, venda)
+
+**O que é (lidos):** (1) **Meta Business Agent** — IA grátis dentro do app WhatsApp Business (Ferramentas → Meta Business
+Agent), aprende com catálogo, perfil, site e conversas; responde dúvidas e recomenda produto 24 h; NÃO negocia, NÃO fecha
+compra, NÃO processa pagamento — passa para humano; escolhe chats e horários. Em português/R$ → vale no Brasil.
+(2) **Business Broadcast** — mesma mensagem para até 2 mil contatos, só quem deu opt-in; 250 envios grátis, depois pago;
+métricas de entregue/lido/respondido. (3) **Guia de venda** — anúncio de clique para WhatsApp + Reels (+13% retorno,
+−16% custo/resultado em estudo da Meta de 2023) e **otimização de compra**: exige compartilhar eventos de compra pelo app,
+marcando a conversa com **etiquetas** de nome padronizado (ex.: pedido pago) ou criando **pedido** no app.
+**Cruzamento:** a Lia (vendedora) roda na Evolution API no servidor e já fecha venda com link de checkout → o agente da
+Meta faz menos; ligar os dois no mesmo número = resposta dupla. Central da clínica (secretária) é outro número.
+**Veredito:** (a) não trocar a Lia; (b) Broadcast com opt-in = jeito oficial de reativar base sem risco de banimento (a
+lei "nunca disparo frio" continua); (c) maior ganho: etiqueta de compra nas conversas dos anúncios de clique para
+WhatsApp → Meta otimiza para quem compra, não para quem só conversa (testar se a Evolution aplica etiqueta via API);
+(d) agente da Meta na central da clínica só para logística (horário, endereço, convênio), nunca dúvida clínica (CFM/LGPD).
+
 ### 2026-11-13 — API de Conversões do Meta nos checkouts: missão entregue ao operador (não versionada)
 
 **Pedido:** "Sim" ao item 8 (rastreio navegador + servidor sem duplicar). **Achado:** não precisa de código — o checkout
