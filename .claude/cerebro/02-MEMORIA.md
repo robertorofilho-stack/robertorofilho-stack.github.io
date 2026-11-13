@@ -7,6 +7,20 @@
 
 ## 2026-11
 
+### 2026-11-13 — Reel "sua empresa dentro do ChatGPT" (Dfn8aFvtHaG): novidade real, mas ainda não vale como serviço no Brasil
+
+**Pedido:** link de Reel (assistido com `assistir-video.py`, Gemini Pro).
+**O vídeo (66 s, "Matheus"):** gancho "tá dormindo no ponto" → página da OpenAI "Introducing Businesses in ChatGPT" →
+Business Hub → buscar empresa → "Create" → perfil (sobre, contato, horário) → "venda esse serviço para outras empresas";
+CTA = link nos comentários + seguir. Chama de "ChatGPT Business" e "agente" (impreciso: é perfil; agente é outra coisa).
+**Fato (busca, 13/11):** "Businesses in ChatGPT" lançado em beta em 10/11/2026; reivindicar é grátis; exige site e
+verificação; **Business Agents só EUA**; **comércio local só reivindica fichas já existentes nos EUA**; sem lista oficial de
+países e há relato de pedido fora dos EUA indo para lista de espera (fontes secundárias; conferir na ajuda da OpenAI).
+**Para o operador:** (1) reivindicar o perfil "Dr. Roberto Rodrigues" com o site drrobertorodrigues.com — grátis, ele faz
+(login dele); casa com o `llms.txt` que o site já tem; (2) vender "sua empresa no ChatGPT" pela Vitrine IA **ainda não**:
+para negócio local brasileiro não funciona hoje → no máximo lista de espera; (3) formato do Reel = mesmo molde do Pedrão
+(urgência + tela passo a passo + link).
+
 ### 2026-11-08 — "Personal Finance" da Anthropic (conectar banco): não serve no Brasil; o caminho é o Belvo MCP
 
 **Pedido:** "Personal finance" = "atualização da Anthropic que conecta o banco".
