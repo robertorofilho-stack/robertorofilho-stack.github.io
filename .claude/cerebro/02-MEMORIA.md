@@ -7,6 +7,20 @@
 
 ## 2026-11
 
+### 2026-11-13 — MiroFish (enxame de agentes que "prevê" reação a ideia): avaliado → NÃO instalar como decisor
+
+**Pedido:** "que acha desse?" (README colado: semente → milhares de agentes → relatório + conversar com agentes).
+**Fato:** github.com/666ghj/MiroFish, ~85,5 mil estrelas, AGPL-3.0, motor OASIS (CAMEL-AI), exige LLM (formato OpenAI;
+OpenRouter serve) + **Zep Cloud** (memória; não temos chave). README: "alto consumo, comece com < 40 rodadas". **Nenhum
+benchmark de acerto publicado**; teste da WPP Research (1 dia, S&P 500): o enxame deu o mesmo que 1 chamada simples ao
+mesmo modelo; nº de agentes não controlável; custo por rodada não publicado; resultados variam entre execuções.
+Não estava na memória (0 de 1.058 arquivos do mestre).
+**Veredito:** brinquedo de cenário, não previsão. Persona sintética não compra — o sinal do sistema continua sendo anúncio
+rodando > 30 dias + pagamento real na pré-venda (CLAUDE.md §5). Para "onde a ideia quebra" já temos `/conselho` (4 motores,
+centavos) e `/auditar`. Mesma lição de 27/09: medir antes de adotar (N.E.X.U.S. = ruído).
+**Se o operador quiser testar:** 1 backtest num caso com resultado real conhecido (ex.: lançamento do curso de edição),
+teto de US$ 5, comparado com `/conselho`; só adota se acertar onde o conselho errou.
+
 ### 2026-11-13 — Reel "sua empresa dentro do ChatGPT" (Dfn8aFvtHaG): novidade real, mas ainda não vale como serviço no Brasil
 
 **Pedido:** link de Reel (assistido com `assistir-video.py`, Gemini Pro).
