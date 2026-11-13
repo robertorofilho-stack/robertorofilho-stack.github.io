@@ -7,6 +7,19 @@
 
 ## 2026-11
 
+### 2026-11-13 — x402 (HTTP 402: agente de IA paga o site em USDC): real e sério, mas sem receita para o operador hoje
+
+**Pedido:** "e esse?" (guia longo colado, com exemplo oficial, conta de taxas, regras BR e 9 prompts).
+**Fato:** protocolo aberto (Coinbase mai/2025 → x402 Foundation na Linux Foundation abr/2026; Visa, Mastercard, Google,
+Stripe, Cloudflare). Volume pequeno e concentrado: texto colado = US$ 1,64 mi em 30 dias (x402scan, 05/11), mediana por
+vendedor US$ 0,50/mês, top 10 = 62%; outras fontes (jul/2026) falam em US$ 24 mi/30 dias, com ~metade suspeita de
+lavagem de volume (Forkast) → números divergem; nenhum deles é mercado grande. Monetization Gateway da Cloudflare: só EUA.
+No Brasil: receber USDC = criptoativo (Bens e Direitos ≥ R$ 5 mil; DeCripto > R$ 35 mil/mês fora de exchange BR; stablecoin
+e carteira autocustodiada = câmbio, Res. BCB 521).
+**Veredito:** não implementar. O operador não tem recurso que agente pague (dado exclusivo, API); a US$ 0,001 a taxa come
+tudo. Reabrir quando existir um dado/API própria de valor (ex.: radar de oportunidades) e volume real. O que copiar é o
+FORMATO do material (guia profundo com teste próprio datado + conta + 9 prompts) como infoproduto/isca.
+
 ### 2026-11-13 — MiroFish (enxame de agentes que "prevê" reação a ideia): avaliado → NÃO instalar como decisor
 
 **Pedido:** "que acha desse?" (README colado: semente → milhares de agentes → relatório + conversar com agentes).
