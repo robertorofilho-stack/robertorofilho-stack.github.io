@@ -7,6 +7,14 @@
 
 ## 2026-11
 
+### 2026-11-13 — API de Conversões do Meta nos checkouts: missão entregue ao operador (não versionada)
+
+**Pedido:** "Sim" ao item 8 (rastreio navegador + servidor sem duplicar). **Achado:** não precisa de código — o checkout
+tem API de Conversões nativa (token na config do pixel); um produto já usa, outros com campanha no ar não. **Entrega:**
+missão para o Claude do MacBook (inventário só-leitura → aplicar o token existente pelo painel → conferir fonte
+"Navegador e Servidor", desduplicação e EMQ ≥ 6). IDs de conta/pixel/produto ficam fora deste repo público (§6) — a
+tentativa de versionar a missão aqui foi barrada pelo classificador, corretamente. Detalhe no mestre.
+
 ### 2026-11-13 — Veredito: "AI Marketing Engineer Playbook" (Klint AI, David Roberts — Google Doc)
 
 **O que é:** isca de comentário ("SYSTEM") da Klint (API de contexto social, vende o item 5). 10 sistemas com Claude Code +
