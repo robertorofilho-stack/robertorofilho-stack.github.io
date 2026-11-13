@@ -7,6 +7,19 @@
 
 ## 2026-11
 
+### 2026-11-13 — Argos Atlas (PDF VibeHub/Fabiano) + skill nova `/veredito`
+
+**Pedido:** PDF "Argos Atlas: 200 mil câmeras, aviões, navios e satélites ao vivo" + "e esse?".
+**O que é:** site (argosatlas.com, domínio de 23/05/2026) que junta dado público num globo: câmeras de trânsito/webcams
+(1.116 no Brasil; 470 em Santos), aviões (adsb.lol, OpenSky), navios (AIS), satélites (CelesTrak), portos (IMF PortWatch).
+Grátis com conta; planos em euro (44,99 a 10.499/ano); API/MCP só no plano empresa; termos proíbem raspar e seguir pessoa.
+**Não confundir:** o ARGOS do Cérebro é outro (sensor de presença por Wi-Fi com ESPectre, memórias `argos-*`).
+**Veredito:** nada a instalar nem assinar. Serve como (1) pauta de vídeo de curiosidade para @falar.detudo (globo ao vivo,
+sem pessoa identificável, crédito da fonte); (2) modelo de negócio a estudar: dado público agregado + freemium — encaixa
+no radar de micro-SaaS se aparecer nicho brasileiro com quem pague. Para a conta médica: irrelevante.
+**Skill nova:** `/veredito` (repetição 7× desde 03/10: "e esse?") — ler → recall → conferir (incl. Brasil) → filtro do
+operador → 4 blocos → gravar. Origem cita os 7 episódios.
+
 ### 2026-11-13 — x402 (HTTP 402: agente de IA paga o site em USDC): real e sério, mas sem receita para o operador hoje
 
 **Pedido:** "e esse?" (guia longo colado, com exemplo oficial, conta de taxas, regras BR e 9 prompts).

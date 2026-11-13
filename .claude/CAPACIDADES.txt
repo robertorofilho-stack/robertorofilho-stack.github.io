@@ -60,6 +60,7 @@ skill:oferta
 skill:reels
 skill:saas
 skill:tendencia
+skill:veredito
 skill:vsl
 workflow:radar
 workflow:saude
