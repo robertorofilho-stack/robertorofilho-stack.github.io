@@ -7,6 +7,25 @@
 
 ## 2026-11
 
+### 2026-11-13 — Como a Lia vende mais sem punição: pesquisa oficial Meta/WhatsApp + diagnóstico
+
+**Pedido:** "vasculhe tudo… como a Lia pode vender mais sem levar punição, mais leads; me explique fácil".
+**Pesquisa (subagente, ~60 links, relatório no scratchpad da sessão, não versionado):** WhatsApp proíbe app não oficial
+(FAQ: ban temporário ou permanente) e envio em massa/automático (Termos); Business Policy 23/09/2026: só contatar com opt-in,
+empresa só inicia com template aprovado, bot permitido com saída para humano. Caminho oficial = Cloud API (a Evolution v2
+tem modo oficial; coexistência mantém o app no mesmo número). Preço Brasil por mensagem entregue: atendimento 1.000 grátis/mês
+por número (desde 01/10/2026), utilidade US$ 0,0068, marketing ~R$ 0,32 [SEC]; janela de anúncio clique-para-WhatsApp grátis
+(72 h na página comercial × 7 dias na doc técnica — divergem). Limites 250→2.000 (com empresa verificada)→10 mil→100 mil.
+Proibição de IA de jan/2026 = só assistente de uso geral; bot de vendas próprio pode. Meta Business Agent: no Brasil, mas
+pago nos planos novos e faz menos que a Lia. Otimizar anúncio para compra exige Conversions API com o id do clique, que
+só a API oficial entrega. LGPD: consentimento ou legítimo interesse de cliente, com opt-out; ANPD já multou lista de WhatsApp.
+**Diagnóstico:** Lia já é só-inbound (lei de 05/10) — certo; risco que sobra é rodar na Evolution não oficial; anúncio
+clique-para-WhatsApp do Edita Já otimizado para CLIQUE (o mais fraco). Lista fria antiga: não reaproveitar em canal nenhum.
+**Plano recomendado:** (1) trocar o anúncio para otimizar CONVERSAS já; (2) verificar a empresa na Meta; (3) migrar a Lia
+para a API oficial no mesmo número (coexistência) — custo ~R$ 130–190/mês; (4) depois, otimização para COMPRA com a Lia
+mandando o evento Purchase; (5) leads: Reels + comentário→DM→wa.me (já roda pela Zernio) + anúncio no Status; opt-in
+registrado. Conselho de outros motores ainda não rodado. Verba: 5 números do PAINEL + OK do Roberto.
+
 ### 2026-11-13 — Veredito: 3 guias oficiais da Meta sobre WhatsApp Business (agente de IA, transmissões, venda)
 
 **O que é (lidos):** (1) **Meta Business Agent** — IA grátis dentro do app WhatsApp Business (Ferramentas → Meta Business
