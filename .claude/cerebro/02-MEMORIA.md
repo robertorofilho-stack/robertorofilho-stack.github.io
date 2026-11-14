@@ -7,6 +7,15 @@
 
 ## 2026-11
 
+### 2026-11-14 — CNAE para o CNPJ da Vitrine IA (ele + esposa)
+
+**Pedido:** abrir CNPJ da Vitrine IA para infoprodutos, mentoria a profissionais liberais e a auditoria/mentoria
+empresarial da esposa. **Recomendação:** LTDA (2 sócios), Simples Nacional, não MEI (consultoria não cabe). Principal
+8599-6/04 (treinamento profissional e gerencial; Anexo III, maioria das fontes sem Fator R — Agilize diverge, contador
+confirma). Secundários: 7020-4/00 (consultoria/mentoria empresarial; Fator R ≥ 28% → Anexo III, senão V), 8599-6/99,
+6319-4/00 (conteúdo na internet). Auditoria **contábil** só com 6920-6/02 e contador com CRC. Nada médico na Vitrine IA.
+Destrava: verificação de empresa na Meta (Lia oficial) e o kit de compras públicas (Arcanjo).
+
 ### 2026-11-14 — Decisão: anúncio da Lia para "conversas" + migrar a Lia para o WhatsApp oficial
 
 **Ordem do operador:** corrigir o anúncio para conversas; ver o valor de passar a Lia para a API oficial da Meta; "faça tudo
