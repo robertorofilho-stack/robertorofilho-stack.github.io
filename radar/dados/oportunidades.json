@@ -300,31 +300,6 @@
     "estado": "NOVA"
   },
   {
-    "id": "wul4qw",
-    "termo": "OSS that didn’t used to exist, and it’s pretty compelling, and it will probably ",
-    "dor": "Well, my point is precisely that there’s an alternative to OSS that didn’t used to exist, and it’s pretty compelling, and it will probably keep getting better over time. Why use OSS then? Because of the community—you will get ideas from using other people’s software that you wouldn’t get from staying in your bubble. OS",
-    "volumeEstimado": 200,
-    "urgencia": "MEDIA",
-    "score": 51,
-    "fatores": {
-      "velocidade": 48,
-      "dorExplicita": 60,
-      "volume": 50.67031326325076,
-      "viabilidade": 46,
-      "recorrencia": 47
-    },
-    "fontes": [
-      "https://news.ycombinator.com/item?id=50476277",
-      "https://news.ycombinator.com/item?id=50431420"
-    ],
-    "amostras": [
-      "Well, my point is precisely that there’s an alternative to OSS that didn’t used to exist, and it’s pretty compelling, and it will probably keep getting better over time. Why use OSS then? Because of t",
-      "It's pretty bad. I hate it. I wish there was a better one but I'm pretty sure that ship has sailed. Let's try to do something smarter with space mining."
-    ],
-    "detectadoEm": "2026-11-13T23:38:04.894Z",
-    "estado": "NOVA"
-  },
-  {
     "id": "6o8wim",
     "termo": "for that",
     "dor": "Yes, personalised software is a very useful field. Years ago, it was: is there an app for that? Now that's no longer the bottleneck, and you can make an app as individual as you like. That also means that selling apps gets more and more difficult, because everyone can build her or his own. Or will the AI agent make app",
@@ -405,6 +380,31 @@
       "My account is banned, so for whomever with [showdead] on: It's unfortunate that the supposed pillar of security dismisses Rust on dubious grounds. Yes, there is agenda coming from Ubuntu. And yet, Rus"
     ],
     "detectadoEm": "2026-10-04T21:33:59.268Z",
+    "estado": "NOVA"
+  },
+  {
+    "id": "wul4qw",
+    "termo": "OSS that didn’t used to exist, and it’s pretty compelling, and it will probably ",
+    "dor": "Well, my point is precisely that there’s an alternative to OSS that didn’t used to exist, and it’s pretty compelling, and it will probably keep getting better over time. Why use OSS then? Because of the community—you will get ideas from using other people’s software that you wouldn’t get from staying in your bubble. OS",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 48,
+    "fatores": {
+      "velocidade": 33,
+      "dorExplicita": 60,
+      "volume": 50.67031326325076,
+      "viabilidade": 46,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50476277",
+      "https://news.ycombinator.com/item?id=50431420"
+    ],
+    "amostras": [
+      "Well, my point is precisely that there’s an alternative to OSS that didn’t used to exist, and it’s pretty compelling, and it will probably keep getting better over time. Why use OSS then? Because of t",
+      "It's pretty bad. I hate it. I wish there was a better one but I'm pretty sure that ship has sailed. Let's try to do something smarter with space mining."
+    ],
+    "detectadoEm": "2026-11-14T06:35:31.747Z",
     "estado": "NOVA"
   },
   {
