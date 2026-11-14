@@ -7,6 +7,13 @@
 
 ## 2026-11
 
+### 2026-11-14 — /veredito: OpenMausBot e anatomy
+
+**anatomy** (wheresryan22): JÁ instalada no mestre em 26/10 e testada (insert de vídeo para explicar mecanismo). Nada a fazer.
+**OpenMausBot** (milind-soni, Apache-2.0, app desktop): clone open-source do Grok Bot — bots Claude/Codex locais, computador
+por bot, MCP. Os GrokBots já são os executores do Cérebro; o próprio README diz que conexão hospedada/celular ainda está em
+construção. Veredito: não instalar agora; reavaliar se o Grok Bot ficar pago, restrito ou sair do ar.
+
 ### 2026-11-14 — Missões repassadas da nuvem para as sessões na máquina do operador
 
 Operador fora de casa, só celular. Ele autorizou (cartão no celular) esta sessão a falar com as sessões da máquina dele.
