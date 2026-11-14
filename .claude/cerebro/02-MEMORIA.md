@@ -15,6 +15,12 @@ empresarial da esposa. **Recomendação:** LTDA (2 sócios), Simples Nacional, n
 confirma). Secundários: 7020-4/00 (consultoria/mentoria empresarial; Fator R ≥ 28% → Anexo III, senão V), 8599-6/99,
 6319-4/00 (conteúdo na internet). Auditoria **contábil** só com 6920-6/02 e contador com CRC. Nada médico na Vitrine IA.
 Destrava: verificação de empresa na Meta (Lia oficial) e o kit de compras públicas (Arcanjo).
+**Correção do operador (mesmo dia):** o foco é produto digital (curso, e-book, app, "ensinar como influencer",
+edição de vídeo); mentoria da esposa é secundária. Lista revista: principal 6319-4/00 (conteúdo/produto digital na
+internet) + 8599-6/04 e 8599-6/99 (cursos = "ensino" na linguagem do CNAE) + 6311-9/00 e 6203-1/00 (apps/SaaS) +
+7319-0/99 (publis, opcional) + 7020-4/00 (esposa). Imposto é por venda, não pelo CNAE principal. Atenção: ele é sócio da
+RR FILHO (que já tem 8599-6/04 e 8599-6/99) → faturamento somado entra no limite do Simples; marcas separadas (lei
+Instagram médico separado).
 
 ### 2026-11-14 — Decisão: anúncio da Lia para "conversas" + migrar a Lia para o WhatsApp oficial
 
