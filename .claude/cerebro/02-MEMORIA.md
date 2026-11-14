@@ -7,6 +7,15 @@
 
 ## 2026-11
 
+### 2026-11-14 — "Diretor de Lei": Advocacia Aberta aprovada e mandada instalar
+
+**Pedido:** "Esse eu quero. Diretor de lei" (github emidio-trancoso/advocacia-aberta). **Auditoria na nuvem:** MIT, commit
+325519b (12/11/2026); base local de 113 MB com 273 leis (CDC, LGPD, CC, LC 123, CTN…), súmulas, temas e teses STJ/STF, com
+link oficial; motor Vade Mecum (bun) sem chamada externa. **Testado:** CDC art. 49, LGPD art. 7º e tese STJ de publicidade
+enganosa, todos com link oficial. **Missão** enviada à sessão "Lia vendas investigação" (máquina do operador): instalar no
+servidor, ligar o MCP, criar o Diretor de Lei no mestre (CDC de infoproduto, LGPD da Lia, contratos, tributário básico,
+revisão de copy) com 3 testes reais. Limites: não substitui advogado; CFM e regras da Meta fora da base.
+
 ### 2026-11-14 — /veredito: OpenMausBot e anatomy
 
 **anatomy** (wheresryan22): JÁ instalada no mestre em 26/10 e testada (insert de vídeo para explicar mecanismo). Nada a fazer.
