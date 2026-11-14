@@ -7,6 +7,15 @@
 
 ## 2026-11
 
+### 2026-11-14 — Decisão: anúncio da Lia para "conversas" + migrar a Lia para o WhatsApp oficial
+
+**Ordem do operador:** corrigir o anúncio para conversas; ver o valor de passar a Lia para a API oficial da Meta; "faça tudo
+automatizado". **Custo apresentado:** taxa Meta R$ 0 (Cloud API direta) · respostas 1.000 grátis/mês, depois ~R$ 0,035
+(~R$ 130/mês) · leads de anúncio grátis na janela · servidor já pago. **Bloqueio desta sessão:** conector META em
+"needs_reconnect" e Supermetrics sem login Meta → nada alterado no Meta daqui. **Entregue:** missão (anúncio sem mexer em
+verba; migração por coexistência com teste antes de desligar a instância antiga) para o Claude do MacBook — fora do repo.
+Pendência dele: reconectar o conector META em claude.ai (então a parte A pode ser feita desta sessão).
+
 ### 2026-11-13 — Como a Lia vende mais sem punição: pesquisa oficial Meta/WhatsApp + diagnóstico
 
 **Pedido:** "vasculhe tudo… como a Lia pode vender mais sem levar punição, mais leads; me explique fácil".
