@@ -7,6 +7,14 @@
 
 ## 2026-11
 
+### 2026-11-14 — Missões repassadas da nuvem para as sessões na máquina do operador
+
+Operador fora de casa, só celular. Ele autorizou (cartão no celular) esta sessão a falar com as sessões da máquina dele.
+(1) Sessão "projeto meta 3" (tem Meta própria): anúncio da Lia → CONVERSAS sem mexer em verba + preparar Lia no
+WhatsApp oficial até a tela do QR. (2) Sessão "Como está meu cérebro?": assistir 100% dos cursos Hotmart NEUROCOPY e
+GANCHOS PRO (comprados 14/11), auditar e comparar às cegas com /ganchos, copychief e os estudos do mestre, instalar só o
+que vencer e entregar aos diretores (conteúdo, criativo, design, Mesa do Marketing). Licença: uso próprio, fora do git público.
+
 ### 2026-11-14 — CNAE para o CNPJ da Vitrine IA (ele + esposa)
 
 **Pedido:** abrir CNPJ da Vitrine IA para infoprodutos, mentoria a profissionais liberais e a auditoria/mentoria
