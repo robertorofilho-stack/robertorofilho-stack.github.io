@@ -527,6 +527,34 @@
     "estado": "NOVA"
   },
   {
+    "id": "4mvljg",
+    "termo": "Granola",
+    "dor": "Show HN: Yogurt – Free, private, open-source alternative to Granola",
+    "volumeEstimado": 31000,
+    "urgencia": "MEDIA",
+    "score": 47,
+    "fatores": {
+      "velocidade": 52,
+      "dorExplicita": 30,
+      "volume": 100,
+      "viabilidade": 30,
+      "recorrencia": 48
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50454625",
+      "https://news.ycombinator.com/item?id=50461846",
+      "https://news.ycombinator.com/item?id=50506080",
+      "https://news.ycombinator.com/item?id=50506081"
+    ],
+    "amostras": [
+      "Show HN: Yogurt – Free, private, open-source alternative to Granola",
+      "Show HN : Multilingual Minimal Local (MCP only) alternative to Granola",
+      "Hey, I have been building an alternative to Granola that is less resource intensive and private. Upon using quill[1], I found i could improve it to suit my use case of multilingual calls, better UX, a"
+    ],
+    "detectadoEm": "2026-11-15T17:47:14.531Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "lx2jvt",
     "termo": "interest in making a unicode-but-better format which solves all the problems wit",
     "dor": "Not at all, actually. In fact that's the opposite of what I'm arguing. There are countless things left to invent. It's just not worth doing most of the time. As a trivial example, Unicode is not a 100% perfect text encoding scheme. Why don't we have something better than unicode? Why is there no interest in making a un",
@@ -643,31 +671,6 @@
       "I am building a security lab environment inside Microsoft Azure and am currently stuck trying to deploy Filebeat 8.15.0 to two backend web servers running Ubuntu Server (22.04/24.04 LTS) [2.1]. The Se"
     ],
     "detectadoEm": "2026-11-07T20:16:14.510Z",
-    "estado": "NOVA"
-  },
-  {
-    "id": "4mvljg",
-    "termo": "Granola",
-    "dor": "Show HN: Yogurt – Free, private, open-source alternative to Granola",
-    "volumeEstimado": 28400,
-    "urgencia": "MEDIA",
-    "score": 46,
-    "fatores": {
-      "velocidade": 48,
-      "dorExplicita": 30,
-      "volume": 99.51698554089457,
-      "viabilidade": 30,
-      "recorrencia": 47
-    },
-    "fontes": [
-      "https://news.ycombinator.com/item?id=50454625",
-      "https://news.ycombinator.com/item?id=50461846"
-    ],
-    "amostras": [
-      "Show HN: Yogurt – Free, private, open-source alternative to Granola",
-      "Recently, n8n has launched Nod, which can be configured as an open-source alternative to Granola."
-    ],
-    "detectadoEm": "2026-11-12T20:52:45.965Z",
     "estado": "NOVA"
   },
   {
