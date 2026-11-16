@@ -530,15 +530,15 @@
     "id": "4mvljg",
     "termo": "Granola",
     "dor": "Show HN: Yogurt – Free, private, open-source alternative to Granola",
-    "volumeEstimado": 31000,
+    "volumeEstimado": 30900,
     "urgencia": "MEDIA",
-    "score": 47,
+    "score": 46,
     "fatores": {
-      "velocidade": 52,
+      "velocidade": 48,
       "dorExplicita": 30,
       "volume": 100,
       "viabilidade": 30,
-      "recorrencia": 48
+      "recorrencia": 47
     },
     "fontes": [
       "https://news.ycombinator.com/item?id=50454625",
@@ -548,10 +548,9 @@
     ],
     "amostras": [
       "Show HN: Yogurt – Free, private, open-source alternative to Granola",
-      "Show HN : Multilingual Minimal Local (MCP only) alternative to Granola",
-      "Hey, I have been building an alternative to Granola that is less resource intensive and private. Upon using quill[1], I found i could improve it to suit my use case of multilingual calls, better UX, a"
+      "Show HN : Multilingual Minimal Local (MCP only) alternative to Granola"
     ],
-    "detectadoEm": "2026-11-15T22:54:37.863Z",
+    "detectadoEm": "2026-11-16T02:47:56.893Z",
     "estado": "NOVA"
   },
   {
