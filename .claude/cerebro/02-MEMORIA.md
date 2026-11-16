@@ -7,6 +7,20 @@
 
 ## 2026-11
 
+### 2026-11-16 — Reel @matheusgomes "hack do dinheiro infinito" (créditos de IA) — veredito + mapa real
+
+**Reel** (DfyUpmiMXFZ, assistido via Gemini Pro, US$ 0,07): "IA se inscreve sozinha em programas de crédito, acorda com
+R$ 5–50 mil"; prova = e-mail Anthropic "US$ 200 de créditos de API do plano Ultra". **Veredito:** não é hack — é benefício
+de plano pago (Max US$ 100/mês, Ultra US$ 200/mês, Team; mensal, não acumula; exige 7 dias de plano e vincular 1
+organização no Console; vale p/ API/Agent SDK, não p/ Claude Code interativo — claude.com/pricing + artigo de suporte
+17154008, lidos 16/11). O operador tem **Max 20x** → tem ~US$ 100/mês de API a ativar. Repo GitHub prometido: não achado.
+Inscrição por bot e dados falsos violam termos (Anthropic, OpenAI, AWS) e "inventar investimento" pode ser art. 171 CP.
+**Mapa real (sem investidor):** PF hoje = Gemini API grátis (treina com os prompts), GCP US$ 300, Azure US$ 1 mil,
+OpenRouter :free. Com CNPJ + domínio + e-mail corporativo = AWS Activate Founders US$ 1 mil, Cloudflare Tier 3 US$ 10 mil,
+Google Start até US$ 2 mil [SEC], ElevenLabs Grants ~33 M caracteres (logo no rodapé), Azure +US$ 4 mil. Teto realista
+~US$ 16–20 mil. Claude for Startups fechado; OpenAI/Google AI-first/AWS Portfolio só via VC. xAI US$ 150 não confirmado.
+Nenhum dado de paciente em canal que treina modelo.
+
 ### 2026-11-14 — "Diretor de Lei": Advocacia Aberta aprovada e mandada instalar
 
 **Pedido:** "Esse eu quero. Diretor de lei" (github emidio-trancoso/advocacia-aberta). **Auditoria na nuvem:** MIT, commit
