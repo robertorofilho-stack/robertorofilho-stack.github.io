@@ -7,6 +7,17 @@
 
 ## 2026-11
 
+### 2026-11-17 — /veredito: PDF VibeHub "Trocar a pessoa de um vídeo com IA" (Seedance 2.5, Wan 3.0)
+
+PDF de 13/11 lido inteiro (pdftotext). Conferido hoje: fal.ai e Kie.ai têm as páginas Wan 3.0 Prime e Seedance 2.5
+reference-to-video; Kie anuncia Wan 3.0 Prime "10% abaixo do oficial"; fal cobra Seedance 2.5 a US$ 0,22–0,47/s.
+Núcleo útil: grava 1 vídeo base → troca pessoa, produto, roupa ou voz mantendo câmera e movimento. Teste em 480p (~R$ 3,50–4,80/6 s),
+final em 720p (~R$ 10/6 s). Kie.ai (já integrada ao Cérebro, com preview + autorização) é o lugar mais barato; Higgsfield
+(MCP conectado) tem Recast sem prompt. Usos para ele: (1) a Lia (rosto oficial da Vitrine IA) em vídeo filmado de verdade;
+(2) trocar produto no mesmo vídeo de anúncio (5 versões < R$ 20 em 480p); (3) dublar/variar fala com lip sync. Proibido:
+rosto de pessoa real sem consentimento (famoso, paciente, colega), "paciente" fictício ou depoimento falso em conteúdo
+médico (CFM) — e rotular conteúdo de IA na Meta. Seedance recusa rosto real não verificado; Wan não trava.
+
 ### 2026-11-17 — /veredito: Reel @cauhi sobre agent-desktop (Vercel Labs)
 
 Reel DfjiMeoDR6u (Gemini Pro, US$ 0,07). **agent-desktop** existe: vercel-labs, Apache-2.0, npm/brew, CLI que lê a árvore de
