@@ -7,6 +7,15 @@
 
 ## 2026-11
 
+### 2026-11-17 — /veredito: Reel @cauhi sobre agent-desktop (Vercel Labs)
+
+Reel DfjiMeoDR6u (Gemini Pro, US$ 0,07). **agent-desktop** existe: vercel-labs, Apache-2.0, npm/brew, CLI que lê a árvore de
+acessibilidade (AX/UIA/AT-SPI) e devolve JSON com refs; clica/digita sem mover o mouse (headless por padrão); sem modelo
+dentro — o cérebro é o Claude Code/Codex. Veredito: **bom e de baixo risco, instalar no MacBook quando ele estiver na
+frente** (macOS exige o clique de permissão de Acessibilidade). Uso: programa sem API/sem web (sistema antigo, app de Mac).
+Não usar em WhatsApp desktop (termos da Meta) nem em tela com dado de paciente sem cuidado: snapshot guarda o conteúdo da tela.
+Primo do agent-browser (recusado em 26/10 por já termos navegador).
+
 ### 2026-11-16 — Reel @matheusgomes "hack do dinheiro infinito" (créditos de IA) — veredito + mapa real
 
 **Reel** (DfyUpmiMXFZ, assistido via Gemini Pro, US$ 0,07): "IA se inscreve sozinha em programas de crédito, acorda com
