@@ -15,6 +15,10 @@ dentro — o cérebro é o Claude Code/Codex. Veredito: **bom e de baixo risco, 
 frente** (macOS exige o clique de permissão de Acessibilidade). Uso: programa sem API/sem web (sistema antigo, app de Mac).
 Não usar em WhatsApp desktop (termos da Meta) nem em tela com dado de paciente sem cuidado: snapshot guarda o conteúdo da tela.
 Primo do agent-browser (recusado em 26/10 por já termos navegador).
+**17/11:** operador mandou instalar → missão enviada à sessão "Diretor de Impressão setup" (máquina dele) para instalar no
+MacBook; falta o clique dele em Ajustes > Acessibilidade. **Alerta:** as sessões "projeto meta 3" e "Lia vendas
+investigação" foram arquivadas em 15/11 sem sinal de terem feito as missões de 14/11 (anúncio p/ conversas, Lia oficial,
+Diretor de Lei) — não confirmado; reenviar se ele quiser.
 
 ### 2026-11-16 — Reel @matheusgomes "hack do dinheiro infinito" (créditos de IA) — veredito + mapa real
 
