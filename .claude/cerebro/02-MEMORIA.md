@@ -25,6 +25,12 @@ tirada das recomendações). Máquina igual, com fonte LEGAL: transmissões legi
 livre, inclusive comercial, com crédito; proibido tirar a marca d'água) — demais conteúdos da TV Câmara = CC BY-NC-ND
 (camara.leg.br, guia para jornalistas). Serve aos 2 lados (deputados de esquerda e direita). Fofoca: narração própria/Lia,
 sem vídeo de terceiros. Cortes de criador só com autorização dele.
+**Caçador (4 nichos, 18/11; Ads Library 403 e Trends 429 → nada com anúncio >30 dias confirmado, tudo TESTAR):**
+direita = "Plano B Paraguai 2027" R$ 47 (residências de brasileiros dobraram no 1º sem/2026 [SEC]; ângulo saída fiscal, não
+"fuja do Lula") 23/35 · esquerda = "Concursos 2027 nível médio" R$ 37 (CNU 3 previsto, sem autorização formal) 23/35 ·
+fofoca = "Achadinhos Shopee pelo celular" R$ 27 (perfis de fofoca lucram com publi, não infoproduto — hipótese) 21/35 ·
+saúde = "Desmame de telas em 21 dias" R$ 37 (lei do celular nas escolas; menor risco) 24/35. Alerta: anúncio político na Meta
+expõe o nome no "Pago por"; benefício social = filtro antigolpe; preso em mar/2026 o dono de página de fofoca de Itatira (CE).
 
 ### 2026-11-17 — /veredito: PDF VibeHub "Trocar a pessoa de um vídeo com IA" (Seedance 2.5, Wan 3.0)
 
