@@ -977,5 +977,28 @@
     ],
     "detectadoEm": "2026-11-12T12:50:24.602Z",
     "estado": "NOVA"
+  },
+  {
+    "id": "ixpo7a",
+    "termo": "Fable when I'm out of Fable credits",
+    "dor": "Have access to Mythos, use it as an alternative to Fable when I'm out of Fable credits. Seems to not count against it, or at least have its own limits.",
+    "volumeEstimado": 100,
+    "urgencia": "MEDIA",
+    "score": 45,
+    "fatores": {
+      "velocidade": 44,
+      "dorExplicita": 30,
+      "volume": 44.09507022321814,
+      "viabilidade": 63,
+      "recorrencia": 46
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50546525"
+    ],
+    "amostras": [
+      "Have access to Mythos, use it as an alternative to Fable when I'm out of Fable credits. Seems to not count against it, or at least have its own limits."
+    ],
+    "detectadoEm": "2026-11-18T22:02:13.917Z",
+    "estado": "NOVA"
   }
 ]
