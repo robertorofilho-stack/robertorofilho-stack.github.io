@@ -19,6 +19,7 @@ helper:mutacao
 helper:narrar_prep
 helper:rubrica
 helper:sincronizar
+helper:template-em-lote
 helper:testar-arvore
 helper:testar-compactar
 helper:testar-conselho

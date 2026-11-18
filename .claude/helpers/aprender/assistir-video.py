@@ -53,6 +53,16 @@ def instagram_mp4(url):
     return "data:video/mp4;base64," + dado, leg, cod
 
 
+def arquivo_mp4(caminho):
+    """Vídeo local (ex.: anexo do operador) → data URL 480p, igual ao fluxo do Instagram."""
+    with tempfile.TemporaryDirectory() as d:
+        menor = os.path.join(d, "s.mp4")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", caminho, "-vf", "scale=-2:480", "-r", "15", "-c:v", "libx264",
+                        "-crf", "32", "-c:a", "aac", "-b:a", "64k", menor], check=True)
+        dado = base64.b64encode(open(menor, "rb").read()).decode()
+    return "data:video/mp4;base64," + dado
+
+
 def assistir(vid, modelo, pergunta, fonte=None):
     fonte = fonte or f"https://www.youtube.com/watch?v={vid}"
     corpo = {"model": modelo, "messages": [{"role": "user", "content": [
@@ -71,7 +81,10 @@ def main():
     ap.add_argument("--pergunta", default=PERGUNTA); ap.add_argument("--saida")
     a = ap.parse_args()
     fonte, titulo_ig = None, None
-    if "instagram.com" in a.alvo:
+    if os.path.isfile(a.alvo):
+        fonte, vid = arquivo_mp4(a.alvo), os.path.basename(a.alvo)
+        titulo_ig = f"Arquivo local {vid}"
+    elif "instagram.com" in a.alvo:
         fonte, legenda, vid = instagram_mp4(a.alvo)
         titulo_ig = f"Instagram {vid} — legenda: {legenda[:200]}"
     else:

@@ -7,6 +7,19 @@
 
 ## 2026-11
 
+### 2026-11-18 — Vídeo "Sombra Viral" (Adonai): perfis de volume em política/fofoca/saúde → versão segura
+
+**Vídeo (anexo, 2min36, Gemini Pro US$ 0,11):** baixar em massa 100 vídeos de perfil bolsonarista (extensão "Download all
+posts") → template do Canva → "Sombra Viral" (software dele, é o que ele VENDE: CTA "eu quero") aplica template em lote →
+JetPost (jetpost.app, ~R$ 119,90) agenda 5 posts/dia em várias redes → e-book "Como sobreviver ao governo Lula" (capa no
+ChatGPT) vendido na AZIRT (taxa zero no Pix). **Veredito:** o motor (template em lote + agendamento + e-book do nicho) é bom;
+a FONTE (vídeo alheio) é o furo: Instagram (30/04/2026) tira das recomendações a conta que posta majoritariamente conteúdo
+alheio — marca d'água/crédito/velocidade não contam como original — e é violação de direito autoral. **Ordem do operador:**
+fazer igual, nos 2 lados (Lula e Bolsonaro), fofoca de famosos (Fortaleza), saúde polêmica sem o nome médico, beleza;
+e-books pelo Manus; diretores investigam produto por público. **Feito:** `helpers/volume/template-em-lote.py` (o "Sombra
+Viral" do Cérebro, ffmpeg, testado 2/2, 1080x1920 com áudio). Não precisa JetPost: já temos Publer/Upload-Post/Zernio.
+Caçador disparado para os 4 nichos. Perfil candidato a fofoca/curiosidades: @falar.detudo (~3,9 mil).
+
 ### 2026-11-17 — /veredito: PDF VibeHub "Trocar a pessoa de um vídeo com IA" (Seedance 2.5, Wan 3.0)
 
 PDF de 13/11 lido inteiro (pdftotext). Conferido hoje: fal.ai e Kie.ai têm as páginas Wan 3.0 Prime e Seedance 2.5
