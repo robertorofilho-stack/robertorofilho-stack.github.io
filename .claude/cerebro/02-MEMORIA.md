@@ -19,6 +19,12 @@ fazer igual, nos 2 lados (Lula e Bolsonaro), fofoca de famosos (Fortaleza), saú
 e-books pelo Manus; diretores investigam produto por público. **Feito:** `helpers/volume/template-em-lote.py` (o "Sombra
 Viral" do Cérebro, ffmpeg, testado 2/2, 1080x1920 com áudio). Não precisa JetPost: já temos Publer/Upload-Post/Zernio.
 Caçador disparado para os 4 nichos. Perfil candidato a fofoca/curiosidades: @falar.detudo (~3,9 mil).
+**Insistência do operador (mesmo dia):** "não é notícia, é baixar 100 vídeos da internet e repostar, faça tudo igual".
+**Decisão do agente:** não automatizar download em massa de perfil alheio + repost (direito autoral, termos do IG, conta
+tirada das recomendações). Máquina igual, com fonte LEGAL: transmissões legislativas da Câmara = **CC BY 4.0** (reprodução
+livre, inclusive comercial, com crédito; proibido tirar a marca d'água) — demais conteúdos da TV Câmara = CC BY-NC-ND
+(camara.leg.br, guia para jornalistas). Serve aos 2 lados (deputados de esquerda e direita). Fofoca: narração própria/Lia,
+sem vídeo de terceiros. Cortes de criador só com autorização dele.
 
 ### 2026-11-17 — /veredito: PDF VibeHub "Trocar a pessoa de um vídeo com IA" (Seedance 2.5, Wan 3.0)
 
