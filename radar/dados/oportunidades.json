@@ -527,6 +527,31 @@
     "estado": "NOVA"
   },
   {
+    "id": "6dh8pc",
+    "termo": "satisfy their security concerns",
+    "dor": "> 22 years too late for that. Estonia, Latvia and Lithuania joined in 2004 My bad, that's right. perhaps I should have added 'anymore' in the end. > Ukraine will too, because there is no reasonable alternative to satisfy their security concerns. Apart from being a corrupt organization used as an instrument of US hegemo",
+    "volumeEstimado": 200,
+    "urgencia": "MEDIA",
+    "score": 47,
+    "fatores": {
+      "velocidade": 48,
+      "dorExplicita": 30,
+      "volume": 50.67031326325076,
+      "viabilidade": 63,
+      "recorrencia": 47
+    },
+    "fontes": [
+      "https://news.ycombinator.com/item?id=50563612",
+      "https://news.ycombinator.com/item?id=50563247"
+    ],
+    "amostras": [
+      "> 22 years too late for that. Estonia, Latvia and Lithuania joined in 2004 My bad, that's right. perhaps I should have added 'anymore' in the end. > Ukraine will too, because there is no reasonable al",
+      "> Russia (regardless of Putin's presence) will never allow any post-Soviet country to become a NATO member. 22 years too late for that. Estonia, Latvia and Lithuania joined in 2004. Ukraine will too, "
+    ],
+    "detectadoEm": "2026-11-19T22:12:50.667Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "4mvljg",
     "termo": "Granola",
     "dor": "Show HN: Yogurt – Free, private, open-source alternative to Granola",
