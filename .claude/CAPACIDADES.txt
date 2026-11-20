@@ -17,6 +17,7 @@ helper:fundir-indice
 helper:memoria_viva
 helper:mutacao
 helper:narrar_prep
+helper:noticia-em-video
 helper:rubrica
 helper:sincronizar
 helper:template-em-lote

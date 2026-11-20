@@ -16,6 +16,12 @@ nos perfis de volume — vídeo ORIGINAL (narração + montagem nova) a partir d
 (R$ 67) e o Diretor de Aprendizado instala é mais rápido que construir; dá para construir com o que já existe (Remotion,
 editor-video, voz da Lia) se ele preferir. Cuidado: foto de agência da matéria tem direito autoral → usar manchete em texto,
 imagem gerada por IA ou foto livre (Agência Brasil CC BY, Câmara CC BY 4.0).
+**20/11 — operador: "não quero comprar, faça".** Construído `helpers/volume/noticia-em-video.py` (+ `renderizar.cjs`):
+URL → lê matéria → roteiro JSON (gemini-2.5-flash, só fatos da matéria, ângulo por público) → voz edge-tts pt-BR Antonio
+(grátis; na nuvem precisa do CA do proxy no certifi) → 1 imagem papel recortado/cena (gemini-2.5-flash-image ~US$ 0,04)
+→ cenas HTML (jornal "O Diário de Hoje", recorte, palavra à mão circulada em vermelho, legenda, fonte, carimbo EXPLICADO)
+→ quadros no Chromium → MP4 1080x1920 + .txt de legenda. **Teste real:** Agência Brasil/Enem → 34,8 s, 5 cenas, US$ 0,195,
+conferido quadro a quadro. Sem foto da matéria (direito autoral).
 
 ### 2026-11-18 — Vídeo "Sombra Viral" (Adonai): perfis de volume em política/fofoca/saúde → versão segura
 
