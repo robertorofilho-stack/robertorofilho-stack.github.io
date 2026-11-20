@@ -7,6 +7,16 @@
 
 ## 2026-11
 
+### 2026-11-20 — Esteira de notícias automática (G1 + BBC News Brasil + The Guardian traduzido)
+
+Pedido: "automação de notícias de jornal, G1 + 2 jornais bons + mundo traduzido, sempre com fonte" (ele está reorganizando
+as redes em outra conversa e vai distribuir as automações). **Feito:** `helpers/volume/esteira-noticias.py` + `LEIA-ME.md`
++ `esteira-exemplo.json`. RSS testados 200: G1 (89 itens), BBC News Brasil, Guardian World, BBC World, Agência Brasil.
+IA escolhe as N mais fortes (sem duplicar assunto, descarta vítima comum/criança/boato) → noticia-em-video (traduz,
+reescreve, fonte na tela) → `pendentes/AAAA-MM-DD/` → opcional Upload-Post 9/12/15/18/21h. **Teste real:** 3/3 vídeos
+(Guardian genocídio Rohingya traduzido; 2 do G1), 35–47 s, US$ 0,195 cada. Layout corrigido (palavra à mão não fica mais
+sob a legenda longa). Falta: os @ das páginas, instalar no servidor + cron 06:10, e a chave do Upload-Post na config.
+
 ### 2026-11-20 — /veredito: anúncio @thiagoalvesia "KIT notícia → vídeo explicado" (R$ 67)
 
 Post DfXM8z_M28L (Gemini Pro, US$ 0,04): cola o link da notícia → IA recorta a manchete, monta colagem estilo "papel e cola"

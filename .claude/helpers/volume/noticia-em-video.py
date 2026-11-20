@@ -30,17 +30,25 @@ def openrouter(corpo, timeout=180):
 def ler_noticia(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     h = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")
-    tit = re.search(r'<meta property="og:title" content="([^"]+)"', h) or re.search(r"<title>(.*?)</title>", h, re.S)
-    site = re.search(r'<meta property="og:site_name" content="([^"]+)"', h)
+    tit = (re.search(r'<meta[^>]+property="og:title"[^>]+content="([^"]+)"', h)
+           or re.search(r'<meta[^>]+content="([^"]+)"[^>]+property="og:title"', h)
+           or re.search(r"<title[^>]*>(.*?)</title>", h, re.S))
+    site = (re.search(r'<meta[^>]+property="og:site_name"[^>]+content="([^"]+)"', h)
+            or re.search(r'<meta[^>]+content="([^"]+)"[^>]+property="og:site_name"', h))
     corpo = re.sub(r"(?is)<(script|style|nav|header|footer|aside)[^>]*>.*?</\1>", " ", h)
     paras = [html.unescape(re.sub(r"<[^>]+>", "", p)).strip() for p in re.findall(r"(?is)<p[^>]*>(.*?)</p>", corpo)]
     texto = "\n".join(p for p in paras if len(p) > 60)[:9000]
-    fonte = html.unescape(site.group(1)) if site else re.sub(r"^https?://(www\.)?([^/]+).*", r"\2", url)
+    dom = re.sub(r"^https?://(www\.)?([^/]+).*", r"\2", url)
+    nomes = {"bbc.com/portuguese": "BBC News Brasil", "bbc.co": "BBC News", "g1.globo": "g1", "theguardian": "The Guardian",
+             "agenciabrasil": "Agência Brasil", "reuters": "Reuters", "apnews": "AP News", "nytimes": "The New York Times"}
+    fonte = next((v for k, v in nomes.items() if k in url), html.unescape(site.group(1)) if site else dom)
     return html.unescape(tit.group(1).strip()) if tit else "", texto, fonte
 
 
 ROTEIRO = """Você é roteirista de um canal de "notícia explicada" em vídeo vertical curto (estilo colagem de papel).
 Escreva em português do Brasil, frases curtas, tom de conversa, gancho forte no início. Público: {publico}.
+Se a matéria estiver em outro idioma, TRADUZA para o português do Brasil. Nunca copie frases da matéria: reescreva com
+suas palavras (os fatos não têm dono; o texto do jornal tem). A fonte é sempre citada na tela.
 REGRAS: use SÓ fatos que estão na matéria abaixo; não invente número, nome, data nem fala; não acuse ninguém de crime
 que a matéria não afirma; sem promessa de cura ou de dinheiro; o "ângulo" do público muda o ENFOQUE, nunca os fatos.
 Duração total da narração: 35 a 55 segundos (≈ 90 a 140 palavras no total).
@@ -106,10 +114,10 @@ body{background:var(--cor);font-family:'Special Elite',monospace;position:relati
  font-size:70px;line-height:1.05;color:#141210;text-transform:uppercase;box-shadow:0 14px 24px rgba(0,0,0,.25);
  transform:rotate(var(--rot));clip-path:polygon(0 4%,8% 0,30% 3%,55% 0,80% 3%,100% 0,98% 50%,100% 96%,75% 100%,50% 97%,25% 100%,0 96%,2% 50%);
  animation:entra .5s cubic-bezier(.2,1.4,.4,1) both}
-.img{position:absolute;left:50%;top:760px;width:640px;height:640px;margin-left:-320px;mix-blend-mode:multiply;
+.img{position:absolute;left:50%;top:700px;width:600px;height:600px;margin-left:-300px;mix-blend-mode:multiply;
  animation:pop .6s .25s cubic-bezier(.2,1.5,.4,1) both}
 .img img{width:100%;height:100%;object-fit:contain}
-.palavra{position:absolute;left:0;right:0;top:1420px;text-align:center;font-family:'Caveat',cursive;font-size:118px;color:#1a1a1a;
+.palavra{position:absolute;left:0;right:0;top:1310px;text-align:center;font-family:'Caveat',cursive;font-size:118px;color:#1a1a1a;
  animation:escreve .6s .55s ease-out both}
 .palavra span{position:relative;display:inline-block;padding:0 30px}
 .palavra svg{position:absolute;left:-10px;top:-18px;width:calc(100% + 20px);height:calc(100% + 36px);overflow:visible}

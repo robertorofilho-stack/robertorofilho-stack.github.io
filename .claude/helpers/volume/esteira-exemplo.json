@@ -1,0 +1,9 @@
+{
+  "perfil": "@explicadodehoje",
+  "publico": "geral: brasileiros adultos que querem entender a notícia do dia em 40 segundos",
+  "voz": "pt-BR-AntonioNeural",
+  "fontes": ["g1", "bbc_brasil", "guardian_mundo"],
+  "pasta": "~/esteira/explicadodehoje",
+  "horarios": ["09:00", "12:00", "15:00", "18:00", "21:00"],
+  "publicar": {"via": "nenhum"}
+}

@@ -13,6 +13,7 @@ helper:arvore
 helper:assistir-video
 helper:compactar-indice
 helper:conselho
+helper:esteira-noticias
 helper:fundir-indice
 helper:memoria_viva
 helper:mutacao
