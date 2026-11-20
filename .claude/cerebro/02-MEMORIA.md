@@ -7,6 +7,16 @@
 
 ## 2026-11
 
+### 2026-11-20 — /veredito: anúncio @thiagoalvesia "KIT notícia → vídeo explicado" (R$ 67)
+
+Post DfXM8z_M28L (Gemini Pro, US$ 0,04): cola o link da notícia → IA recorta a manchete, monta colagem estilo "papel e cola"
+(carimbo EXPLICADO) e narra, "do jeito dos grandes canais de explicação". KIT R$ 67 no lançamento (depois R$ 97), pagamento
+único, 7 dias de garantia, roda no ChatGPT ou Claude; "este anúncio foi feito com o KIT". **Veredito:** é a peça que faltava
+nos perfis de volume — vídeo ORIGINAL (narração + montagem nova) a partir de notícia, sem repostar vídeo alheio. Comprar
+(R$ 67) e o Diretor de Aprendizado instala é mais rápido que construir; dá para construir com o que já existe (Remotion,
+editor-video, voz da Lia) se ele preferir. Cuidado: foto de agência da matéria tem direito autoral → usar manchete em texto,
+imagem gerada por IA ou foto livre (Agência Brasil CC BY, Câmara CC BY 4.0).
+
 ### 2026-11-18 — Vídeo "Sombra Viral" (Adonai): perfis de volume em política/fofoca/saúde → versão segura
 
 **Vídeo (anexo, 2min36, Gemini Pro US$ 0,11):** baixar em massa 100 vídeos de perfil bolsonarista (extensão "Download all
