@@ -12,6 +12,7 @@
 **Pedido:** estado completo do canal. **Fonte:** mestre (`projetos/youtube-canais.md`, último registro 13/11).
 **Limite:** youtube.com não resolve nesta nuvem (nem página, nem oEmbed) → números ao vivo só no Mac/servidor ou com o host liberado.
 **Alerta entregue:** episódio de sábado 21/11 dependia de uma palavra do operador desde 04/11, sem registro de que foi dada → risco de furar a cadência semanal.
+**Entrega 2:** dossiê único (22 docs do projeto infantil, ~160 KB) montado fora do git para o operador colar no Gemini.
 **Concorrência nova achada:** série infantil 2D de marca grande com tartaruga como líder da turma, no YouTube desde set/2025 → pesar no registro de marca.
 
 
