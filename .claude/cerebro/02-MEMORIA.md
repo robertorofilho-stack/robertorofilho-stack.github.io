@@ -7,6 +7,15 @@
 
 ## 2026-11
 
+### 2026-11-22 — Status dos perfis de volume + nomes sugeridos
+
+Status: máquina pronta e testada (esteira de notícias, gerador de vídeo explicado, template em lote); NÃO instalada no
+servidor; nenhum perfil novo criado ainda; produtos nº 1 por nicho definidos (18/11). Recomendação: 4 perfis novos +
+@falar.detudo (fofoca/variedades). Nomes (checagem TikTok 22/11; Instagram deu 429, conferir no app): @odiariodehoje
+(notícias, casa com o jornal do vídeo) · @direita.explicada · @esquerda.explicada (simétricos; sem "Bolsonaro"/"Lula" no
+@ — imitação/marca) · @saude.semmito (saudesemmito/saudesemmitos já existem no TikTok). Livres no TikTok: odiariodehoje,
+direita.explicada, esquerda.explicada, saude.semmito, explicadohoje, fuxicodoceara.
+
 ### 2026-11-20 — Esteira de notícias automática (G1 + BBC News Brasil + The Guardian traduzido)
 
 Pedido: "automação de notícias de jornal, G1 + 2 jornais bons + mundo traduzido, sempre com fonte" (ele está reorganizando
