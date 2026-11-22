@@ -7,6 +7,19 @@
 
 ## 2026-11
 
+### 2026-11-22 — 3 páginas ligadas: @mentepoder1, @fala.vovo, @omundocast (política em pausa)
+
+Ordem: "dar um tempo na política; mentepoder1 = autoajuda, autoestima, lei da atração, motivação, sempre com gancho visual
+absurdo (aula de ganchos); fala.vovo e omundocast com os temas deles". Usado o **Diretor de Ganchos** do mestre (15/11,
+600 ganchos + METODO-SUPREMO: quadro 0 + som 0,2 s, ataque 0–1,5 s, torção 1,5–3 s, famílias variadas).
+**Feito:** `helpers/volume/pagina-temas.py` (roteiro gemini-2.5-pro → imagem surreal fotorrealista 9:16 → voz da persona →
+flash + tremor + impacto sonoro sintético no 0 s → MP4 + legenda; estado evita repetir) + `paginas/mentepoder1.json`
+(Antonio grave, dourado), `fala.vovo.json` (Francisca -12Hz -10%, aviso "Conteúdo educativo…"), `omundocast.json`
+(esteira de notícias). **Testes:** mentepoder1 3 vídeos (32,0 s / 33,8 s / 21,2 s após encurtar) e fala.vovo 1 (24,4 s,
+golpe do Pix), conferidos quadro a quadro; ~US$ 0,04–0,10 por vídeo. Gotcha: gemini-2.5-flash-image recusa (SAFETY 403)
+rosto/corpo humano em cena dramática → prompt agora pede silhueta/objeto/escala absurda + tentativa simbólica.
+Falta: instalar no servidor + cron (LEIA-ME) e decidir aprovação x postagem automática.
+
 ### 2026-11-22 — Contas de Instagram que ele já tem → mapa dos perfis de volume
 
 Print do seletor de contas: mentepoder1 (Mente e Poder, mindset), falar.detudo, robertorodriguesmd, robertorofilho,

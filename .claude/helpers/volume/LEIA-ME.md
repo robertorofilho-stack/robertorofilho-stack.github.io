@@ -6,6 +6,8 @@
 | `esteira-noticias.py` | Lê RSS (G1, BBC News Brasil, The Guardian, BBC World, Agência Brasil), escolhe as N mais fortes, gera os vídeos, guarda em `pendentes/AAAA-MM-DD/` e (opcional) agenda no Upload-Post |
 | `renderizar.cjs` | Desenha os quadros no Chromium (Playwright de Node) |
 | `template-em-lote.py` | Aplica moldura PNG do Canva numa pasta inteira de vídeos |
+| `pagina-temas.py` | Página de tema fixo → Reels de 20–35 s com GANCHO VISUAL ABSURDO no quadro 0 (método do Diretor de Ganchos), voz da persona, impacto sonoro, legenda; não repete tema |
+| `paginas/*.json` | Configs prontas: `mentepoder1` (autoajuda), `fala.vovo` (vovó: saúde e vida com bom senso), `omundocast` (esteira de notícias) |
 | `esteira-exemplo.json` | Configuração de uma página (copiar 1 por perfil) |
 
 ## Instalar no servidor (uma vez)
@@ -31,3 +33,11 @@ com `UPLOAD_POST_API_KEY` no ambiente → agenda 9h, 12h, 15h, 18h e 21h.
 - Nenhuma foto da matéria (tem dono): imagens geradas por IA.
 - Descarta crime com vítima comum identificável, tragédia com criança e boato.
 - Custo: ~US$ 0,20 por vídeo (5/dia ≈ US$ 30/mês por página).
+
+## Páginas de tema (cron às 06:20 e 13:20, 3 vídeos por vez)
+```cron
+20 6,13 * * * cd ~/robertorofilho-stack.github.io/.claude/helpers/volume && NODE_PATH=$(npm root -g) python3 pagina-temas.py --config paginas/mentepoder1.json --quantos 3 >> ~/esteira/mentepoder1.log 2>&1
+25 6,13 * * * cd ~/robertorofilho-stack.github.io/.claude/helpers/volume && NODE_PATH=$(npm root -g) python3 pagina-temas.py --config paginas/fala.vovo.json --quantos 3 >> ~/esteira/fala.vovo.log 2>&1
+10 6 * * * cd ~/robertorofilho-stack.github.io/.claude/helpers/volume && NODE_PATH=$(npm root -g) python3 esteira-noticias.py --config paginas/omundocast.json --quantos 5 >> ~/esteira/omundocast.log 2>&1
+```
+O gerador de imagem às vezes recusa (filtro de segurança): o script tenta uma versão simbólica e, se falhar, reaproveita outra imagem do mesmo vídeo.

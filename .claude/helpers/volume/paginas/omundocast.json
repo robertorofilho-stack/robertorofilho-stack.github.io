@@ -1,0 +1,9 @@
+{
+  "perfil": "@omundocast",
+  "publico": "brasileiros adultos curiosos que querem entender o que está acontecendo no mundo e no Brasil em 40 segundos",
+  "voz": "pt-BR-AntonioNeural",
+  "fontes": ["g1", "bbc_brasil", "guardian_mundo", "bbc_mundo"],
+  "pasta": "~/esteira/omundocast",
+  "horarios": ["09:00", "12:00", "15:00", "18:00", "21:00"],
+  "publicar": {"via": "nenhum"}
+}
