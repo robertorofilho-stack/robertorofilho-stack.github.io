@@ -142,6 +142,16 @@ body{background:var(--cor);font-family:'Special Elite',monospace;position:relati
 """
 
 
+def _css_avatar():
+    import importlib.util
+    sp = importlib.util.spec_from_file_location("pt", os.path.join(os.path.dirname(os.path.abspath(__file__)), "pagina-temas.py"))
+    src = open(sp.origin).read()
+    return src.split('CSS = """', 1)[1].split('"""', 1)[0]
+
+
+CSS_AVATAR = _css_avatar()
+
+
 def pagina(cor, miolo, legenda, perfil, fonte):
     return (f"<!doctype html><html><head><meta charset='utf-8'><style>{CSS}</style></head>"
             f"<body style='--cor:{cor}'><div class='grao'></div>"
@@ -170,11 +180,11 @@ def fim_html(frase, perfil, fonte):
     return pagina("#f2c94c", miolo, perfil, perfil, fonte)
 
 
-def renderizar(paginas, fps, pasta):
+def renderizar(paginas, fps, pasta, png=False):
     lista = os.path.join(pasta, "..", "cenas.json")
     json.dump(paginas, open(lista, "w"))
     js = os.path.join(os.path.dirname(os.path.abspath(__file__)), "renderizar.cjs")
-    r = subprocess.run(["node", js, lista, pasta, str(fps)], capture_output=True, text=True)
+    r = subprocess.run(["node", js, lista, pasta, str(fps)] + (["png"] if png else []), capture_output=True, text=True)
     if r.returncode:
         sys.exit("falha ao renderizar: " + r.stderr[-800:])
     return int(r.stdout.strip().splitlines()[-1])
@@ -186,6 +196,7 @@ def main():
     ap.add_argument("--perfil", default="@suapagina"); ap.add_argument("--voz", default="pt-BR-AntonioNeural")
     ap.add_argument("--publico", default="geral"); ap.add_argument("--sem-imagens", action="store_true")
     ap.add_argument("--fps", type=int, default=24); ap.add_argument("--data", default="")
+    ap.add_argument("--avatar", default="", help="JSON do bloco avatar (HeyGen ou simulado): apresentador fala a notícia")
     a = ap.parse_args()
     custo = 0.0
     titulo, texto, fonte = ler_noticia(a.url)
@@ -199,6 +210,25 @@ def main():
         meses = "janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro".split()
         import datetime
         d = datetime.date.today(); a.data = f"{d.day} de {meses[d.month - 1]} de {d.year}"
+    if a.avatar:                                            # modo apresentador (ex.: @omundocast)
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import avatar_heygen
+        tmp = tempfile.mkdtemp(prefix="nv-")
+        imgs = []
+        for i, ce in enumerate(cenas[:4]):
+            d = os.path.join(tmp, f"i{i}.png"); ci, ok = imagem(ce["imagem"], d); custo += ci
+            if ok:
+                imgs.append(d)
+        v = {"gancho_tela": r["manchete_curta"], "gancho_fala": cenas[0]["fala"],
+             "cenas": [{"fala": c["fala"], "tela": c["palavra"]} for c in cenas[1:]],
+             "fechamento": (r.get("fechamento") or f"Segue {a.perfil}") + f" Fonte: {fonte}."}
+        cfg = {"avatar": json.loads(a.avatar), "voz": a.voz, "perfil": a.perfil}
+        dur = avatar_heygen.montar(v, cfg, imgs, a.saida, renderizar, duracao, CSS_AVATAR, a.perfil, "#ffd23f")
+        open(os.path.splitext(a.saida)[0] + ".txt", "w").write(
+            f"{r['manchete_curta']}\n\n" + " ".join(c['fala'] for c in cenas) + f"\n\nFonte: {fonte} — {a.url}\n")
+        shutil.rmtree(tmp, ignore_errors=True)
+        print(f"pronto: {a.saida} ({dur:.1f}s, apresentador) · custo IA ≈ US$ {custo:.3f}")
+        return
     tmp = tempfile.mkdtemp(prefix="nv-")
     paginas, audios = [], []
     for i, ce in enumerate(cenas):

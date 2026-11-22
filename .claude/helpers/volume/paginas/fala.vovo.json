@@ -2,16 +2,38 @@
   "perfil": "@fala.vovo",
   "persona": "Vovó brasileira carinhosa, sábia e direta, que já viu de tudo e fala o que pensa, com humor e afeto",
   "tom_texto": "conselho de avó: carinhoso, engraçado, um pouco provocador ('no meu tempo...'), sempre com bom senso",
-  "voz": "pt-BR-FranciscaNeural", "rate": "-10%", "pitch": "-12Hz",
+  "voz": "pt-BR-FranciscaNeural",
+  "rate": "-10%",
+  "pitch": "-12Hz",
   "estilo": "warm nostalgic cozy Brazilian grandmother kitchen aesthetic, surreal twist",
   "destaque": "#ff8fab",
-  "temas": ["netos e celular: quanto tempo de tela", "chá e remédios caseiros: o que é mito", "sono das crianças",
-            "comida de verdade x ultraprocessado", "conselhos de casamento", "economizar no mercado",
-            "ensinar respeito aos filhos", "solidão dos idosos", "beber água", "caminhar todo dia",
-            "simpatia que não funciona", "golpes do WhatsApp contra idosos", "receita antiga que salva o mês",
-            "pele e protetor solar", "açúcar escondido"],
+  "temas": [
+    "netos e celular: quanto tempo de tela",
+    "chá e remédios caseiros: o que é mito",
+    "sono das crianças",
+    "comida de verdade x ultraprocessado",
+    "conselhos de casamento",
+    "economizar no mercado",
+    "ensinar respeito aos filhos",
+    "solidão dos idosos",
+    "beber água",
+    "caminhar todo dia",
+    "simpatia que não funciona",
+    "golpes do WhatsApp contra idosos",
+    "receita antiga que salva o mês",
+    "pele e protetor solar",
+    "açúcar escondido"
+  ],
   "regras": "Saúde: só o que é consenso e com bom senso; nunca promessa de cura, nunca substituir tratamento médico; mito desmentido com explicação simples. Termine dicas de saúde com 'na dúvida, procure seu médico'. Nunca citar médico real.",
   "aviso": "Conteúdo educativo. Não substitui consulta médica.",
   "pasta": "~/esteira/fala.vovo",
-  "publicar": {"via": "nenhum"}
+  "publicar": {
+    "via": "nenhum"
+  },
+  "avatar": {
+    "via": "heygen",
+    "nome": "Maria",
+    "resolucao": "720p",
+    "_confirmar": "nome do avatar na HeyGen; se não achar, pôr look_id"
+  }
 }

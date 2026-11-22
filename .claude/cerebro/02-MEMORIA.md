@@ -7,6 +7,18 @@
 
 ## 2026-11
 
+### 2026-11-22 — @fala.vovo e @omundocast com apresentador da HeyGen
+
+Operador: "a vovó é da minha conta HeyGen" + "e o mundo cast também". **Feito:** `helpers/volume/avatar_heygen.py` — avatar
+fala o roteiro inteiro (API v3: POST /v3/videos, GET /v3/videos/{id}, looks privados por nome), por cima: imagem absurda
+tela cheia 0–1,6 s + flash + impacto, cortes de imagem de 2,2 s no início de cada cena, texto de tela, CTA; modo
+"simulado" (foto + edge-tts) para testar sem gastar. Ligado em `pagina-temas.py` (bloco "avatar" da config) e em
+`noticia-em-video.py --avatar` / `esteira-noticias.py`. Configs: fala.vovo → nome "Maria", omundocast → "Humberto"
+(grupos vistos na conta em 01/10: Roberto, Humberto, "Vovô Maria" — CONFIRMAR no servidor). **Testes simulados:** vovó
+"O açúcar que você não vê" 18,6 s; omundocast g1/Manaus 40,5 s — montagem conferida quadro a quadro. **Custo real HeyGen
+≈ US$ 1,6–3 por Reel** (3/dia vovó + 5/dia notícias ≈ US$ 400–700/mês) → rodar só depois de o Roberto aprovar o valor
+(tráfego não, mas é gasto recorrente) ou baixar para 1–2 vídeos/dia com avatar e o resto sem.
+
 ### 2026-11-22 — 3 páginas ligadas: @mentepoder1, @fala.vovo, @omundocast (política em pausa)
 
 Ordem: "dar um tempo na política; mentepoder1 = autoajuda, autoestima, lei da atração, motivação, sempre com gancho visual

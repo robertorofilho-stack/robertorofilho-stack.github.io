@@ -15,6 +15,7 @@ Custo: ~US$ 0,01 roteiro + ~US$ 0,04 por imagem (3 imagens/vídeo ≈ US$ 0,13).
 import argparse, datetime, html, importlib.util, json, os, random, re, shutil, subprocess, sys, tempfile
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, AQUI)
 _sp = importlib.util.spec_from_file_location("nv", os.path.join(AQUI, "noticia-em-video.py"))
 nv = importlib.util.module_from_spec(_sp); _sp.loader.exec_module(nv)
 
@@ -133,6 +134,15 @@ def fazer_video(v, cfg, saida):
     for i, (_, _, prompt, _) in enumerate(partes[:3]):  # noqa              # 3 imagens: gancho + 2 de apoio (economia)
         d = os.path.join(tmp, f"i{i}.png"); c, ok = imagem_foto(prompt, d, estilo); custo += c
         imgs.append(d if ok else None)
+    if cfg.get("avatar"):                                   # apresentador HeyGen falando, imagens como cortes
+        import avatar_heygen
+        boas = [x for x in imgs if x]
+        if not boas:
+            raise RuntimeError("nenhuma imagem gerada")
+        dur = avatar_heygen.montar(v, cfg, boas, saida, nv.renderizar, nv.duracao, CSS, cfg["perfil"], dest)
+        open(saida[:-4] + ".txt", "w").write(v.get("legenda", "") + (("\n\n" + cfg["aviso"]) if cfg.get("aviso") else "") + "\n")
+        shutil.rmtree(tmp, ignore_errors=True)
+        return dur, custo
     paginas, audios = [], []
     for i, (tipo, fala, _, tela) in enumerate(partes):
         mp3 = os.path.join(tmp, f"a{i}.mp3"); narrar(fala, cfg, mp3)

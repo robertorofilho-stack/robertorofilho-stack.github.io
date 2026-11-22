@@ -110,7 +110,9 @@ def main():
         mp4 = os.path.join(destino, f"{i + 1:02d}-{nome}.mp4")
         r = subprocess.run([sys.executable, os.path.join(AQUI, "noticia-em-video.py"), c["link"], "--saida", mp4,
                             "--perfil", cfg["perfil"], "--publico", cfg.get("publico", "geral"),
-                            "--voz", cfg.get("voz", "pt-BR-AntonioNeural")], capture_output=True, text=True)
+                            "--voz", cfg.get("voz", "pt-BR-AntonioNeural")]
+                           + (["--avatar", json.dumps(cfg["avatar"])] if cfg.get("avatar") else []),
+                           capture_output=True, text=True)
         print(r.stdout.strip().splitlines()[-1] if r.returncode == 0 else f"ERRO {c['link']}: {r.stderr[-300:]}")
         if r.returncode:
             continue

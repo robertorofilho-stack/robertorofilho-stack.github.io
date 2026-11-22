@@ -11,6 +11,7 @@ agente:verificador-citacao
 agente:viral
 helper:arvore
 helper:assistir-video
+helper:avatar_heygen
 helper:compactar-indice
 helper:conselho
 helper:esteira-noticias
