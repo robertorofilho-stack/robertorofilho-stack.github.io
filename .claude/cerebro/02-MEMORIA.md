@@ -7,6 +7,16 @@
 
 ## 2026-11
 
+### 2026-11-22 — Contas de Instagram que ele já tem → mapa dos perfis de volume
+
+Print do seletor de contas: mentepoder1 (Mente e Poder, mindset), falar.detudo, robertorodriguesmd, robertorofilho,
+vitrineia_, omundocast (avatar de homem no microfone), fala.vovo (avatar de idosa). **Mapa:** @omundocast → notícias do
+dia/mundo (esteira pronta, combina com o nome) · @fala.vovo → saúde curiosa com persona da vovó (telas e netos, alimentos,
+sono; produto "Desmame de telas") · @falar.detudo → fofoca/variedades (Achadinhos Shopee) · @mentepoder1 → mantém mente/
+motivação (fila para um produto do nicho) · NÃO mexer: robertorodriguesmd, robertorofilho, vitrineia_. Criar só 2 novos:
+@direita.explicada e @esquerda.explicada — de preferência numa Central de Contas separada (outro e-mail/telefone), porque
+a Meta pode punir contas vinculadas quando uma página política leva advertência.
+
 ### 2026-11-22 — Status dos perfis de volume + nomes sugeridos
 
 Status: máquina pronta e testada (esteira de notícias, gerador de vídeo explicado, template em lote); NÃO instalada no
