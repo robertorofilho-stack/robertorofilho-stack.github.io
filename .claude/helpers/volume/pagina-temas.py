@@ -38,8 +38,10 @@ MÉTODO OBRIGATÓRIO:
 - Fechamento: ação concreta (salvar, mandar para alguém, comentar uma palavra). Total falado 15 a 25 segundos (no máximo 65 palavras somando tudo).
 - {regras}
 Devolva APENAS JSON: {{"videos":[{{"tema":"...","familia":"...","gancho_tela":"...","gancho_fala":"...",
-"imagem_gancho":"prompt em inglês da imagem absurda","cenas":[{{"fala":"...","tela":"até 6 palavras","imagem":"prompt em
-inglês, mesma estética"}}],"fechamento":"...","legenda":"legenda do post com 3 a 5 hashtags"}}]}}"""
+"imagem_gancho":"prompt em inglês da imagem absurda","busca_gancho":"2 a 4 palavras em inglês para achar um VÍDEO real de
+banco de imagens com movimento forte e surpreendente (ex.: 'lightning storm slow motion', 'wave crashing rocks')",
+"cenas":[{{"fala":"...","tela":"até 6 palavras","imagem":"prompt em inglês, mesma estética","busca":"2 a 4 palavras em inglês
+para achar um vídeo real de banco de imagens que mostre a cena (pessoas, natureza, cidade, objetos)"}}],"fechamento":"...","legenda":"legenda do post com 3 a 5 hashtags"}}]}}"""
 
 CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@800&family=Caveat:wght@700&display=swap');
@@ -131,9 +133,21 @@ def fazer_video(v, cfg, saida):
     partes = [("gancho", v["gancho_fala"], v["imagem_gancho"], v["gancho_tela"])] + \
              [("cena", c["fala"], c["imagem"], c.get("tela", "")) for c in v["cenas"]]
     imgs = []
-    for i, (_, _, prompt, _) in enumerate(partes[:3]):  # noqa              # 3 imagens: gancho + 2 de apoio (economia)
+    for i, (_, _, prompt, _) in enumerate(partes[:3] if cfg.get("visual", "video") != "video" else []):  # noqa              # 3 imagens: gancho + 2 de apoio (economia)
         d = os.path.join(tmp, f"i{i}.png"); c, ok = imagem_foto(prompt, d, estilo); custo += c
         imgs.append(d if ok else None)
+    if cfg.get("visual", "video") == "video":               # padrão (22/11): vídeo de verdade de banco gratuito
+        import banco_videos
+        segs = [{"tipo": "gancho", "fala": v["gancho_fala"], "tela": v["gancho_tela"], "busca": v.get("busca_gancho", "")}]
+        segs += [{"tipo": "cena", "fala": c["fala"], "tela": c.get("tela", ""), "busca": c.get("busca", "")} for c in v["cenas"]]
+        segs.append({"tipo": "fim", "fala": v["fechamento"], "tela": v["fechamento"], "busca": v.get("busca_gancho", "")})
+        dur, cred = banco_videos.montar(segs, cfg, saida, nv.renderizar, CSS, cfg["perfil"], dest)
+        txt = v.get("legenda", "") + (("\n\n" + cfg["aviso"]) if cfg.get("aviso") else "")
+        if cred:
+            txt += "\n\nVídeos: " + "; ".join(cred)
+        open(saida[:-4] + ".txt", "w").write(txt + "\n")
+        shutil.rmtree(tmp, ignore_errors=True)
+        return dur, custo
     if cfg.get("avatar"):                                   # apresentador HeyGen falando, imagens como cortes
         import avatar_heygen
         boas = [x for x in imgs if x]

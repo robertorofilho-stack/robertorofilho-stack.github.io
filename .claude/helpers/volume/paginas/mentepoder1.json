@@ -2,14 +2,35 @@
   "perfil": "@mentepoder1",
   "persona": "Mente e Poder: voz firme e calma de mentor, que fala com quem quer mudar de vida",
   "tom_texto": "intenso, direto, frases de impacto curtas, sem clichê vazio; inspira e dá um passo prático",
-  "voz": "pt-BR-AntonioNeural", "rate": "-4%", "pitch": "-6Hz",
+  "voz": "pt-BR-AntonioNeural",
+  "rate": "-12%",
+  "pitch": "-6Hz",
   "estilo": "dark golden moody cinematic, surreal, epic scale",
   "destaque": "#f5b82e",
-  "temas": ["autoestima", "amor-próprio", "lei da atração", "gratidão", "disciplina vence motivação",
-            "parar de se comparar", "pessoas que drenam sua energia", "procrastinação", "medo de recomeçar",
-            "solidão que fortalece", "rotina da manhã", "mentalidade de abundância", "perdoar a si mesmo",
-            "dizer não sem culpa", "pequenos hábitos que mudam tudo", "silêncio e foco", "confiança em si"],
+  "temas": [
+    "autoestima",
+    "amor-próprio",
+    "lei da atração",
+    "gratidão",
+    "disciplina vence motivação",
+    "parar de se comparar",
+    "pessoas que drenam sua energia",
+    "procrastinação",
+    "medo de recomeçar",
+    "solidão que fortalece",
+    "rotina da manhã",
+    "mentalidade de abundância",
+    "perdoar a si mesmo",
+    "dizer não sem culpa",
+    "pequenos hábitos que mudam tudo",
+    "silêncio e foco",
+    "confiança em si"
+  ],
   "regras": "Lei da atração é tratada como mentalidade e foco, nunca como promessa de dinheiro, cura ou resultado garantido. Sem diagnóstico de saúde mental; se citar ansiedade ou depressão, sugerir procurar ajuda profissional.",
   "pasta": "~/esteira/mentepoder1",
-  "publicar": {"via": "nenhum"}
+  "publicar": {
+    "via": "nenhum"
+  },
+  "visual": "video",
+  "pausa": 0.5
 }

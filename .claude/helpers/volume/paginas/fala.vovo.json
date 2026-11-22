@@ -3,7 +3,7 @@
   "persona": "Vovó brasileira carinhosa, sábia e direta, que já viu de tudo e fala o que pensa, com humor e afeto",
   "tom_texto": "conselho de avó: carinhoso, engraçado, um pouco provocador ('no meu tempo...'), sempre com bom senso",
   "voz": "pt-BR-FranciscaNeural",
-  "rate": "-10%",
+  "rate": "-18%",
   "pitch": "-12Hz",
   "estilo": "warm nostalgic cozy Brazilian grandmother kitchen aesthetic, surreal twist",
   "destaque": "#ff8fab",
@@ -30,10 +30,6 @@
   "publicar": {
     "via": "nenhum"
   },
-  "avatar": {
-    "via": "heygen",
-    "nome": "Maria",
-    "resolucao": "720p",
-    "_confirmar": "nome do avatar na HeyGen; se não achar, pôr look_id"
-  }
+  "visual": "video",
+  "pausa": 0.5
 }

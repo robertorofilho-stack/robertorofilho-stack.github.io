@@ -8,6 +8,8 @@
 | `template-em-lote.py` | Aplica moldura PNG do Canva numa pasta inteira de vídeos |
 | `pagina-temas.py` | Página de tema fixo → Reels de 20–35 s com GANCHO VISUAL ABSURDO no quadro 0 (método do Diretor de Ganchos), voz da persona, impacto sonoro, legenda; não repete tema |
 | `avatar_heygen.py` | Modo apresentador: avatar da HeyGen fala o roteiro inteiro; gancho absurdo, cortes de imagem e textos sobrepostos. `"via":"simulado"` testa sem gastar |
+| `banco_videos.py` | VÍDEO DE VERDADE por cena (padrão desde 22/11): Pexels → Pixabay (chaves do cofre) → Mixkit (sem chave) → Wikimedia; narração mais calma, pausas, trilha suave sintetizada |
+| `pagina-poesia.py` | Poesia em domínio público (Wikisource), cada verso conferido com o original, voz masculina suave, vídeos reais, trilha própria |
 | `paginas/*.json` | Configs prontas: `mentepoder1` (autoajuda), `fala.vovo` (vovó: saúde e vida com bom senso), `omundocast` (esteira de notícias) |
 | `esteira-exemplo.json` | Configuração de uma página (copiar 1 por perfil) |
 
@@ -47,3 +49,9 @@ O gerador de imagem às vezes recusa (filtro de segurança): o script tenta uma 
 Precisa de `HEYGEN_API_KEY` no ambiente do servidor. O script procura o avatar pelo NOME nos looks privados da conta;
 se não achar, ponha `"look_id"` (e `"voice_id"`, se quiser outra voz) no bloco `avatar` da config.
 Custo HeyGen (medido 02/10/2026): ~US$ 4,7/min (gêmeo digital 1080p) → Reel de 20–40 s ≈ US$ 1,6–3,1; em 720p e talking photo, menos.
+
+## Poesia (cron 1x/dia às 20:10)
+```cron
+10 20 * * * cd ~/robertorofilho-stack.github.io/.claude/helpers/volume && NODE_PATH=$(npm root -g) python3 pagina-poesia.py --config paginas/poesia.json --quantos 1 >> ~/esteira/poesia.log 2>&1
+```
+Só autores mortos há mais de 70 anos (o script recusa os outros). Para vídeos melhores, exporte `PEXELS_API_KEY` e `PIXABAY_API_KEY`.

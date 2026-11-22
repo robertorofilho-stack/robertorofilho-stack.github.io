@@ -19,10 +19,7 @@
   "publicar": {
     "via": "nenhum"
   },
-  "avatar": {
-    "via": "heygen",
-    "nome": "Humberto",
-    "resolucao": "720p",
-    "_confirmar": "nome do avatar na HeyGen; se não achar, pôr look_id"
-  }
+  "rate": "-5%",
+  "visual": "video",
+  "pausa": 0.5
 }

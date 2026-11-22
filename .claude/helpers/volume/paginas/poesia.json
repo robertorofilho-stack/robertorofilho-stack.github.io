@@ -1,0 +1,25 @@
+{
+  "perfil": "@poesia",
+  "voz": "pt-BR-AntonioNeural", "rate": "-22%", "pitch": "-4Hz", "pausa": 1.1,
+  "musica": "suave",
+  "pasta": "~/esteira/poesia",
+  "publicar": {"via": "nenhum"},
+  "_regra": "Só poetas mortos há mais de 70 anos (domínio público no Brasil). Cecília Meireles (1964), Manuel Bandeira (1968), Drummond (1987), Vinicius (1980), Cora Coralina (1985), Mário Quintana (1994), Jorge Amado (2001) ainda são protegidos.",
+  "poemas": [
+    {"autor": "Gonçalves Dias", "morte": 1864, "titulo": "Canção do Exílio", "pagina": "Canção do Exílio (Gonçalves Dias)"},
+    {"autor": "Alphonsus de Guimaraens", "morte": 1921, "titulo": "Ismália", "pagina": "Ismália"},
+    {"autor": "Fernando Pessoa", "morte": 1935, "titulo": "Autopsicografia", "pagina": "Autopsicografia"},
+    {"autor": "Florbela Espanca", "morte": 1930, "titulo": "Fanatismo", "pagina": "Fanatismo"},
+    {"autor": "Florbela Espanca", "morte": 1930, "titulo": "Amar!", "pagina": "Amar!"},
+    {"autor": "Olavo Bilac", "morte": 1918, "titulo": "Ora (direis) ouvir estrelas!", "pagina": "Via Láctea (Olavo Bilac)/XIII"},
+    {"autor": "Álvares de Azevedo", "morte": 1852, "titulo": "Se eu morresse amanhã", "pagina": "Se eu morresse amanhã"},
+    {"autor": "Augusto dos Anjos", "morte": 1914, "titulo": "Versos Íntimos", "pagina": "Versos Íntimos"},
+    {"autor": "Luís de Camões", "morte": 1580, "titulo": "Amor é fogo que arde sem se ver", "pagina": "Amor é fogo que arde sem se ver"},
+    {"autor": "Casimiro de Abreu", "morte": 1860, "titulo": "Meus oito anos", "pagina": "Meus oito anos"},
+    {"autor": "Castro Alves", "morte": 1871, "titulo": "O Navio Negreiro", "pagina": "O Navio Negreiro"},
+    {"autor": "Cruz e Sousa", "morte": 1898, "titulo": "Violões que choram", "pagina": "Violões que choram"},
+    {"autor": "Fernando Pessoa", "morte": 1935, "titulo": "Mar Português", "pagina": "Mar Português"},
+    {"autor": "Raimundo Correia", "morte": 1911, "titulo": "As Pombas", "pagina": "As Pombas"},
+    {"autor": "Machado de Assis", "morte": 1908, "titulo": "Carolina", "pagina": "Carolina (Machado de Assis)"}
+  ]
+}

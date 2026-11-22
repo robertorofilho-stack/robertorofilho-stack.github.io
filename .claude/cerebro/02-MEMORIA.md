@@ -7,6 +7,20 @@
 
 ## 2026-11
 
+### 2026-11-22 — Sem avatar: VÍDEO DE VERDADE em todas as páginas + narração mais calma + página de poesia
+
+Ordem: "avatar sai caro; nada de foto passando, vídeo mesmo; um pouco mais lento; dos dois temas" + ideia nova: poesia
+narrada por voz masculina suave com vídeos. **Feito:** `banco_videos.py` (clipe real por cena: Pexels/Pixabay com as
+chaves do cofre do mestre → Mixkit sem chave → Wikimedia; gancho em câmera lenta; textos sobrepostos em PNG transparente;
+trilha suave sintetizada) — virou o padrão de `pagina-temas.py` e `noticia-em-video.py` (`--visual video`). Velocidade:
+vovó -18%, mentepoder -12%, notícias -5% (antes +8%), pausa 0,5 s; avatar removido das configs (código fica). **Poesia:**
+`pagina-poesia.py` + `paginas/poesia.json` (15 poemas de domínio público; Wikisource; IA só escolhe o trecho e cada verso
+é conferido ≥ 0,85 com o original; Antonio -22% -4Hz; fonte Cormorant itálica). **Direito autoral:** Cecília Meireles
+(†1964) protegida até 2034, Jorge Amado (†2001), Bandeira, Drummond, Vinicius, Quintana, Cora = fora; Florbela, Pessoa,
+Bilac, Camões, Gonçalves Dias, Castro Alves, Augusto dos Anjos = livres. **Testes:** vovó 28,8 s, notícia BBC/COP31
+57,5 s, poesia Mar Português 27,5 s, Fanatismo 31,2 s, Camões 32,5 s — conferidos quadro a quadro. Nome sugerido:
+@poesia.narrada (livre no TikTok 22/11; poesianarrada/versoseternos/alma.em.versos já existem).
+
 ### 2026-11-22 — @fala.vovo e @omundocast com apresentador da HeyGen
 
 Operador: "a vovó é da minha conta HeyGen" + "e o mundo cast também". **Feito:** `helpers/volume/avatar_heygen.py` — avatar

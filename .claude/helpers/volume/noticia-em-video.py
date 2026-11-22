@@ -57,7 +57,8 @@ Devolva APENAS JSON válido neste formato:
   "cenas": [
     {{"fala": "o que o narrador diz (1 ou 2 frases)",
       "palavra": "1 a 3 palavras-chave que aparecem escritas à mão e circuladas",
-      "imagem": "objeto ou cena simples para ilustrar, em inglês, sem texto, sem pessoa real identificável"}}
+      "imagem": "objeto ou cena simples para ilustrar, em inglês, sem texto, sem pessoa real identificável",
+      "busca": "2 a 4 palavras em inglês para achar um VÍDEO real de banco de imagens que ilustre a cena"}}
   ],
   "fechamento": "frase final curta convidando a seguir a página"}}
 Use de 4 a 6 cenas. A 1ª cena é o gancho (pergunta ou fato surpreendente).
@@ -196,7 +197,9 @@ def main():
     ap.add_argument("--perfil", default="@suapagina"); ap.add_argument("--voz", default="pt-BR-AntonioNeural")
     ap.add_argument("--publico", default="geral"); ap.add_argument("--sem-imagens", action="store_true")
     ap.add_argument("--fps", type=int, default=24); ap.add_argument("--data", default="")
-    ap.add_argument("--avatar", default="", help="JSON do bloco avatar (HeyGen ou simulado): apresentador fala a notícia")
+    ap.add_argument("--visual", default="video", choices=["video", "colagem"],
+                    help="video = clipes reais de banco gratuito (padrão 22/11); colagem = papel recortado")
+    ap.add_argument("--rate", default="-5%"); ap.add_argument("--avatar", default="", help="JSON do bloco avatar (HeyGen ou simulado): apresentador fala a notícia")
     a = ap.parse_args()
     custo = 0.0
     titulo, texto, fonte = ler_noticia(a.url)
@@ -210,6 +213,21 @@ def main():
         meses = "janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro".split()
         import datetime
         d = datetime.date.today(); a.data = f"{d.day} de {meses[d.month - 1]} de {d.year}"
+    if a.visual == "video" and not a.avatar:                # vídeo de verdade, narração mais calma
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import banco_videos
+        segs = [{"tipo": "gancho", "fala": cenas[0]["fala"], "tela": r["manchete_curta"], "busca": cenas[0].get("busca", "")}]
+        segs += [{"tipo": "cena", "fala": c["fala"], "tela": c["palavra"], "busca": c.get("busca", "")} for c in cenas[1:]]
+        fim = (r.get("fechamento") or f"Segue {a.perfil}")
+        segs.append({"tipo": "fim", "fala": fim, "tela": fim, "busca": cenas[0].get("busca", "")})
+        cfgv = {"voz": a.voz, "rate": a.rate}
+        css = CSS_AVATAR + f".fonte2{{position:absolute;right:40px;top:120px;font-family:'Montserrat',sans-serif;font-size:28px;color:#fff;background:rgba(0,0,0,.55);padding:6px 14px;border-radius:10px}}"
+        dur, cred = banco_videos.montar(segs, cfgv, a.saida, renderizar, css, f"{a.perfil}  ·  Fonte: {fonte}", "#ffd23f")
+        open(os.path.splitext(a.saida)[0] + ".txt", "w").write(
+            f"{r['manchete_curta']}\n\n" + " ".join(c['fala'] for c in cenas) + f"\n\nFonte: {fonte} — {a.url}\n"
+            + (("Vídeos: " + "; ".join(cred) + "\n") if cred else ""))
+        print(f"pronto: {a.saida} ({dur:.1f}s, vídeo real) · custo IA ≈ US$ {custo:.3f}")
+        return
     if a.avatar:                                            # modo apresentador (ex.: @omundocast)
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import avatar_heygen

@@ -12,6 +12,7 @@ agente:viral
 helper:arvore
 helper:assistir-video
 helper:avatar_heygen
+helper:banco_videos
 helper:compactar-indice
 helper:conselho
 helper:esteira-noticias
@@ -20,6 +21,7 @@ helper:memoria_viva
 helper:mutacao
 helper:narrar_prep
 helper:noticia-em-video
+helper:pagina-poesia
 helper:pagina-temas
 helper:rubrica
 helper:sincronizar
