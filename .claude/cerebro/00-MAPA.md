@@ -13,6 +13,7 @@
 | [[04-PLAYBOOKS]] | O que funcionou e o que não funcionou | Ao descobrir padrão |
 | [[05-DECISOES]] | Decisões estratégicas e o porquê | Ao decidir algo relevante |
 | [[06-METRICAS]] | Números reais observados | Ao medir qualquer coisa |
+| [[PROJETO-FABRICA-DE-PAGINAS]] | Páginas de volume automáticas (notícias, vovó, autoajuda, poesia) | Ao mudar página, motor ou estado |
 | [[APRENDIZADO-PROJETO-SUPREMO]] | Base técnica instalada | Referência |
 | [[APRENDIZADO-AGENTES-AVANCADOS]] | Agentes/memória de fronteira (CMU, Stanford): o que foi instalado e medido | Antes de mexer em memória, recall ou busca |
 | `../helpers/cerebro/memoria_viva.py` · `../helpers/pensar/arvore.py` | Recall ranqueado + associação + episódios · busca em árvore com verificador | `/memoria buscar`, `/arvore`, `/manutencao` |

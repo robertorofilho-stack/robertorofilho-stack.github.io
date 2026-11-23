@@ -7,6 +7,11 @@
 
 ## 2026-11
 
+### 2026-11-23 — Criado o Projeto Fábrica de Páginas
+
+Ordem: "pode criar o Projeto Fábrica de Páginas". Arquivo [[PROJETO-FABRICA-DE-PAGINAS]] (páginas, motores, padrão de
+vídeo, custos, pendências) + linha no [[00-MAPA]]. Produtos/preços ficam no mestre (§6).
+
 ### 2026-11-22 — Sem avatar: VÍDEO DE VERDADE em todas as páginas + narração mais calma + página de poesia
 
 Ordem: "avatar sai caro; nada de foto passando, vídeo mesmo; um pouco mais lento; dos dois temas" + ideia nova: poesia
