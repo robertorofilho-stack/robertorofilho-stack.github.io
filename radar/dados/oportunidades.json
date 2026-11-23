@@ -1,5 +1,36 @@
 [
   {
+    "id": "53ks96",
+    "termo": "lead azide detonation",
+    "dor": "Noon Sunday deadline set in Iowa Army blast challenge; Fort Madison says detonation could come Monday or Tuesday · Lead detonation in Iowa won't happen 'before Wednesday,' Army says · US Army tells court it intends to detonate bomb-making m",
+    "volumeEstimado": 2800,
+    "urgencia": "MEDIA",
+    "score": 63,
+    "fatores": {
+      "velocidade": 100,
+      "dorExplicita": 30,
+      "volume": 100,
+      "viabilidade": 38,
+      "recorrencia": 97
+    },
+    "fontes": [
+      "https://trends.google.com/trends/explore?q=lead%20azide%20detonation&geo=US",
+      "https://news.ycombinator.com/item?id=50603296",
+      "https://news.ycombinator.com/item?id=50603667",
+      "https://news.ycombinator.com/item?id=50603663",
+      "https://news.ycombinator.com/item?id=50603661",
+      "https://news.ycombinator.com/item?id=50603651",
+      "https://news.ycombinator.com/item?id=50603650"
+    ],
+    "amostras": [
+      "Noon Sunday deadline set in Iowa Army blast challenge; Fort Madison says detonation could come Monday or Tuesday · Lead detonation in Iowa won't happen 'before Wednesday,' Army says · US Army tells co",
+      "Alternative to Detonation of Lead Azide in Middletown, Iowa",
+      "Alternative to Detonation? https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=50603296"
+    ],
+    "detectadoEm": "2026-11-23T02:52:11.707Z",
+    "estado": "NOVA"
+  },
+  {
     "id": "z4te4j",
     "termo": "the voice",
     "dor": "Albany’s Lexi Stephens lands 4-chair turn on NBC’s The Voice · The Voice Season 30 Blind Auditions Breakdown: Every Performance & Result, Recapped · The Voice Season 30: An Epic Fake-Out Leaves Adam Levine 'Crushed' In Week Two — Vote For Y",
