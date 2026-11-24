@@ -7,6 +7,19 @@
 
 ## 2026-11
 
+### 2026-11-24 — Pauta viral: caso Rachel Apa (Maratona NY) → Reels sobre rabdomiólise
+
+**Pedido:** operador mandou 3 prints do Instagram (@ofitfeed, 14,5 mil curtidas, 11,6 mil envios) "O que aconteceu com ela?".
+**Fatos checados (NBC, Fox, Boston.com, AOL/NYT):** 24 anos, ex-hóquei de grama da Bucknell, 1ª maratona, NYC 01/11/2026,
+colapso ~milha 24 no Central Park, RCP por espectador + DEA, Mount Sinai, óbito ~21h40 após ~6 h. Pai: rabdomiólise.
+Mensagens ao pai: "Ow" na milha 18, "Ow, ow" na 19. Legista: causa oficial ainda divergente nas fontes.
+**Entregue:** roteiro de Reels 45 s (gancho "o 'ai' na milha 18"), legenda, comentário fixado, carrossel. Ângulo:
+o sinal ignorado + o que ninguém explica (potássio → arritmia). Sem foto dela, sem especular causa além da família.
+**Lição:** pico da notícia foi 03–05/11; em 24/11 ainda circula no "Para você" → ângulo tem de ser atemporal, não "notícia".
+Pauta de esporte + morte jovem + sinal ignorado = alto envio (11,6 mil envios vs 150 comentários no print).
+**Próximo passo de receita:** isca "Checklist: 7 sinais para parar a prova" no link da bio → lista de corredores
+(público com dinheiro: inscrição de maratona). Não é o 1º produto pago (ver 05-DECISOES), é captação.
+
 ### 2026-11-03 — Curso de edição com IA: produzido na nuvem (31/10), passado ao Mac e à venda desde 01/11
 
 **Pedido (31/10):** "terminar tudo; curso em vídeo, passo a passo didático, prompts prontos, pasta para baixar; urgente"; depois
