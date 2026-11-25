@@ -7,6 +7,14 @@
 
 ## 2026-11
 
+### 2026-11-25 — "Já tenho esse curso?" (post @ninja.automacoes, DgBbSOwg2ss) → SIM
+
+Anúncio "20 efeitos de vídeo que o Claude cria… 219 animações da Fábrica" (Fábrica de Conteúdo, skills para Claude
+Code/Codex editar vídeo). Mestre: **Ninja Academy "Fábrica de Conteúdo com IA" COMPRADA** (30/10; 205 peças HTML+GSAP no
+servidor, ligada à edição) + **Pack de Estilos (R$ 97, 50 estilos, instalado 30/10)**. Diferença: anúncio fala em 219
+(205 instaladas) → possível atualização de 14 peças na área de membros (conferir/baixar). Achado lateral (compras 24/11):
+Neurocopy e Ganchos Pro TRAVADOS — Hotmart deslogada nos 2 Chromes; precisa o operador entrar na Hotmart.
+
 ### 2026-11-23 — Criado o Projeto Fábrica de Páginas
 
 Ordem: "pode criar o Projeto Fábrica de Páginas". Arquivo [[PROJETO-FABRICA-DE-PAGINAS]] (páginas, motores, padrão de
