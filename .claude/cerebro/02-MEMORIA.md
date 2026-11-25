@@ -14,6 +14,9 @@ Code/Codex editar vídeo). Mestre: **Ninja Academy "Fábrica de Conteúdo com IA
 servidor, ligada à edição) + **Pack de Estilos (R$ 97, 50 estilos, instalado 30/10)**. Diferença: anúncio fala em 219
 (205 instaladas) → possível atualização de 14 peças na área de membros (conferir/baixar). Achado lateral (compras 24/11):
 Neurocopy e Ganchos Pro TRAVADOS — Hotmart deslogada nos 2 Chromes; precisa o operador entrar na Hotmart.
+**Mesmo dia:** operador "manda baixar as 14 animações novas" + "hotmart logada no mac mini" → missão enviada (prioridade
+now) à sessão "cerebro-servidor": baixar/instalar por união as peças novas da Fábrica + estudar 100% Neurocopy e Ganchos
+Pro pelo Chrome do mini, implantar a skill Neurocopy, comparar às cegas e entregar à Mesa/Diretor de Ganchos/Criativo.
 
 ### 2026-11-23 — Criado o Projeto Fábrica de Páginas
 
