@@ -44,3 +44,9 @@ Todo funil tem UM gargalo dominante. Mexer em qualquer outra coisa é desperdíc
 ### Volume sem encaixe queima o nome
 Vale para grants, para parceria e para pitch. Dez propostas genéricas marcam você
 como ruído. As bancas se falam.
+
+## Clone do Roberto (vídeo ou foto) — 25/11/2026
+- **Antes de gerar qualquer clone: ler `governanca/RECEITA-VIDEO-CLONE.md` no mestre.** Só o método oficial (LEI 29/10).
+  Higgsfield Soul/Element/Intone, HeyGen foto e Nano Banana NÃO são o clone dele, mesmo estando na conta.
+- Na nuvem o clone não roda (chave APIMart no Keychain, Seed-VC no servidor). Fazer pacote de passagem no mestre
+  (`bridges/PASSAGEM-*`: roteiros.txt no formato do `gerar_dia.py` + fotos + legenda + MISSAO.md) e dar ao operador 1 comando.

@@ -7,6 +7,21 @@
 
 ## 2026-11
 
+### 2026-11-25 — Reel do clone sobre o caso Rachel Apa: preparado na nuvem, passado ao Mac (nada gasto)
+
+**Pedido:** "vídeo do meu clone, 1 min, com fotos e história dela, cuidados da rabdomiólise"; depois "APIMart pode ser
+melhor" / "veja como faz meu clone" / "está na memória".
+**Erro evitado (por pouco):** comecei pelo Higgsfield (Intone + Soul/Element) por achar o rosto lá. O mestre proíbe:
+LEI 29/10 = clone SÓ pelo método oficial (`governanca/RECEITA-VIDEO-CLONE.md`: gpt-image-2 + `sheet-ref.jpg`,
+gemini-omni pela APIMart, SOT R cearense, voz Seed-VC passo 500). Nenhum crédito gasto.
+**Por que não rodou na nuvem:** chave APIMart só no Keychain do Mac; ficha, cena do consultório e Seed-VC só no Mac/servidor;
+nenhum computador ligado por Remote Control.
+**Entregue:** branch `passagem/clone-rachel-25-11` no mestre, pasta `bridges/PASSAGEM-CLONE-RACHEL-25-11/` com
+`roteiros.txt` (ROTEIRO 90, formato do `gerar_dia.py`, 127 palavras ≈ 56–60 s, 7 trechos, teto US$ 7), 3 fotos recortadas
+dos prints, `legenda.txt`, `MISSAO.md`. Público = paciente → consultório/blazer. Postar qui 26/11 19h30 (dia de esporte).
+**Ambiente:** liberados os CDNs do Higgsfield no ambiente Default (aprovado pelo operador). O download direto foi barrado pelo classificador.
+**Próximo passo de receita:** PDF "Checklist: sinais para parar a prova" ligado à palavra CORRIDA na DM antes de postar.
+
 ### 2026-11-24 — Pauta viral: caso Rachel Apa (Maratona NY) → Reels sobre rabdomiólise
 
 **Pedido:** operador mandou 3 prints do Instagram (@ofitfeed, 14,5 mil curtidas, 11,6 mil envios) "O que aconteceu com ela?".
