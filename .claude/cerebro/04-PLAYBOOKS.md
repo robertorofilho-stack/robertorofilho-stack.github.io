@@ -50,3 +50,7 @@ como ruído. As bancas se falam.
   Higgsfield Soul/Element/Intone, HeyGen foto e Nano Banana NÃO são o clone dele, mesmo estando na conta.
 - Na nuvem o clone não roda (chave APIMart no Keychain, Seed-VC no servidor). Fazer pacote de passagem no mestre
   (`bridges/PASSAGEM-*`: roteiros.txt no formato do `gerar_dia.py` + fotos + legenda + MISSAO.md) e dar ao operador 1 comando.
+
+## Vídeo-notícia premium SEM clone, na nuvem — 25/11/2026
+- Gancho "a última conversa": mensagem/fala real da pessoa numa tela de celular no quadro 0 + SFX de notificação. Nunca inventar mensagem.
+- Esteira pronta no mestre: `projetos/video-noticia-sem-clone/` (copiar a pasta, trocar falas/cenas/overlay). QA = folha de 24 quadros antes de entregar.

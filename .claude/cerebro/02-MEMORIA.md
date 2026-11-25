@@ -7,6 +7,18 @@
 
 ## 2026-11
 
+### 2026-11-25 (madrugada) — Reel SEM clone do caso Rachel Apa, feito inteiro na nuvem
+
+**Pedido:** "faça o vídeo sem meu clone, tipo notícia de jornal + edição premium; gancho como aprendido; atualize a memória".
+**Entregue:** Reel 64 s, 9:16, −14 LUFS, 63 MB (enviado no chat; não publicado). ~55 créditos Higgsfield.
+**Gancho aprendido:** "a última conversa" — tela de celular com a mensagem real ("Ai", tradução de "Ow") no quadro 0 + pop;
+as mensagens seguintes entram na fala; "sem resposta" escurece a tela. Detalhe e esteira no mestre:
+`projetos/video-noticia-sem-clone/2026-11-25-rachel-apa-rabdomiolise/` + memória `reel-noticia-sem-clone-gancho-ultima-mensagem-25-11`
+(branch `passagem/clone-rachel-25-11`).
+**Esteira na nuvem (funciona):** TTS ElevenLabs via Higgsfield → whisper no sandbox do Higgsfield → Kling 3.0 b-roll → overlay HTML
+renderizado quadro a quadro no Playwright → ffmpeg. Gotcha: fade começando em t=0 apaga o quadro 0 (o gancho).
+**Rede:** liberados no ambiente os CDNs do Higgsfield (d8j0ntlcm91z4, d2ol7oe51mr4n9, d1xarpci4ikg0w .cloudfront.net, cdn.higgsfield.ai).
+
 ### 2026-11-25 — Reel do clone sobre o caso Rachel Apa: preparado na nuvem, passado ao Mac (nada gasto)
 
 **Pedido:** "vídeo do meu clone, 1 min, com fotos e história dela, cuidados da rabdomiólise"; depois "APIMart pode ser
