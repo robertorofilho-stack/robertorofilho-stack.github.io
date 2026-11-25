@@ -7,6 +7,16 @@
 
 ## 2026-11
 
+### 2026-11-25 — /veredito: "Install as app" (claude.com/resources/articles/install-as-app)
+
+Lido o artigo oficial: artifact do Claude vira app de Mac/Windows (ícone próprio, janela própria, atualiza sozinho quando o
+artifact muda; usa a conta Claude, sem chave; beta em todos os planos; Share → "Install as app" no Claude desktop
+atualizado). Pode notificar e ficar na barra de menu. 3 níveis: padrão (= navegador), permissões de app (notificação,
+atalho, janela sempre à frente), acesso total (rodar programa e mexer em arquivo — só app próprio; pede de novo a cada
+atualização). Chamadas ao Claude contam no limite do plano. Não instala Docs/Slides/Sheets. **Veredito: serve.** Usos:
+Janela do Mundo (já é artifact) → app; a "Central" sonhada em 12/09 (visao-central-dois-mundos) e o app dos robôs (08/10)
+podem nascer assim, com notificação no Mac. Cuidado: acesso total só em app nosso.
+
 ### 2026-11-25 — "Já tenho esse curso?" (post @ninja.automacoes, DgBbSOwg2ss) → SIM
 
 Anúncio "20 efeitos de vídeo que o Claude cria… 219 animações da Fábrica" (Fábrica de Conteúdo, skills para Claude
