@@ -54,3 +54,5 @@ como ruído. As bancas se falam.
 ## Vídeo-notícia premium SEM clone, na nuvem — 25/11/2026
 - Gancho "a última conversa": mensagem/fala real da pessoa numa tela de celular no quadro 0 + SFX de notificação. Nunca inventar mensagem.
 - Esteira pronta no mestre: `projetos/video-noticia-sem-clone/` (copiar a pasta, trocar falas/cenas/overlay). QA = folha de 24 quadros antes de entregar.
+- Voz brasileira na nuvem sem chave: Edge TTS `pt-BR-AntonioNeural` via `msedge-tts` no sandbox do Higgsfield (grátis). As vozes do Higgsfield são americanas. ElevenLabs (Nassif/Cristian) só com a chave do cofre do Mac.
+- Pedido feito do celular: não depender de comando no Mac; resolver na nuvem e entregar o arquivo.
