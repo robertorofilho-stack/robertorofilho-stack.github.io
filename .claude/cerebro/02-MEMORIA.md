@@ -7,6 +7,17 @@
 
 ## 2026-11
 
+### 2026-11-26 — Central do Roberto (app no Mac + celular)
+
+Pedido: "Sim, quero" (Central como app instalável) + "pode ser pra celular iPhone também?". **Publicada:**
+https://claude.ai/artifact/SVPwsogaukq71omupQHc5y — artifact com db (só o dono lê/escreve: rules read admin/write owner),
+user, desktop (manifest: notifications + menu-bar). Abas no celular (Pra você · Aprovar · Páginas · Robôs), 2 colunas no
+Mac; marcar pendência feita, adicionar pendência, aprovar/recusar vídeo; no app do Mac: ícone próprio, número no Dock,
+item na barra de menu e notificação de vídeo novo. Banco semeado: 10 pendências dele, 3 missões dos robôs, 6 páginas;
+coleção `fila` (vídeos: pagina, titulo, legenda, video https, estado pendente/aprovado/recusado) espera a Fábrica no
+servidor escrever nela. Conferido: leitura do dono OK; nível 'interact' não lê nada. iPhone: abre pelo link no app do
+Claude/Safari (instalar como app é só Mac/Windows). Próximo: a esteira do servidor gravar cada vídeo novo em `fila`.
+
 ### 2026-11-25 — /veredito: "Install as app" (claude.com/resources/articles/install-as-app)
 
 Lido o artigo oficial: artifact do Claude vira app de Mac/Windows (ícone próprio, janela própria, atualiza sozinho quando o
