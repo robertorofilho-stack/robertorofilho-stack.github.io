@@ -17,6 +17,12 @@ item na barra de menu e notificação de vídeo novo. Banco semeado: 10 pendênc
 coleção `fila` (vídeos: pagina, titulo, legenda, video https, estado pendente/aprovado/recusado) espera a Fábrica no
 servidor escrever nela. Conferido: leitura do dono OK; nível 'interact' não lê nada. iPhone: abre pelo link no app do
 Claude/Safari (instalar como app é só Mac/Windows). Próximo: a esteira do servidor gravar cada vídeo novo em `fila`.
+**26/11:** "manda instalar a Fábrica no servidor" → missão (prioridade now) à sessão "cerebro-servidor" (conectada):
+clonar branch claude/instagram-pedrao-0811, instalar edge-tts/Playwright, chaves do cofre, testar 1 vídeo por página,
+cron (omundocast 06:10×5; mentepoder 06:20+13:20×3; vovó 06:25+13:25×3; poesia 20:10×1), modo aprovação; vídeos → Drive
+"Fábrica de Páginas/pendentes" → documento em `fila` da Central via ArtifactData. Central v2: CSP bloqueia vídeo de outro
+site → botão "Abrir vídeo" (link do Drive). Lá estava parada uma pergunta ao Roberto: post das 19h30 com voz TTS reprovada
+("adia" ou "deixa sair").
 
 ### 2026-11-25 — /veredito: "Install as app" (claude.com/resources/articles/install-as-app)
 
