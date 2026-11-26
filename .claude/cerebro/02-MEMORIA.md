@@ -7,6 +7,16 @@
 
 ## 2026-11
 
+### 2026-11-26 — "Criador de App" na Central (artifact que cria artifacts)
+
+Pedido: botão "criador app" no painel — ideia, PDF ou foto de app → o app criado. Resposta: sim, é a função dos artifacts;
+como página não publica outra página sozinha, montado em 2 partes: (1) Central v3 — aba/seção "Criador de App" (texto +
+anexos via capability `assets`, ≤ 20 MB) grava em `apps/{id}` {ideia, anexos[{id,url,tipo,nome}], estado:"na fila"} e
+mostra estado + "Abrir o app →" quando pronto (notifica no Mac); (2) tarefa agendada **"Criador de App da Central"**
+(trig_01BZ7MVrQgfrVxmCxHA9B57a, sessão nova a cada disparo, :07 de 7h a 23h Fortaleza, push ligado): lê `apps` na fila,
+até 2 por vez, lê anexos pelo Artifact read, cria artifact NOVO (quickstart → página), grava link/estado. Fila vazia =
+encerra na hora. Disparo de teste feito na criação (resultado a conferir na sessão cse_01DyjxuscNra7Yu25vcs2V3q).
+
 ### 2026-11-26 — Central do Roberto (app no Mac + celular)
 
 Pedido: "Sim, quero" (Central como app instalável) + "pode ser pra celular iPhone também?". **Publicada:**
