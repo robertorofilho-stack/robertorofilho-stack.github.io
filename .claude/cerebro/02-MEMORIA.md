@@ -7,6 +7,16 @@
 
 ## 2026-11
 
+### 2026-11-26 — Aula Fusion 360 (2D ao cubo, Aula 01) → Diretor de Impressão
+
+Pedido: "Assiste. Baixa o arquivo. Aprende. Ensina ao meu diretor de impressão." Vídeo rJsezCJ40l8 = "Aula Autodesk Fusion 360
+para Iniciantes (2026) - Aula 01", canal 2D ao cubo. Nuvem bloqueada: yt-dlp "sign in to confirm you're not a bot",
+transcript API IP-ban, Gemini via OpenRouter 403 PERMISSION_DENIED (pro, flash e 3-flash). Lição: aula do YouTube bloqueada
+na nuvem → mandar direto para a máquina dele (IP residencial). Missão enviada (priority now) à sessão "cerebro-servidor":
+baixar com yt-dlp + descrição + arquivos de exercício, assistir com assistir-video.py local, refazer a peça no Fusion
+(licença Personal = não comercial), STL fatiado para a Centauri Carbon 2 sem imprimir, skill "fusion360-modelar" no
+Diretor de Impressão com ## Origem. Resultado: a conferir.
+
 ### 2026-11-26 — "Criador de App" na Central (artifact que cria artifacts)
 
 Pedido: botão "criador app" no painel — ideia, PDF ou foto de app → o app criado. Resposta: sim, é a função dos artifacts;
